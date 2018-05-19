@@ -1,0 +1,129 @@
+<script>
+  document.title = 'A.I. robot with Neural Network and Genetic Algorithms'
+</script>
+<style>
+    header {
+        background: linear-gradient(203deg, rgb(28, 150, 150) 17%, rgb(48, 181, 114) 100%);
+    }
+
+    #gameContainer {
+        margin: 40px auto !important;
+        width: 100%;
+        max-width: 880px;
+        min-height: 150px;
+        background: #555;
+    }
+
+    section {
+        max-width: 700px;
+        margin: 50px auto;
+        overflow: auto;
+        width: 80%;
+    }
+
+    article {
+        max-width: 880px;
+        padding: 20px;
+        margin: auto auto 50px;
+        width: 95%;
+    }
+
+    #DNA-textarea {
+        display: block;
+        width: 100%;
+        border: 2px solid black;
+        background: white;
+        color: black;
+        border-radius: 2px;
+        margin: 7px 0;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 10px;
+        height: 200px;
+        box-sizing: border-box;
+    }
+
+    #insert-DNA {
+        float: right;
+        background: #009587;
+        border-radius: 5px;
+        font-weight: 700;
+        color: white;
+        margin-top: 5px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 16px;
+        height: 45px;
+        width: 130px;
+        border: 3px solid #00756a;
+        line-height: 40px;
+        display: block;
+    }
+
+    hr {
+        width: 50%;
+        border: 3px solid #5c616c;
+        background-color: #5c616c;
+        border-radius: 4px;
+    }
+
+    code {
+        margin: 20px;
+        font-size: 10px;
+        letter-spacing: 0;
+        color: black;
+        display: block;
+        line-height: 20px;
+        word-spacing: -5px;
+        text-shadow: 0.5px 0.5px 0, -0.5px -0.5px 0;
+    }
+</style>
+<div id="gameContainer" class="with-shadow"></div>
+<section>
+    <textarea id="DNA-textarea" placeholder="New DNA"></textarea>
+    <button class="green-button" id="insert-DNA">Insert DNA</button>
+</section>
+<hr>
+<article>
+    <img src="/img/AI-robot-preview.svg" alt="AI robot preview">
+    <br><br>
+    <hr>
+    <a href="https://github.com/daniruiz/Cleaning-Robot-AI" target="_blank" class="with-shadow blue-button-link">&lt;/&gt;&nbsp
+        Source Code</a>
+    <hr>
+
+    <h1>Neural network with genetic algorithms in Unity3d</h1>
+    The robot is controlled by a Perceptron like neural network that learns thanks to genetics algorithms such as
+    selection, reproduction and mutation. The network consists of 10 inputs (one for each sensor), a hidden layer of 10
+    neurons and 2 inputs: turning speed and for the velocity of displacement. For the activation function of the neurons
+    a sigmoidal function is used and the mutation rate is fixed to 1%.
+
+    <h2>Fitness function:</h2>
+    At the beginning of the test the map will be segmented in grids of the same size of the robot's. For each cleaned
+    grid a point will be added to the fitness value, but, if the robot repeats a cleaned grid, a point will be
+    subtracted to this value. In this way, the entry into infinite loops is also avoided.
+</article>
+<script src="/AI-webgl/Build/UnityLoader.js"></script>
+<script>
+  function $ (query) {
+    return document.querySelector(query)
+  }
+
+  var gameInstance = UnityLoader.instantiate('gameContainer', '/AI-webgl/Build/AI-webgl.json')
+
+  $('#gameContainer').onmouseover = function () {
+    gameInstance.SendMessage('Manager', 'captureKeyboard', 1)
+  }
+  $('#gameContainer').onmouseout = function () {
+    gameInstance.SendMessage('Manager', 'captureKeyboard', 0)
+  }
+
+  $('#insert-DNA').onclick = function () {
+    gameInstance.SendMessage('Manager', 'InsertDNA', $('#DNA-textarea').value)
+    $('#DNA-textarea').value = ''
+  }
+
+  function copyBestDNA (DNA) {
+    $('#DNA-textarea').value = DNA
+  }
+</script>

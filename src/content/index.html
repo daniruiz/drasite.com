@@ -1,0 +1,336 @@
+<script>
+  document.title = 'DяA | Daniel Ruiz de Alegría'
+</script>
+<style>
+    body {
+        padding-top: 0;
+    }
+
+    header, nav {
+        display: none
+    }
+
+    #cover {
+        width: 100%;
+        height: 100vh;
+        background: url("/img/background.jpg") center center no-repeat fixed #fff;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .arrow1, .arrow2, .arrow3 {
+        animation: mouse-scroll 1s infinite;
+        display: block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+        margin: 0 0 3px 10px;
+    }
+
+    .arrow1 {
+        animation-delay: .1s;
+        margin-top: 10px;
+    }
+
+    .arrow2 {
+        animation-delay: .2s;
+    }
+
+    .arrow3 {
+        animation-delay: .3s;
+    }
+
+    .mouse {
+        height: 44px;
+        width: 30px;
+        border-radius: 20px;
+        border: 4px solid white;
+    }
+
+    .wheel {
+        height: 6px;
+        width: 2px;
+        display: block;
+        margin: 7px auto;
+        background: white;
+        position: relative;
+        animation: mouse-wheel 1.2s ease infinite;
+    }
+
+    @keyframes mouse-wheel {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+    }
+
+    @keyframes mouse-scroll {
+
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .5;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #scroll-animation {
+        position: absolute;
+        bottom: 30px;
+        right: 50px;
+    }
+
+    #photo {
+        width: 280px;
+        height: 460px;
+        position: absolute;
+        top: 50%;
+        left: calc(50% - 210px);
+        background: black;
+        transform: translate(-50%, -50%);
+        background: url("/img/photo.jpg") center center no-repeat;
+        background-size: 100% auto;
+    }
+
+    #contact-me {
+        background: rgb(0, 110, 233);
+        color: white;
+        line-height: 45px;
+        border-radius: 3px;
+        width: 150px;
+        text-align: center;
+        bottom: 25px;
+        left: 50%;
+        font-size: 14px;
+        position: absolute;
+        transform: translateX(-50%);
+        transition: border-width linear .1s;
+        border: 0;
+        box-sizing: content-box;
+        border-bottom: 5px solid #2F3E9E;
+        border-radius: 3px 3px 7px 7px;
+    }
+
+    #contact-me:hover {
+        text-decoration: none;
+        border-bottom: 3px solid #2F3E9E;
+        border-radius: 3px 3px 5px 5px;
+    }
+
+    #contact-me i {
+        opacity: .5;
+        vertical-align: 1px;
+    }
+
+    #my-profiles {
+        background: black;
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    #my-profiles a {
+        transition: .4s;
+        height: 40px;
+        width: 40px;
+        margin: 5px 10px;
+        color: white;
+        font-size: 20px;
+        border-radius: 20px;
+        text-align: center;
+        vertical-align: top;
+        line-height: 40px;
+        display: inline-block;
+    }
+
+    #my-profiles a:hover {
+        color: #a9006a;
+        background: white;
+    }
+
+    #card {
+        margin-top: 0;
+        width: 420px;
+        height: 400px;
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 140px);
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        padding: 10px 20px;
+        background-color: white;
+        min-height: 100px;
+        color: black;
+        letter-spacing: 0px;
+    }
+
+    #card h1 {
+        margin: 10px;
+        font-size: 32px;
+        font-weight: lighter;
+        line-height: 40px;
+    }
+
+    #card h2 {
+        margin: 10px;
+        font-size: 26px;
+        font-weight: lighter;
+        line-height: 38px;
+    }
+
+    #card hr {
+        margin: 30px auto;
+    }
+
+    #card p {
+        font-weight: lighter;
+        line-height: 30px;
+        font-size: 20px;
+        width: max-300px;
+        margin: 20px auto;
+    }
+
+    @media screen and (max-width: 750px) {
+        #photo {
+            width: 216px;
+            height: 360px;
+            left: calc(50% - 171px);
+        }
+
+        #card {
+            width: 340px;
+            height: 310px;
+            left: calc(50% + 107px);
+        }
+
+        #card br {
+            display: none;
+        }
+
+        #card p {
+            margin: 10px auto;
+            font-size: 18px;
+        }
+
+        #card hr {
+            border-width: 2px;
+            margin: 15px auto;
+        }
+    }
+
+    @media screen and (max-width: 570px) {
+        #photo {
+            width: 140px;
+            height: 230px;
+            left: calc(50% - 106px);
+            top: 50%;
+        }
+
+        #contact-me {
+            font-size: 7px;
+            width: 75px;
+            line-height: 27px;
+            height: 24px;
+            border-bottom-width: 3px;
+            border-radius: 2px 2px 3px 3px;
+        }
+
+        #card {
+            width: 210px;
+            height: 200px;
+            padding: 5px;
+            line-height: 8px;
+            left: calc(50% + 69px);
+            top: 50%;
+        }
+
+        #card h1 {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        #card h2 {
+            font-size: 16px;
+            margin: 0 10px;
+            line-height: 20px;
+        }
+
+        #card hr {
+            border-width: 2px;
+        }
+
+        #card p {
+            font-size: 11px;
+            margin: 6px 10px;
+            line-height: 16px;
+        }
+
+        #my-profiles {
+            height: 30px;
+        }
+
+        #my-profiles a {
+            font-size: 16px;
+            height: 24px;
+            width: 24px;
+            line-height: 24px;
+            margin: 4px 5px;
+        }
+
+    }
+</style>
+<div id="cover">
+    <div id="photo">
+        <a href="mailto:daniruizdealegria@gmail.com" class="with-shadow" id="contact-me">
+            <i aria-hidden="true" class="fa fa-envelope-open fa-fw">&nbsp;</i>CONTACT ME
+        </a>
+    </div>
+    <div id="card" class="paper">
+        <h1 class="selectable">Daniel</h1>
+        <h2 class="selectable">Ruiz de Alegría</h2>
+        <hr>
+        <p>Student of Computer Engineering at the Polytechnic University of Madrid
+        <p>
+        <p>UI & UX Designer</p>
+        <div id="my-profiles">
+            <a target="_blank" href="https://www.instagram.com/dani_ruiz24/">
+                <i class="fa fa-instagram" aria-hidden="true" title="instagram link"></i>
+            </a>
+            <a target="_blank" href="https://plus.google.com/+DanielRuizdeAlegr%C3%ADa">
+                <i class="fa fa-google-plus" aria-hidden="true" title="google+ link"></i>
+            </a>
+            <a target="_blank" href="https://github.com/daniruiz">
+                <i class="fa fa-github" aria-hidden="true" title="github link"></i>
+            </a>
+        </div>
+    </div>
+
+    <div id="scroll-animation">
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
+        <div>
+            <span class="arrow1"></span>
+            <span class="arrow2"></span>
+            <span class="arrow3"></span>
+        </div>
+    </div>
+</div>
