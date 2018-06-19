@@ -331,7 +331,7 @@
                 height: 390px;
                 display: block;
                 line-height: 390px;
-                background: #f4f7f9;
+                background: white;
             }
 
             .content-img img {
@@ -350,12 +350,6 @@
                 </div>
                 <h4>Flat Remix GTK theme</h4>
             </a>
-            <a class="paper __eth-link" href="/AI-robot">
-                <div class="content-img">
-                    <img src="/img/AI-robot.png" alt="Neural network with genetic algorithms in Unity3d">
-                </div>
-                <h4>Neural network with genetic algorithms</h4>
-            </a>
             <a class="paper __eth-link" href="/flat-remix">
                 <div class="content-img">
                     <img src="/img/flat-remix.png" alt="Flat Remix cover">
@@ -373,6 +367,12 @@
                     <img src="/img/flat-remix-css.jpg" alt="Flat Remix css library">
                 </div>
                 <h4>Flat Remix CSS Library</h4>
+            </a>
+            <a class="paper __eth-link" href="/AI-robot">
+                <div class="content-img">
+                    <img src="/img/AI-robot.png" alt="Neural network with genetic algorithms in Unity3d">
+                </div>
+                <h4>Neural network with genetic algorithms</h4>
             </a>
             <a class="paper __eth-link" href="/ethenis">
                 <div class="content-img">

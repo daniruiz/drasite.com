@@ -93,6 +93,7 @@
         height: 100vh !important;
         width: 100%;
         min-height: 660px;
+        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogPGRlZnM+CiAgPHBhdHRlcm4gaWQ9InNtYWxsR3JpZCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzEwODZiIiBzdHJva2Utd2lkdGg9Ii41IiBkPSJNIDEwIDAgTCAwIDAgMCAxMCIvPgogIDwvcGF0dGVybj4KICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICA8cmVjdCBmaWxsPSJ1cmwoI3NtYWxsR3JpZCkiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIi8+CiAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMxMDg2YiIgZD0iTSAxMDAgMCBMIDAgMCAwIDEwMCIvPgogIDwvcGF0dGVybj4KIDwvZGVmcz4KIDxyZWN0IGZpbGw9InVybCgjZ3JpZCkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz4KPC9zdmc+Cg==), linear-gradient(203deg,rgba(124,69,152,1) 17%,#20d 100%);
     }
 
     #description {
@@ -101,7 +102,6 @@
         padding: 10px 50px;
         background-color: rgba(0, 0, 0, 0.3);
         color: white;
-        text-shadow: 0 1px 0 white, 0 0.5px 0 white;
         border-radius: 2px;
         position: absolute;
         left: 50%;
@@ -114,7 +114,10 @@
         background: #31086b;
     }
 
-    #description h4 {
+    #description p {
+        font-size: 26px;
+        font-weight: lighter;
+        line-height: 38px;
         padding: 0 30px;
         letter-spacing: 1px;
     }
@@ -310,17 +313,19 @@
 <section class="with-shadow" id="description">
     <h1>Flat Remix<br> CSS Library</h1>
     <hr>
-    <h4>
-        A lightweight CSS library that provides a set of predesigned elements for a fast web development.<br>
+    <p>
+        A lightweight CSS library that provides a set of predesigned elements for a fast web development.
+    </p>
+    <p>
         It follows a modern "flat" design using high contrasts and sharp borders.
-    </h4>
+    </p>
 </section>
 <div class="paper" id="first-section">
     <a href="https://raw.githubusercontent.com/daniruiz/Flat-Remix-CSS-library/master/css/flat-remix.min.css"
        target="_blank" class="with-shadow blue-button-link" download>↧ Download Flat-Remix.css</a>
     <a style="font-size:20px;display: block;text-align: center;"
        href="https://github.com/daniruiz/Flat-Remix-CSS-library" target="_blank">
-        github.com/daniruiz/Flat-Remix-CSS-library
+        <i title="github link" aria-hidden="true" class="fa fa-github"></i> github.com/daniruiz/Flat-Remix-CSS-library
     </a><br>
     <hr>
     <h6 id="license">Flat-Remix CSS Library is licensed under the MIT License</h6>

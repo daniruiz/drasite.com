@@ -35,6 +35,8 @@ find $TARGET -type d -exec chmod 777 {} \;
 HTMLFILES=$TARGET/**/*.html
 CSSFILES=$TARGET/**/*.css
 
+mv $TARGET/content/main.php $TARGET/content/main.php.html
+
 for i in $HTMLFILES
 do
     echo $i
@@ -51,6 +53,10 @@ do
 		$i > "$i".tmp		
 	mv -f "$i".tmp "$i"
 done
+
+mv $TARGET/content/main.php.html $TARGET/content/main.php
+
+
 
 for i in $CSSFILES
 do
