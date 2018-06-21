@@ -44,9 +44,6 @@
         <meta itemprop="description" content="Daniel Ruiz de Alegría's open source projects."/>
         <meta itemprop="image" content="https://drasite.com/img/promo.png"/>
 
-        <!-- FontAwesome -->
-        <script src="https://use.fontawesome.com/3ea68d02aa.js" async></script>
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43282075-1"></script>
         <script>
@@ -198,11 +195,6 @@
                 text-decoration: none !important;
             }
 
-            nav a i {
-                vertical-align: sub;
-                display: inline-block;
-            }
-
             nav a span {
                 font-weight: 400;
                 letter-spacing: 1px;
@@ -218,7 +210,7 @@
                 border-radius: 30px;
                 background: black;
                 font-size: 41px;
-                line-height: 54px;
+                line-height: 41px;
                 text-align: center;
                 z-index: 100;
                 cursor: pointer;
@@ -274,13 +266,13 @@
         <header></header>
         <nav class="with-shadow">
             <a href="/" class="__eth-link" title="↤ Go to main page">
-                <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
+                <i class="fas fa-chevron-left"></i>
                 <span>D<span style="display: inline-block;transform: rotateY(180deg) translateX(1px);">R</span>A</span>
             </a>
         </nav>
         <main><{ content }></main>
         <div id="back-to-top" title="⇡ Back to top" class="with-shadow">
-            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+            <i class="fas fa-chevron-up""></i>
         </div>
         <div id="loading-animation">
             <div></div>
@@ -311,6 +303,7 @@
                 height: 510px;
                 text-align: left;
                 transition: transform .2s;
+                position: relative;
             }
 
             #content .paper:hover {
@@ -339,42 +332,64 @@
                 display: inline-block;
                 vertical-align: middle;
             }
+            
+            #content .github {
+                height: 45px;
+                width: 100%;
+                position: absolute;
+                bottom: 135px;
+                background: rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(2px);
+                text-align: right;
+                padding: 8px 15px;
+                color: #041926;
+                font-weight: bold;
+            }
+            
+            #content .github i:last-child {
+                margin-left: 11px;
+            }
+            
+            #content .github i {
+                margin: 0 5px;
+            }
+
         </style>
         <hr class="separator">
 
         <div id="content">
             <h1>Projects</h1>
-            <a class="paper __eth-link" href="/flat-remix-gtk">
-                <div class="content-img">
-                    <img src="/img/flat-remix-gtk.jpg" alt="Flat Remix GTK theme">
-                </div>
-                <h4>Flat Remix GTK theme</h4>
-            </a>
-            <a class="paper __eth-link" href="/flat-remix">
+            <a class="paper __eth-link" href="/flat-remix" data-github="flat-remix">
                 <div class="content-img">
                     <img src="/img/flat-remix.png" alt="Flat Remix cover">
                 </div>
                 <h4>Flat Remix ICON theme</h4>
             </a>
-            <a class="paper __eth-link" href="flat-remix-gnome">
+            <a class="paper __eth-link" href="flat-remix-gnome" data-github="flat-remix-gnome">
                 <div class="content-img">
                     <img src="/img/flat-remix-gnome.jpg" alt="Flat Remix GNOME theme">
                 </div>
                 <h4>Flat Remix GNOME theme</h4>
             </a>
-            <a class="paper __eth-link" href="/flat-remix-css">
+            <a class="paper __eth-link" href="/flat-remix-gtk" data-github="flat-remix-gtk">
+                <div class="content-img">
+                    <img src="/img/flat-remix-gtk.jpg" alt="Flat Remix GTK theme">
+                </div>
+                <h4>Flat Remix GTK theme</h4>
+            </a>
+            <a class="paper __eth-link" href="/flat-remix-css" data-github="Flat-Remix-CSS-library">
                 <div class="content-img">
                     <img src="/img/flat-remix-css.jpg" alt="Flat Remix css library">
                 </div>
                 <h4>Flat Remix CSS Library</h4>
             </a>
-            <a class="paper __eth-link" href="/AI-robot">
+            <a class="paper __eth-link" href="/AI-robot" data-github="Cleaning-Robot-AI">
                 <div class="content-img">
                     <img src="/img/AI-robot.png" alt="Neural network with genetic algorithms in Unity3d">
                 </div>
                 <h4>Neural network with genetic algorithms</h4>
             </a>
-            <a class="paper __eth-link" href="/ethenis">
+            <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
                 <div class="content-img">
                     <img src="/img/ethenis.svg" alt="Ethenis Framework logo">
                 </div>
@@ -393,6 +408,9 @@
 
 <!-- Flat-Remix.css -->
 <link rel="stylesheet" type="text/css" href="/css/flat-remix.css">
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 <script>
   function $ (query) {
@@ -429,6 +447,21 @@
         clearInterval(scrollInterval)
       }
     }
+    
+    /*
+    document.querySelectorAll('#content a').forEach((e) => {
+	    let repo = e.dataset.github
+	    if (repo === undefined) return
+
+	    let request = new XMLHttpRequest()
+        request.open('GET', 'https://api.github.com/repos/daniruiz/' + repo)
+        request.onload = () => {
+            let data = JSON.parse(request.response)
+		    let githubHTML = "<div class=\"github\"><i class=\"far fa-heart\"></i>" + data.stargazers_count + "<i class=\"fas fa-code-branch\"></i>" + data.forks + "</div>"
+            e.innerHTML = githubHTML + e.innerHTML
+        }
+        request.send()
+    })*/
   })()
 </script>
 

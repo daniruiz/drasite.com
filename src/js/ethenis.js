@@ -1,5 +1,157 @@
-(function(d,f){function g(b){null!=b&&k(b,function(a){a.addEventListener("click",function(b){b.preventDefault();history.pushState("","",a.getAttribute("href"))},!1)})}function m(b){if(isNaN(f.scrollAnimationDuration)||0>=f.scrollAnimationDuration)window.scrollTo(0,0),b();else var a=Math.max(window.scrollY/(f.scrollAnimationDuration/15),.01),c=setInterval(function(){0<window.scrollY?window.scrollBy(0,-a):(clearInterval(c),b())},15)}function n(){var b=window.location.pathname.substring(1);k(document.getElementsByClassName("__eth-link"),
-function(a){a.classList.remove("__eth-selected-link");a.getAttribute("href").substring(1)===b&&a.classList.add("__eth-selected-link")})}function p(b){function a(){c.removeEventListener("fadetransitionend",a,!1);c.innerHTML=b.response;c.style.opacity=1;h(document.getElementById("__eth-content").getElementsByTagName("script"),0);g(document.querySelectorAll("#__eth-content .__eth-link"))}var c=document.getElementById("__eth-content");200<=b.status&&404>=b.status?"0"===window.getComputedStyle(c).getPropertyValue("opacity")?
-a():c.addEventListener("fadetransitionend",a,!1):console.error("Ethenis->loadContent()  Error: "+this.status)}function h(b,a){if(!(a>=b.length)){var c=b[a],e=document.createElement("script");if(c.src){var d=new XMLHttpRequest;d.open("GET",c.src);d.onload=function(){e.textContent=d.response;document.head.appendChild(e).parentNode.removeChild(e);h(b,++a)};d.send()}else e.textContent=c.textContent,document.head.appendChild(e).parentNode.removeChild(e),h(b,++a)}}function k(b,a){for(var c=0;c<b.length;c++)a(b[c])}
-(function(b){var a=b.pushState;b.pushState=function(){a.apply(b,arguments);l()}})(window.history);g(document.getElementsByClassName("__eth-link"));d.loadLinks=g;"scrollRestoration"in history&&(history.scrollRestoration="manual");var l=function(){var b=location.pathname;return function(){if(b!==location.pathname){m(function(){document.getElementById("__eth-content").style.opacity="0";setTimeout(function(){document.getElementById("__eth-content").dispatchEvent(new Event("fadetransitionend"))},f.fadeAnimationDuration)});
-"function"===typeof d.onPageChange&&(d.onPageChange(),d.onPageChange=null);n();document.body.classList.add("loading");var a=new XMLHttpRequest;a.open("GET",location.pathname+"?ajax=true&_="+(new Date).getTime(),!0);a.onload=function(){p(a)};a.onerror=function(){console.error("Ethenis->loadContent()  Network Error")};a.onreadystatechange=function(){4===a.readyState&&document.body.classList.remove("loading")};a.send()}b=location.pathname}}();window.addEventListener("popstate",l,!0)})(__ETHENIS,__ETHENIS.config);
+'use strict'
+
+;((ethenis, config) => {
+  ;(history => {
+    let pushState = history.pushState
+    history.pushState = function () {
+      pushState.apply(history, arguments)
+      loadContent()
+    }
+  })(window.history)
+
+  loadLinks(document.getElementsByClassName('__eth-link'))
+  ethenis.loadLinks = loadLinks
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+
+  function loadLinks (elements) {
+    let numElements = elements !== undefined ? (elements.length !== undefined ? elements.length : 0) : 0
+    for (let i = 0; i < numElements; i++) {
+      let element = (elements[i] || elements)
+      element.addEventListener('click', event => {
+        event.preventDefault()
+        history.pushState('', '', element.getAttribute('href'))
+      }, false)
+    }
+  }
+
+  let loadContent = (() => {
+    let previousLocation = location.pathname
+    return () => {
+      if (previousLocation !== location.pathname) {
+        scrollToTop(() => {
+          document.getElementById('__eth-content').style.opacity = '0'
+          setTimeout(() => {
+            document.getElementById('__eth-content').dispatchEvent(new Event('fadetransitionend'))
+          }, config.fadeAnimationDuration)
+        })
+
+        execOnPageChangeFunction()
+        changeNavSelectedLink()
+        document.body.classList.add('loading')
+
+        let request = new XMLHttpRequest()
+        let path = location.pathname +
+          '?ajax=true&_=' + new Date().getTime()
+
+        request.open('GET', path, true)
+        request.onload = () => { requestOnload(request) }
+        request.onerror = () => {
+          console.error('Ethenis->loadContent()  Network Error')
+        }
+        request.onreadystatechange = () => {
+          if (request.readyState === 4) {
+            document.body.classList.remove('loading')
+          }
+        }
+        request.send()
+      }
+      previousLocation = location.pathname
+    }
+  })()
+
+  window.addEventListener('popstate', loadContent, true)
+
+  function execOnPageChangeFunction () {
+    if (typeof ethenis.onPageChange !== 'function') return
+    ethenis.onPageChange()
+    ethenis.onPageChange = null
+  }
+
+  function scrollToTop (fnc) {
+    if (isNaN(config.scrollAnimationDuration) || config.scrollAnimationDuration <= 0) {
+      window.scrollTo(0, 0)
+      fnc()
+      return
+    }
+
+    let minStep = 0.01
+    let scrollStep = Math.max(window.scrollY / (config.scrollAnimationDuration / 15), minStep)
+
+    let scrollInterval = setInterval(() => {
+      if (window.scrollY > 0) window.scrollBy(0, -scrollStep)
+      else {
+        clearInterval(scrollInterval)
+        fnc()
+      }
+    }, 15)
+  }
+
+  function changeNavSelectedLink () {
+    let linkElements = document.getElementsByClassName('__eth-link')
+    let actualDir = window.location.pathname.substring(1)
+    ;[].forEach.call(linkElements, element => {
+      element.classList.remove('__eth-selected-link')
+
+      let elementDir = element.getAttribute('href').substring(1)
+      if (elementDir === actualDir) {
+        element.classList.add('__eth-selected-link')
+      }
+    })
+  }
+
+  function requestOnload (request) {
+    let contentWrapper = document.getElementById('__eth-content')
+
+    function showContent () {
+      contentWrapper.removeEventListener('fadetransitionend', showContent, false)
+
+      contentWrapper.innerHTML = request.response
+      contentWrapper.style.opacity = 1
+      loadContentScripts()
+      loadContentLinks()
+    }
+
+    if (request.status >= 200 && request.status <= 404) {
+      let contentWrapperStyle = window.getComputedStyle(contentWrapper)
+      if (contentWrapperStyle.getPropertyValue('opacity') === '0') {
+        showContent()
+      } else contentWrapper.addEventListener('fadetransitionend', showContent, false)
+    } else { console.error('Ethenis->loadContent()  Error: ' + request.status) }
+  }
+
+  function loadContentLinks () {
+    let linkElements = document.querySelectorAll('#__eth-content .__eth-link')
+
+    loadLinks(linkElements)
+  }
+
+  function loadContentScripts () {
+    let scripts = document.getElementById('__eth-content')
+      .getElementsByTagName('script')
+
+    _loadContentScripts(scripts, 0)
+  }
+
+  function _loadContentScripts (scripts, i) {
+    if (i >= scripts.length) return
+    let actualScript = scripts[i]
+    let script = document.createElement('script')
+
+    if (actualScript.src) {
+      let request = new XMLHttpRequest()
+      request.open('GET', actualScript.src)
+      request.onload = () => {
+        script.textContent = request.response
+        document.head.appendChild(script)
+          .parentNode.removeChild(script)
+        _loadContentScripts(scripts, ++i)
+      }
+      request.send()
+    } else {
+      script.textContent = actualScript.textContent
+      document.head.appendChild(script)
+        .parentNode.removeChild(script)
+      _loadContentScripts(scripts, ++i)
+    }
+  }
+})(__ETHENIS, __ETHENIS.config)
