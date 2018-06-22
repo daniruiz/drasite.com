@@ -12,6 +12,7 @@
   loadLinks(document.getElementsByClassName('__eth-link'))
   ethenis.loadLinks = loadLinks
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+  execOnLoad()
 
   function loadLinks (elements) {
     let numElements = elements !== undefined ? (elements.length !== undefined ? elements.length : 0) : 0
@@ -61,12 +62,6 @@
 
   window.addEventListener('popstate', loadContent, true)
 
-  function execOnPageChangeFunction () {
-    if (typeof ethenis.onPageChange !== 'function') return
-    ethenis.onPageChange()
-    ethenis.onPageChange = null
-  }
-
   function scrollToTop (fnc) {
     if (isNaN(config.scrollAnimationDuration) || config.scrollAnimationDuration <= 0) {
       window.scrollTo(0, 0)
@@ -109,6 +104,7 @@
       contentWrapper.style.opacity = 1
       loadContentScripts()
       loadContentLinks()
+      execOnLoad()
     }
 
     if (request.status >= 200 && request.status <= 404) {
@@ -117,6 +113,15 @@
         showContent()
       } else contentWrapper.addEventListener('fadetransitionend', showContent, false)
     } else { console.error('Ethenis->loadContent()  Error: ' + request.status) }
+  }
+
+  function execOnPageChangeFunction () {
+    if (typeof ethenis.onPageChange === 'function') ethenis.onPageChange()
+    ethenis.onPageChange = null
+  }
+  
+  function execOnLoad () {
+    if (typeof ethenis.onLoad === 'function') ethenis.onLoad()
   }
 
   function loadContentLinks () {

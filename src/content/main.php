@@ -65,101 +65,7 @@
                 padding-top: 50px;
                 font-family: sans-serif;
             }
-
-            @keyframes loading-element {
-                0% {
-                    width: 0;
-                }
-                5% {
-                    transform: none;
-                    width: 20%;
-                }
-                10% {
-                    transform: translateX(20vw);
-                    width: 4px;
-                }
-                35% {
-                    transform: translateX(80vw);
-                    width: 4px;
-                }
-                40% {
-                    width: 30%;
-                    transform: translateX(80vw);
-                }
-                45% {
-                    transform: translateX(110vw);
-                }
-                46% {
-                    visibility: hidden;
-                }
-                100% {
-                    visibility: hidden;
-                }
-            }
-
-            body.loading #loading-animation div {
-                display: block;
-            }
-
-            #loading-animation div {
-                left: 0;
-                top: 2px;
-                display: none;
-                position: fixed;
-                z-index: 1000;
-                height: 4px;
-                border-radius: 4px;
-                background: #ba174e;
-                box-shadow: 0 1px 0 black;
-                animation: loading-element 5s infinite;
-            }
-
-            #loading-animation div:nth-child(2) {
-                margin-left: -8px;
-                animation-delay: .25s;
-            }
-
-            #loading-animation div:nth-child(3) {
-                margin-left: -16px;
-                animation-delay: .5s;
-            }
-
-            #loading-animation div:nth-child(4) {
-                margin-left: -24px;
-                animation-delay: .75s;
-            }
-
-            #loading-animation div:nth-child(5) {
-                margin-left: -32px;
-                animation-delay: 1s;
-            }
-
-            paper a.blue-button-link, .paper a.blue-button-link, article a.blue-button-link {
-                color: white;
-                line-height: 50px;
-                border-radius: 2px;
-                background: blue;
-                width: 236px;
-                text-align: center;
-                margin: 30px auto;
-                text-shadow: 0 0 1px white;
-                color: white;
-                display: block;
-                transition: transform .2s;
-            }
-
-            paper a.blue-button-link:hover, .paper a.blue-button-link:hover article a.blue-button-link:hover {
-                transform: scale(1.02);
-                text-decoration: none;
-            }
-
-            article img {
-                box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .3);
-                margin: 20px 0;
-                border-radius: 3px;
-                max-width: 100%;
-            }
-
+            
             header {
                 position: absolute;
                 height: 500px;
@@ -199,66 +105,70 @@
                 font-weight: 400;
                 letter-spacing: 1px;
             }
-
-            #back-to-top {
-                display: none;
-                width: 60px;
-                height: 60px;
-                position: fixed;
-                right: 30px;
-                bottom: 30px;
-                border-radius: 30px;
-                background: black;
-                font-size: 41px;
-                line-height: 61px;
-                text-align: center;
-                z-index: 100;
-                cursor: pointer;
+            
+            main {
+                min-height: 450px;
+            }
+            
+            .paper {
+                font-size: 16px;
+                padding: 10px 20px;
+                background-color: white;
+                margin-top: 20px;
+                min-height: 100px;
+            }
+            
+            .paper a.blue-button-link, .paper a.blue-button-link, article a.blue-button-link {
                 color: white;
+                line-height: 50px;
+                border-radius: 2px;
+                background: blue;
+                width: 236px;
+                text-align: center;
+                margin: 30px auto;
+                text-shadow: 0 0 1px white;
+                color: white;
+                display: block;
+                transition: transform .2s;
             }
-
-            #back-to-top i {
-                cursor: pointer;
+            
+            .paper.download-box {
+                max-width: 600px;
+                padding: 10px 20px;
+                margin: auto auto 50px;
+                width: 95%;
+                position: relative;
+                padding-bottom: 50px;
             }
-
-            @media screen and (max-width: 570px) {
-                .bash {
-                    padding-left: 20px;
-                    font-size: 10px;
-                }
-
-                h1 {
-                    font-size: 45px;
-                }
-
-                h1 {
-                    font-size: 40px;
-                    line-height: 60px;
-                }
-
-                h2 {
-                    font-size: 32px;
-                    font-weight: lighter;
-                    line-height: 40px;
-                }
-
-                h3 {
-                    font-size: 26px;
-                }
-
-                h4 {
-                    font-size: 20px;
-                }
-
-                h5 {
-                    font-size: 18px;
-                    padding: 0;
-                }
-
-                h6 {
-                    font-size: 15px;
-                    padding: 0;
-                }
+            
+            .paper.download-box a.blue-button-link {
+                margin: 10px auto;
+            }
+            
+            .paper.download-box > a:nth-child(2) {
+                font-size: 20px;
+                display: block;
+                text-align: center;
+                margin: 25px 0;
+            }
+            
+            .paper.download-box .github {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #041926;
+                line-height: 40px;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                height: 40px;
+            }
+            .paper.download-box .github i {
+                margin: 0 10px;
+            }
+            .paper.download-box .github i:last-child {
+                margin-left: 20px;
             }
         </style>
     </head>
@@ -282,79 +192,6 @@
             <div></div>
         </div>
 
-        <style>
-            .separator {
-                margin: 100px auto;
-            }
-
-            #content {
-                margin: auto;
-                margin-bottom: 200px;
-                text-align: center;
-                max-width: 1300px;
-            }
-
-            #content .paper {
-                display: inline-block;
-                vertical-align: top;
-                padding: 0;
-                width: 300px;
-                margin: 10px;
-                height: 510px;
-                text-align: left;
-                transition: transform .2s;
-                position: relative;
-            }
-
-            #content .paper:hover {
-                transform: scale(1.03)
-            }
-
-            #content a, #content a:hover, #content a:active {
-                text-decoration: none;
-                color: black;
-                font-weight: inherit;
-            }
-
-            #content .paper h4 {
-                margin: 20px;
-            }
-
-            .content-img {
-                height: 390px;
-                display: block;
-                line-height: 390px;
-                background: white;
-            }
-
-            .content-img img {
-                width: 100%;
-                display: inline-block;
-                vertical-align: middle;
-            }
-            
-            #content .github {
-                height: 45px;
-                width: 100%;
-                position: absolute;
-                bottom: 135px;
-                background: rgba(255, 255, 255, 0.75);
-                backdrop-filter: blur(2px);
-                text-align: right;
-                padding: 8px 15px;
-                color: #041926;
-                font-weight: bold;
-            }
-            
-            #content .github i:last-child {
-                margin-left: 11px;
-            }
-            
-            #content .github i {
-                margin: 0 5px;
-            }
-
-        </style>
         <hr class="separator">
 
         <div id="content">
@@ -412,6 +249,220 @@
 <!-- FontAwesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
+<style>
+    paper a.blue-button-link:hover, .paper a.blue-button-link:hover article a.blue-button-link:hover {
+        transform: scale(1.02);
+        text-decoration: none;
+    }
+
+    article img {
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .3);
+        margin: 20px 0;
+        border-radius: 3px;
+        max-width: 100%;
+    }
+
+    #back-to-top {
+        display: none;
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        border-radius: 30px;
+        background: black;
+        font-size: 41px;
+        line-height: 61px;
+        text-align: center;
+        z-index: 100;
+        cursor: pointer;
+        color: white;
+    }
+
+    #back-to-top i {
+        cursor: pointer;
+    }
+    
+    .separator {
+        margin: 100px auto;
+    }
+
+    #content {
+        margin: auto;
+        margin-bottom: 200px;
+        text-align: center;
+        max-width: 1300px;
+    }
+
+    #content .paper {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0;
+        width: 300px;
+        margin: 10px;
+        height: 510px;
+        text-align: left;
+        transition: transform .2s;
+        position: relative;
+    }
+
+    #content .paper:hover {
+        transform: scale(1.03)
+    }
+
+    #content a, #content a:hover, #content a:active {
+        text-decoration: none;
+        color: black;
+        font-weight: inherit;
+    }
+
+    #content .paper h4 {
+        margin: 20px;
+    }
+
+    .content-img {
+        height: 390px;
+        display: block;
+        line-height: 390px;
+        background: white;
+    }
+
+    .content-img img {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    #content .github {
+        height: 45px;
+        width: 100%;
+        position: absolute;
+        bottom: 135px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(2px);
+        text-align: right;
+        padding: 8px 15px;
+        color: #041926;
+        font-weight: bold;
+    }
+    
+    #content .github i:last-child {
+        margin-left: 11px;
+    }
+    
+    #content .github i {
+        margin: 0 5px;
+    }
+
+    @media screen and (max-width: 570px) {
+        .bash {
+            padding-left: 20px;
+            font-size: 10px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        h1 {
+            font-size: 40px;
+            line-height: 60px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: lighter;
+            line-height: 40px;
+        }
+
+        h3 {
+            font-size: 26px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+
+        h5 {
+            font-size: 18px;
+            padding: 0;
+        }
+
+        h6 {
+            font-size: 15px;
+            padding: 0;
+        }
+    }
+    
+    @keyframes loading-element {
+        0% {
+            width: 0;
+        }
+        5% {
+            transform: none;
+            width: 20%;
+        }
+        10% {
+            transform: translateX(20vw);
+            width: 4px;
+        }
+        35% {
+            transform: translateX(80vw);
+            width: 4px;
+        }
+        40% {
+            width: 30%;
+            transform: translateX(80vw);
+        }
+        45% {
+            transform: translateX(110vw);
+        }
+        46% {
+            visibility: hidden;
+        }
+        100% {
+            visibility: hidden;
+        }
+    }
+
+    body.loading #loading-animation div {
+        display: block;
+    }
+
+    #loading-animation div {
+        left: 0;
+        top: 2px;
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        height: 4px;
+        border-radius: 4px;
+        background: #ba174e;
+        box-shadow: 0 1px 0 black;
+        animation: loading-element 5s infinite;
+    }
+
+    #loading-animation div:nth-child(2) {
+        margin-left: -8px;
+        animation-delay: .25s;
+    }
+
+    #loading-animation div:nth-child(3) {
+        margin-left: -16px;
+        animation-delay: .5s;
+    }
+
+    #loading-animation div:nth-child(4) {
+        margin-left: -24px;
+        animation-delay: .75s;
+    }
+
+    #loading-animation div:nth-child(5) {
+        margin-left: -32px;
+        animation-delay: 1s;
+    }
+</style>
+
 <script>
   function $ (query) {
     return document.querySelector(query)
@@ -447,6 +498,7 @@
         clearInterval(scrollInterval)
       }
     }
+
     ;(function () {
       function loadGithubInfo (data) {
         data.forEach(function (obj) {
@@ -455,7 +507,17 @@
           var githubHTML = "<div class=\"github\"><i class=\"far fa-heart\"></i>" + obj.stargazers_count + "<i class=\"fas fa-code-branch\"></i>" + obj.forks + "</div>"
           e.innerHTML = githubHTML + e.innerHTML
         })
-       }
+      }
+       
+      function loadDownloadBannerGithubInfo () {
+        var e = $('.download-box[data-github]')
+        if (e === null) return
+        var repo = e.dataset.github
+        var data = JSON.parse(localStorage.getItem('github')).filter(function(obj) {
+           return obj.name === repo ? obj : false
+        })[0]
+        e.innerHTML += "<div class=\"github\"><i class=\"far fa-heart\"></i>" + data.stargazers_count + "<i class=\"fas fa-code-branch\"></i>" + data.forks + "</div>"
+      }
 
       if (localStorage.getItem('github') === null) {
         var request = new XMLHttpRequest()
@@ -467,6 +529,7 @@
       }
 
       loadGithubInfo (JSON.parse(localStorage.getItem("github")))
+      __ETHENIS.onLoad = loadDownloadBannerGithubInfo
     })()
   })()
 </script>

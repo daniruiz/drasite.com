@@ -33,6 +33,7 @@ find $TARGET -type d -exec chmod 777 {} \;
 
 
 HTMLFILES=$TARGET/**/*.html
+JSFILES=$TARGET/**/*.js
 CSSFILES=$TARGET/**/*.css
 
 mv $TARGET/content/main.php $TARGET/content/main.php.html
@@ -63,6 +64,14 @@ do
     echo $i
 	uglifycss $i > "$i".tmp
 	mv -f "$i".tmp "$i"
+done
+
+for i in $JSFILES
+do
+    echo $i
+    #google-closure-compiler --compilation_level=ADVANCED_OPTIMIZATIONS --strict_mode_input --jscomp_off=checkVars --externs externs.js $i | tee "$i".tmp
+    google-closure-compiler $i | tee "$i".tmp
+	mv -f "$i".tmp $i
 done
 
 chown nobody:nobody $TARGET -R
