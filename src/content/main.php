@@ -210,7 +210,7 @@
                 border-radius: 30px;
                 background: black;
                 font-size: 41px;
-                line-height: 41px;
+                line-height: 61px;
                 text-align: center;
                 z-index: 100;
                 cursor: pointer;
@@ -447,21 +447,27 @@
         clearInterval(scrollInterval)
       }
     }
-    
-    /*
-    document.querySelectorAll('#content a').forEach((e) => {
-	    let repo = e.dataset.github
-	    if (repo === undefined) return
+    ;(function () {
+      function loadGithubInfo (data) {
+        data.forEach(function (obj) {
+          var e = $('#content a[data-github="' + obj.name + '"]')
+          if (e === null) return
+          var githubHTML = "<div class=\"github\"><i class=\"far fa-heart\"></i>" + obj.stargazers_count + "<i class=\"fas fa-code-branch\"></i>" + obj.forks + "</div>"
+          e.innerHTML = githubHTML + e.innerHTML
+        })
+       }
 
-	    let request = new XMLHttpRequest()
-        request.open('GET', 'https://api.github.com/repos/daniruiz/' + repo)
-        request.onload = () => {
-            let data = JSON.parse(request.response)
-		    let githubHTML = "<div class=\"github\"><i class=\"far fa-heart\"></i>" + data.stargazers_count + "<i class=\"fas fa-code-branch\"></i>" + data.forks + "</div>"
-            e.innerHTML = githubHTML + e.innerHTML
+      if (localStorage.getItem('github') === null) {
+        var request = new XMLHttpRequest()
+        request.open('GET', 'https://api.github.com/users/daniruiz/repos')
+        request.onload = function () {
+          localStorage.setItem("github", request.response)
         }
         request.send()
-    })*/
+      }
+
+      loadGithubInfo (JSON.parse(localStorage.getItem("github")))
+    })()
   })()
 </script>
 
