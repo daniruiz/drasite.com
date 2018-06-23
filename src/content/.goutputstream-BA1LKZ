@@ -500,8 +500,7 @@
     }
 
     ;(function () {
-      function loadGithubInfo () {
-        var data = JSON.parse(localStorage.getItem("github"))
+      function loadGithubInfo (data) {
         data.forEach(function (obj) {
           var e = $('#content a[data-github="' + obj.name + '"]')
           if (e === null) return
@@ -525,15 +524,15 @@
         request.open('GET', 'https://api.github.com/users/daniruiz/repos')
         request.onload = function () {
           localStorage.setItem("github", request.response)
-          loadGithubInfo()
-          loadDownloadBannerGithubInfo()
-          __ETHENIS.onLoad = loadDownloadBannerGithubInfo
+            loadGithubInfo (JSON.parse(localStorage.getItem("github")))
+            loadDownloadBannerGithubInfo()
+            __ETHENIS.onLoad = loadDownloadBannerGithubInfo
         }
         request.send()
-      } else {
-          loadGithubInfo()
-          __ETHENIS.onLoad = loadDownloadBannerGithubInfo
       }
+
+      loadGithubInfo (JSON.parse(localStorage.getItem("github")))
+      __ETHENIS.onLoad = loadDownloadBannerGithubInfo
     })()
   })()
 </script>
