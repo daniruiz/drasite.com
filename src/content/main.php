@@ -270,13 +270,18 @@
         right: 30px;
         bottom: 30px;
         border-radius: 30px;
-        background: black;
+        background: #041926;
         font-size: 41px;
         line-height: 61px;
         text-align: center;
         z-index: 100;
         cursor: pointer;
         color: white;
+        transition: transform .2s;
+    }
+    
+    #back-to-top:hover {
+        transform: translateY(-10px);
     }
 
     #back-to-top i {
@@ -462,6 +467,8 @@
         animation-delay: 1s;
     }
 </style>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet">
 
 <script>
   function $ (query) {
