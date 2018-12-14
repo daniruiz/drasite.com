@@ -73,7 +73,7 @@
                 border-radius: 2px;
                 left: 50%;
                 transform: translateX(-50%);
-                background: linear-gradient(203deg, rgba(124, 69, 152, 1) 17%, rgb(34, 0, 221) 100%);
+                background: linear-gradient(203deg, rgba(126, 60, 154, 1) 17%, #265ab1 100%);
                 top: 0;
                 z-index: -1;
                 box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12), inset 0 -10px 0px 0 rgba(0, 0, 0, .1);
@@ -157,7 +157,7 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: #041926;
+                background: #191919;
                 line-height: 40px;
                 color: white;
                 text-align: center;
@@ -270,7 +270,7 @@
         right: 30px;
         bottom: 30px;
         border-radius: 30px;
-        background: #041926;
+        background: #191919;
         font-size: 41px;
         line-height: 61px;
         text-align: center;
@@ -347,7 +347,7 @@
         backdrop-filter: blur(2px);
         text-align: right;
         padding: 8px 15px;
-        color: #041926;
+        color: #191919;
         font-weight: bold;
     }
     
@@ -442,7 +442,7 @@
         z-index: 1000;
         height: 4px;
         border-radius: 4px;
-        background: #ba174e;
+        background: #b8174c;
         box-shadow: 0 1px 0 black;
         animation: loading-element 5s infinite;
     }
