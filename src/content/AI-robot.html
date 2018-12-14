@@ -3,7 +3,7 @@
 </script>
 <style>
     header {
-        background: linear-gradient(203deg, rgb(28, 150, 150) 17%, rgb(48, 181, 114) 100%);
+        background: linear-gradient(203deg, #1c959b 17%, #24aa6e 100%);
     }
 
     #gameContainer {
@@ -11,7 +11,7 @@
         width: 100%;
         max-width: 880px;
         min-height: 150px;
-        background: #555;
+        background: #4c4f5c;
     }
 
     section {
@@ -19,6 +19,8 @@
         margin: 50px auto;
         overflow: auto;
         width: 80%;
+        text-align: right;
+        overflow: visible;
     }
 
     article {
@@ -28,42 +30,18 @@
         width: 95%;
     }
 
-    #DNA-textarea {
-        display: block;
-        width: 100%;
-        border: 2px solid black;
-        background: white;
-        color: black;
-        border-radius: 2px;
-        margin: 7px 0;
-        font-size: 14px;
-        font-weight: 700;
-        padding: 10px;
-        height: 200px;
-        box-sizing: border-box;
-    }
+    article h1 { text-align: center; }
+
+    #DNA-textarea { width: 100%; }
 
     #insert-DNA {
-        float: right;
-        background: #009587;
-        border-radius: 5px;
-        font-weight: 700;
-        color: white;
-        margin-top: 5px;
-        text-align: center;
-        cursor: pointer;
-        font-size: 16px;
-        height: 45px;
-        width: 130px;
-        border: 3px solid #00756a;
-        line-height: 40px;
-        display: block;
+        display: inline-block;
     }
 
     hr {
         width: 50%;
-        border: 3px solid #5c616c;
-        background-color: #5c616c;
+        border: 3px solid #60636e;
+        background-color: #60636e;
         border-radius: 4px;
     }
 
@@ -85,23 +63,12 @@
 </section>
 <hr>
 <article>
-    <img src="/img/AI-robot-preview.svg" alt="AI robot preview">
-    <br><br>
+    <h1>Neural Network with Genetic Algorithms in Unity3D</h1>
     <hr>
     <a href="https://github.com/daniruiz/Cleaning-Robot-AI" target="_blank" class="with-shadow blue-button-link">&lt;/&gt;&nbsp
         Source Code</a>
     <hr>
-
-    <h1>Neural network with genetic algorithms in Unity3d</h1>
-    The robot is controlled by a Perceptron like neural network that learns thanks to genetics algorithms such as
-    selection, reproduction and mutation. The network consists of 10 inputs (one for each sensor), a hidden layer of 10
-    neurons and 2 inputs: turning speed and for the velocity of displacement. For the activation function of the neurons
-    a sigmoidal function is used and the mutation rate is fixed to 1%.
-
-    <h2>Fitness function:</h2>
-    At the beginning of the test the map will be segmented in grids of the same size of the robot's. For each cleaned
-    grid a point will be added to the fitness value, but, if the robot repeats a cleaned grid, a point will be
-    subtracted to this value. In this way, the entry into infinite loops is also avoided.
+    <img src="/img/AI-robot-preview.svg" alt="AI robot preview">
 </article>
 <script src="/AI-webgl/Build/UnityLoader.js"></script>
 <script>
