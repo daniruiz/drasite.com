@@ -8,6 +8,7 @@
         "flat-remix-css" : ["flat-remix-css.html"],
         "flat-remix-gtk" : ["flat-remix-gtk.html"],
         "ethenis" : ["ethenis.html"],
-        "AI-robot" : ["AI-robot.html"]
+        "AI-robot" : ["AI-robot.html"],
+        "color-fixer" : ["color-fixer.html"]
     }
 }

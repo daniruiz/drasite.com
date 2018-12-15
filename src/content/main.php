@@ -236,6 +236,12 @@
                 </div>
                 <h4>Ethenis Framework</h4>
             </a>
+            <a class="paper __eth-link" href="/color-fixer">
+                <div class="content-img">
+                    <img src="/img/color-fixer-small.jpg" alt="Color Fixer logo">
+                </div>
+                <h4>Color Fixer</h4>
+            </a>
             <a target="_blank" href="https://assafpb.com" class="paper">
                 <div class="content-img">
                     <img src="/img/assafpb.svg" alt="AssafPB.com logo">
@@ -548,4 +554,3 @@
     })()
   })()
 </script>
-
