@@ -89,6 +89,7 @@
                 right: 0;
                 left: 0;
                 z-index: 10;
+                color: #000
             }
 
             nav a {
@@ -101,9 +102,12 @@
                 text-decoration: none !important;
             }
 
-            nav a span {
+            nav > span {
                 font-weight: 400;
                 letter-spacing: 1px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
             
             main {
@@ -177,8 +181,8 @@
         <nav class="with-shadow">
             <a href="/" class="__eth-link" title="↤ Go to main page">
                 <i class="fas fa-chevron-left"></i>
-                <span>D<span style="display: inline-block;transform: rotateY(180deg) translateX(1px);">R</span>A</span>
             </a>
+            <span>D<span style="display: inline-block;transform: rotateY(180deg) translateX(1px);">R</span>A</span>
         </nav>
         <main><{ content }></main>
         <div id="back-to-top" title="⇡ Back to top" class="with-shadow">
