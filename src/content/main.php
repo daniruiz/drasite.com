@@ -541,10 +541,12 @@
         var request = new XMLHttpRequest()
         request.open('GET', 'https://api.github.com/users/daniruiz/repos')
         request.onload = function () {
-          localStorage.setItem("github", request.response)
-          loadGithubInfo()
-          loadDownloadBannerGithubInfo()
-          __ETHENIS.onLoad = loadDownloadBannerGithubInfo
+          if (JSON.parse(request.response).message === undefined) {
+            localStorage.setItem("github", request.response)
+            loadGithubInfo()
+            loadDownloadBannerGithubInfo()
+            __ETHENIS.onLoad = loadDownloadBannerGithubInfo
+          }
         }
         request.send()
       } else {
