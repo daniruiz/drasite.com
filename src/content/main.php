@@ -161,7 +161,7 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: #191919;
+                background: #000;
                 line-height: 40px;
                 color: white;
                 text-align: center;
@@ -280,7 +280,7 @@
         right: 30px;
         bottom: 30px;
         border-radius: 30px;
-        background: #191919;
+        background: #000;
         font-size: 41px;
         line-height: 61px;
         text-align: center;
@@ -357,7 +357,7 @@
         backdrop-filter: blur(2px);
         text-align: right;
         padding: 8px 15px;
-        color: #191919;
+        color: #000;
         font-weight: bold;
     }
     
