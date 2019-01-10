@@ -212,7 +212,7 @@
         margin: 20px auto;
     }
 
-    @media screen and ((max-width:760px) or (max-height:720px)) {
+    @media screen and (max-width:760px), screen  (max-height:720px) {
         #photo {
             transform: translate(-50%,-50%) scale(.7);
             left: calc(50% - 190px);
@@ -223,7 +223,7 @@
             left: calc(50% + 160px);
         }
     }
-    @media screen and ((max-width:570px) or (max-height:590px)) {
+    @media screen and (max-width:570px), screen and (max-height:590px) {
         #photo {
             transform: translate(-50%,-50%) scale(.5);
             left: calc(50% - 175px);
