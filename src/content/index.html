@@ -93,6 +93,7 @@
         position: absolute;
         bottom: 30px;
         right: 50px;
+        transform-origin: right bottom;
     }
 
     #photo {
@@ -102,6 +103,7 @@
         top: 50%;
         left: calc(50% - 210px);
         transform: translate(-50%, -50%);
+        transform-origin: center right;
         background: url("/img/photo.jpg") center center no-repeat black;
         background-size: 100% auto;
     }
@@ -110,7 +112,6 @@
         background: #316fd8;
         color: white;
         line-height: 45px;
-        border-radius: 3px;
         width: 150px;
         text-align: center;
         bottom: 25px;
@@ -118,17 +119,20 @@
         font-size: 14px;
         position: absolute;
         transform: translateX(-50%);
-        transition: border-width linear .1s;
+        transition: border-width linear .1s, border-radius linear .1s;
         border: 0;
         box-sizing: content-box;
         border-bottom: 5px solid #2251a0;
-        border-radius: 3px 3px 7px 7px;
+        border-radius: 3px;
+        border-bottom-right-radius: 4px 10px;
+        border-bottom-left-radius: 4px 10px;
     }
 
     #contact-me:hover {
         text-decoration: none;
         border-bottom: 3px solid #2251a0;
-        border-radius: 3px 3px 5px 5px;
+        border-bottom-right-radius: 3px 9px;
+        border-bottom-left-radius: 3px 9px;
     }
 
     #contact-me i {
@@ -168,14 +172,15 @@
     #card {
         margin-top: 0;
         width: 420px;
-        height: 400px;
+        height: 405px;
         position: absolute;
         top: 50%;
         left: calc(50% + 140px);
         transform: translate(-50%, -50%);
+        transform-origin: center left;
         font-size: 16px;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        padding: 10px 20px;
+        padding: 10px 40px;
         background-color: white;
         min-height: 100px;
         color: black;
@@ -183,14 +188,14 @@
     }
 
     #card h1 {
-        margin: 10px;
+        margin: 10px 0;
         font-size: 32px;
         font-weight: lighter;
         line-height: 40px;
     }
 
     #card h2 {
-        margin: 10px;
+        margin: 10px 0;
         font-size: 26px;
         font-weight: lighter;
         line-height: 38px;
@@ -204,97 +209,47 @@
         font-weight: lighter;
         line-height: 30px;
         font-size: 20px;
-        width: max-300px;
         margin: 20px auto;
     }
 
-    @media screen and (max-width: 750px) {
+    @media screen and ((max-width:760px) or (max-height:720px)) {
         #photo {
-            width: 216px;
-            height: 360px;
-            left: calc(50% - 171px);
+            transform: translate(-50%,-50%) scale(.7);
+            left: calc(50% - 190px);
         }
 
         #card {
-            width: 340px;
-            height: 310px;
-            left: calc(50% + 107px);
-        }
-
-        #card br {
-            display: none;
-        }
-
-        #card p {
-            margin: 10px auto;
-            font-size: 18px;
-        }
-
-        #card hr {
-            border-width: 2px;
-            margin: 15px auto;
+            transform: translate(-50%,-50%) scale(.7);
+            left: calc(50% + 160px);
         }
     }
-
-    @media screen and (max-width: 570px) {
+    @media screen and ((max-width:570px) or (max-height:590px)) {
         #photo {
-            width: 140px;
-            height: 230px;
-            left: calc(50% - 106px);
-            top: 50%;
-        }
-
-        #contact-me {
-            font-size: 7px;
-            width: 75px;
-            line-height: 27px;
-            height: 24px;
-            border-bottom-width: 3px;
-            border-radius: 2px 2px 3px 3px;
+            transform: translate(-50%,-50%) scale(.5);
+            left: calc(50% - 175px);
         }
 
         #card {
-            width: 210px;
-            height: 200px;
-            padding: 5px;
-            line-height: 8px;
-            left: calc(50% + 69px);
-            top: 50%;
+            transform: translate(-50%,-50%) scale(.5);
+           left: calc(50% + 175px);
         }
 
-        #card h1 {
-            font-size: 24px;
-            margin: 0 10px;
+        #scroll-animation {
+            transform: scale(.7);
+            right: 30px;
+         }
+    }
+
+    @media screen and (max-width: 400px) {
+        #photo {
+            transform: translate(-50%,-50%) scale(.4);
+            left: calc(50% - 170px);
         }
 
-        #card h2 {
-            font-size: 16px;
-            margin: 0 10px;
-            line-height: 20px;
-        }
-
-        #card hr {
-            border-width: 2px;
-        }
-
-        #card p {
-            font-size: 11px;
-            margin: 6px 10px;
-            line-height: 16px;
-        }
-
-        #my-profiles {
-            height: 30px;
-        }
-
-        #my-profiles a {
-            font-size: 16px;
-            height: 24px;
-            width: 24px;
-            line-height: 24px;
-            margin: 4px 5px;
-        }
-
+        #card {
+            transform: translate(-50%,-50%) scale(.4);
+            left: calc(50% + 180px);
+       }
     }
 </style>
 <div id="cover">
@@ -307,6 +262,7 @@
         <h1 class="selectable">Daniel</h1>
         <h2 class="selectable">Ruiz de Alegría</h2>
         <hr>
+        <p>Open Source Developer ❤️</p>
         <p>Student of Computer Engineering at the Polytechnic University of Madrid
         <p>
         <p>UI & UX Designer</p>
