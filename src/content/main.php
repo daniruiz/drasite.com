@@ -267,7 +267,8 @@
 
     article img {
         box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .3);
-        margin: 20px 0;
+        margin: 20px auto;
+        display: block;
         border-radius: 3px;
         max-width: 100%;
     }
