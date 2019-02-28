@@ -1,0 +1,114 @@
+body {
+    min-width: 320px;
+    padding-top: 50px;
+    font-family: sans-serif;
+}
+
+header {
+    position: absolute;
+    height: 500px;
+    width: 95%;
+    border-radius: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(203deg, rgba(126, 60, 154, 1) 17%, #265ab1 100%);
+    top: 0;
+    z-index: -1;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12), inset 0 -10px 0px 0 rgba(0, 0, 0, .1);
+}
+
+nav {
+    height: 50px;
+    background: white;
+    font-size: 20px;
+    position: fixed;
+    line-height: 50px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    color: #000;
+}
+
+nav a {
+    color: black !important;
+    padding: 0 30px;
+    text-align: right;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+nav > span {
+    font-weight: 400;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+main {
+    min-height: 450px;
+}
+
+.paper {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: white;
+    margin-top: 20px;
+    min-height: 100px;
+}
+
+.paper a.blue-button-link, .paper a.blue-button-link, article a.blue-button-link {
+    color: white;
+    line-height: 50px;
+    border-radius: 2px;
+    background: blue;
+    width: 236px;
+    text-align: center;
+    margin: 30px auto;
+    text-shadow: 0 0 1px white;
+    color: white;
+    display: block;
+    transition: transform .2s;
+}
+
+.paper.download-box {
+    max-width: 600px;
+    padding: 10px 20px;
+    margin: auto auto 50px;
+    width: 95%;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.paper.download-box a.blue-button-link {
+    margin: 10px auto;
+}
+
+.paper.download-box > a:nth-child(2) {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.paper.download-box .github {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    height: 40px;
+}
+.paper.download-box .github i {
+    margin: 0 10px;
+}
+.paper.download-box .github i:last-child {
+    margin-left: 20px;
+}

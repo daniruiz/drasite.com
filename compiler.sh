@@ -25,7 +25,7 @@ echo ============= MINIFYING SOURCES =============
 echo =============================================
 echo -e "\n\n"
 
-./misc/svg-cleaner/ffsvg.sh $TARGET
+#./misc/svg-cleaner/ffsvg.sh $TARGET
 
 chown nobody:nobody $TARGET -R
 chmod 777 $TARGET -R
