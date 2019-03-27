@@ -1,4 +1,4 @@
-<p>This article explains step-by-step how to set up and use <strong>Swagger Client</strong> module for your <strong>JavaScript</strong>
+<p>This article explains step-by-step how to set up and use the <strong>Swagger Client</strong> module for your <strong>JavaScript</strong>
     project. It also shows examples about how to properly use it and some useful tips and tricks that may help you in
     your development.</p>
 <p>
@@ -11,14 +11,14 @@
     repository</a>: <q>Swagger Client is a JavaScript module that allows you to fetch, resolve, and interact with
     Swagger/OpenAPI documents</q>. Thanks to these tools the developer is able to define the API to be used in a clean
     manner, and ensure all the code uses the latest API version.</p>
-<p>But <strong>the JavaScript implementation of the Swagger Client has some important differences</strong>, since,
-    unlike for other programming languages, it doesn't use Swagger Codegen. Codegen is a tool that reading your API spec
-    returns all the auto-generated code that you'll later may import to your project, but in JavaScript this is achieved
-    in a quite different way.</p>
-<p><strong>Swagger-js</strong>, instead of giving you a static code, works by auto-generating all API request functions
+<p>However <strong>the JavaScript implementation of Swagger Client has some important differences</strong>, since,
+    unlike other programming languages, it doesn't use Swagger Codegen. Codegen is a tool that reads your API spec and
+    then returns all the auto-generated code that you'll later may import to your project, but in JavaScript this is
+    achieved in a quite different way.</p>
+<p>Instead of giving you a static code, <strong>Swagger-js</strong> works by auto-generating all API request functions
     <strong>dynamically</strong>, that is to say, while the program is running. This can be really helpful as you won't
     need to regenerate your code each time you make a change in your API definition, but can also give you some trouble
-    if you are not experienced with it. I'll later explain how to solve/avoid them.</p>
+    if you are not experienced with it. I'll later explain how to solve/avoid any issues.</p>
 <br/>
 <hr/>
 <br/>
@@ -98,9 +98,9 @@ apis: {
 }
 </pre>
 As you may see the apis object is organised by <strong>tag</strong> and
-<strong>operation</strong> names, both of them with the same name as defined in the API spec. After calling any operation
+<strong>operation</strong> names, both of them using the same names as defined in the API spec. After calling any operation
 we'll receive a <em>Promise</em> that will be resolved when the request is finished, returning a response object.
-Here is an example about how to use the client object and the possible parameters you can define:
+Here is an example of how to use the client object and the possible parameters you can define:
 <pre><span style="color: black">swaggerClient<span style="color: #49AEE6; font-weight: bold">.then</span>(client</span> <span
         style="color: black">=&gt;</span> <span style="color: black">{</span>
   <span style="color: black">client</span>
@@ -140,7 +140,9 @@ response: {
   <b>body</b>,    <span style="color: #19A187; font-weight: bold; font-style: italic;">// The body object</span>
 }
 </pre>
+<h4>Example</h4>
 <pre>
+
 <span style="color: black">swaggerClient</span>
   <span style="color: black"><span style="color: #49AEE6; font-weight: bold">.then</span>(({ apis })</span> <span
         style="color: black">=&gt;</span> <span style="color: black">apis.pet.getPetById({</span> <span
@@ -228,7 +230,7 @@ response: {
 <p style="text-align: center">
     <code>swaggerDecorator(specUrl[, decorator]) : Promise&lt;apis&gt;</code>
 </p>
-<h4>Install swaggerDecorator</h4>
+<h4>SwaggerDecorator installation</h4>
 <h5>NodeJS</h5>
 <pre>
 <span style="color: #FD7D00; font-weight: bold">const</span> <span style="color: black">swaggerDecorator</span> <span
@@ -265,7 +267,7 @@ response: {
   <span style="color: black">})</span>
 <span style="color: black">}</span>
 </pre>
-<h3>swaggerDecorator examples</h3>
+<h3>SwaggerDecorator examples</h3>
 By default, if no decorator function is defined it will use a simple decorator that replaces the usual response by
 the response body. Besides, this script also <strong>replaces the initial
     <em>Promise</em></strong> with another one that
@@ -415,9 +417,9 @@ pet.getPetById =&gt;  [ { petId: <span style="color: #FEA44C; ">1</span> } ]
 <h2>Basic tips</h2>
 <p>When using Swagger-js you really need to bear in mind that <strong>every change you make in your API spec file will
     be immediately reflected over your project</strong>. So using the same specUrl for both development/testing and pro
-    versions isn't a good idea. Therefor I strongly recommend creating a locked copy of the API definition for
+    versions isn't a good idea. Therefore I strongly recommend creating a locked copy of the API definition for
     production usage, that way you can also define a different API server for each one inside the spec file, and avoid
-    bothering about defining any variable for the server in your code. Just change the specUrl and Swagger will get the
+    worrying about defining any variable for the server in your code. Just change the specUrl and Swagger will get the
     default server for you.</p>
 <p>Another option could be converting the <strong>JSON</strong> inside the spec file to <strong>base64</strong> and
     using it as a <em>data url</em> like so:</p>
