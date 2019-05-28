@@ -235,6 +235,9 @@
         </a>
         <h5>Login screen</h5>
         <img src="/img/gdm.jpg" alt="Flat Remix GDM theme preview">
+        <hr>
+        <img src="/img/gdm-session-selector.jpg">
+        <hr>
         <br>
         <br>
         <h5>Themes</h5>
@@ -252,17 +255,19 @@
         <h2>Installation</h2>
         <h4>Manual installation</h4>
         <ol>
-            <li>Download and uncompress the zip file.</li>
+            <li>Download and extract the zip file.</li>
             <li>Move "Flat-Remix" folder to ".themes" in your home directory.</li>
             <li>Install <a href="https://extensions.gnome.org/extension/19/user-themes/" target="_blank">user themes extension</a></li>
             <li>To set the theme, run the following command in terminal:<br>
-                <code>gsettings set org.gnome.shell.extensions.user-theme name "Flat-Remix"</code><br>
+                <code>gsettings set org.gnome.shell.extensions.user-theme name "Flat-Remix"</code><br><br>
                 or select "Flat-Remix" via gnome-tweaks.</li>
         </ol>
         <br>
         <hr>
-        <h4>Terminal installation</h4>
-        <div class="bash"><div class="de1"><span class="kw2"><span class="kw3" style="letter-spacing:.2px">cd</span><span style="color:#0f2751;letter-spacing:.2px">&nbsp;</span><span class="sy0" style="letter-spacing:.2px">/</span><span style="color:#0f2751;letter-spacing:.2px">tmp &amp;&amp;&nbsp;</span>rm</span> <span class="re5">-rf</span> flat-remix-gnome&nbsp;<span class="sy0">&amp;&amp;</span></div><div class="de1"><span class="kw2">git</span> clone https:<span class="sy0">//</span>github.com<span class="sy0">/</span>daniruiz<span class="sy0">/</span>flat-remix-gnome&nbsp;<span class="sy0">&amp;&amp;</span> <span class="kw3" style="letter-spacing:.2px">cd</span> flat-remix-gnome</div><div># If you want to change the login wallpaper</div><div># (cd src &amp;&amp; ./build.sh --login-background /path/to/image)</div><div class="de1"><span class="kw1">sudo</span> <span class="kw2">make</span> <span class="re5">install</span></div></div>
+        <h4>How to install the login theme</h4>
+        <i class="fas fa-exclamation-triangle" style="color:#d41919"></i> Be sure you are capable of reinstalling gnome-shell/gdm in case it fails<br>
+        <p>You need to have installed imagemagick and glib-compile-resources:<br><code>sudo apt install libglib2.0-dev-bin imagemagick</code></p>
+        <div class="bash"><span class="kw2">git</span> clone https:<span class="sy0">//</span>github.com<span class="sy0">/</span>daniruiz<span class="sy0">/</span>flat-remix-gnome&nbsp;<br><span class="kw2">cd</span>    flat-remix-gnome <br><span class="kw2">make</span> <span style="color:#0f2751;letter-spacing:.2px"> &amp;&amp;</span> <span class="kw2">sudo make</span> install<span class="st0"></span></div>
         </div>
         <h5>Ubuntu based distributions:</h5>
         <div class="bash">
@@ -283,7 +288,5 @@
                 (AUR)
             </li>
         </ul>
-        <br><hr>
-        <img src="/img/gdm-session-selector.jpg">
     </section>
 </article>

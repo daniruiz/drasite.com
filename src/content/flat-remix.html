@@ -52,7 +52,7 @@
         text-align: center;
         margin-left: -100px;
         width: 1040px;
-        max-width: 1040px; 
+        max-width: 1040px;
     }
 
     #icons img {
@@ -291,24 +291,12 @@
         <h2>Installation</h2>
         <h4>Manual installation</h4>
         <ol>
-            <li>Download and uncompress the zip file.</li>
-            <li>Move "Flat-Remix" folder to ".icons" in your home directory.</li>
+            <li>Download and extract the zip file.</li>
+            <li>Move "Flat-Remix-Blue" folder to ".icons" (./local/share/icons for KDE) in your home directory.</li>
             <li>To set the theme, run the following command in terminal:<br>
-                <code>gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"</code><br>
-                or select "Flat-Remix" via your desktop specific tweaks application.</li>
+                <code>gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"</code><br>
+                or select "Flat-Remix-Blue" via your desktop specific tweaks application.</li>
         </ol>
-        <h4>Terminal installation</h4>
-        <div class="bash"><span class="kw3">cd</span> <span class="sy0">/</span>tmp <span class="sy0">&amp;&amp;</span>
-            <span class="kw2">rm</span> <span class="re5">-rf</span> flat-remix <span class="sy0">&amp;&amp;</span><br>
-            <span class="kw2">git</span> clone https:<span class="sy0">//</span>github.com<span class="sy0">/</span>daniruiz<span
-                    class="sy0">/</span>flat-remix <span class="sy0">&amp;&amp;</span><br>
-            <span class="kw2">mkdir</span> <span class="re5">-p</span> ~<span class="sy0">/</span>.icons <span
-                    class="sy0">&amp;&amp;</span> <span class="kw2">cp</span> <span class="re5">-r</span>
-            flat-remix<span class="sy0">/</span>Flat-Remix<span class="sy0">*</span> ~<span
-                    class="sy0">/</span>.icons<span class="sy0">/</span> <span class="sy0">&amp;&amp;</span><br>
-            gsettings <span class="kw1">set</span> org.gnome.desktop.interface icon-theme <span
-                    class="st0">"Flat-Remix"</span>
-        </div>
         <h5>Ubuntu based distributions</h5>
         <div class="bash"><span class="kw2">sudo</span> add-apt-repository ppa:daniruiz<span class="sy0">/</span>flat-remix<br/>
             <span class="kw2">sudo</span> <span class="kw2">apt-get</span> update<br/>
@@ -320,7 +308,7 @@
         </div>
         <h5>Arch based distributions</h5>
         <ul>
-            <li><a href="https://aur.archlinux.org/packages/flat-remix-git/" target="_blank"><code>flat-remix-git</code></a>
+            <li><a href="https://aur.archlinux.org/packages/flat-remix/" target="_blank"><code>flat-remix</code></a>
                 (AUR)
             </li>
         </ul>
