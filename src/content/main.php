@@ -66,6 +66,7 @@
             </a>
             <span>D<span style="display: inline-block;transform: rotateY(180deg) translateX(1px);">R</span>A</span>
         </nav>
+        <script><?php include "content/js/common.js" ?></script>
         <main><{ content }></main>
         <div id="back-to-top" title="⇡ Back to top" class="with-shadow">
             <i class="fas fa-chevron-up""></i>
@@ -84,7 +85,7 @@
             <h1>Projects</h1>
             <a class="paper __eth-link" href="/flat-remix" data-github="flat-remix">
                 <div class="content-img">
-                    <img src="/img/flat-remix.png" alt="Flat Remix cover">
+                    <img src="/img/flat-remix.jpg" alt="Flat Remix cover">
                 </div>
                 <h4>Flat Remix ICON theme</h4>
             </a>
@@ -100,7 +101,7 @@
                 </div>
                 <h4>Flat Remix GTK theme</h4>
             </a>
-            <a class="paper __eth-link" href="/flat-remix-css" data-github="Flat-Remix-CSS-library">
+            <a class="paper __eth-link" href="/flat-remix-css" data-github="flat-remix-css">
                 <div class="content-img">
                     <img src="/img/flat-remix-css.jpg" alt="Flat Remix css library">
                 </div>
@@ -108,7 +109,7 @@
             </a>
             <a class="paper __eth-link" href="/AI-robot" data-github="Cleaning-Robot-AI">
                 <div class="content-img">
-                    <img src="/img/AI-robot.png" alt="Neural network with genetic algorithms in Unity3d">
+                    <img src="/img/AI-robot.svg" alt="Neural network with genetic algorithms in Unity3d">
                 </div>
                 <h4>Neural network with genetic algorithms</h4>
             </a>
@@ -118,17 +119,11 @@
                 </div>
                 <h4>Ethenis Framework</h4>
             </a>
-            <a class="paper __eth-link" href="/color-fixer">
+            <a class="paper __eth-link" href="/color-fixer" data-github="Color-Fixer">
                 <div class="content-img">
-                    <img src="/img/color-fixer-small.jpg" alt="Color Fixer logo">
+                    <img src="/img/color-fixer.jpg" alt="Color Fixer logo">
                 </div>
                 <h4>Color Fixer</h4>
-            </a>
-            <a target="_blank" href="https://assafpb.com" class="paper">
-                <div class="content-img">
-                    <img src="/img/assafpb.svg" alt="AssafPB.com logo">
-                </div>
-                <h4>AssafPB</h4>
             </a>
         </div>
 

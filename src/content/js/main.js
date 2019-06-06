@@ -1,11 +1,7 @@
-
-const $ = query => document.querySelector(query)
-
 const extendFunctions = (father, son) => () => {
   if (typeof father === 'function') father()
   son()
 }
-
 
 function getGithubApiInfo (fnc) {
   if (localStorage.getItem('github') === null) {
@@ -13,7 +9,7 @@ function getGithubApiInfo (fnc) {
     request.open('GET', 'https://api.github.com/users/daniruiz/repos')
     request.onload = () => {
       if (JSON.parse(request.response).message === undefined) {
-        localStorage.setItem("github", request.response)
+        localStorage.setItem('github', request.response)
         fnc()
       }
     }
@@ -22,11 +18,11 @@ function getGithubApiInfo (fnc) {
 }
 
 function loadProjectLinkGithubInfo () {
-  let data = JSON.parse(localStorage.getItem("github"))
+  let data = JSON.parse(localStorage.getItem('github'))
   data.forEach(function (obj) {
     let e = $(`#content a[data-github="${obj.name}"]`)
-    if (e === null) return
-    let githubHTML = `<div class="github"><i class="far fa-heart"></i>${obj.stargazers_count}<i class="fas fa-code-branch"></i>${obj.forks}</div>`
+    if (e === undefined) return
+    let githubHTML = `<a class="github"><i class="far fa-heart"></i>${obj.stargazers_count}<i class="fas fa-code-branch"></i>${obj.forks}</a>`
     e.innerHTML = githubHTML + e.innerHTML
   })
 }
@@ -38,31 +34,12 @@ function startGithubBannerLoader () {
 
 function loadGithubBanner () {
   let e = $('.download-box[data-github]')
-  if (e === null) return
+  if (e === undefined) return
   let repo = e.dataset.github
   let [data] = JSON.parse(localStorage.getItem('github'))
-      .filter(obj => obj.name === repo ? obj : false)
-  e.innerHTML += `<div class="github"><i class="far fa-heart"></i>${data.stargazers_count}<i class="fas fa-code-branch"></i>${data.forks}</div>`
+    .filter(obj => obj.name === repo ? obj : false)
+  e.innerHTML += `<a class="github" href="${data.html_url}" target="_blank"><i class="far fa-heart"></i>${data.stargazers_count}<i class="fas fa-code-branch"></i>${data.forks}</a>`
 }
-
-function startSupportBannerLoader () {
-  loadSupportBanner()
-  __ETHENIS.onLoad = extendFunctions(__ETHENIS.onLoad, loadSupportBanner)
-}
-
-function loadSupportBanner () {
-  let e = $('.download-box[data-opendesktop]')
-  if (e === null) return
-  let supportBannerElement = Object.assign(document.createElement('A'), {
-    id: 'support-banner',
-    href: `https://www.opendesktop.org/p/${e.dataset.opendesktop}`,
-    target: '_blank',
-    className: 'with-shadow',
-    innerHTML: 'Support this project downloading it from <span>openDesktop</span>'
-  })
-  e.appendChild(supportBannerElement)
-}
-
 
 {
   window.addEventListener('scroll', () => {
@@ -99,7 +76,6 @@ function loadSupportBanner () {
   getGithubApiInfo(() => {
     loadProjectLinkGithubInfo()
     startGithubBannerLoader()
-    startSupportBannerLoader()
   })
 }
 

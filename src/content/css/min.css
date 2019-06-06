@@ -105,6 +105,7 @@ main {
     text-align: center;
     font-weight: bold;
     height: 40px;
+    text-decoration: none;
 }
 .paper.download-box .github i {
     margin: 0 10px;

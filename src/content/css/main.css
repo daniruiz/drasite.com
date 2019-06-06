@@ -58,6 +58,8 @@ article img {
     text-align: left;
     transition: transform .2s;
     position: relative;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 #content .paper:hover {
@@ -214,39 +216,4 @@ body.loading #loading-animation div {
 #loading-animation div:nth-child(5) {
     margin-left: -32px;
     animation-delay: 1s;
-}
-
-#support-banner {
-    line-height: 40px;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border: 2px solid #000;
-    text-align: center;
-    padding: 0 20px;
-    z-index: 100;
-    font-size: 14px;
-    color: #000;
-    border-radius: 6px 6px 0 0;
-    border-bottom: 0;
-    font-weight: bold;
-    white-space: nowrap;
-    text-decoration: none;
-}
-
-#support-banner > span {
-    border: 2px solid #000;
-    padding: 0 4px;
-    border-radius: 4px;
-    margin: 0 2px;
-    line-height: 26px;
-    font-size: 12px;
-    transform: translateY(-1px);
-    display: inline-block;
-}
-
-@media screen and (max-width: 360px) {
-    #support-banner { font-size: 12px;}
 }

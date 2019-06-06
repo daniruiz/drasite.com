@@ -1,17 +1,12 @@
-<script>
-  document.title = 'A.I. robot with Neural Network and Genetic Algorithms'
-</script>
 <style>
-    header {
-        background: linear-gradient(203deg, #1c959b 17%, #24aa6e 100%);
-    }
+    header { background: linear-gradient(203deg, #1C959B 17%, #24AA6E 100%); }
 
     #gameContainer {
         margin: 40px auto !important;
         width: 100%;
         max-width: 880px;
         min-height: 150px;
-        background: #4c4f5c;
+        background: #4C4F5C;
     }
 
     section {
@@ -34,14 +29,12 @@
 
     #DNA-textarea { width: 100%; }
 
-    #insert-DNA {
-        display: inline-block;
-    }
+    #insert-DNA { display: inline-block; }
 
     hr {
         width: 50%;
-        border: 3px solid #60636e;
-        background-color: #60636e;
+        border: 3px solid #60636E;
+        background-color: #60636E;
         border-radius: 4px;
     }
 
@@ -61,36 +54,29 @@
     <textarea id="DNA-textarea" placeholder="New DNA"></textarea>
     <button class="green-button" id="insert-DNA">Insert DNA</button>
 </section>
-<hr>
 <article>
     <h1>Neural Network with Genetic Algorithms in Unity3D</h1>
-    <hr>
     <a href="https://github.com/daniruiz/Cleaning-Robot-AI" target="_blank" class="with-shadow blue-button-link">&lt;/&gt;&nbsp
         Source Code</a>
-    <hr>
-    <img src="/img/AI-robot-preview.svg" alt="AI robot preview">
 </article>
 <script src="/AI-webgl/Build/UnityLoader.js"></script>
 <script>
-  function $ (query) {
-    return document.querySelector(query)
-  }
+  document.title = 'A.I. robot with Neural Network and Genetic Algorithms'
 
-  var gameInstance = UnityLoader.instantiate('gameContainer', '/AI-webgl/Build/AI-webgl.json')
+  !function () {
+    const gameInstance = UnityLoader.instantiate('gameContainer', '/AI-webgl/Build/AI-webgl.json')
+    const gameContainer = $('#gameContainer')
 
-  $('#gameContainer').onmouseover = function () {
-    gameInstance.SendMessage('Manager', 'captureKeyboard', 1)
-  }
-  $('#gameContainer').onmouseout = function () {
-    gameInstance.SendMessage('Manager', 'captureKeyboard', 0)
-  }
+    gameContainer.onmouseover = () =>
+      gameInstance.SendMessage('Manager', 'captureKeyboard', 1)
+    gameContainer.onmouseout = () =>
+      gameInstance.SendMessage('Manager', 'captureKeyboard', 0)
+    $('#insert-DNA').onclick = () => {
+      gameInstance.SendMessage('Manager', 'InsertDNA', $('#DNA-textarea').value)
+      $('#DNA-textarea').value = ''
+    }
 
-  $('#insert-DNA').onclick = function () {
-    gameInstance.SendMessage('Manager', 'InsertDNA', $('#DNA-textarea').value)
-    $('#DNA-textarea').value = ''
-  }
-
-  function copyBestDNA (DNA) {
-    $('#DNA-textarea').value = DNA
-  }
+    // Called by Unity
+    window.copyBestDNA = DNA => $('#DNA-textarea').value = DNA
+  }()
 </script>
