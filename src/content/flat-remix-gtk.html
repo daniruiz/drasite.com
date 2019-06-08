@@ -6,16 +6,6 @@
         max-width: 100%;
     }
 
-    #license {
-        color: #B3B3B3;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    #license a {
-        color: #72A2F4;
-    }
-
     header {
         background: linear-gradient(0deg, #0CA15E -20%, #265AB1FF);
     }
@@ -31,6 +21,35 @@
         letter-spacing: .5px;
         box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
     }
+
+    #variants-preview {
+        position: relative;
+        margin: 60px 0;
+    }
+
+    #variants-preview img:first-child { position: static; }
+
+    @keyframes variants-preview-animation {
+        0%, 100%, 16% {
+            opacity: 1;
+        }
+        25%, 91% {
+            opacity: 0;
+        }
+    }
+
+    #variants-preview img {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        box-shadow: none;
+        opacity: 0;
+        animation: variants-preview-animation 10s infinite;
+    }
+
+    #variants-preview img:nth-child(2) { animation-delay: -7.5s; }
+    #variants-preview img:nth-child(3) { animation-delay: -5s; }
+    #variants-preview img:nth-child(4) { animation-delay: -2.5s; }
 
     article {
         max-width: 880px;
@@ -198,7 +217,7 @@
     }
 </style>
 <img id="flat-remix-logo" src="/img/flat-remix-gtk-logo.svg" height="378" alt="Flat Remix ICON theme logo">
-<section class="paper download-box" data-github="flat-remix-gtk" data-opendesktop="1214931">
+<section class="paper download-box" data-github="flat-remix-gtk">
     <a href="https://www.opendesktop.org/p/1214931" target="_blank"
        class="with-shadow blue-button-link">↧ Download Flat Remix</a>
     <a href="https://github.com/daniruiz/Flat-Remix-GTK"
@@ -206,7 +225,7 @@
         <i class="fab fa-github"></i> github.com/daniruiz/Flat-Remix-GTK
     </a>
     <hr>
-    <div id="license">
+    <div class="license">
         Flat-Remix-GTK is licensed under the GNU General Public License v3.0<br>
     </div>
 </section>
@@ -218,7 +237,12 @@
     </div>
     <section>
         <br>
-        <img src="/img/gtk-blue.jpg" alt="Flat Remix gtk theme" style="box-shadow:none;">
+        <div id="variants-preview">
+            <img src="/img/gtk-blue.png" alt="Flat Remix GTK blue theme">
+            <img src="/img/gtk-green.png" alt="Flat Remix GTK green theme">
+            <img src="/img/gtk-red.png" alt="Flat Remix GTK red theme">
+            <img src="/img/gtk-yellow.png" alt="Flat Remix GTK yellow theme">
+        </div>
         <br>
         <h5>Themes</h5>
         <ul>
