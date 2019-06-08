@@ -113,3 +113,9 @@ main {
 .paper.download-box .github i:last-child {
     margin-left: 20px;
 }
+
+.paper.download-box .license {
+    color: #b3b3b3;
+    font-weight: bold;
+    text-align: center;
+}

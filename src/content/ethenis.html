@@ -7,13 +7,15 @@
         background: linear-gradient(203deg, #a61545 17%, #ca2a2a 100%) center;
     }
 
-    section.paper {
-        max-width: 600px;
+    section, article {
+        max-width: 500px;
         margin: auto;
-        margin-top: 50px;
-        margin-bottom: 150px;
         width: 95%;
-        padding-bottom: 40px;
+    }
+
+    section.paper {
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
     #logo {
@@ -53,7 +55,8 @@
 
     #description {
         text-indent: 40px;
-        text-align: justify
+        text-align: justify;
+        color: #5c616c;
     }
 
     .blue-color {
@@ -78,7 +81,7 @@
         font-weight: bold;
     }
 
-    hr {
+    article hr {
         margin: 30px auto
     }
 
@@ -121,9 +124,7 @@
 <section class="paper">
     <img alt="logo" src="/img/ethenis-logo.svg" id="logo">
     <h1>Ethenis Framework</h1>
-    <h6>Ethenis is licensed under the MIT License</h6>
     <hr>
-    <br>
     <p id="slogan">
         So simple, that... <br>
         <em>Even THE Name Is Simple</em>
@@ -131,14 +132,15 @@
     <p id="description">Ethenis is a PHP and JavaScript framework developed with the aim of speeding up the creation of
         Single Page Applications. Unlike other projects, Ethenis focus on a single goal, allowing its size and execution
         time to be minimum and thus preventing the slowdown of our page.</p>
-    <br>
+</section>
+<section class="paper download-box" data-github="Ethenis-Framework">
+    <a href="https://github.com/daniruiz/Ethenis-Framework/archive/master.zip" target="_blank" class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
+    <a href="https://github.com/daniruiz/Ethenis-Framework" target="_blank"><i class="fab fa-github"></i> github.com/daniruiz/Ethenis-Framework</a>
     <hr>
-    <a href="https://github.com/daniruiz/Ethenis-Framework/releases/latest" target="_blank" class="with-shadow blue-button-link">↧
-        Download Ethenis</a>
-    <a target="_blank" href="https://github.com/daniruiz/Ethenis-Framework">&lt;/&gt; Source Code on GitHub</a>
-    <hr>
-    <br>
-
+    <div class="license">Ethenis-Framework is licensed under the MIT License</div>
+</section>
+<br>
+<article>
     <h2>Manual</h2>
     <h3>Installation</h3>
     Download Ethenis Framework, extract the package and copy all the files into the webpage main folder. After that you
@@ -268,5 +270,5 @@
             → Returns the actual path.
         </li>
     </ul>
-</section>
+</article>
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
