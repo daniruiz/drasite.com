@@ -1,15 +1,13 @@
-<script>
-  document.title = 'Flat Remix GNOME theme'
-</script>
+<script>document.title = 'Flat Remix KDE'</script>
 <style>
-    #flat-remix-gnome-logo {
+    #flat-remix-logo {
         display: block;
         margin: auto;
         max-width: 100%;
     }
 
     header {
-        background: linear-gradient(to bottom, #0F2751, #4AAEE6 80%);
+        background: linear-gradient(#0000c2 -20%, #1cb5e0)
     }
 
     #description {
@@ -23,6 +21,37 @@
         letter-spacing: .5px;
         box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
     }
+
+    #variants-preview {
+        position: relative;
+        margin: 60px 0;
+    }
+
+    #variants-preview img:first-child { position: static; }
+
+    @keyframes variants-preview-animation {
+        0%, 100%, 16% {
+            opacity: 1;
+        }
+        25%, 91% {
+            opacity: 0;
+        }
+    }
+
+    #variants-preview img {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        box-shadow: none;
+        opacity: 0;
+        animation: variants-preview-animation 10s infinite;
+    }
+
+    #variants-preview img:nth-child(2) { animation-delay: -7.5s; }
+
+    #variants-preview img:nth-child(3) { animation-delay: -5s; }
+
+    #variants-preview img:nth-child(4) { animation-delay: -2.5s; }
 
     article {
         max-width: 880px;
@@ -38,246 +67,52 @@
     h5 {
         margin-left: 30px
     }
-
-    code, pre, .bash, .bash * {
-        cursor: auto;
-        user-select: text;
-        -webkit-touch-callout: text;
-        -webkit-user-select: text;
-        -khtml-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        font-family: monospace;
-    }
-
-    code, pre, .bash, .bash {
-        padding: 15px;
-        background-color: #FFF;
-        border: 1px solid #E6E6E6;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
-    }
-
-    .bash {
-        font-family: monospace;
-        color: #0F2751;
-        padding-left: 50px;
-        background: #FFF
-    }
-
-    .bash a:link {
-        color: #0F2751;
-    }
-
-    .bash a:hover {
-        background-color: #FFC730;
-    }
-
-    .bash .imp {
-        font-weight: bold;
-        color: red;
-    }
-
-    .bash .kw1 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .kw2 {
-        color: #8C42AB;
-        font-weight: bold;
-    }
-
-    .bash .kw3 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .co0 {
-        color: #60636E;
-        font-style: italic;
-    }
-
-    .bash .co1 {
-        color: #951212;
-    }
-
-    .bash .co2 {
-        color: #BF1717;
-        font-style: italic;
-    }
-
-    .bash .co3 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .es1 {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .es2 {
-        color: #087142;
-    }
-
-    .bash .es3 {
-        color: #087142;
-    }
-
-    .bash .es4 {
-        color: #087142;
-    }
-
-    .bash .es5 {
-        color: #622E78;
-    }
-
-    .bash .es_h {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .br0 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .sy0 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .st0 {
-        color: #D41919;
-    }
-
-    .bash .st_h {
-        color: #D41919;
-    }
-
-    .bash .nu0 {
-        color: #000;
-    }
-
-    .bash .re0 {
-        color: #087142;
-    }
-
-    .bash .re1 {
-        color: #087142;
-    }
-
-    .bash .re2 {
-        color: #087142;
-    }
-
-    .bash .re4 {
-        color: #087142;
-    }
-
-    .bash .re5 {
-        color: #811035;
-    }
-
-    .bash span.xtra {
-        display: block;
-    }
-
-    code {
-        background: #E6E6E6;
-        padding: 5px;
-        border-radius: 4px;
-    }
 </style>
-<img id="flat-remix-gnome-logo" src="/img/flat-remix-gnome-logo.svg" height="378" alt="Flat Remix GNOME theme logo">
-<section class="paper download-box" data-github="flat-remix-gnome">
-    <a href="https://www.opendesktop.org/p/1013030" target="_blank"
+<img id="flat-remix-logo" src="/img/flat-remix-kde-logo.svg" height="378" alt="Flat Remix KDE theme logo">
+<section class="paper download-box" data-github="flat-remix-kde">
+    <a href="https://www.opendesktop.org/p/1308564" target="_blank"
        class="with-shadow blue-button-link">↧ Download Flat Remix</a>
-    <a href="https://github.com/daniruiz/Flat-Remix-GNOME-theme" target="_blank">
-        <i class="fab fa-github"></i> github.com/daniruiz/Flat-Remix-GNOME-theme
+    <a href="https://github.com/daniruiz/flat-remix-kde"
+       target="_blank">
+        <i class="fab fa-github"></i> github.com/daniruiz/flat-remix-kde
     </a>
     <hr>
-    <div class="license">Flat-Remix-GNOME-theme is licensed under the Creative Commons Attribution Share Alike 4.0</div>
+    <div class="license">
+        Flat-Remix-KDE is licensed under the GNU General Public License v3.0<br>
+    </div>
 </section>
 <article>
-    <h1>Flat Remix GNOME theme</h1>
-    <div id="description">Flat Remix GNOME theme is a pretty simple shell theme inspired on material design. It follows
-        a
-        modern design using "flat" colors with high contrasts and sharp borders.
+    <h1>Flat Remix KDE theme</h1>
+    <div id="description">Flat Remix KDE theme is a pretty simple theme collection inspired on material design. It
+        follows a modern design using "flat" colors with high contrasts and sharp borders.
     </div>
     <section>
         <br>
-        <img src="/img/flat-remix-gnome-full.jpg" alt="Flat Remix GNOME theme preview">
-        <br>
-        <hr>
-        <img src="/img/gdm-session-selector.jpg" alt="login screen theme selector">
-        <hr>
-        <br>
+        <img src="/img/flat-remix-kde-preview.jpg" alt="Flat Remix KDE preview">
+        <div id="variants-preview">
+            <img src="/img/kde-blue.png" alt="Flat Remix KDE blue theme">
+            <img src="/img/kde-green.png" alt="Flat Remix KDE green theme">
+            <img src="/img/kde-red.png" alt="Flat Remix GTK KDE theme">
+            <img src="/img/kde-yellow.png" alt="Flat Remix KDE yellow theme">
+        </div>
         <br>
         <h5>Themes</h5>
         <ul>
             <li>Flat Remix</li>
             <li>Flat Remix Dark</li>
             <li>Flat Remix Darkest</li>
-            <li>Flat Remix Miami</li>
-            <li>Flat Remix Miami dark</li>
         </ul>
         <h6>Variants</h6>
         <ul>
-            <li>Full Panel - no topbar spacing</li>
+            <li>Solid - Theme without transparency</li>
+            <li>No Border - Darkest theme without white window border</li>
         </ul>
-        <h2>Installation</h2>
-        <h4>Manual installation</h4>
-        <ol>
-            <li>Download and extract the zip file.</li>
-            <li>Move "Flat-Remix" folder to ".themes" in your home directory.</li>
-            <li>Install <a href="https://extensions.gnome.org/extension/19/user-themes/" target="_blank">user themes
-                extension</a></li>
-            <li>To set the theme, run the following command in terminal:<br>
-                <code>gsettings set org.gnome.shell.extensions.user-theme name "Flat-Remix"</code><br><br>
-                or select "Flat-Remix" via gnome-tweaks.
-            </li>
-        </ol>
-        <h5>Ubuntu based distributions:</h5>
-        <div class="bash">
-            <div class="de1"><span class="kw2">sudo</span> add-apt-repository ppa:daniruiz<span class="sy0">/</span>flat-remix
-            </div>
-            <div class="de1"><span class="kw2">sudo</span> <span class="kw2">apt-get</span> update</div>
-            <div class="de1"><span class="kw2">sudo</span> <span class="kw2">apt-get</span> <span
-                    class="kw2">install</span> flat-remix-gnome
-            </div>
-        </div>
-        <h5>Fedora based distributions</h5>
-        <div class="bash"><span class="kw2">sudo</span> dnf copr enable daniruiz<span
-                class="sy0">/</span>flat-remix<br/>
-            <span class="kw2">sudo</span> <span class="kw2">dnf</span> <span class="kw2">install</span> flat-remix-gnome
-        </div>
-        <h5>Arch based distributions</h5>
+        <h6>Color Variants</h6>
         <ul>
-            <li><a href="https://aur.archlinux.org/packages/flat-remix-gnome/"
-                   rel="nofollow"><code>flat-remix-gnome</code></a>
-                (AUR)
-            </li>
+            <li>Blue</li>
+            <li>Green</li>
+            <li>Red</li>
+            <li>Yellow</li>
         </ul>
-        <br>
-        <hr>
-        <h4>How to install the login theme</h4>
-        <i class="fas fa-exclamation-triangle" style="color:#D41919"></i> Be sure you are capable of reinstalling
-        gnome-shell/gdm in case it fails
-        <br>
-        You need to have installed imagemagick and glib-compile-resources:
-        <br>
-        <ul>
-            <li>Ubuntu<br><code>sudo apt install libglib2.0-dev-bin imagemagick</code><br></li>
-            <li>Fedora<br><code>sudo dnf install glib2-devel Imagemagick</code><br></li>
-            <li>Arch<br><code>sudo pacman -S glib2 imagemagick</code></li>
-        </ul>
-        <br>
-        <div class="bash"><span class="kw2">git</span> clone https:<span class="sy0">//</span>github.com<span
-                class="sy0">/</span>daniruiz<span class="sy0">/</span>flat-remix-gnome&nbsp;<br><span
-                class="kw2">cd</span> flat-remix-gnome <br><span class="kw2">make</span> <span
-                style="color:#0F2751;letter-spacing:.2px"> &amp;&amp;</span> <span class="kw2">sudo make</span>
-            install<span class="st0"></span></div>
-        </div>
     </section>
 </article>

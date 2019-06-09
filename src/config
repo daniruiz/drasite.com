@@ -7,6 +7,7 @@
         "flat-remix-gnome" : ["flat-remix-gnome.html"],
         "flat-remix-css" : ["flat-remix-css.html"],
         "flat-remix-gtk" : ["flat-remix-gtk.html"],
+        "flat-remix-kde" : ["flat-remix-kde.html"],
         "ethenis" : ["ethenis.html"],
         "AI-robot" : ["AI-robot.html"],
         "color-fixer" : ["color-fixer.html"]
