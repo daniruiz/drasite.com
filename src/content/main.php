@@ -133,6 +133,8 @@
             </a>
         </div>
 
+        <a id="support-banner" target="_blank" href="https://www.paypal.me/daniruizdealegria">Consider supporting my work with a <span>Donation</span> 😉</a>
+
         <!-- Flat-Remix.css -->
         <link rel="stylesheet" type="text/css" href="/css/flat-remix.css">
 
