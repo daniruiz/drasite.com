@@ -103,9 +103,9 @@
             </a>
             <a class="paper __eth-link" href="/flat-remix-kde" data-github="flat-remix-kde">
                 <div class="content-img">
-                    <img src="/img/flat-remix-kde.jpg" alt="Flat Remix KDE theme">
+                    <img src="/img/flat-remix-kde.jpg" alt="Flat Remix KDE themes">
                 </div>
-                <h4>Flat Remix KDE theme</h4>
+                <h4>Flat Remix KDE themes</h4>
             </a>
             <a class="paper __eth-link" href="/flat-remix-css" data-github="flat-remix-css">
                 <div class="content-img">
