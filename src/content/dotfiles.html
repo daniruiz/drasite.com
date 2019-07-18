@@ -1,0 +1,82 @@
+<script>
+  document.title = '~/.dotfiles'
+</script>
+<style>
+    #dotfiles-logo {
+        display: block;
+        margin: auto;
+        max-width: 80%;
+        height: 578px;
+        margin-top: -100px;
+        margin-bottom: -100px;
+    }
+
+    header { overflow: hidden; }
+
+    header::before {
+        background: url("/img/background.jpg") center;
+        filter: blur(5px) contrast(1.5) saturate(1.1);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    pre {
+        border-radius: 6px;
+        width: 90%;
+        max-width: 600px;
+        margin: auto;
+        background: #272A34;
+        padding: 20px 30px;
+        font-weight: bold;
+        color: white;
+        line-height: 20px;
+        font-size: 18px;
+        font-family: monospace;
+    }
+
+    pre i { width: 25px; }
+
+    @media screen and (max-width: 500px) {
+        pre {
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+</style>
+<img id="dotfiles-logo" src="/img/dotfiles.svg" height="378" alt="Dotfiles logo">
+<section class="paper download-box" data-github="dotfiles">
+    <a href="https://github.com/daniruiz/dotfiles/archive/master.zip" target="_blank"
+       class="with-shadow blue-button-link">↧ Download DяA's dotfiles</a>
+    <a href="https://github.com/daniruiz/dotfiles"
+       target="_blank">
+        <i class="fab fa-github"></i> github.com/daniruiz/dotfiles
+    </a>
+</section>
+<pre class="with-shadow">
+<span style="color: #0087FF; "><i class="far fa-folder-open"></i>  dotfiles</span>
+├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  .config</span>
+│  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  tilix</span>
+│     └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  schemes</span>
+│        └── <span style="color: #D7D700; ">{}  Flat-Remix.json</span>
+├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  .local</span>
+│  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  share</span>
+│     ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  gedit</span>
+│     │  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  styles</span>
+│     │     ├── <span style="color: #00D7D7; "><i class="fas fa-code"></i>  Flat-Remix-Dark.xml</span>
+│     │     └── <span style="color: #00D7D7; "><i class="fas fa-code"></i>  Flat-Remix.xml</span>
+│     └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  gtksourceview-4</span>
+│        └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  styles</span>
+│           ├── <span style="color: #D7D700; "><i class="fas fa-code"></i>  Flat-Remix-Dark.xml</span>
+│           └── <span style="color: #D7D700; "><i class="fas fa-code"></i>  Flat-Remix.xml</span>
+├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  Screenshots</span>
+│  └── <span style="color: #D7D700; "><i class="fa fa-image"></i>  screenshot-1.png</span>
+├── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .bashrc</span>
+├── <span style="color: #D7D700; "><i class="far fa-file"></i>  .dput.cf</span>
+├── <span style="color: #D7D700; "><i class="fab fa-git"></i>  .gitconfig</span>
+├── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .zshrc</span>
+└── <span style="color: #D7D700; "><i class="fab fa-markdown"></i>  README.md</span>
+</pre>

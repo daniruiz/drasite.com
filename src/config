@@ -10,6 +10,7 @@
         "flat-remix-kde" : ["flat-remix-kde.html"],
         "ethenis" : ["ethenis.html"],
         "AI-robot" : ["AI-robot.html"],
-        "color-fixer" : ["color-fixer.html"]
+        "color-fixer" : ["color-fixer.html"],
+        "dotfiles" : ["dotfiles.html"]
     }
 }

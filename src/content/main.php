@@ -119,6 +119,12 @@
                 </div>
                 <h4>Neural network with genetic algorithms</h4>
             </a>
+            <a class="paper __eth-link" href="/dotfiles" data-github="dotfiles">
+                            <div class="content-img">
+                                <img src="/img/dotfiles.svg" alt="~/.dotfiles">
+                            </div>
+                            <h4>~/.dotfiles</h4>
+                        </a>
             <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
                 <div class="content-img">
                     <img src="/img/ethenis.svg" alt="Ethenis Framework logo">
@@ -141,7 +147,7 @@
         <style><?php include "content/css/main.css" ?></style>
 
         <!-- FontAwesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet" crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 
         <script><?php include "content/js/main.js" ?></script>
     </body>
