@@ -11,7 +11,10 @@
         margin-bottom: -100px;
     }
 
-    header { overflow: hidden; }
+    header {
+        overflow: hidden;
+        background: #272A34;
+    }
 
     header::before {
         background: url("/img/background.jpg") center;
@@ -26,7 +29,6 @@
 
     pre {
         border-radius: 6px;
-        width: 90%;
         max-width: 600px;
         margin: auto;
         background: #272A34;
@@ -40,10 +42,73 @@
 
     pre i { width: 25px; }
 
+    article {
+        max-width: 880px;
+        padding: 20px;
+        margin: auto auto 50px;
+        width: 95%;
+    }
+
+    h1 { text-align: center; }
+
+    ul {
+        font-size: 20px;
+        line-heigth: 30px;
+    }
+
+    #description {
+        font-weight: 100;
+        font-size: 24px;
+        margin: auto;
+        padding: 0 40px;
+        background-color: #FFF;
+        border: 1px solid #E6E6E6;
+        line-height: 35px;
+        letter-spacing: .5px;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
+        text-align: justify;
+        border-radius: 3px;
+    }
+
+    #color-scheme-preview {
+        position: relative;
+        margin: 60px 0;
+    }
+
+    @keyframes color-scheme-preview-animation {
+        0%, 100%, 33% {
+            opacity: 1;
+        }
+        50%, 83% {
+            opacity: 0;
+        }
+    }
+
+    #color-scheme-preview img {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        animation: color-scheme-preview-animation 10s infinite;
+    }
+
+    #color-scheme-preview img:first-child {
+        position: static;
+        margin: auto;
+    }
+
+    #color-scheme-preview img:not(:first-child) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #color-scheme-preview img:nth-child(2) { animation-delay: -5s; }
+
     @media screen and (max-width: 500px) {
         pre {
-            font-size: 12px;
+            font-size: 10px;
             line-height: 14px;
+            padding: 12px;
         }
     }
 </style>
@@ -56,7 +121,25 @@
         <i class="fab fa-github"></i> github.com/daniruiz/dotfiles
     </a>
 </section>
-<pre class="with-shadow">
+<article>
+    <h1>
+        <span>D<span style="display:inline-block;transform:rotateY(180deg) translateX(1px)">R</span>A</span>'s
+        personal dotfiles
+    </h1>
+    <div id="description">
+        <p>
+            Dotfiles are those files and directories found in a Unix-like OS that are used to save
+            your system customizations. As the name implies, these files are named with a beginning dot, indicating they
+            are special files, generally hidden by default in directory listing for regular users.
+        </p>
+        <p>
+            It is a pretty common practice to upload your Dotfiles to a public repository so that you can easily move
+            them to other systems and get some ideas from others. So here you have mine!
+        </p>
+    </div>
+    <br>
+    <h2>Dotfiles tree</h2>
+    <pre class="with-shadow">
 <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  dotfiles</span>
 ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  .config</span>
 │  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  tilix</span>
@@ -80,3 +163,28 @@
 ├── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .zshrc</span>
 └── <span style="color: #D7D700; "><i class="fab fa-markdown"></i>  README.md</span>
 </pre>
+    <br>
+    <h2>Interesting files</h2>
+    <ul>
+        <li><b>.bashrc</b><br> ➜ bash settings file</li>
+        <li><b>.zshrc</b><br> ➜ zsh settings file</li>
+        <li><b>.gitconfig</b><br> ➜ git settings file</li>
+        <li><b>.local/share/gedit/styles</b><br> ➜ Flat-Remix/Flat-Remix-Dark gedit color scheme</li>
+        <li><b>.local/share/gtksourceview-4</b><br> ➜ Flat-Remix/Flat-Remix-Dark gtksourceview color scheme</li>
+        <li><b>.config/tilix/schemes</b><br> ➜ Flat-Remix tilix colors profile</li>
+    </ul>
+    <h3>My terminal</h3>
+    <h4>Recommended installations</h4>
+    <ul>
+        <li><a href="https://gnunn1.github.io/tilix-web/">tilix</a></li>
+        <li>zsh</li>
+        <li><a href="https://github.com/Powerlevel9k/powerlevel9k">Powerlevel9k</a></li>
+        <li><a href="https://github.com/Peltoche/lsd">lsd</a></li>
+    </ul>
+    <img src="/img/dotfiles-terminal-preview.jpg" alt="terminal preview">
+    <h3>Editor color scheme</h3>
+    <div id="color-scheme-preview">
+        <img src="/img/dotfiles-editor-preview-light.jpg" alt="Flat Remix editor light color scheme">
+        <img src="/img/dotfiles-editor-preview-dark.jpg" alt="Flat Remix editor dark color scheme">
+    </div>
+</article>
