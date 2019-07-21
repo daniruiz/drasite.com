@@ -27,6 +27,16 @@
         bottom: 0;
     }
 
+    header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: inset 0 -10px 0 0 rgba(0, 0, 0, .3);
+    }
+
     pre {
         border-radius: 6px;
         max-width: 600px;
@@ -52,8 +62,16 @@
     h1 { text-align: center; }
 
     ul {
-        font-size: 20px;
-        line-heigth: 30px;
+        font-size: 15px;
+        line-height: 2em;
+    }
+
+    ul b {
+        color: #00d7d7;
+    }
+
+    ul * {
+        font-family: monospace;
     }
 
     #description {
@@ -63,11 +81,11 @@
         padding: 0 40px;
         background-color: #FFF;
         border: 1px solid #E6E6E6;
-        line-height: 35px;
         letter-spacing: .5px;
         box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
         text-align: justify;
         border-radius: 3px;
+        line-height: 1.5em;
     }
 
     #color-scheme-preview {
@@ -107,8 +125,13 @@
     @media screen and (max-width: 500px) {
         pre {
             font-size: 10px;
-            line-height: 14px;
+            line-height: 10px;
             padding: 12px;
+        }
+
+        #description {
+            padding: 0 20px;
+            font-size: 16px;
         }
     }
 </style>
@@ -124,7 +147,7 @@
 <article>
     <h1>
         <span>D<span style="display:inline-block;transform:rotateY(180deg) translateX(1px)">R</span>A</span>'s
-        personal dotfiles
+        dotfiles
     </h1>
     <div id="description">
         <p>
@@ -181,7 +204,9 @@
         <li><a href="https://github.com/Powerlevel9k/powerlevel9k">Powerlevel9k</a></li>
         <li><a href="https://github.com/Peltoche/lsd">lsd</a></li>
     </ul>
+    <br/>
     <img src="/img/dotfiles-terminal-preview.jpg" alt="terminal preview">
+    <br/>
     <h3>Editor color scheme</h3>
     <div id="color-scheme-preview">
         <img src="/img/dotfiles-editor-preview-light.jpg" alt="Flat Remix editor light color scheme">
