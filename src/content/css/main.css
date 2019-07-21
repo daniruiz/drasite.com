@@ -251,6 +251,10 @@ body.loading #loading-animation div {
     display: inline-block;
 }
 
+@media screen and (max-width: 750px) {
+    header { width: 100%; }
+}
+
 @media screen and (max-width: 360px) {
     #support-banner { font-size: 12px;}
 }
