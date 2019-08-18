@@ -61,7 +61,7 @@
     <body>
         <header></header>
         <nav class="with-shadow">
-            <a href="/" class="__eth-link" title="↤ Go to main page">
+            <a href="." class="__eth-link" title="↤ Go back">
                 <i class="fas fa-chevron-left"></i>
             </a>
             <span>D<span style="display: inline-block;transform: rotateY(180deg) translateX(1px);">R</span>A</span>
