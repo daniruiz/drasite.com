@@ -61,7 +61,6 @@ main {
 }
 
 .paper a.blue-button-link, .paper a.blue-button-link, article a.blue-button-link {
-    color: white;
     line-height: 50px;
     border-radius: 2px;
     background: blue;

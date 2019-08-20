@@ -1,4 +1,4 @@
-paper a.blue-button-link:hover, .paper a.blue-button-link:hover article a.blue-button-link:hover {
+.paper a.blue-button-link:hover, .paper a.blue-button-link:hover article a.blue-button-link:hover {
     transform: scale(1.02);
     text-decoration: none;
 }
