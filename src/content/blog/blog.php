@@ -1,6 +1,6 @@
 <?php
     include "content/blog/php/Post.php";
-    $name_pattern = basename(Ethenis::get_path());
+    $name_pattern = urldecode(basename(Ethenis::get_path()));
     $POST = Post::from_pattern($name_pattern);
 ?>
 
@@ -8,10 +8,11 @@
     header { display: none; }
 
     article {
-        max-width: 880px;
+        max-width: 650px;
         padding: 20px;
         margin: auto auto 50px;
         width: 95%;
+        font-size: 15px;
     }
 
     article time {
@@ -40,3 +41,7 @@
     <br/>
     <?php echo $POST->content ?>
 </article>
+
+<script>
+  history.replaceState('', '', $('article > h1').innerText)
+</script>

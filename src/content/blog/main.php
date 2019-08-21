@@ -6,6 +6,7 @@
         padding: 20px;
         margin: auto auto 50px;
         width: 95%;
+        font-size: 15px;
     }
 
     article > a > h1 { margin: 0 0 15px; }
@@ -62,9 +63,9 @@
 <div id="blog-container">
     <?php
         include "content/blog/php/Post.php";
-        $post_files = array_diff(scandir("content/blog/posts"), [".", ".."]);
+        $post_files = glob("content/blog/posts/????????-*.html");
         foreach (array_reverse($post_files) as $file) {
-            $post = new Post($file);
+            $post = new Post(basename($file));
             ?>
 
             <article>
