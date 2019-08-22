@@ -183,6 +183,29 @@
         background: white;
     }
 
+    @keyframes bounce {
+        0% {
+            transform: translateY(-5px);
+        }
+
+        100%   {
+            transform: translateY(5px);
+        }
+    }
+
+    a[href="blog"]::after {
+        display: block;
+        content: '';
+        position: relative;
+        width: 45px;
+        height: 45px;
+        background-size: 100%;
+        top: -25px;
+        left: 25px;
+        background-image: url(/img/new.svg);
+        animation: bounce 0.5s cubic-bezier(.5, 0.05, 1, .5) infinite alternate;
+    }
+
     #photo, #card { box-shadow: 0 0 100px black; }
 
     #card {
@@ -293,6 +316,9 @@
             </a>
             <a target="_blank" href="https://github.com/daniruiz">
                 <i class="fab fa-github" title="Github"></i>
+            </a>
+            <a target="_blank" href="blog" class="__eth-link">
+              <i class="fas fa-blog"></i>
             </a>
         </div>
     </div>
