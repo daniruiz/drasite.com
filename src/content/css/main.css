@@ -193,7 +193,7 @@ body.loading #loading-animation div {
     z-index: 1000;
     height: 4px;
     border-radius: 4px;
-    background: #b8174c;
+    background: #B8174C;
     box-shadow: 0 1px 0 black;
     animation: loading-element 5s infinite;
 }

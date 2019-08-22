@@ -48,7 +48,9 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43282075-1"></script>
         <script>
           window.dataLayer = window.dataLayer || []
+
           function gtag () {dataLayer.push(arguments)}
+
           gtag('js', new Date())
           gtag('config', 'UA-43282075-1')
         </script>
@@ -120,11 +122,11 @@
                 <h4>Neural network with genetic algorithms</h4>
             </a>
             <a class="paper __eth-link" href="/dotfiles" data-github="dotfiles">
-                            <div class="content-img">
-                                <img src="/img/dotfiles.svg" alt="~/.dotfiles">
-                            </div>
-                            <h4>~/.dotfiles</h4>
-                        </a>
+                <div class="content-img">
+                    <img src="/img/dotfiles.svg" alt="~/.dotfiles">
+                </div>
+                <h4>~/.dotfiles</h4>
+            </a>
             <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
                 <div class="content-img">
                     <img src="/img/ethenis.svg" alt="Ethenis Framework logo">
@@ -139,7 +141,8 @@
             </a>
         </div>
 
-        <a id="support-banner" target="_blank" href="https://www.paypal.me/daniruizdealegria">Consider supporting my work with a <span>Donation</span> 😉</a>
+        <a id="support-banner" target="_blank" href="https://www.paypal.me/daniruizdealegria">Consider supporting my
+            work with a <span>Donation</span> 😉</a>
 
         <!-- Flat-Remix.css -->
         <link rel="stylesheet" type="text/css" href="/css/flat-remix.css">

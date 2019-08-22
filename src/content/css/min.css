@@ -11,7 +11,7 @@ header {
     border-radius: 2px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(203deg, rgba(126, 60, 154, 1) 17%, #265ab1 100%);
+    background: linear-gradient(203deg, rgba(126, 60, 154, 1) 17%, #265AB1 100%);
     top: 0;
     z-index: -1;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12), inset 0 -10px 0px 0 rgba(0, 0, 0, .1);
@@ -106,15 +106,17 @@ main {
     height: 40px;
     text-decoration: none;
 }
+
 .paper.download-box .github i {
     margin: 0 10px;
 }
+
 .paper.download-box .github i:last-child {
     margin-left: 20px;
 }
 
 .paper.download-box .license {
-    color: #b3b3b3;
+    color: #B3B3B3;
     font-weight: bold;
     text-align: center;
 }
