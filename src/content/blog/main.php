@@ -1,3 +1,4 @@
+<script>document.title = "DяA | Blog"</script>
 <style>
     header { display: none; }
 

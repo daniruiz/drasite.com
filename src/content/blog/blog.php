@@ -44,4 +44,5 @@
 
 <script>
   history.replaceState('', '', $('article > h1').innerText)
+  document.title = "<?php echo $POST->title ?>"
 </script>
