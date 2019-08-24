@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            @keyframes bounce {
+                0% {
+                    transform: translate(-50%, -55%);
+                }
+
+                100% {
+                    transform: translate(-50%, -45%);
+                }
+            }
+
+            #new {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 30%;
+                padding-top: 30%;
+                background-size: 100%;
+                background-image: url(/img/new.svg);
+                animation: bounce 0.5s cubic-bezier(.5, 0.05, 1, .5) infinite alternate;
+            }
+        </style>
+    </head>
+    <script>
+      window.location !== window.parent.location || (window.onload = () => { document.body.style.background = 'black'})
+    </script>
+    <body>
+        <div id="new"></div>
+    </body>
+</html>
