@@ -51,7 +51,7 @@ do
 		--remove-script-type-attributes \
 		--remove-style-link-type-attributes \
 		--remove-tag-whitespace \
-		$i > "$i".tmp		
+		"$i" > "$i".tmp		
 	mv -f "$i".tmp "$i"
 done
 
