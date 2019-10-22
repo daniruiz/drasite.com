@@ -1,5 +1,5 @@
 <?php
-    include "content/blog/php/Post.php";
+    include 'content/blog/php/Post.php';
     $name_pattern = urldecode(basename(Ethenis::get_path()));
     $POST = Post::from_pattern($name_pattern);
 ?>

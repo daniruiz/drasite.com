@@ -63,8 +63,8 @@
 </style>
 <div id="blog-container">
     <?php
-        include "content/blog/php/Post.php";
-        $post_files = glob("content/blog/posts/????????-*.html");
+        include 'content/blog/php/Post.php';
+        $post_files = glob('content/blog/posts/????????-*.html');
         foreach (array_reverse($post_files) as $file) {
             $post = new Post(basename($file));
             ?>
