@@ -4,43 +4,46 @@ class Post {
     const POSTS_CONTENT_DIR = 'content/blog/posts/';
     const NUM_PREVIEW_PARAGRAPHS = 4;
 
-    private $file;
-    private $date;
-
-    public $datetime;
-    public $date_string;
     public $title;
     public $content;
-    public $preview = '';
+    public $preview;
+    public $date_time;
+    public $date_string;
 
-    public function __construct($file) {
-        $this->file = $file;
-        preg_match('/^(\d{8})-(.+)\.html$/', $this->file, $matches);
-        $this->content = mb_convert_encoding(file_get_contents(self::POSTS_CONTENT_DIR . $this->file), 'HTML-ENTITIES', 'UTF-8');
+    private function __construct ($file) {
+        preg_match('/^(\d{8})-(.+)\.html$/', $file, $matches);
+        $this->content = mb_convert_encoding(
+                file_get_contents(self::POSTS_CONTENT_DIR . $file),
+                'HTML-ENTITIES', 'UTF-8');
         $document = new DOMDocument();
         $document->loadHTML("<body>{$this->content}</body>");
         $children = $document->getElementsByTagName('body')->item(0)->childNodes;
 
-        $i = 0;
+        $paragraphs = 0;
         foreach ($children as $child) {
-            if (!empty($child) && get_class($child) !== 'DOMText') {
-                $this->preview .= $document->saveHTML($child);
-                $i++;
-            }
-            if ($i >= self::NUM_PREVIEW_PARAGRAPHS) break;
+            $this->preview .= $document->saveHTML($child);
+            if (get_class($child) !== 'DOMText') $paragraphs++;
+            if ($paragraphs === self::NUM_PREVIEW_PARAGRAPHS) break;
         }
         list(, $rawDate, $this->title) = $matches;
-        $this->date = new DateTime($rawDate);
-        $this->date_string = $this->date->format('F j, Y');
-        $this->datetime = $this->date->format('Y-m-d');
+        $date = new DateTime($rawDate);
+        $this->date_time = $date->format('Y-m-d');
+        $this->date_string = $date->format('F j, Y');
     }
 
-    public static function from_pattern($title_pattern) {
-        $post_files = array_diff(scandir(self::POSTS_CONTENT_DIR), ['.', '..']);
+    public static function from_url ($url) {
+        $title_pattern = urldecode(basename($url));
+        $post_files = glob(self::POSTS_CONTENT_DIR . '????????-*.html');
         $file = array_pop($post_files);
         foreach ($post_files as $post_file)
             if (preg_match("/\d{8}-.*$title_pattern.*.html/i", $post_file))
                 $file = $post_file;
-        return new self($file);
+        return new self(basename($file));
+    }
+
+    public static function get_posts () {
+        return array_map(function ($post_file) {
+            return new self(basename($post_file));
+        }, array_reverse(glob(self::POSTS_CONTENT_DIR . '????????-*.html')));
     }
 }
