@@ -13,7 +13,8 @@
         "ethenis" : ["ethenis.html"],
         "AI-robot" : ["AI-robot.html"],
         "color-fixer" : ["color-fixer.html"],
-        "dotfiles" : ["dotfiles.html"]
+        "dotfiles" : ["dotfiles.html"],
+        "supporters" : ["supporters.html"]
     },
     "404": "404.html"
 }

@@ -141,6 +141,12 @@
             </a>
         </div>
 
+        <hr class="separator">
+
+        <footer>
+            <a href="/supporters">Supporters</a>
+        </footer>
+
         <a id="support-banner" target="_blank" href="https://www.paypal.me/daniruizdealegria">Consider supporting my
             work with a <span>Donation</span> 😉</a>
 

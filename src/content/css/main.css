@@ -1,3 +1,5 @@
+body { margin-bottom: 100px; }
+
 .paper a.blue-button-link:hover, .paper a.blue-button-link:hover article a.blue-button-link:hover {
     transform: scale(1.02);
     text-decoration: none;
@@ -43,7 +45,6 @@ article img, article video {
 
 #content {
     margin: auto;
-    margin-bottom: 200px;
     text-align: center;
     max-width: 1300px;
 }
@@ -109,6 +110,35 @@ article img, article video {
 #content .github i {
     margin: 0 5px;
 }
+
+footer {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+}
+
+footer a {
+    position: relative;
+    padding: 0 20px;
+    display: inline-block;
+    color: inherit!important;
+}
+
+footer a::before, footer a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: #5c616c;
+    width: 6px;
+    height: 6px;
+    box-shadow: 7px 0 rgba(0, 0, 0, .3);
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+footer a::after { right: 0; }
+footer a::before { left: 0; }
 
 @media screen and (max-width: 570px) {
     .bash {
@@ -258,3 +288,4 @@ body.loading #loading-animation div {
 @media screen and (max-width: 360px) {
     #support-banner { font-size: 12px;}
 }
+
