@@ -291,7 +291,7 @@ body.loading #loading-animation div {
 
 /* Google code-prettify colors */
 
-.prettyprint {
+.prettyprint, pre.prettyprint {
     display: block;
     background-color: transparent;
     padding: 5px 10px;
