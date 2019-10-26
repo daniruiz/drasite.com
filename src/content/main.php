@@ -158,6 +158,9 @@
         <!-- FontAwesome -->
         <link rel="stylesheet" crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 
+        <!-- Google code-prettify -->
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
         <script><?php include "content/js/main.js" ?></script>
     </body>
 </html>

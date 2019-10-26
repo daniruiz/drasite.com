@@ -289,3 +289,22 @@ body.loading #loading-animation div {
     #support-banner { font-size: 12px;}
 }
 
+/* Google code-prettify colors */
+
+pre.prettyprint {
+    display: block;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 4px;
+    overflow: auto;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
+    border: none;
+}
+pre .str { color: #367bf0 }
+pre .kwd { color: #b8174c; font-weight: bold }
+pre .com { color: #49AEE6 }
+pre .typ { color: #19A187; font-weight: bold }
+pre .lit { color: #FD7D00 }
+pre .pun { color: #5c616c }
+pre .pln { color: #5c616c }
+
