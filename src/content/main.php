@@ -47,12 +47,15 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43282075-1"></script>
         <script>
-          window.dataLayer = window.dataLayer || []
+          let host = window.location.hostname;
+          if(host != "localhost") {
+            window.dataLayer = window.dataLayer || []
 
-          function gtag () {dataLayer.push(arguments)}
+            function gtag () {dataLayer.push(arguments)}
 
-          gtag('js', new Date())
-          gtag('config', 'UA-43282075-1')
+            gtag('js', new Date())
+            gtag('config', 'UA-43282075-1')
+          }
         </script>
 
         <!-- OpenDesktop Verification -->
