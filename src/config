@@ -14,5 +14,6 @@
         "AI-robot" : ["AI-robot.html"],
         "color-fixer" : ["color-fixer.html"],
         "dotfiles" : ["dotfiles.html"]
-    }
+    },
+    "404": "404.html"
 }
