@@ -293,18 +293,22 @@ body.loading #loading-animation div {
 
 .prettyprint, pre.prettyprint {
     display: block;
-    background-color: transparent;
+    background-color: #FFF;
     padding: 5px 10px;
     border-radius: 4px;
     overflow: auto;
     box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
     border: none;
 }
-.prettyprint .str { color: #367bf0 }
+.prettyprint .str { color: #367bf0; }
 .prettyprint .kwd { color: #b8174c; font-weight: bold }
-.prettyprint .com { color: #49AEE6 }
+.prettyprint .com { color: #49AEE6; }
 .prettyprint .typ { color: #19A187; font-weight: bold }
-.prettyprint .lit { color: #FD7D00 }
-.prettyprint .pun { color: #5c616c }
-.prettyprint .pln { color: #5c616c }
+.prettyprint .lit { color: #FD7D00; }
+.prettyprint .pun { color: #5c616c; }
+.prettyprint .pln { color: #5c616c; }
+pre .tag { color: #bf2e5e; font-weight: bold }
+pre .atn { color: #19A187; font-weight: bold }
+pre .atv { color: #f9e586; }
+pre .dec { color: #8c42ab; }
 
