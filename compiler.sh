@@ -26,7 +26,7 @@ echo =============================================
 echo
 echo
 
-HTMLFILES=$TARGET/**/*.html
+HTMLFILES="$TARGET/**/*.html $TARGET/content/main.php"
 JSFILES=$TARGET/content/**/*.js
 CSSFILES=$TARGET/**/*.css
 
