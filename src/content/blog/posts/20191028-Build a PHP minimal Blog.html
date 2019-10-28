@@ -1,0 +1,216 @@
+<p>
+    When I was about to create this new fancy blog for my website, I was wondering what would be the easiest way to 
+    implement it without losing much time programming. Moments later, I was doing the same thing I always do when 
+    something could be just straight forward. Using an existing framework? Would you say...
+    <br>
+    ... 🤦‍♂️
+</p>
+<p>
+    Noup! I created my own ultra-minimal framework to handle it. But that is great because now I can blog in my blog 
+    about the blog! 🤯
+    <br>
+    If that makes any sense at all.
+</p>
+<p>
+<p>
+    <br>
+    <img src="/content/blog/posts/media/blog-preview.png">
+    <br>
+</p>
+<hr>
+<br>
+<div class="paper download-box" data-github="PHP-blog">
+    <a href="https://github.com/daniruiz/PHP-blog/archive/master.zip" target="_blank" class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
+    <a href="https://github.com/daniruiz/PHP-blog" target="_blank"><i class="fab fa-github"></i>github.com/daniruiz/PHP-blog</a>
+    <hr>
+    <div class="license">daniruiz/PHP-blog is licensed under the MIT License</div>
+</div>
+<br>
+<hr>
+<br>
+<h2>Let's start defining what we need</h2>
+<p>
+    First of all, I refused to mess around with any database. But on the other hand, I wanted to separate the title 
+    (so that I can use it for a custom URL), store the writing date, and have everything separated and well ordered. 
+    So I decided to store each post in separate files within the same directory, using their names to save the corresponding date and title.
+</p>
+<p>
+    Utilizing this method, this post, for example, would be stored as:<br>
+    <code>20191028-Build a PHP minimal Blog.html</code>
+</p>
+<p>
+	To handle it, I defined a Post class with two main methods (<code>from_url</code> and <code>get_posts</code>) as 
+	described below:
+</p>
+<pre class="prettyprint">
+class Post {
+    const POSTS_CONTENT_DIR = 'posts/'; // Posts directory
+    const NUM_PREVIEW_PARAGRAPHS = 4; // Number of elements for the post preview
+
+    public $title;
+    public $content;
+    public $preview;
+    public $date_time;
+    public $date_string;
+    
+    
+    private function __construct ($file) {
+        // Configure Post data from file
+    }
+    
+    public static function from_url ($url) {
+        // * Get title pattern from $url
+        // * Find closest matching post
+        // * Use newest post as a fallback, instead of 404
+        // * Generate and return corresponding post object
+    }
+    
+    public static function get_posts () {
+        // * Get list of posts from the directory specified in POSTS_CONTENT_DIR
+        // * Return an array containing each corresponding Post instance
+    }
+}
+</pre>
+<h2>Getting into the code</h2>
+<h3>/blog.php</h3>
+<p>
+    This file is used only to print the correspondent post, according to the URL. Once the Post object is defined, the 
+    only thing left to do is writing the information with the desired design.
+</p>
+<pre class="prettyprint">
+&lt;?php
+    include 'php/Post.php';
+    $POST = Post::from_url($_SERVER['REQUEST_URI']);
+?&gt;
+
+&lt;article&gt;
+    &lt;h1&gt;&lt;?php echo $POST-&gt;title ?&gt;&lt;/h1&gt;
+    &lt;time datetime=&quot;&lt;?php echo $POST-&gt;date_time ?&gt;&quot;&gt;
+        &lt;?php echo $POST-&gt;date_string ?&gt;
+    &lt;/time&gt;
+    &lt;br&gt;
+    &lt;?php echo $POST-&gt;content ?&gt;
+&lt;/article&gt;
+</pre>
+<p>
+    Last but not least, configure the server to use the blog.php script for all URLs like <code>/blog/...</code>. 
+    Modifying the .htaccess file, you can achieve it by adding the following lines:
+</p>
+<h4>/.htaccess</h4>
+<pre>
+    RewriteEngine On
+    RewriteBase /
+
+    RewriteRule ^blog blog.php
+</pre>
+<h3>/index.php</h3>
+<p>
+    This file shows a list of the latest blogs, previewing them with their main starting paragraphs. Its functionality 
+    is almost identical to <code>blog.php</code> but iterating through the post array given by 
+    <code>Post::get_posts()</code>
+</p>
+<pre class="prettyprint">
+&lt;?php
+    include 'php/Post.php';
+    $POSTS = Post::get_posts();
+?&gt;
+
+&lt;?php foreach ($POSTS as $post) { ?&gt;
+    &lt;article&gt;
+        &lt;a href=&quot;/blog/&lt;?php echo $post-&gt;title ?&gt;&quot;&gt;
+            &lt;h1&gt;&lt;?php echo $post-&gt;title ?&gt;&lt;/h1&gt;
+        &lt;/a&gt;
+        &lt;time datetime=&quot;&lt;?php echo $post-&gt;date_time ?&gt;&quot;&gt;
+            &lt;?php echo $post-&gt;date_string ?&gt;
+        &lt;/time&gt;
+        &lt;br&gt;
+        &lt;?php echo $post-&gt;preview; ?&gt;
+        &lt;a class=&quot;read-more-button&quot; href=&quot;/blog/&lt;?php echo $post-&gt;title ?&gt;&quot;&gt;
+            Read more ↦
+        &lt;/a&gt;
+    &lt;/article&gt;
+    &lt;hr/&gt;
+&lt;?php } ?&gt;
+</pre>
+<h3>/php/Post.php</h3>
+<p>
+    Finally, here is the Post class complete code, just in case you want to take a look:
+    </p>
+<pre class="prettyprint">
+class Post {
+    const POSTS_CONTENT_DIR = 'posts/';
+    const NUM_PREVIEW_PARAGRAPHS = 4;
+
+    public $title;
+    public $content;
+    public $preview;
+    public $date_time;
+    public $date_string;
+
+    private function __construct ($file) {
+        preg_match('/^(\d{8})-(.+)\.html$/', $file, $matches);
+        $this-&gt;content = mb_convert_encoding(
+                file_get_contents(self::POSTS_CONTENT_DIR . $file),
+                'HTML-ENTITIES', 'UTF-8');
+        $document = new DOMDocument();
+        $document-&gt;loadHTML(&quot;&lt;body&gt;{$this-&gt;content}&lt;/body&gt;&quot;);
+        $children = $document-&gt;getElementsByTagName('body')-&gt;item(0)-&gt;childNodes;
+
+        $paragraphs = 0;
+        foreach ($children as $child) {
+            $this->preview .= $document->saveHTML($child);
+            if (get_class($child) !== 'DOMText') $paragraphs++;
+            if ($paragraphs === self::NUM_PREVIEW_PARAGRAPHS) break;
+        }
+        list(, $rawDate, $this-&gt;title) = $matches;
+        $date = new DateTime($rawDate);
+        $this-&gt;date_time = $date-&gt;format('Y-m-d');
+        $this-&gt;date_string = $date-&gt;format('F j, Y');
+    }
+
+    public static function from_url ($url) {
+        $title_pattern = urldecode(basename($url));
+        $post_files = glob(self::POSTS_CONTENT_DIR . '????????-*.html');
+        $file = array_pop($post_files);
+        foreach ($post_files as $post_file)
+            if (preg_match(&quot;/\d{8}-.*$title_pattern.*.html/i&quot;, $post_file))
+                $file = $post_file;
+        return new self(basename($file));
+    }
+
+    public static function get_posts () {
+        return array_map(function ($post_file) {
+            return new self(basename($post_file));
+        }, array_reverse(glob(self::POSTS_CONTENT_DIR . '????????-*.html')));
+    }
+}
+</pre>
+
+<style>
+    code, pre {
+        padding: 5px 10px;
+        border-radius: 4px;
+        overflow: auto;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
+    }
+
+    code { background: #E6E6E6; }
+
+    pre {
+        background: white;
+        margin: 40px 0;
+    }
+
+    code, code *, pre, pre * {
+        font-size: 12px;
+        font-family: monospace;
+        line-height: 2em;
+        cursor: auto;
+        user-select: text;
+        -webkit-touch-callout: text;
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+    }
+</style>
