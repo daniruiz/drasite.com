@@ -1,0 +1,199 @@
+<p>
+Today Kali Linux 2019.4 just launched, and I'm so excited to announce that, for 
+the last two months, I've been working together with the Kali team developing 
+all its new look. The first noticeable change is the move from Gnome to 
+Xfce as the default desktop. This change was made to make default Kali more 
+comfortable for low resource computers, as it is also commonly used on small 
+ARM devices that don't have as high performance as an average desktop.
+</p>
+<p>
+If you don't want to leave Gnome, don't worry. Kali now offers a Gnome build 
+for you with some of the new desktop themes. As this release was focused on the 
+Xfce DE change, most of the latest changes were intended for this desktop. For 
+next releases, more changes will be available for all kali flavors to get them 
+"close" to a similar user experience no matter the environment you run.
+</p>
+<br>
+<img alt="kali 2019.4 new desktop preview" src="/content/blog/posts/media/kali-2019.4/preview.png">
+<br>
+<h2>Kali 2019.4 Updates</h2>
+2019.4 includes some exciting new updates:
+<ul>
+	<li>A new default desktop environment, Xfce</li>
+	<li>New GTK3 theme (for Gnome and Xfce)</li>
+	<li>Introduction of “Kali Undercover” mode</li>
+	<li>Kali Documentation has a new home and is now Git powered</li>
+	<li>Public Packaging – getting your tools into Kali</li>
+	<li>Kali NetHunter KeX – Full Kali desktop on Android</li>
+	<li>BTRFS during setup</li>
+	<li>Added PowerShell</li>
+	<li>The kernel is upgraded to version 5.3.9</li>
+	<li>… Plus the normal bugs fixes and updates.</li>
+</ul>
+<h2>How to restore the new Kali appearance</h2>
+<p>
+If you are using a previous Kali installation with Xfce, you may want to try 
+the new redesign. This script can be useful as well if you want to revert all 
+the changes you made to your desktop.
+</p>
+<pre>
+    <span class="kw2">rm</span> -rf ~/.config/xfce4
+    <span class="kw2">pkill</span> -u $(<span class="kw2">whoami</span>)
+</pre>
+If you want to restore not only Xfce but all the app settings remove completely 
+<code>~/.config</code>
+<br>
+If you want not only to restore the DE but to completely wipe your user 
+settings and modification remove <code>~/.config</code> <code>~/.cache</code> 
+<code>~/.local</code>
+<br>
+After this you will need to reboot your system to see the changes.
+<h2>Boot menu</h2>
+<img alt="kali 2019.4 boot grub menu theme" src="/content/blog/posts/media/kali-2019.4/grub.png">
+<br>
+<h2>Boot animation</h2>
+<video src="/content/blog/posts/media/kali-2019.4/boot.webm" autoplay loop muted></video>
+<br>
+<h2>Login screen</h2>
+<img alt="Kali 2019.4 login screen lightdm theme" src="/content/blog/posts/media/kali-2019.4/login.png">
+<br>
+<h2>Custom Xfce panel and menu</h2>
+<img alt="Kali 2019.4 custom Xfce panel and menu" src="/content/blog/posts/media/kali-2019.4/panel.png" style="box-shadow:none; filter:drop-shadow(0 5px 30px rgba(0, 0, 0, .3));">
+<br>
+<h2>Dark theme</h2>
+<img alt="Kali 2019.4 desktop dark theme" src="/content/blog/posts/media/kali-2019.4/desktop.png">
+<h2>Light theme</h2>
+<img alt="Kali 2019.4 desktop light theme" src="/content/blog/posts/media/kali-2019.4/desktop-light.png">
+<br>
+<h2>GTK3 and GTK2 themes</h2>
+<img alt="Kali 2019.4 GTK3 and GTK3 themes" src="/content/blog/posts/media/kali-2019.4/demo-gtk.png">
+<br>
+<h2>Color-schemes and Fira Code</h2>
+<div id="color-scheme-variants-preview">
+    <img alt="Kali 2019.4 light color-scheme" src="/content/blog/posts/media/kali-2019.4/color-scheme-light.png">
+    <img alt="Kali 2019.4 dark color-scheme" src="/content/blog/posts/media/kali-2019.4/color-scheme-dark.png">
+</div>
+<p>
+Another cool feature that comes with this new Kali release is the support of 
+Fira Code font for both the text editor and the terminal. Fira Code makes use 
+of font ligatures to join multiple characters into a single logical symbol. 
+Unfortunately, GTK terminals don't support font ligatures, so the default 
+terminal has been replaced with qterminal.
+</p>
+<br>
+<img alt="Kali 2019.4 terminal and editor Fira Code Font"
+		src="/content/blog/posts/media/kali-2019.4/fira-code.png"
+		style="border-radius: 100%; border: 3px solid white;"
+		height="312" width="312">
+<br>
+<hr>
+<br>
+<img alt="Kali 2019.4 undercover mode" src="/content/blog/posts/media/kali-2019.4/undercover.png">
+<br>
+<h2>Undercover Mode</h2>
+<p>
+    NOUP that isn't windows!! Impressed? 😉
+<p>
+<p>
+The picture above shows Kali Linux using the new Undercover Mode that allows 
+you to be unnoticed with just a simple click. When you run it while in normal 
+mode, it will save all your desktop settings and enable this 'incognito' mode 
+to make your desktop look as similar as possible to Windows 10. Opening it 
+again will restore all your previous desktop appearance so that you won't lose 
+any of your beloved customizations.
+</p>
+<br>
+<video src="/content/blog/posts/media/kali-2019.4/undercover.webm" autoplay loop muted></video>
+<br>
+<p>
+Imagine you are working in a public place; hacking with a giant dragon on your 
+wallpaper seems a bit obvious, and people might get curious (or angry). For 
+sure, not the best situation if you want to stay unseen, so the Kali team 
+proposed an undercover mode, and I was encharged of its development. The themes 
+are a modification of <a href="https://github.com/B00merang-Project/Windows-10" target="_blank">Elbullazul Windows 10</a> 
+ones, which I added a script to be able to save and restore all the desktop 
+settings.
+</p>
+<br>
+<h2>Wallpapers</h2>
+<p>
+<h3>Here you have it 😌, all the new Kali 2019.4 Wallpapers uncompressed and in 4k 
+resolution</h3>
+</p>
+<img alt="kali 2019.4 wallpapers kali-logo" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-logo.png">
+<img alt="kali 2019.4 wallpapers kali-light" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-light.png">
+<img alt="kali 2019.4 wallpapers kali-small-logo" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-small-logo.png">
+<img alt="kali 2019.4 wallpapers kali-black" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-black.png">
+<img alt="kali 2019.4 wallpapers kali-blue-matrix" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-blue-matrix.png">
+<img alt="kali 2019.4 wallpapers kali-rings" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-rings.png">
+<img alt="kali 2019.4 wallpapers kali-grid" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-grid.png">
+
+<style>
+    article { font-size: 18px; }
+    article p { max-width: 800px; }
+    :not(#blog-container) article { max-width: 1000px; }
+    :not(#blog-container) article > img { transition: transform .2s; }
+    :not(#blog-container) article > img:active {
+        transform: scale(1.5);
+        z-index: 1;
+    }
+    
+    code, pre {
+        padding: 5px 10px;
+        border-radius: 4px;
+        overflow: auto;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
+    }
+
+    code { background: #E6E6E6; }
+
+    pre {
+        background: white;
+        margin: 40px 0;
+    }
+
+    code, code *, pre, pre * {
+        font-size: 12px;
+        font-family: monospace;
+        line-height: 2em;
+        cursor: auto;
+        user-select: text;
+        -webkit-touch-callout: text;
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+    }
+    
+    pre .kw2 {
+        color: #B8174C;
+        font-weight: bold;
+    }
+
+    @keyframes color-scheme-variants-preview-animation {
+        0%, 100%, 35% {
+            opacity: 1;
+        }
+        50%, 85% {
+            opacity: 0;
+        }
+    }
+
+    #color-scheme-variants-preview  {
+        position: relative;
+        margin: 60px 0;
+    }
+
+    #color-scheme-variants-preview img {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        box-shadow: none;
+        opacity: 0;
+        animation: color-scheme-variants-preview-animation 10s infinite;
+    }
+
+    #color-scheme-variants-preview  img:first-child { position: static; }
+
+    #color-scheme-variants-preview img:nth-child(2) { animation-delay: -5s; }
+</style>
