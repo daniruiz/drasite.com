@@ -16,6 +16,7 @@ class Post {
                 file_get_contents(self::POSTS_CONTENT_DIR . $file),
                 'HTML-ENTITIES', 'UTF-8');
         $document = new DOMDocument();
+        libxml_use_internal_errors(true);
         $document->loadHTML("<body>{$this->content}</body>");
         $children = $document->getElementsByTagName('body')->item(0)->childNodes;
 
