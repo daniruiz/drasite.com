@@ -142,8 +142,9 @@ article img, article video {
 
 #blog-preview-container article > h1,
 #blog-preview-container article > a > h1 {
-    margin: 0;
+    margin: 10px 0;
     font-size: 30px;
+    line-height: 40px;
 }
 
 #blog-preview-container article > a:hover { text-decoration: none !important; }
