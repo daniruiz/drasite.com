@@ -1,2 +1,2 @@
 $$ = query => document.querySelectorAll(query)
-$ = query => $$(query)[0]
+$ = query => document.querySelector(query) || undefined

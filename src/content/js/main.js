@@ -24,12 +24,15 @@
   const loadProjectLinkGithubInfo = () => {
     let { repos } = JSON.parse(localStorage.getItem('github'))
     repos.forEach(function (obj) {
-      let e = $(`#content a[data-github="${obj.name}"]`)
-      if (e !== undefined) e.innerHTML = `
-        <a class="github">
-            <i class="far fa-heart"></i>${obj.stargazers_count}<i class="fas fa-code-branch"></i>${obj.forks}
-        </a>
-        ${e.innerHTML}`
+      $$(`#content a[data-github="${obj.name}"]`).forEach(e => {
+        if (e !== undefined) {
+          e.innerHTML = `
+                <a class="github">
+                    <i class="far fa-heart"></i>${obj.stargazers_count}<i class="fas fa-code-branch"></i>${obj.forks}
+                </a>
+                ${e.innerHTML}`
+        }
+      })
     })
   }
 
