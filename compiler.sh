@@ -33,7 +33,7 @@ CSSFILES=$TARGET/**/*.css
 for i in $HTMLFILES; do
 	echo Minifying HTML: $i
 	html-minifier \
-		--ignore-custom-fragments "(<{ [^}>]* }>)|(<\?php((?!\?>).\n?)*\?>)" \
+		--ignore-custom-fragments "(<{ [^}>]* }>)|(<\?php(.|\n)+?\?>)" \
 		--remove-comments \
 		--minify-css \
 		--minify-js \
