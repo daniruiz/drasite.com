@@ -110,17 +110,17 @@
                         </div>
                         <h4>Flat Remix GTK theme</h4>
                     </a>
-                    <a class="paper __eth-link" href="/flat-remix-kde" data-github="flat-remix-kde">
-                        <div class="project-img">
-                            <img src="/img/flat-remix-kde.jpg" alt="Flat Remix KDE themes">
-                        </div>
-                        <h4>Flat Remix KDE themes</h4>
-                    </a>
                     <a class="paper __eth-link" href="/flat-remix-css" data-github="flat-remix-css">
                         <div class="project-img">
                             <img src="/img/flat-remix-css.jpg" alt="Flat Remix css library">
                         </div>
                         <h4>Flat Remix CSS Library</h4>
+                    </a>
+                    <a class="paper __eth-link" href="/dotfiles" data-github="dotfiles">
+                        <div class="project-img">
+                            <img src="/img/dotfiles.svg" alt="~/.dotfiles">
+                        </div>
+                        <h4>~/.dotfiles</h4>
                     </a>
                     <a class="paper __eth-link" href="/AI-robot" data-github="Cleaning-Robot-AI">
                         <div class="project-img">
@@ -128,11 +128,11 @@
                         </div>
                         <h4>Neural network with genetic algorithms</h4>
                     </a>
-                    <a class="paper __eth-link" href="/dotfiles" data-github="dotfiles">
+                    <a class="paper __eth-link" href="/flat-remix-kde" data-github="flat-remix-kde">
                         <div class="project-img">
-                            <img src="/img/dotfiles.svg" alt="~/.dotfiles">
+                            <img src="/img/flat-remix-kde.jpg" alt="Flat Remix KDE themes">
                         </div>
-                        <h4>~/.dotfiles</h4>
+                        <h4>Flat Remix KDE themes</h4>
                     </a>
                     <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
                         <div class="project-img">
