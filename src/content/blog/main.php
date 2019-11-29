@@ -5,7 +5,10 @@
 
 <script>document.title = "DяA | Blog"</script>
 
-<style><?php include "content/blog/css/blog.css" ?></style>
+<style>
+    header { display: none }
+    <?php include "content/blog/css/blog.css" ?>
+</style>
 
 <div id="blog-container">
     <?php foreach ($POSTS as $post) { ?>

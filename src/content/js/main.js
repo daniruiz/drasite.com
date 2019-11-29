@@ -1,4 +1,4 @@
-!function () {
+(function () {
   const getGithubAPIInfo = (forceFetch = false) => {
     if (forceFetch) return fetch('https://api.github.com/users/daniruiz/repos')
       .then(response => response.json())
@@ -29,8 +29,7 @@
         <a class="github">
             <i class="far fa-heart"></i>${obj.stargazers_count}<i class="fas fa-code-branch"></i>${obj.forks}
         </a>
-        ${e.innerHTML}
-      `
+        ${e.innerHTML}`
     })
   }
 
@@ -83,5 +82,18 @@
     startGithubBannerLoader()
     loadProjectLinkGithubInfo()
   })
-}()
+
+  __ETHENIS.onLoad = (prevOnLoad => () => {
+    if (typeof prevOnLoad === 'function') prevOnLoad()
+    $('#blog-preview-container').style.display = 'block'
+    $$('.projects-preview')[0].style.display = 'block'
+    $$('.projects-preview')[1].style.display = 'none'
+    if (location.pathname === '/blog')
+      $('#blog-preview-container').style.display = 'none'
+    if (/^\/blog\/.+$/.test(location.pathname)) {
+      $$('.projects-preview')[0].style.display = 'none'
+      $$('.projects-preview')[1].style.display = 'block'
+    }
+  })(__ETHENIS.onLoad)
+})()
 

@@ -1,6 +1,5 @@
-header { display: none; }
-
-article {
+#blog-container article,
+article#blog-post-container {
     max-width: 650px;
     padding: 20px;
     margin: auto;
@@ -8,11 +7,16 @@ article {
     font-size: 15px;
 }
 
-article > h1, article > a > h1 { margin: 25px 0 15px; }
+#blog-container article > h1,
+#blog-container article > a > h1,
+article#blog-post-container > h1,
+article#blog-post-container > a > h1 { margin: 25px 0 15px; }
 
-article > a:hover { text-decoration: none !important; }
+#blog-container article > a:hover,
+article#blog-post-container > a:hover { text-decoration: none !important; }
 
-article > a.read-more-button {
+#blog-container article > a.read-more-button,
+article#blog-post-container > a.read-more-button {
     line-height: 42px;
     border-radius: 100px;
     text-align: center;
@@ -25,18 +29,21 @@ article > a.read-more-button {
     width: 120px;
 }
 
-article > a.read-more-button:hover {
+#blog-container article > a.read-more-button:hover,
+article#blog-post-container > a.read-more-button:hover {
     transform: scale(1.05);
     text-decoration: none;
 }
 
-article time {
+#blog-container article time,
+article#blog-post-container time {
     background-color: #eee;
     border: solid 1px #ddd;
     border-radius: 3px;
 }
 
-article time::before {
+#blog-container article time::before,
+article#blog-post-container time::before {
     content: '';
     width: 16px;
     height: 16px;
@@ -50,7 +57,8 @@ article time::before {
     top: -1px;
 }
 
-article img {
+#blog-container article img,
+article#blog-post-container img {
     box-shadow: 0 5px 30px 0 rgba(0,0,0,.3);
     margin: 40px auto;
     display: block;
@@ -58,7 +66,8 @@ article img {
     max-width: 100%;
 }
 
-#blog-container > hr {
+#blog-container > hr,
+#blog-post-container > hr {
     width: 0;
     box-shadow: 0 7px rgba(0, 0, 0, .3);
 }
