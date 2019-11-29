@@ -79,14 +79,14 @@ article img, article video {
     margin: 20px;
 }
 
-.content-img {
+.projects-preview .project-img {
     height: 390px;
     display: block;
     line-height: 390px;
     background: white;
 }
 
-.content-img img {
+.projects-preview .project-img img {
     width: 100%;
     display: inline-block;
     vertical-align: middle;
@@ -111,6 +111,23 @@ article img, article video {
 
 .projects-preview .github i {
     margin: 0 5px;
+}
+
+@media screen and (max-width: 980px) and (min-width: 450px) {
+    .projects-preview .paper {
+        width: 200px;
+        height: 385px;
+    }
+
+    .projects-preview .project-img {
+        height: 260px;
+        line-height: 260px;
+    }
+
+    .projects-preview h4 {
+        font-size: 20px;
+        line-height: 30px;
+    }
 }
 
 #blog-preview-container > h1 { text-align: center }
