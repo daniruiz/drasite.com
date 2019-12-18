@@ -37,15 +37,17 @@ the new redesign. This script can be useful as well if you want to revert all
 the changes you made to your desktop.
 </p>
 <pre>
-    <span class="kw2">rm</span> -rf ~/.config/xfce4
-    <span class="kw2">pkill</span> -u $(<span class="kw2">whoami</span>)
+<span class="kw2">rm</span> -rf ~/.config/xfce4
+<span class="kw2">pkill</span> -u $(<span class="kw2">whoami</span>)
 </pre>
-If you want to restore not only Xfce but all the app settings remove completely 
-<code>~/.config</code>
-<br>
-If you want not only to restore the DE but to completely wipe your user 
-settings and modification remove <code>~/.config</code> <code>~/.cache</code> 
-<code>~/.local</code>
+<p>
+    If you want to restore not only Xfce but all the app settings remove 
+    completely <code>~/.config</code>
+    <br>
+    If you want not only to restore the DE but to completely wipe your user 
+    settings and modification remove <code>~/.config</code> 
+    <code>~/.cache</code> <code>~/.local</code>
+</p>
 <br>
 After this you will need to reboot your system to see the changes.
 <h2>Boot menu</h2>
@@ -127,7 +129,7 @@ resolution</h3>
 <img alt="kali 2019.4 wallpapers kali-grid" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-grid.png">
 
 <style>
-    article { font-size: 18px; }
+    article#blog-post-container { font-size: 18px; }
     article p { max-width: 800px; }
     :not(#blog-container) article { max-width: 1000px; }
     :not(#blog-container) article > img { transition: transform .2s; }
@@ -135,35 +137,13 @@ resolution</h3>
         transform: scale(1.5);
         z-index: 1;
     }
-    
-    code, pre {
-        padding: 5px 10px;
-        border-radius: 4px;
-        overflow: auto;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
-    }
 
-    code { background: #E6E6E6; }
-
-    pre {
-        background: white;
-        margin: 40px 0;
+    article#blog-post-container pre {
+        max-width: 400px;
+        padding: 20px 40px;
+        line-height: 30px;
     }
-
-    code, code *, pre, pre * {
-        font-size: 12px;
-        font-family: monospace;
-        line-height: 2em;
-        cursor: auto;
-        user-select: text;
-        -webkit-touch-callout: text;
-        -webkit-user-select: text;
-        -khtml-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-    }
-    
-    pre .kw2 {
+    article#blog-post-container pre .kw2 {
         color: #B8174C;
         font-weight: bold;
     }
@@ -177,12 +157,12 @@ resolution</h3>
         }
     }
 
-    #color-scheme-variants-preview  {
+    article#blog-post-container #color-scheme-variants-preview  {
         position: relative;
         margin: 60px 0;
     }
 
-    #color-scheme-variants-preview img {
+    article#blog-post-container #color-scheme-variants-preview img {
         margin: 0;
         position: absolute;
         top: 0;
@@ -191,7 +171,7 @@ resolution</h3>
         animation: color-scheme-variants-preview-animation 10s infinite;
     }
 
-    #color-scheme-variants-preview  img:first-child { position: static; }
+    article#blog-post-container #color-scheme-variants-preview  img:first-child { position: static; }
 
-    #color-scheme-variants-preview img:nth-child(2) { animation-delay: -5s; }
+    article#blog-post-container #color-scheme-variants-preview img:nth-child(2) { animation-delay: -5s; }
 </style>
