@@ -39,37 +39,36 @@
     <code>20191028-Build a PHP minimal Blog.html</code>
 </p>
 <p>
-	To handle it, I defined a Post class with two main methods (<code>from_url</code> and <code>get_posts</code>) as 
-	described below:
+    To handle it, I defined a Post class with two main methods (<code>from_url</code> and <code>get_posts</code>) as 
+    described below:
 </p>
-<pre class="prettyprint">
-class Post {
-    const POSTS_CONTENT_DIR = 'posts/'; // Posts directory
-    const NUM_PREVIEW_PARAGRAPHS = 4; // Number of elements for the post preview
+<pre class="prettyprint"><span class="kwd">class</span><span class="pln"> </span><span class="typ">Post</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">const</span><span class="pln"> POSTS_CONTENT_DIR </span><span class="pun">=</span><span class="pln"> </span><span class="str">'posts/'</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Posts directory</span><span class="pln">
+    </span><span class="kwd">const</span><span class="pln"> NUM_PREVIEW_PARAGRAPHS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span><span class="pln"> </span><span class="com">// Number of elements for the post preview</span><span class="pln">
 
-    public $title;
-    public $content;
-    public $preview;
-    public $date_time;
-    public $date_string;
+    </span><span class="kwd">public</span><span class="pln"> $title</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $content</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $preview</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $date_time</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $date_string</span><span class="pun">;</span><span class="pln">
     
     
-    private function __construct ($file) {
-        // Configure Post data from file
-    }
+    </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> __construct </span><span class="pun">(</span><span class="pln">$file</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Configure Post data from file</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
     
-    public static function from_url ($url) {
-        // * Get title pattern from $url
-        // * Find closest matching post
-        // * Use newest post as a fallback, instead of 404
-        // * Generate and return corresponding post object
-    }
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> from_url </span><span class="pun">(</span><span class="pln">$url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// * Get title pattern from $url</span><span class="pln">
+        </span><span class="com">// * Find closest matching post</span><span class="pln">
+        </span><span class="com">// * Use newest post as a fallback, instead of 404</span><span class="pln">
+        </span><span class="com">// * Generate and return corresponding post object</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
     
-    public static function get_posts () {
-        // * Get list of posts from the directory specified in POSTS_CONTENT_DIR
-        // * Return an array containing each corresponding Post instance
-    }
-}
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> get_posts </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// * Get list of posts from the directory specified in POSTS_CONTENT_DIR</span><span class="pln">
+        </span><span class="com">// * Return an array containing each corresponding Post instance</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
 </pre>
 <h2>Getting into the code</h2>
 <h3>/blog.php</h3>
@@ -77,21 +76,19 @@ class Post {
     This file is used only to print the correspondent post, according to the URL. Once the Post object is defined, the 
     only thing left to do is writing the information with the desired design.
 </p>
-<pre class="prettyprint">
-&lt;?php
-    include 'php/Post.php';
-    $POST = Post::from_url($_SERVER['REQUEST_URI']);
-?&gt;
+<pre class="prettyprint prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+    include </span><span class="str">'php/Post.php'</span><span class="pun">;</span><span class="pln">
+    $POST </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Post</span><span class="pun">::</span><span class="pln">from_url</span><span class="pun">(</span><span class="pln">$_SERVER</span><span class="pun">[</span><span class="str">'REQUEST_URI'</span><span class="pun">]);</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
 
-&lt;article&gt;
-    &lt;h1&gt;&lt;?php echo $POST-&gt;title ?&gt;&lt;/h1&gt;
-    &lt;time datetime=&quot;&lt;?php echo $POST-&gt;date_time ?&gt;&quot;&gt;
-        &lt;?php echo $POST-&gt;date_string ?&gt;
-    &lt;/time&gt;
-    &lt;br&gt;
-    &lt;?php echo $POST-&gt;content ?&gt;
-&lt;/article&gt;
-</pre>
+</span><span class="tag">&lt;article&gt;</span><span class="pln">
+    </span><span class="tag">&lt;h1&gt;</span><span class="pun">&lt;?</span><span class="pln">php echo $POST</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">?&gt;</span><span class="tag">&lt;/h1&gt;</span><span class="tag">
+    &lt;time</span> <span class="atn">datetime=</span><span class="atv">"</span><span class="pun">&lt;?</span><span class="pln">php echo $POST</span><span class="pun">-&gt;</span><span class="pln">date_time </span><span class="pun">?&gt;</span><span class="atv">"</span><span class="tag">&gt;</span>
+        <span class="pun">&lt;?</span><span class="pln">php echo $POST</span><span class="pun">-&gt;</span><span class="pln">date_string </span><span class="pun">?&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/time&gt;</span><span class="pln">
+    </span><span class="tag">&lt;br&gt;</span><span class="pln">
+    </span><span class="pun">&lt;?</span><span class="pln">php echo $POST</span><span class="pun">-&gt;</span><span class="pln">content </span><span class="pun">?&gt;</span><span class="pln">
+</span><span class="tag">&lt;/article&gt;</span></pre>
 <p>
     Last but not least, configure the server to use the blog.php script for all URLs like <code>/blog/...</code>. 
     Modifying the .htaccess file, you can achieve it by adding the following lines:
@@ -109,82 +106,78 @@ class Post {
     is almost identical to <code>blog.php</code> but iterating through the post array given by 
     <code>Post::get_posts()</code>
 </p>
-<pre class="prettyprint">
-&lt;?php
-    include 'php/Post.php';
-    $POSTS = Post::get_posts();
-?&gt;
+<pre class="prettyprint prettyprinted" style=""><span class="pun">&lt;?</span><span class="pln">php
+    include </span><span class="str">'php/Post.php'</span><span class="pun">;</span><span class="pln">
+    $POSTS </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Post</span><span class="pun">::</span><span class="pln">get_posts</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">?&gt;</span><span class="pln">
 
-&lt;?php foreach ($POSTS as $post) { ?&gt;
-    &lt;article&gt;
-        &lt;a href=&quot;/blog/&lt;?php echo $post-&gt;title ?&gt;&quot;&gt;
-            &lt;h1&gt;&lt;?php echo $post-&gt;title ?&gt;&lt;/h1&gt;
-        &lt;/a&gt;
-        &lt;time datetime=&quot;&lt;?php echo $post-&gt;date_time ?&gt;&quot;&gt;
-            &lt;?php echo $post-&gt;date_string ?&gt;
-        &lt;/time&gt;
-        &lt;br&gt;
-        &lt;?php echo $post-&gt;preview; ?&gt;
-        &lt;a class=&quot;read-more-button&quot; href=&quot;/blog/&lt;?php echo $post-&gt;title ?&gt;&quot;&gt;
+</span><span class="pun">&lt;?</span><span class="pln">php </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$POSTS </span><span class="kwd">as</span><span class="pln"> $post</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="pln">
+    </span><span class="tag">&lt;article&gt;</span><span class="tag">
+        &lt;a</span><span class="atn"> href=</span><span class="atv">"/blog/</span><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">?&gt;</span><span class="pln"><span class="atv">"</span><span class="tag">&gt;</span>
+            </span><span class="tag">&lt;h1&gt;</span><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">?&gt;</span><span class="tag">&lt;/h1&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/a&gt;</span><span class="tag">
+        &lt;time</span> <span class="atn">datetime=</span><span class="atv">"</span><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">date_time </span><span class="pun">?&gt;</span><span class="atv">"<span class="atn">&gt;</span>
+            </span><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">date_string </span><span class="pun">?&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/time&gt;</span><span class="pln">
+        </span><span class="tag">&lt;br&gt;</span><span class="pln">
+        </span><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">preview</span><span class="pun">;</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="tag">
+        &lt;a</span> <span class="atn">class=</span><span class="atv">"read-more-button"</span> <span class="atn">href=</span><sapn class="atv">"/blog/</sapn><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">?&gt;</span><span class="atv">"</span><span class="tag">&gt;</span><span>
             Read more ↦
-        &lt;/a&gt;
-    &lt;/article&gt;
-    &lt;hr/&gt;
-&lt;?php } ?&gt;
-</pre>
+        </span><span class="tag">&lt;/a&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/article&gt;</span><span class="pln">
+    </span><span class="tag">&lt;hr/&gt;</span><span class="pln">
+</span><span class="pun">&lt;?</span><span class="pln">php </span><span class="pun">}</span><span class="pln"> </span><span class="pun">?&gt;</span></pre>
 <h3>/php/Post.php</h3>
 <p>
     Finally, here is the Post class complete code, just in case you want to take a look:
     </p>
-<pre class="prettyprint">
-class Post {
-    const POSTS_CONTENT_DIR = 'posts/';
-    const NUM_PREVIEW_PARAGRAPHS = 4;
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">class</span><span class="pln"> </span><span class="typ">Post</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">const</span><span class="pln"> POSTS_CONTENT_DIR </span><span class="pun">=</span><span class="pln"> </span><span class="str">'posts/'</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">const</span><span class="pln"> NUM_PREVIEW_PARAGRAPHS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">;</span><span class="pln">
 
-    public $title;
-    public $content;
-    public $preview;
-    public $date_time;
-    public $date_string;
+    </span><span class="kwd">public</span><span class="pln"> $title</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $content</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $preview</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $date_time</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> $date_string</span><span class="pun">;</span><span class="pln">
 
-    private function __construct ($file) {
-        preg_match('/^(\d{8})-(.+)\.html$/', $file, $matches);
-        $this-&gt;content = mb_convert_encoding(
-                file_get_contents(self::POSTS_CONTENT_DIR . $file),
-                'HTML-ENTITIES', 'UTF-8');
-        $document = new DOMDocument();
-        $document-&gt;loadHTML(&quot;&lt;body&gt;{$this-&gt;content}&lt;/body&gt;&quot;);
-        $children = $document-&gt;getElementsByTagName('body')-&gt;item(0)-&gt;childNodes;
+    </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> __construct </span><span class="pun">(</span><span class="pln">$file</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        preg_match</span><span class="pun">(</span><span class="str">'/^(\d{8})-(.+)\.html$/'</span><span class="pun">,</span><span class="pln"> $file</span><span class="pun">,</span><span class="pln"> $matches</span><span class="pun">);</span><span class="pln">
+        $this</span><span class="pun">-&gt;</span><span class="pln">content </span><span class="pun">=</span><span class="pln"> mb_convert_encoding</span><span class="pun">(</span><span class="pln">
+                file_get_contents</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">::</span><span class="pln">POSTS_CONTENT_DIR </span><span class="pun">.</span><span class="pln"> $file</span><span class="pun">),</span><span class="pln">
+                </span><span class="str">'HTML-ENTITIES'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'UTF-8'</span><span class="pun">);</span><span class="pln">
+        $document </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DOMDocument</span><span class="pun">();</span><span class="pln">
+        $document</span><span class="pun">-&gt;</span><span class="pln">loadHTML</span><span class="pun">(</span><span class="str">"&lt;body&gt;{$this-&gt;content}&lt;/body&gt;"</span><span class="pun">);</span><span class="pln">
+        $children </span><span class="pun">=</span><span class="pln"> $document</span><span class="pun">-&gt;</span><span class="pln">getElementsByTagName</span><span class="pun">(</span><span class="str">'body'</span><span class="pun">)-&gt;</span><span class="pln">item</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)-&gt;</span><span class="pln">childNodes</span><span class="pun">;</span><span class="pln">
 
-        $paragraphs = 0;
-        foreach ($children as $child) {
-            $this->preview .= $document->saveHTML($child);
-            if (get_class($child) !== 'DOMText') $paragraphs++;
-            if ($paragraphs === self::NUM_PREVIEW_PARAGRAPHS) break;
-        }
-        list(, $rawDate, $this-&gt;title) = $matches;
-        $date = new DateTime($rawDate);
-        $this-&gt;date_time = $date-&gt;format('Y-m-d');
-        $this-&gt;date_string = $date-&gt;format('F j, Y');
-    }
+        $paragraphs </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$children </span><span class="kwd">as</span><span class="pln"> $child</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            $this</span><span class="pun">-&gt;</span><span class="pln">preview </span><span class="pun">.=</span><span class="pln"> $document</span><span class="pun">-&gt;</span><span class="pln">saveHTML</span><span class="pun">(</span><span class="pln">$child</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">get_class</span><span class="pun">(</span><span class="pln">$child</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="str">'DOMText'</span><span class="pun">)</span><span class="pln"> $paragraphs</span><span class="pun">++;</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$paragraphs </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">::</span><span class="pln">NUM_PREVIEW_PARAGRAPHS</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        list</span><span class="pun">(,</span><span class="pln"> $rawDate</span><span class="pun">,</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">title</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> $matches</span><span class="pun">;</span><span class="pln">
+        $date </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DateTime</span><span class="pun">(</span><span class="pln">$rawDate</span><span class="pun">);</span><span class="pln">
+        $this</span><span class="pun">-&gt;</span><span class="pln">date_time </span><span class="pun">=</span><span class="pln"> $date</span><span class="pun">-&gt;</span><span class="pln">format</span><span class="pun">(</span><span class="str">'Y-m-d'</span><span class="pun">);</span><span class="pln">
+        $this</span><span class="pun">-&gt;</span><span class="pln">date_string </span><span class="pun">=</span><span class="pln"> $date</span><span class="pun">-&gt;</span><span class="pln">format</span><span class="pun">(</span><span class="str">'F j, Y'</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
 
-    public static function from_url ($url) {
-        $title_pattern = urldecode(basename($url));
-        $post_files = glob(self::POSTS_CONTENT_DIR . '????????-*.html');
-        $file = array_pop($post_files);
-        foreach ($post_files as $post_file)
-            if (preg_match(&quot;/\d{8}-.*$title_pattern.*.html/i&quot;, $post_file))
-                $file = $post_file;
-        return new self(basename($file));
-    }
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> from_url </span><span class="pun">(</span><span class="pln">$url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $title_pattern </span><span class="pun">=</span><span class="pln"> urldecode</span><span class="pun">(</span><span class="pln">basename</span><span class="pun">(</span><span class="pln">$url</span><span class="pun">));</span><span class="pln">
+        $post_files </span><span class="pun">=</span><span class="pln"> glob</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">::</span><span class="pln">POSTS_CONTENT_DIR </span><span class="pun">.</span><span class="pln"> </span><span class="str">'????????-*.html'</span><span class="pun">);</span><span class="pln">
+        $file </span><span class="pun">=</span><span class="pln"> array_pop</span><span class="pun">(</span><span class="pln">$post_files</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$post_files </span><span class="kwd">as</span><span class="pln"> $post_file</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">preg_match</span><span class="pun">(</span><span class="str">"/\d{8}-.*$title_pattern.*.html/i"</span><span class="pun">,</span><span class="pln"> $post_file</span><span class="pun">))</span><span class="pln">
+                $file </span><span class="pun">=</span><span class="pln"> $post_file</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">(</span><span class="pln">basename</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">));</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
 
-    public static function get_posts () {
-        return array_map(function ($post_file) {
-            return new self(basename($post_file));
-        }, array_reverse(glob(self::POSTS_CONTENT_DIR . '????????-*.html')));
-    }
-}
-</pre>
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> get_posts </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> array_map</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$post_file</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">(</span><span class="pln">basename</span><span class="pun">(</span><span class="pln">$post_file</span><span class="pun">));</span><span class="pln">
+        </span><span class="pun">},</span><span class="pln"> array_reverse</span><span class="pun">(</span><span class="pln">glob</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">::</span><span class="pln">POSTS_CONTENT_DIR </span><span class="pun">.</span><span class="pln"> </span><span class="str">'????????-*.html'</span><span class="pun">)));</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
 
 <style>
     code, pre {

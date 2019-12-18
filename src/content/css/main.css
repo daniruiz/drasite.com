@@ -396,8 +396,8 @@ body.loading #loading-animation div {
 .prettyprint .lit { color: #FD7D00; }
 .prettyprint .pun { color: #5c616c; }
 .prettyprint .pln { color: #5c616c; }
-pre .tag { color: #bf2e5e; font-weight: bold }
-pre .atn { color: #19A187; font-weight: bold }
-pre .atv { color: #f9e586; }
-pre .dec { color: #8c42ab; }
+.prettyprint .tag { color: #bf2e5e; font-weight: bold }
+.prettyprint .atn { color: #19A187; font-weight: bold }
+.prettyprint .atv { color: #fd7d00; }
+.prettyprint .dec { color: #8c42ab; }
 
