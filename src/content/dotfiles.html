@@ -90,10 +90,24 @@
         border-radius: 3px;
         line-height: 1.5em;
     }
+    
+    #terminal-colorscheme span {
+        color: white;
+        padding: 5px;
+        font-family: monospace;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .3);
+        display: inline-block;
+    }
 
     #color-scheme-preview {
         position: relative;
         margin: 60px 0;
+    }
+
+    #terminal-colorscheme-script, #terminal-colorscheme-script * {
+        font-weight: bold;
+        background: white;
+        font-size: 16px;
     }
 
     @keyframes color-scheme-preview-animation {
@@ -207,8 +221,8 @@
         <li>zsh</li>
         <li>zsh extensions:</li>
         <ul>
-        	<li><a href="https://github.com/zsh-users/zsh-autosuggestions">autosuggestions</a></li>
-        	<li><a href="https://github.com/zsh-users/zsh-syntax-highlighting">syntax-highlighting</a></li>
+            <li><a href="https://github.com/zsh-users/zsh-autosuggestions">autosuggestions</a></li>
+            <li><a href="https://github.com/zsh-users/zsh-syntax-highlighting">syntax-highlighting</a></li>
         </ul>
         <li><a href="https://github.com/Powerlevel9k/powerlevel9k">Powerlevel9k</a> / <a href="https://github.com/romkatv/powerlevel10k">Powerlevel10k</a></li>
         <li><a href="https://github.com/Peltoche/lsd">lsd</a></li>
@@ -216,6 +230,15 @@
     <br/>
     <img src="/img/dotfiles-terminal-preview.jpg" alt="terminal preview">
     <br/>
+    <h3>Terminal color scheme</h3>
+    <div class="selectable" id="terminal-colorscheme">
+        <span style="background-color:#1F2229;border-top-left-radius:3px">#1F2229</span><span style="background-color:#D41919">#D41919</span><span style="background-color:#5EBDAB">#5EBDAB</span><span style="background-color:#FEA44C">#FEA44C</span><span style="background-color:#367bf0">#367bf0</span><span style="background-color:#BF2E5D">#BF2E5D</span><span style="background-color:#49AEE6">#49AEE6</span><span style="background-color:#E6E6E6;color:black;border-top-right-radius:3px">#E6E6E6</span>
+        <br>
+        <span style="background-color:#8C42AB;border-bottom-left-radius:3px">#8C42AB</span><span style="background-color:#EC0101">#EC0101</span><span style="background-color:#47D4B9">#47D4B9</span><span style="background-color:#FF8A18">#FF8A18</span><span style="background-color:#277FFF">#277FFF</span><span style="background-color:#D71655">#D71655</span><span style="background-color:#05A1F7">#05A1F7</span><span style="background-color:#FFFFFF;color:black;border-bottom-right-radius:3px">#FFFFFF</span>
+    </div>
+    <br>
+    <h6>You can easily install this color-scheme on your terminal by running the following command:</h6>
+    <code id="terminal-colorscheme-script"><span style="color:#5EBDAB">bash</span> -c <span style="color:#FEA44C">&quot;</span><span style="color:#49AEE6">$</span><span style="color:#FEA44C">(curl -sLo- https://git.io/JvvDs)&quot;</span></code>
     <h3>Editor color scheme</h3>
     <div id="color-scheme-preview">
         <img src="/img/dotfiles-editor-preview-light.jpg" alt="Flat Remix editor light color scheme">
