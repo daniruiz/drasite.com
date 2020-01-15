@@ -1,0 +1,565 @@
+<img src="/content/blog/posts/media/pimp-my-term/pimp-my-term.svg"
+    style="box-shadow:none"
+    alt="pimp my term!">
+<p>
+As a Linux user, I enjoy working with the terminal, and I find it an especially 
+powerful tool. Therefore, I've spent quite a long time customizing it, and here 
+is my definitive guide for terminal customizations.
+</p>
+<p>
+First I thought I would only create a short post with some of the tweaks I 
+like. But I had so many things I wanted to show that this started to become a 
+considerably long post. So I've decided to publish it now, with as many tips as 
+I can write, and I'll be updating it with new tips & tricks.
+</p>
+<img src="/img/dotfiles-terminal-preview.jpg" alt="terminal preview">
+<br>
+<p>
+If you want to download my configuration files, check my `~/.dotfiles` 
+repository.  Notice that there I save my own configuration files, and some 
+of them might not work out of the box for you, but following this guide, you'll be able 
+to customize everything on your taste.
+</p>
+<br>
+<div class="paper download-box" data-github="dotfiles">
+    <a href="https://github.com/daniruiz/dotfiles/archive/master.zip" target="_blank"
+       class="with-shadow blue-button-link">↧ Download DяA's dotfiles</a>
+    <a href="https://github.com/daniruiz/dotfiles"
+       target="_blank">
+        <i class="fab fa-github"></i> github.com/daniruiz/dotfiles
+    </a>
+</div>
+<br>
+<p>
+If you find anything from this post that could be improved, or know about other 
+settings that may be cool enough to also include them, don't hesitate to 
+contact me via email (daniel@drasite.com) or opening an issue on my GitHub 
+dotfiles repository.
+</p>
+<br>
+<h2>Index</h2>
+<ol>
+    <li><a href="#patched-fonts">Patched Fonts</a></li>
+    <li><a href="#colorizing-the-terminal">Colorizing the terminal</a></li>
+    <ol>
+        <li><a href="#color-scheme">Color Scheme</a></li>
+        <li><a href="#some-aliases">Some aliases</a></li>
+        <li><a href="#man-pages">Man pages</a></li>
+        <li><a href="#ls-from-the-future">LS from the future</a></li>
+        <li><a href="#top-from-the-future">TOP from the future</a></li>
+    </ol>
+    <li><a href="#bash-customizations">Bash customizations</a></li>
+    <ol>
+        <li><a href="#custom-prompt">Custom prompt</a></li>
+        <li><a href="#completion-plugin">Completion Plugin</a></li>
+        <li><a href="#enable-globstar">Enable Globstar</a></li>
+    </ol>
+    <li><a href="#zsh-customizations">Zsh customizations</a></li>
+    <ol>
+        <li><a href="#configure-keybindings">Configure keybindings</a></li>
+        <li><a href="#misc-settings">Misc settings</a></li>
+        <li><a href="#powerlevel">Powerlevel</a></li>
+        <li><a href="#useful-plugins">Useful plugins</a></li>
+    </ol>
+    <li><a href="#other-customizations">Other customizations</a></li>
+</ol>
+<br><br>
+<h2 id="patched-fonts">1. Patched Fonts</h2>
+I want to start talking about patched fonts as many of the customizations that 
+I'll be explaining later may depend on them. Patched fonts consist of regular 
+fonts to which some additional symbols have been added. That way, you can show 
+special icons (such as your OS icon), or add new shapes to your prompt.
+<p>
+The most successful project is nerd-fonts, which includes many of the most used 
+fonts, and also a DIY patcher, in case you want a different one. My favorite 
+font from this project is <code>HACK bold</code>.
+</p>
+<a href="https://www.nerdfonts.com" target="_blank"><h3>Nerd Fonts</h3></a>
+<blockquote>
+Nerd Fonts is a project that patches developer targeted fonts with a high 
+number of glyphs (icons). Specifically to add a high number of extra glyphs 
+from popular 'iconic fonts' such as Font Awesome, Devicons, Octicons, and 
+others.
+</blockquote>
+<img src="/content/blog/posts/media/pimp-my-term/nerd-fonts.svg"
+    style="box-shadow:none"
+    alt="nerd fonts diagram">
+<br><br><hr><br><br>
+<h2 id="colorizing-the-terminal">2. Colorizing the terminal</h2>
+<h3 id="color-scheme">2.1. Color Scheme</h3>
+<p>
+On the way to the definitive terminal, there is nothing that improves its looks 
+more than customizing its color-scheme, so this will be our start point. 
+Searching on the Internet, you'll be able to find plenty of themes, but the 
+easiest way to apply them is using 
+<a href="http://mayccoll.github.io/Gogh/" target="_blank">Gogh</a>. This tool 
+doesn't require any installation and allows you to pick your favorite colors 
+from a long list of different prebuilt schemes.
+</p>
+<p>
+This is the list of compatible terminals:
+<br>
+<code>Gnome Terminal</code>, <code>Pantheon Terminal</code>, <code>Tilix</code> and <code>XFCE4 Terminal</code>. It also works on <code>iTerm for macOS</code>
+</p>
+<pre style="font-weight:bold"><span style="color:#5EBDAB">bash</span> -c <span style="color:#FEA44C">&quot;</span><span style="color:#49AEE6">$</span><span style="color:#FEA44C">(curl -sLo- https://git.io/vQgMr)&quot;</span></pre>
+<img src="/content/blog/posts/media/pimp-my-term/gogh.png"
+    alt="gogh script preview">
+<h4>Flat Remix</h4>
+<p>
+The color-scheme that I'll be utilizing in all the screenshots is based on 
+the color palette used for Flat Remix icon theme, which I personally love 😍.
+</p>
+<p>
+If you also like it, you can manually copy it from the following box, or run the
+ command below for an automatized installation (notice that the script is based 
+ on Gohg and, therefore, will only work if you are using a compatible terminal).
+</p>
+<div class="selectable" id="terminal-colorscheme">
+    <span style="background-color:#1F2229;border-top-left-radius:3px">#1F2229</span><span style="background-color:#D41919">#D41919</span><span style="background-color:#5EBDAB">#5EBDAB</span><span style="background-color:#FEA44C">#FEA44C</span><span style="background-color:#367bf0">#367bf0</span><span style="background-color:#BF2E5D">#BF2E5D</span><span style="background-color:#49AEE6">#49AEE6</span><span style="background-color:#E6E6E6;color:black;border-top-right-radius:3px">#E6E6E6</span>
+    <br>
+    <span style="background-color:#8C42AB;border-bottom-left-radius:3px">#8C42AB</span><span style="background-color:#EC0101">#EC0101</span><span style="background-color:#47D4B9">#47D4B9</span><span style="background-color:#FF8A18">#FF8A18</span><span style="background-color:#277FFF">#277FFF</span><span style="background-color:#D71655">#D71655</span><span style="background-color:#05A1F7">#05A1F7</span><span style="background-color:#FFFFFF;color:black;border-bottom-right-radius:3px">#FFFFFF</span>
+</div>
+<br>
+<h5>Install Flat Remix color-scheme:</h5>
+<pre style="font-weight:bold"><span style="color:#5EBDAB">bash</span> -c <span style="color:#FEA44C">&quot;</span><span style="color:#49AEE6">$</span><span style="color:#FEA44C">(curl -sLo- https://git.io/JvvDs)&quot;</span></pre>
+<br><br>
+<h3 id="some-aliases">2.2. Some aliases</h3>
+<p>
+Some of the commands you already have installed, in fact, do support color 
+highlighting, for example: ls, grep, and diff. In case you want these commands 
+always to have the color option enabled, you can write aliases in your terminal 
+configuration file (.bashrc / .zshrc) to force them.
+</p>
+<pre class="prettyprint"><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'ls --color=auto'</span><span class="pln">
+</span><span class="kwd">alias</span><span class="pln"> grep</span><span class="pun">=</span><span class="str">'grep --color=auto'</span><span class="pln">
+</span><span class="kwd">alias</span><span class="pln"> fgrep</span><span class="pun">=</span><span class="str">'fgrep --color=auto'</span><span class="pln">
+</span><span class="kwd">alias</span><span class="pln"> egrep</span><span class="pun">=</span><span class="str">'egrep --color=auto'</span><span class="pln">
+</span><span class="kwd">alias</span><span class="pln"> diff</span><span class="pun">=</span><span class="str">'diff --color=auto'</span></pre>
+<p>
+You can replace as well some common commands with newer, more colorful 
+utilities. Just keep in mind, when using aliases for this purpose, that you may 
+be overriding a useful tool with another one that you may not have installed. 
+This can be especially important if you are using the same dotfiles for 
+multiple machines, where you may not have the same packages. To avoid this, 
+you can program the alias so that it'll be only configured in case the needed 
+command is available:
+</p>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v </span><span class="str">&lt;new_command&gt;</span><span class="pln"> </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span>null<span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> </span><span class="pun">&lt;...&gt;=&lt;...&gt;</span></pre>
+<br><br>
+<h3 id="man-pages">2.3. Man pages</h3>
+<p>
+Man pages support coloring too, which makes them so much visually pleasing. For it, <code>man</code> uses a bunch of variables where you can configure the color escape sequences you want to use.
+</p>
+<pre class="prettyprint"><span class="kwd">export</span><span class="pln"> LESS_TERMCAP_mb</span><span class="pun">=</span><span class="pln">$</span><span class="str">'\e[1;32m'</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> LESS_TERMCAP_md</span><span class="pun">=</span><span class="pln">$</span><span class="str">'\e[1;32m'</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> LESS_TERMCAP_me</span><span class="pun">=</span><span class="pln">$</span><span class="str">'\e[0m'</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> LESS_TERMCAP_se</span><span class="pun">=</span><span class="pln">$</span><span class="str">'\e[0m'</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> LESS_TERMCAP_so</span><span class="pun">=</span><span class="pln">$</span><span class="str">'\e[01;33m'</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> LESS_TERMCAP_ue</span><span class="pun">=</span><span class="pln">$</span><span class="str">'\e[0m'</span><span class="pln">
+</span><span class="kwd">export</span><span class="pln"> LESS_TERMCAP_us</span><span class="pun">=</span><span class="pln">$</span><span class="str">'\e[1;4;31m'</span></pre>
+<img src="/content/blog/posts/media/pimp-my-term/man-pages.png"
+    alt="colorized man pages"
+    style="box-shadow:none">
+<br><br>
+<h3 id="ls-from-the-future">2.4. LS from the future</h3>
+<img src="/content/blog/posts/media/pimp-my-term/lsd.png" alt="lsd command preview">
+<a href="https://github.com/athityakumar/colorls" target="_blank"><h4>COLORLS</h4></a>
+<blockquote>
+A Ruby CLI gem that beautifies the terminal's <code>ls</code> command, with color and 
+font-awesome icons.
+</blockquote>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v colorls </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'colorls --sd --gs'</span></pre>
+<a href="https://github.com/Peltoche/lsd" target="_blank"><h4>LSD</h4></a>
+<blockquote>The next gen ls command.</blockquote>
+<blockquote>
+This project is heavily inspired by the super colorls project but with some 
+little differences. For example it is written in rust and not in ruby which 
+makes it much faster.
+</blockquote>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v lsd </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'lsd --group-dirs first'</span></pre>
+<br><br>
+<h3 id="top-from-the-future">2.5. TOP from the future</h3>
+<h4>HTOP</h4>
+<img src="/content/blog/posts/media/pimp-my-term/htop.png"
+    alt="htop"
+    style="box-shadow:none">
+<blockquote>
+<code>htop</code> is an interactive system-monitor process-viewer and 
+process-manager. It is designed as an alternative to the Unix program top. 
+It shows a frequently updated list of the processes running on a computer, 
+normally ordered by the amount of CPU usage. Unlike top, htop provides a full 
+list of processes running, instead of the top resource-consuming processes. 
+htop uses color and gives visual information about processor, swap and memory 
+status. htop can also display the processes as a tree.
+</blockquote>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v htop </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'htop'</span></pre>
+<a href="https://github.com/cjbassi/gotop" target="_blank"><h4>GOTOP</h4></a>
+<img src="/content/blog/posts/media/pimp-my-term/gotop.png"
+    alt="htop"
+    style="box-shadow:none">
+<blockquote>
+Another terminal based graphical activity monitor, inspired by gtop and vtop, 
+this time written in Go!
+</blockquote>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v gotop </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'gotop -p'</span></pre>
+<br><br><hr><br><br>
+<h2 id="bash-customizations">3. Bash customizations</h2>
+<p>
+Bash (<b>B</b>ourne-<b>a</b>gain <b>sh</b>ell) is the most popular shell 
+program and comes preinstalled on many Unix-based operating systems. It may not 
+be the most customizable shell available, but it does support prompt 
+customizations using color codes and escape sequences.
+</p>
+<p>
+In case you are using this shell and want to save some of the settings provided 
+in this post, you can write them to your local <code>.bashrc</code> file so 
+that they are executed before the interactive shell is launched.
+</p>
+<h3 id="custom-prompt">3.1.Custom prompt</h3>
+<p>
+Bash uses a variable named PS1 to store the prompt code. This value is readen every time 
+it needs to be written again, in order to maintain its output updated. Therefore, 
+you can override the default prompt by setting a new string to PS1.
+</p>
+<p>
+For bash, I usually like to have a clean prompt with some coloring, only 
+showing the current relative directory. Here is my personal configuration:
+</p>
+<pre class="prettyprint">PS1=<span class="str">" \[\033[1;36m\]\w >\[\033[1;34m\]>\[\033[0m\] "</span></pre>
+<img src="/content/blog/posts/media/pimp-my-term/bash-prompt.png"
+    alt="custom bash prompt">
+<p>But, if you prefer, you can create some more complex prompts as well:</p>
+<pre class="prettyprint">PS1=<span class="str">"\n \[\033[0;34m\]┌─────(\[\033[1;35m\]\u\[\033[0;34m\])─────(\[\033[1;32m\]\w\[\033[0;34m\]) \n └> \[\033[1;36m\]\$ \[\033[0m\]"</span></pre>
+<img src="/content/blog/posts/media/pimp-my-term/bash-powerline-prompt.png"
+    alt="powerline like bash prompt">
+<h4>Powerline like bash prompt</h4>
+<p>
+In case you installed a patched font as described before, now you'll be able to 
+use any kind of symbols for building your prompt. These fonts include many 
+powerline symbols that allow you to fully customize your terminal without 
+having to install any external plugin.
+</p>
+<pre class="prettyprint">
+OS_ICON=
+PS1=<span class="str">"\n \[\033[0;34m\]╭─────\[\033[0;31m\]\[\033[0;37m\]\[\033[41m\] $OS_ICON \u \[\033[0m\]\[\033[0;31m\]\[\033[0;34m\]─────\[\033[0;32m\]\[\033[0;30m\]\[\033[42m\] \w \[\033[0m\]\[\033[0;32m\] \n \[\033[0;34m\]╰ \[\033[1;36m\]\$ \[\033[0m\]"</span>
+</pre>
+<img src="/content/blog/posts/media/pimp-my-term/bash-powerline-prompt-patched-font.png"
+    alt="powerline like bash prompt with patched font">
+<br>
+<p>
+You can even make it look like you are using Zsh with Powerlevel9k installed, 
+just by tweaking the PS1 variable!
+</p>
+<pre class="prettyprint">
+OS_ICON=
+PS1=<span class="str">"\n \[\033[0;34m\]╭─\[\033[0;31m\]\[\033[0;37m\]\[\033[41m\] $OS_ICON \u \[\033[0m\]\[\033[0;31m\]\[\033[44m\]\[\033[0;34m\]\[\033[44m\]\[\033[0;30m\]\[\033[44m\] \w \[\033[0m\]\[\033[0;34m\] \n \[\033[0;34m\]╰ \[\033[1;36m\]\$ \[\033[0m\]"</span>
+</pre>
+<img src="/content/blog/posts/media/pimp-my-term/bash-powerline-prompt-patched-font-2.png"
+    alt="powerline like bash prompt with patched font">
+<br>
+<p>
+In case you want to create your own personalized prompt below you'll find all 
+the color codes and some of the most used escape sequences to build it.
+</p>
+<h4>Color codes</h4>
+<pre>
+    <span style="color:black">"\[\033[0m\]"     # no colors (reset)</span>
+    <span style="color:#1F2229">"\[\033[0;30m\]"    # black</span>
+    <span style="color:#D41919">"\[\033[0;31m\]"    # red</span>
+    <span style="color:#5EBDAB">"\[\033[0;32m\]"    # green</span>
+    <span style="color:#FEA44C">"\[\033[0;33m\]"    # yellow</span>
+    <span style="color:#367bf0">"\[\033[0;34m\]"    # blue</span>
+    <span style="color:#BF2E5D">"\[\033[0;35m\]"    # magenta</span>
+    <span style="color:#49AEE6">"\[\033[0;36m\]"    # cyan</span>
+    <span style="color:#E6E6E6;background-color:#1F2229">"\[\033[37m\]"    # white</span>
+
+    # emphasized (bolded) colors
+    <span style="font-weight:bold;color:#1F2229">"\[\033[1;30m\]"    # black</span>
+    <span style="font-weight:bold;color:#EC0101">"\[\033[1;31m\]"    # red</span>
+    <span style="font-weight:bold;color:#47D4B9">"\[\033[1;32m\]"    # green</span>
+    <span style="font-weight:bold;color:#FF8A18">"\[\033[1;33m\]"    # yellow</span>
+    <span style="font-weight:bold;color:#277FFF">"\[\033[1;34m\]"    # blue</span>
+    <span style="font-weight:bold;color:#D71655">"\[\033[1;35m\]"    # magenta</span>
+    <span style="font-weight:bold;color:#05A1F7">"\[\033[1;36m\]"    # cyan</span>
+    <span style="font-weight:bold;color:#FFFFFF;background-color:black">"\[\033[1;37m\]"    # white</span>
+
+    # background colors
+    <span style="background-color:#1F2229;color:white">"\[\033[40m\]"    # black   </span>
+    <span style="background-color:#D41919;color:white">"\[\033[41m\]"    # red     </span>
+    <span style="background-color:#5EBDAB;color:white">"\[\033[42m\]"    # green   </span>
+    <span style="background-color:#FEA44C;color:white">"\[\033[43m\]"    # yellow  </span>
+    <span style="background-color:#367bf0;color:white">"\[\033[44m\]"    # blue    </span>
+    <span style="background-color:#BF2E5D;color:white">"\[\033[45m\]"    # magenta </span>
+    <span style="background-color:#49AEE6;color:white">"\[\033[46m\]"    # cyan    </span>
+    <span style="background-color:#E6E6E6;color:black">"\[\033[47m\]"    # white   </span>
+</pre>
+<h4>Common prompt escape sequences</h4>
+<a href="https://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html" target="_blank">View the complete list</a>
+<pre>
+    \d     the date  in  "Weekday  Month  Date"  format
+           (e.g., "Tue May 26")
+    \h     the hostname
+    \j     the  number of jobs currently managed by the shell
+    \n     a newline
+    \t     the current time
+    \u     the username
+    \w     the current working directory
+    \W     the basename of the current working direc­tory
+    \$     if the effective UID is 0, a #, otherwise  a $
+</pre>
+<br><br>
+<h3 id="completion-plugin">3.2.Completion Plugin</h3>
+<p>
+Bash completion is a functionality through which bash helps users type their 
+commands faster and easier. It accomplishes that by presenting possible options 
+when users press the tab key while typing a command.
+</p>
+<p>
+Once you have it installed, you can enable it by adding the following lines to 
+your <code>~/.bashrc</code> file:
+</p>
+<pre class="prettyprint"><span class="kwd">if</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="pun">-</span><span class="pln">f </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">share</span><span class="pun">/</span><span class="pln">bash</span><span class="pun">-</span><span class="pln">completion</span><span class="pun">/</span><span class="pln">bash_completion </span><span class="pun">];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+    </span><span class="pun">.</span><span class="pln"> </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">share</span><span class="pun">/</span><span class="pln">bash</span><span class="pun">-</span><span class="pln">completion</span><span class="pun">/</span><span class="pln">bash_completion
+</span><span class="kwd">elif</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="pun">-</span><span class="pln">f </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">bash_completion </span><span class="pun">];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+    </span><span class="pun">.</span><span class="pln"> </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">bash_completion
+</span><span class="kwd">fi</span></pre>
+<br><br>
+<h3 id="enable-globstar">3.3.Enable Globstar <code>**</code></h3>
+<code>shopt -s globstar</code>
+<p>
+Globstar option enables the <code>**</code> pattern, which works pretty similar 
+to the single * but in a recursive way, so it can look in all directories and 
+subdirectories for matches.
+</p>
+<blockquote>
+When the globstar shell option is enabled, and <code>*</code> is used in a pathname 
+expansion context, two adjacent *s <code>**</code> used as a single pattern 
+will match all files and zero or more directories and subdirectories. If 
+followed by a <code>/</code>, two adjacent *s will match only directories and 
+subdirectories.
+</blockquote>
+<br><br><hr><br><br>
+<h2 id="zsh-customizations">4. Zsh customizations</h2>
+<p>
+Zsh is a much more configurable shell with tons of plugins and themes that will 
+make your terminal look awesome and even improve your workflow. For this shell 
+customization possibilities are almost limitless, so now I'll simply explain 
+the settings and themes I use.
+</p>
+<p>
+One key difference of Zsh is that it doesn't come with preconfigured settings 
+as other shells like bash or fish, so I would suggest copying some of my 
+settings as a starting point, particularly if you are installing it for the 
+first time.
+</p>
+<p>
+If you are using this shell and want to save some of the settings provided 
+in this post, you can write them to your local <code>.zshrc</code> file so 
+that they are executed before the interactive shell is launched.
+</p>
+<h3 id="configure-keybindings">4.1. Configure Keybindings</h3>
+<p>
+One of the first things I quickly noticed using Zsh is that many of the keys 
+and shortcuts that I was used to, coming from bash, wouldn't work at all or 
+resulted in unexpected behaviors. Even <code>END</code> and <code>HOME</code> 
+keys didn't work. So here you have all the keybinding configuration I use:
+</p>
+<pre class="prettyprint">
+    <span class="kwd">bindkey</span> <span class="str">'^[[2~'</span> overwrite-mode
+    <span class="kwd">bindkey</span> <span class="str">'^[[3~'</span> delete-char
+    <span class="kwd">bindkey</span> <span class="str">'^[[H'</span> beginning-of-line
+    <span class="kwd">bindkey</span> <span class="str">'^[[1~'</span> beginning-of-line
+    <span class="kwd">bindkey</span> <span class="str">'^[[F'</span> end-of-line
+    <span class="kwd">bindkey</span> <span class="str">'^[[4~'</span> end-of-line
+    <span class="kwd">bindkey</span> <span class="str">'^[[1;5C'</span> forward-word
+    <span class="kwd">bindkey</span> <span class="str">'^[[1;5D'</span> backward-word
+    <span class="kwd">bindkey</span> <span class="str">'^[[3;5~'</span> kill-word
+</pre>
+<h3 id="misc-settings">4.2. Misc settings</h3>
+<p>
+This is only a list of my personal settings, just in case they help you:
+</p>
+<pre class="prettyprint">
+    <span class="kwd">unsetopt</span> NO_BEEP
+    <span class="kwd">unsetopt</span> NO_MATCH
+    <span class="kwd">unsetopt</span> AUTO_CD
+    <span class="kwd">unsetopt</span> BEEP
+    <span class="kwd">unsetopt</span> NOMATCH
+    <span class="kwd">unsetopt</span> NOTIFY
+    <span class="kwd">unsetopt</span> INC_APPEND_HISTORY
+    <span class="kwd">unsetopt</span> SHARE_HISTORY
+    <span class="kwd">unsetopt</span> HIST_EXPIRE_DUPS_FIRST
+    <span class="kwd">unsetopt</span> HIST_IGNORE_DUPS
+    <span class="kwd">unsetopt</span> HIST_IGNORE_ALL_DUPS
+    <span class="kwd">unsetopt</span> HIST_FIND_NO_DUPS
+    <span class="kwd">unsetopt</span> HIST_SAVE_NO_DUPS
+    <span class="kwd">unsetopt</span> HIST_REDUCE_BLANKS
+    <span class="kwd">unsetopt</span> HIST_VERIFY
+    <span class="kwd">unsetopt</span> HIST_BEEP
+    <span class="kwd">unsetopt</span> INTERACTIVE_COMMENTS
+    <span class="kwd">unsetopt</span> MAGIC_EQUAL_SUBST
+
+    <span class="kwd">autoload</span> compinit && compinit
+</pre>
+<h3 id="powerlevel">4.3. Powerlevel</h3>
+<h4><a href="https://github.com/Powerlevel9k/powerlevel9k" target="_blank">POWERLEVEL9K</a> / <a href="https://github.com/romkatv/powerlevel10k" target="_blank">POWERLEVEL10K</a></h4>
+<blockquote>
+There are a number of Powerline ZSH themes available, now. The developers of this theme focus on four primary goals:
+    <ol>
+        <li>Give users a great out-of-the-box configuration with no additional configuration required.</li>
+        <li>Make customization easy for users who do want to tweak their prompt.</li>
+        <li>Provide useful segments that you can enable to make your prompt even more effective and helpful. We have prompt segments for everything from unit test coverage to your AWS instance.</li>
+        <li>Optimize the code for execution speed as much as possible. A snappy terminal is a happy terminal.</li>
+    </ol>
+</blockquote>
+<p>
+POWERLEVEL10K is just a fast reimplementation of POWERLEVEL9K. Which one you 
+use is up to you. I can imagine some features may still not be available for 
+POWERLEVEL10K, but as far as I can tell, both work flawlessly. 10K's even 
+maintains the same variable names <code>POWERLEVEL9K_...</code>, so you won't 
+need to port them.
+</p>
+<p>
+One thing that I love from POWERLEVEL10K is that, if you have yet no 
+configuration, when you launch it the first time, it will show you a guide 
+asking your preferences. During this process, it shows multiple examples, 
+making it so much easy to tweak.
+<p>
+<img src="/content/blog/posts/media/pimp-my-term/zsh-powerlevel.png"
+    alt="zsh powerlevel9k/10k prompt">
+<pre class="prettyprint"><span class="pln">POWERLEVEL9K_MODE</span><span class="pun">=</span><span class="pln">nerdfont</span><span class="pun">-</span><span class="pln">complete
+POWERLEVEL9K_PROMPT_ON_NEWLINE</span><span class="pun">=</span><span class="pln">true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE</span><span class="pun">=</span><span class="pln">true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH</span><span class="pun">=</span><span class="lit">2</span><span class="pln">
+POWERLEVEL9K</span><span class="pun">=</span><span class="pln">truncate_beginning
+POWERLEVEL9K_TIME_BACKGROUND</span><span class="pun">=</span><span class="pln">black
+POWERLEVEL9K_TIME_FOREGROUND</span><span class="pun">=</span><span class="pln">white
+POWERLEVEL9K_TIME_FORMAT</span><span class="pun">=%</span><span class="pln">D</span><span class="pun">{%</span><span class="pln">I</span><span class="pun">:%</span><span class="pln">M</span><span class="pun">}</span><span class="pln">
+POWERLEVEL9K_STATUS_VERBOSE</span><span class="pun">=</span><span class="pln">false
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND</span><span class="pun">=</span><span class="pln">black
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND</span><span class="pun">=</span><span class="pln">green
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND</span><span class="pun">=</span><span class="pln">black
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND</span><span class="pun">=</span><span class="pln">yellow
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND</span><span class="pun">=</span><span class="pln">white
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND</span><span class="pun">=</span><span class="pln">black
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND</span><span class="pun">=</span><span class="pln">black
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND</span><span class="pun">=</span><span class="pln">blue
+POWERLEVEL9K_FOLDER_ICON</span><span class="pun">=</span><span class="pln">
+POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE</span><span class="pun">=</span><span class="pln">true
+POWERLEVEL9K_STATUS_VERBOSE</span><span class="pun">=</span><span class="pln">false
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
+POWERLEVEL9K_VCS_UNTRACKED_ICON</span><span class="pun">=●</span><span class="pln">
+POWERLEVEL9K_VCS_UNSTAGED_ICON</span><span class="pun">=±</span><span class="pln">
+POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON</span><span class="pun">=↓</span><span class="pln">
+POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON</span><span class="pun">=↑</span><span class="pln">
+POWERLEVEL9K_VCS_COMMIT_ICON</span><span class="pun">=</span><span class="str">' '</span><span class="pln">
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX</span><span class="pun">=</span><span class="str">'%F{blue}╭─%F{red}'</span><span class="pln">
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX</span><span class="pun">=</span><span class="str">'%F{blue}╰%f '</span><span class="pln">
+POWERLEVEL9K_CUSTOM_OS_ICON</span><span class="pun">=</span><span class="str">'echo   $(whoami) '</span><span class="pln">
+POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND</span><span class="pun">=</span><span class="pln">red
+POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND</span><span class="pun">=</span><span class="pln">white
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span><span class="pun">=(</span><span class="pln">custom_os_icon ssh root_indicator dir dir_writable vcs</span><span class="pun">)</span><span class="pln">
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span><span class="pun">=(</span><span class="pln">command_execution_time status background_jobs time ram</span><span class="pun">)</span><span class="pln">
+
+ZLE_RPROMPT_INDENT</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
+
+</span><span class="com"># ---- load powerlevel ---</span><span class="pln">
+<span class="com">## For POWERLEVEL10K</span>
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+<span class="com">## For POWERLEVEL9K
+#source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme</span>
+</pre>
+<br><br>
+<h3 id="useful-plugins">4.4. Useful plugins</h3>
+<p>
+For Zsh many people usually installs some kind of configuration framework such 
+as "Oh My Zsh", which can be really useful (I guess...), but I prefer to do it 
+manually. It isn't something complicated, you just need to install the plugin 
+you want and then <code>source</code> it in your local <code>~/.zshrc</code> 
+config file. Speaking about the installation, you can do it manually, just 
+downloading the plugin and copying it to the directory you want, or using a package 
+manager, which commonly installs the plugin inside 
+<code>/usr/share/zsh/plugins/</code>.
+</p>
+<a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank"><h4>Autosuggestions</h4></a>
+<blockquote>
+Fish-like fast/unobtrusive autosuggestions for Zsh.
+<br>
+It suggests commands as you type based on history and completions.
+</blockquote>
+<img src="/content/blog/posts/media/pimp-my-term/zsh-autosuggestions.png"
+    alt="zsh autosuggestions plugin">
+<pre class="prettyprint"><span class="kwd">source</span> /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</pre>
+<a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank"><h4>Syntax highlighting</h4></a>
+<blockquote>
+This package provides syntax highlighting for the shell Zsh. It enables 
+highlighting of commands whilst they are typed at a Zsh prompt into an 
+interactive terminal. This helps in reviewing commands before running them, 
+particularly in catching syntax errors.
+</blockquote>
+<img src="/content/blog/posts/media/pimp-my-term/zsh-syntax-highlighting.png"
+    alt="zsh syntax highlighting plugin">
+<pre class="prettyprint">
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE<span class="pun">=</span><span class="str">'fg=#ccc'</span><span class="pln">
+<span class="kwd">source</span> /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</pre>
+<br><br><hr><br><br>
+<h2 id="other-customizations">5. Other customizations</h2>
+<p>
+To finalize this post, I'll be dropping here some scripts and settings that 
+help me optimize my workflow.
+</p>
+<h3>Useful functions</h3>
+<h4>Find shortcut</h4>
+<code>find &lt;str&gt;</code>
+<p>
+Similar to <code>locate</code>, this function allows you to search files 
+recursively, but it only shows matches placed within the current directory. The 
+script overrides the original find command adding this useful shortcut, which 
+can be used by writing <code>find</code> followed by the string you want to 
+use. Vanilla <code>find</code> command needs more than one parameter to be able to 
+return useful results, so this modification won't alter its functionality, 
+therefore, you will still be able to use it normally as well.
+</p>
+<pre class="prettyprint"><span class="kwd">function</span><span class="pln"> find</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> $</span><span class="com"># = 1 ];</span><span class="pln">
+    </span><span class="kwd">then</span><span class="pln">
+        command find </span><span class="pun">.</span><span class="pln"> </span><span class="pun">-</span><span class="pln">iname </span><span class="str">"*$@*"</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+        command find </span><span class="str">"$@"</span><span class="pln">
+    </span><span class="kwd">fi</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h4>LazyGit</h4>
+<code>lazygit "&lt;Message&gt;"</code>
+<p>
+In case you use <code>git</code>, this function will save you some extra 
+commands. Running it will preview and add to git's cache all the changes from 
+the current directory. Following this, they will be committed using the 
+provided message and pushed to the current branch.
+</p>
+<pre class="prettyprint"><span class="kwd">function</span><span class="pln"> lazygit</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    git status </span><span class="pun">.</span><span class="pln">
+    git </span><span class="kwd">add</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
+    git commit </span><span class="pun">-</span><span class="pln">m </span><span class="str">"$1"</span><span class="pln">
+    git push origin HEAD
+</span><span class="pun">}</span></pre>
+<style>
+    #terminal-colorscheme span {
+        color: #fff;
+        padding: 5px;
+        font-family: monospace;
+        box-shadow: 0 5px 30px 0 rgba(0,0,0,.3);
+        display: inline-block;
+    }
+
+    blockquote {
+      display: block;
+      background-color: #FFF;
+      padding: 5px 10px;
+      border-radius: 4px;
+      box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
+      border-left: 6px solid #49AEE6;
+    }
+</style>
+
