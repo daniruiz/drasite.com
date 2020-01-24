@@ -1,7 +1,26 @@
+<img src="/content/blog/posts/media/kali-2020.1/kali-gnome-preview.png" alt="kali 2020.1 gnome desktop">
 <br>
+<h2>Terminal tweaks</h2>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.1/kali-terminal-old.png" alt="kali 2019.4 old terminal" data-content="old">
+    <img src="/content/blog/posts/media/kali-2020.1/kali-terminal-new.png" alt="kali 2020.1 new terminal" data-content="new" style="box-shadow:none;filter:drop-shadow(0 5px 30px rgba(0,0,0,.3));">
+</div>
+<h2>GNOME shell themes</h2>
+<img src="/content/blog/posts/media/kali-2020.1/kali-gnome-dark.png" alt="kali 2020.1 gnome-shell dark theme">
+<img src="/content/blog/posts/media/kali-2020.1/kali-gnome-light.png" alt="kali 2020.1 gnome-shell light theme">
+<img src="/content/blog/posts/media/kali-2020.1/kali-gnome-overview-dark.png" alt="kali 2020.1 gnome-shell overview dark theme">
+<img src="/content/blog/posts/media/kali-2020.1/kali-gnome-overview-light.png" alt="kali 2020.1 gnome-shell overview light theme">
+<h2>New icons</h2>
 <div id="icons"></div>
+<img src="/content/blog/posts/media/kali-2020.1/kali-menu.png" alt="kali 2020.1 xfce menu new icons" style="transform:none">
 <br>
-
+<h2>Kali-Undercover updates</h2>
+<img src="/content/blog/posts/media/kali-2020.1/kali-undercover.png" alt="kali 2020.1 kali-undercover updates">
+<h2>Kali 2020.1 GUI installer</h2>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.1/kali-gui-installer-old.png" alt="kali old gui installer theme">
+    <img src="/content/blog/posts/media/kali-2020.1/kali-gui-installer-new.png" alt="kali new gui installer theme">
+</div>
 
 <style>
     article#blog-post-container #icons {
@@ -40,6 +59,64 @@
             padding: 3.5em .35em;
         }
     }
+
+    :not(#blog-container) article > img { transition: transform .2s; }
+    :not(#blog-container) article > img:active {
+        transform: scale(1.5);
+        z-index: 1;
+    }
+
+    @keyframes carousel {
+        0%, 100%, 35% {
+            opacity: 1;
+        }
+        50%, 85% {
+            opacity: 0;
+        }
+    }
+    .carousel {
+        position: relative;
+        margin: 60px 0;
+    }
+    .carousel > img {
+        margin: 0!important;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        animation: 10s carousel infinite;
+    }
+    .carousel img:first-child { position: static; }
+    .carousel img:nth-child(2) { animation-delay: -5s; }
+    @keyframes carousel-progress {
+        0%, 75%, 100% {
+            width: 0;
+            opacity: .5;
+        }
+        70% {
+            width: 80%;
+            opacity: 1;
+        }
+    }
+    .carousel::after, .carousel::before {
+        content: '';
+        display: block;
+        width: 80%;
+        height: 3px;
+        border-radius: 10px;
+        background: white;
+        position: absolute;
+        bottom: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: .2;
+        box-shadow: 0 0 10px black;
+        z-index: 1;
+    }
+    .carousel::before {
+        animation: 5s carousel-progress linear infinite;
+    }
+
+</style>
 </style>
 <script>
   __ETHENIS.onLoadOnce = () => {
@@ -129,7 +206,6 @@
 <img src="/content/blog/posts/media/kali-2020.1/icons/kali-sqlninja.svg" alt="kali sqlninja.svg app icon">
 <img src="/content/blog/posts/media/kali-2020.1/icons/kali-sparta.svg" alt="kali sparta.svg app icon">
 <img src="/content/blog/posts/media/kali-2020.1/icons/kali-ettercap.svg" alt="kali ettercap.svg app icon">
-
 <div class="bigger-icons">
 <br>
 <h2>Categories</h2>
