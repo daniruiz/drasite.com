@@ -57,6 +57,13 @@ article#blog-post-container time::before {
     top: -1px;
 }
 
+#twitter-button {
+    font-size: 35px;
+    margin: 15px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+    vertical-align: middle;
+}
+
 #blog-container article img,
 article#blog-post-container img {
     box-shadow: 0 5px 30px 0 rgba(0,0,0,.3);
