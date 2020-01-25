@@ -40,6 +40,7 @@ article#blog-post-container time {
     background-color: #eee;
     border: solid 1px #ddd;
     border-radius: 3px;
+    margin-right: 20px;
 }
 
 #blog-container article time::before,
@@ -57,9 +58,9 @@ article#blog-post-container time::before {
     top: -1px;
 }
 
-#twitter-button {
+.share-button {
     font-size: 35px;
-    margin: 15px;
+    margin-left: 5px;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
     vertical-align: middle;
 }
