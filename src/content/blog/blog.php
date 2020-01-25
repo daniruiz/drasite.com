@@ -45,7 +45,7 @@
   $('#share-button').onclick = () => {
     if (navigator.share) {
       navigator.share({
-        title: '<?php echo $_SHARE_TEXT ?>',
+        text: '<?php echo $_SHARE_TEXT ?>',
         url: '<?php echo $_SHARE_URL ?>'
       })
     } else {
