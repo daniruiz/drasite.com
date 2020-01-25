@@ -23,7 +23,7 @@
             target="_blank">
         </a>
         <a class="share-button fab fa-facebook"
-            href="https://facebook.com/sharer/sharer.php?t=<?php echo $_SHARE_TEXT_ENCODED ?>&u=<?php echo $_SHARE_URL_ENCODED ?>"
+            href="https://facebook.com/sharer/sharer.php?display=page&u=<?php echo $_SHARE_URL_ENCODED ?>"
             title="Share on facebook"
             style="color: #265ab1"
             target="_blank">
