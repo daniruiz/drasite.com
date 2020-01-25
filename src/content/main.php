@@ -16,51 +16,27 @@
         <meta name="apple-mobile-web-app-title" content="DяA">
 
         <!-- Theme Colors -->
-        <meta name="theme-color" content="black">
-        <meta name="msapplication-navbutton-color" content="black">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="theme-color" content="white">
+        <meta name="msapplication-navbutton-color" content="white">
+        <meta name="apple-mobile-web-app-status-bar-style" content="white">
 
         <!-- Icons -->
         <link rel="shortcut icon" href="/img/favicon.png">
         <link rel="icon" type="image/png" href="/img/DRA.png">
         <link rel="apple-touch-icon-precomposed" href="/img/DRA.png">
 
-        <!-- Twitter Optimization  -->
-        <meta name="twitter:card" content="Daniel Ruiz de Alegría's open source projects.">
-        <meta name="twitter:title" content="DяA | drasite.com">
-        <meta name="twitter:description" content="Daniel Ruiz de Alegría's open source projects.">
-        <meta name="twitter:image" content="https://drasite.com/img/promo.png"/>
-        <meta name="twitter:card" content="https://drasite.com/img/promo.png"/>
-        <meta name="twitter:url" content="https://drasite.com/"/>
-
-        <!-- Facebook Optimization -->
-        <meta property="og:site_name" content="drasite.com"/>
-        <meta property="og:title" content="DяA | drasite.com"/>
-        <meta property="og:description" content="Daniel Ruiz de Alegría's open source projects."/>
-        <meta property="og:image" content="https://drasite.com/img/promo.png"/>
-
-        <!-- Google Optimization -->
-        <meta itemprop="name" content="DяA | drasite.com"/>
-        <meta itemprop="description" content="Daniel Ruiz de Alegría's open source projects."/>
-        <meta itemprop="image" content="https://drasite.com/img/promo.png"/>
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43282075-1"></script>
         <script>
-          let host = window.location.hostname;
-          if(host != "localhost") {
+          if(location.hostname == 'drasite.com') {
             window.dataLayer = window.dataLayer || []
-
             function gtag () {dataLayer.push(arguments)}
-
             gtag('js', new Date())
             gtag('config', 'UA-43282075-1')
           }
         </script>
 
-        <!-- OpenDesktop Verification -->
-        <meta name="ocs-site-verification" content="084f4288d669ee68c92d22ebe5c44d97"/>
-
+        <!-- Minimum CSS styles -->
         <style><?php include "content/css/min.css" ?></style>
     </head>
     <body>
@@ -89,8 +65,10 @@
         <div id="content">
             <?php function show_projects ($position) {
                 $path = Ethenis::get_path();
-                $is_blog_post = preg_match('/^blog\/.+$/', $path); ?>
-                <div class="projects-preview" style="<?php if (($position == 'first' && $is_blog_post) || ($position == 'last' && !$is_blog_post)) echo 'display:none' ?>">
+                $is_blog_post = preg_match('/^blog\/.+$/', $path);
+                $show_projects = ($position == 'first' && $is_blog_post) || ($position == 'last' && !$is_blog_post) ?>
+                <div class="projects-preview"
+                    style="<?php if(!$show_projects) echo 'display:none' ?>">
                     <h1>Projects</h1>
                     <a class="paper __eth-link" href="/flat-remix" data-github="flat-remix">
                         <div class="project-img">
@@ -160,7 +138,9 @@
                 <h1>Latest posts</h1>
                 <?php foreach ($POSTS as $post) { ?>
                     <article>
-                        <a class="__eth-link" href="/blog/<?php echo $post->title ?>"><h1><?php echo $post->title ?></h1></a>
+                        <a class="__eth-link" href="/blog/<?php echo $post->title ?>">
+                            <h1><?php echo $post->title ?></h1>
+                        </a>
                         <time datetime="<?php echo $post->date_time ?>"><?php echo $post->date_string ?></time>
                         <br>
                         <?php echo $post->preview; ?>
@@ -189,6 +169,7 @@
         <!-- FontAwesome -->
         <link rel="stylesheet" crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 
+        <!-- main.js -->
         <script><?php include "content/js/main.js" ?></script>
     </body>
 </html>
