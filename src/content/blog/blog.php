@@ -1,6 +1,12 @@
 <?php
     include 'content/blog/php/Post.php';
     $POST = Post::from_url(Ethenis::get_path());
+
+    $document = new DOMDocument();
+    $document->loadHTML($POST->content);
+    $xpath = new DOMXPath($document);
+
+    $_SHARE_CARD_IMAGE = $xpath->evaluate("string(//img/@src)");
     $_SHARE_TEXT = $POST->title.' | DяA';
     $_SHARE_TEXT_ENCODED = urlencode($_SHARE_TEXT);
     $_SHARE_URL = 'https://drasite.com/blog/'.str_replace(' ', '+', $POST->title);
@@ -40,7 +46,7 @@
 
 <script>
   history.replaceState('', '', '<?php echo $POST->title ?>')
-  document.title = '<?php echo $POST->title.' | DяA' ?>'
+  document.title = '<?php echo $POST->title ?> | DяA'
 
   $('#share-button').onclick = () => {
     if (navigator.share) {
@@ -58,3 +64,11 @@
     }
   }
 </script>
+
+
+<!-- Meta -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="drasite.com | DяA">
+<meta name="twitter:description" content="<?php echo $POST->title ?> :: Daniel Ruiz de Alegría's open source projects">
+<meta name="twitter:image" content="<?php echo $_SHARE_CARD_IMAGE ?>"/>
+<meta name="twitter:url" content="<?php echo $_SHARE_URL ?>"/>
