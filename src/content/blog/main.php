@@ -3,7 +3,7 @@
     $POSTS = Post::get_posts();
 ?>
 
-<script>document.title = "DяA | Blog"</script>
+<script>document.title = "Blog | DяA"</script>
 
 <style>
     header { display: none }

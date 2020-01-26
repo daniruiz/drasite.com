@@ -1,7 +1,7 @@
 <?php
     include 'content/blog/php/Post.php';
     $POST = Post::from_url(Ethenis::get_path());
-    $_SHARE_TEXT = 'drasite.com | DяA  ::  '.$POST->title;
+    $_SHARE_TEXT = $POST->title.' | DяA';
     $_SHARE_TEXT_ENCODED = urlencode($_SHARE_TEXT);
     $_SHARE_URL = 'https://drasite.com/blog/'.str_replace(' ', '+', $POST->title);
     $_SHARE_URL_ENCODED = urlencode($_SHARE_URL);
@@ -40,7 +40,7 @@
 
 <script>
   history.replaceState('', '', '<?php echo $POST->title ?>')
-  document.title = '<?php echo $POST->title ?>'
+  document.title = '<?php echo $POST->title.' | DяA' ?>'
 
   $('#share-button').onclick = () => {
     if (navigator.share) {
