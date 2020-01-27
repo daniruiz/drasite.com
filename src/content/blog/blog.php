@@ -70,5 +70,5 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="drasite.com | DяA">
 <meta name="twitter:description" content="<?php echo $POST->title ?> :: Daniel Ruiz de Alegría's open source projects">
-<meta name="twitter:image" content="<?php echo $_SHARE_CARD_IMAGE ?>"/>
-<meta name="twitter:url" content="<?php echo $_SHARE_URL ?>"/>
+<meta name="twitter:image" content="https://drasite.com<?php echo $_SHARE_CARD_IMAGE ?>">
+<meta name="twitter:url" content="<?php echo $_SHARE_URL ?>">
