@@ -14,7 +14,7 @@
 <p>
 <p>
     <br>
-    <img src="/content/blog/posts/media/blog-preview.png">
+    <img src="/content/blog/posts/media/blog-preview.png" alt="blog preview">
     <br>
 </p>
 <hr>
@@ -68,7 +68,7 @@
         </span><span class="com">// * Get list of posts from the directory specified in POSTS_CONTENT_DIR</span><span class="pln">
         </span><span class="com">// * Return an array containing each corresponding Post instance</span><span class="pln">
     </span><span class="pun">}</span><span class="pln">
-</span><span class="pun">}</span></pre>
+</span><span class="pun">}</span>
 </pre>
 <h2>Getting into the code</h2>
 <h3>/blog.php</h3>
@@ -121,7 +121,7 @@
         </span><span class="tag">&lt;/time&gt;</span><span class="pln">
         </span><span class="tag">&lt;br&gt;</span><span class="pln">
         </span><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">preview</span><span class="pun">;</span><span class="pln"> </span><span class="pun">?&gt;</span><span class="tag">
-        &lt;a</span> <span class="atn">class=</span><span class="atv">"read-more-button"</span> <span class="atn">href=</span><sapn class="atv">"/blog/</sapn><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">?&gt;</span><span class="atv">"</span><span class="tag">&gt;</span><span>
+        &lt;a</span> <span class="atn">class=</span><span class="atv">"read-more-button"</span> <span class="atn">href=</span><span class="atv">"/blog/</span><span class="pun">&lt;?</span><span class="pln">php echo $post</span><span class="pun">-&gt;</span><span class="pln">title </span><span class="pun">?&gt;</span><span class="atv">"</span><span class="tag">&gt;</span><span>
             Read more ↦
         </span><span class="tag">&lt;/a&gt;</span><span class="pln">
     </span><span class="tag">&lt;/article&gt;</span><span class="pln">

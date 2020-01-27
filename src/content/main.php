@@ -50,7 +50,7 @@
         <script><?php include "content/js/common.js" ?></script>
         <main><{ content }></main>
         <div id="back-to-top" title="⇡ Back to top" class="with-shadow">
-            <i class="fas fa-chevron-up""></i>
+            <i class="fas fa-chevron-up"></i>
         </div>
         <div id="loading-animation">
             <div></div>
