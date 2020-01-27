@@ -47,44 +47,32 @@ final class Ethenis
                 http_response_code(404);
             $secondary_content = file_get_contents($secondary_content_dir);
             $main_content = self::get_main_content();
-            $final_content = self::replace_special_variables($main_content,
-                $secondary_content);
-            $final_content .= '<style>
-                #__eth-content {
-                    opacity: 1;
-                    transition: opacity ' . self::get_config()['fadeAnimationDuration'] . 'ms;
-                }
-            </style>
-            <script>__ETHENIS.config = ' . self::get_config_json() . '</script>
-            <script src="/js/ethenis.js"></script>';
-            self::$generated_code = ' ?>' . $final_content . '<?php ';
+            self::generate_final_content($main_content, $secondary_content);
         }
     }
 
     private static function get_secondary_content_dir() {
         $dir = '';
         foreach (self::$config['content'] as $pattern => $values) {
-            if (self::$path == $pattern ||
-                (self::is_pattern($pattern) &&
-                    preg_match($pattern, self::$path))) {
+            if (self::$path == $pattern || (self::is_pattern($pattern) && preg_match($pattern, self::$path))) {
                 $dir = $values[0];
                 break;
             }
         }
         if ($dir == '')
             $dir = self::$config['404'];
-        return 'content/' . $dir;
+        return "content/${dir}";
     }
 
     private static function get_main_content() {
-        function is_template($content)
-        {
+        function is_template($content) {
             return preg_match('/<{\s*\/?content\s*}>/', $content);
         }
 
         $main = file_get_contents('content/main.php');
         if (!is_template($main)) {
-            preg_match_all('/(?:(?:include|require)(?:_once)?\(([\'"]))([^\1\))]*)(\1\))/', $main, $matches, PREG_SET_ORDER);
+            preg_match_all('/(?:(?:include|require)(?:_once)?\(([\'"]))([^\1\))]*)(\1\))/',
+                    $main, $matches, PREG_SET_ORDER);
             foreach ($matches as $match) {
                 $content = ' ?>' . file_get_contents($match[2]) . '<?php ';
                 if (is_template($content)) {
@@ -94,6 +82,25 @@ final class Ethenis
             }
         }
         return $main;
+    }
+
+    private static function generate_final_content($main_content, $secondary_content) {
+        $final_content = self::replace_special_variables($main_content, $secondary_content);
+        $fade_animation_duration = self::get_config()['fadeAnimationDuration'];
+        $config_json = self::get_config_json();
+        $replace = <<< EOF
+        <style>
+            #__eth-content {
+                opacity: 1;
+                transition: opacity ${fade_animation_duration}ms;
+            }
+        </style>
+        <script>__ETHENIS.config = ${config_json}</script>
+        <script src="/js/ethenis.js"></script>
+    </body>
+EOF;
+        $final_content = preg_replace('/ *<\/body>/', $replace, $final_content);
+        self::$generated_code = ' ?>' . $final_content . '<?php ';
     }
 
     private static function replace_special_variables($main_content, $secondary_content) {
@@ -125,8 +132,7 @@ final class Ethenis
             $secondary_content .
             '</div>';
 
-        $final_content = preg_replace('/<{\s*\/?content\s*}>/',
-            $secondary_content, $final_content);
+        $final_content = preg_replace('/<{\s*\/?content\s*}>/', $secondary_content, $final_content);
         return $final_content;
     }
 
@@ -135,9 +141,7 @@ final class Ethenis
         foreach (self::$config['content'] as $dir => $values) {
             if (end($values) != false &&
                 !self::is_pattern($dir) && isset($values[1])) {
-                $link_class = '__eth-link' .
-                    ((self::$path == $dir)
-                        ? ' __eth-selected-link' : '');
+                $link_class = '__eth-link' . ((self::$path == $dir) ? ' __eth-selected-link' : '');
                 $nav .=
                     '<a class="' . $link_class . '" href="/' . $dir . '">' .
                     $pre_link_html . $values[1] . $post_link_html .
