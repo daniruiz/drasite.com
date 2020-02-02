@@ -551,23 +551,32 @@ provided message and pushed to the current branch.
     git push origin HEAD
 </span><span class="pun">}</span></pre>
 <h3>.gitconfig</h3>
-<pre>
-[color]
+<pre class="prettyprint">
+[color] <span class="com"># colorize output</span>
 	diff = auto
 	status = auto
 	branch = auto
 	interactive = auto
 	ui = true
 	pager = true
-[credential]
+[credential] <span class="com"># cache credentials</span>
 	helper = cache --timeout=3600
-[alias]
-	glog = !"git --no-pager log --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all | less -r -X +/[^/]HEAD"
 </pre>
 <h4>git glog</h4>
+<pre>
+[alias]
+	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | less -r -X +/[^/]HEAD"
+</pre>
 <img src="/content/blog/posts/media/pimp-my-term/git-glog.png"
     alt="git glog alias"
     style="box-shadow:none">
+<h4>git glog with Nerd Fonts glyphs</h4>
+<pre>
+[alias]
+	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | sed -r -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+ /├\\1─╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m /\\1├─╯\\x1b\\[m/' -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+/├\\1╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m/\\1├╯\\x1b\\[m/' -e 's/╮(\\x1b\\[[0-9;]*m)+\\\\/╮\\1╰╮/' -e 's/╯(\\x1b\\[[0-9;]*m)+\\//╯\\1╭╯/' -e 's/(\\||\\\\)\\x1b\\[m   (\\x1b\\[[0-9;]*m)/╰╮\\2/' -e 's/(\\x1b\\[[0-9;]*m)\\\\/\\1╮/g' -e 's/(\\x1b\\[[0-9;]*m)\\//\\1╯/g' -e 's/^\\*|(\\x1b\\[m )\\*/\\1⎬/g' -e 's/(\\x1b\\[[0-9;]*m)\\|/\\1│/g' | less -r -X +/[^/]HEAD"
+</pre>
+<img src="/content/blog/posts/media/pimp-my-term/git-glog-nerdfont.png"
+    alt="git glog alias with nerdfont glyphs">
 <style>
     #terminal-colorscheme span {
         color: #fff;
