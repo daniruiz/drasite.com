@@ -124,6 +124,12 @@
                         </div>
                         <h4>Color Fixer</h4>
                     </a>
+                    <a class="paper __eth-link" href="/tetris" data-github="tetris-js">
+                        <div class="project-img">
+                            <img src="/img/tetris.jpg" alt="Tetяis JS">
+                        </div>
+                        <h4>Tetяis JS</h4>
+                    </a>
                     <hr class="separator">
                 </div>
             <?php } ?>
