@@ -20,7 +20,7 @@
 <script>
     document.title = 'Tetяis JS'
 
-    __ETHENIS.onLoadOnce = () => {
+    !function () {
       const KEYS = {
         UP: 87,
         DOWN: 83,
@@ -64,7 +64,7 @@
           tetris = null
         }
       })
-    }
+    }()
 </script>
 <link rel="stylesheet" type="text/css" href="/content/games/tetris/tetris.css">
 <style>
@@ -100,7 +100,7 @@
     #tetris-container::before {
         content: '';
         display: block;
-        padding-top: 220%;
+        padding-top: calc(220% - 14px);
     }
 
     #game-over {
