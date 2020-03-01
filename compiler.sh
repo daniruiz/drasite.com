@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 FILES="src/*"
 TARGET="./DRAsite.com-min"
@@ -12,7 +12,8 @@ echo =============================================
 echo
 echo
 
-if [ -d $TARGET ]; then
+if [ -d $TARGET ]
+then
 	rm -rf $TARGET
 fi
 
@@ -27,12 +28,13 @@ echo
 echo
 
 HTMLFILES="$TARGET/**/*.html $TARGET/content/main.php"
-JSFILES=$TARGET/content/**/*.js
-CSSFILES=$TARGET/**/*.css
+JSFILES="$TARGET/content/**/*.js $TARGET/js/**/*.js $TARGET/games/**/*.js"
+CSSFILES="$TARGET/**/*.css"
 
-for i in $HTMLFILES; do
+for i in $HTMLFILES
+do
 	echo Minifying HTML: $i
-	html-minifier \
+	html-minifier-terser \
 		--ignore-custom-fragments "(<{ [^}>]* }>)|(<\?php(.|\n)+?\?>)" \
 		--remove-comments \
 		--minify-css \
@@ -42,22 +44,23 @@ for i in $HTMLFILES; do
 		--remove-script-type-attributes \
 		--remove-style-link-type-attributes \
 		--remove-tag-whitespace \
-		"$i" > "$i".tmp
-	mv -f "$i".tmp "$i"
+		"$i" > "$i.tmp"
+	mv -f "$i.tmp" "$i"
 done
 
 
-for i in $CSSFILES; do
+for i in $CSSFILES
+do
 	echo Minifying CSS: $i
-	uglifycss $i > "$i".tmp
-	mv -f "$i".tmp "$i"
+	uglifycss "$i" > "$i.tmp"
+	mv -f "$i.tmp" "$i"
 done
 
 for i in $JSFILES
 do
 	echo Minifying JS: $i
-	google-closure-compiler $i > "$i".tmp
-	mv -f "$i".tmp $i
+	google-closure-compiler "$i" > "$i".tmp
+	mv -f "$i.tmp" "$i"
 done
 
 find $TARGET -type d -exec chmod 755 {} \;
