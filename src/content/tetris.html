@@ -31,7 +31,7 @@
 
       !async function () {
           if (typeof Tetris === 'undefined') {
-            await fetch('/games/tetris/tetris.js').then(response => response.text())
+            await fetch('/games/tetris/js/tetris.js').then(response => response.text())
               .then(code => {
                 let script = document.createElement('script')
                 script.textContent = code
@@ -39,9 +39,15 @@
               })
           }
       }().then(() => {
-        let tetris = new Tetris($('#tetris-container > div'))
+        const tetrisContainer = '#tetris-container'
+        let tetris = new WebTetris($(`${tetrisContainer} > div`))
+        tetris.start()
         tetris.onGameOver = () => $('#game-over').style.display = 'block'
-        tetris.onInfoChage = info => $('#tetris-container').dataset.infoText = `Level ${info.level}  ::  Score ${info.score}`
+        tetris.onInfoChage = info => {
+          $$(`${tetrisContainer} [class^="piece--next"]`)
+            .forEach(element => {element.className = `piece--next--${info.nextPieceType}`})
+          $(tetrisContainer).dataset.infoText = `Level ${info.level}  ::  Score ${info.score}`
+        }
         document.onkeydown = event => {
           switch (event.keyCode) {
             case KEYS.UP:
@@ -67,7 +73,7 @@
       })
     }()
 </script>
-<link rel="stylesheet" type="text/css" href="/games/tetris/tetris.css">
+<link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css">
 <style>
     header { display: none }
 
@@ -107,7 +113,7 @@
     #game-over {
         position: absolute;
         top: 250px;
-        background: rgba(255, 255, 255, .5) url('/games/tetris/game-over.svg') no-repeat center;
+        background: rgba(255, 255, 255, .5) url('/games/tetris/img/game-over.svg') no-repeat center;
         background-size: contain;
         height: 25vw;
         max-height: 300px;
