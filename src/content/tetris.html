@@ -1,7 +1,7 @@
 <div id="tetris-container">
     <div></div>
 </div>
-<a id="full-screen-button" href="/games/tetris/" target="_blank">Mobile version</a>
+<a id="full-screen-button" href="/games/tetris/" target="_blank">Full version</a>
 <div id="keys">
     <div>W</div>
     <br>
@@ -21,7 +21,7 @@
 <script>
     document.title = 'Tetяis JS'
 
-    !function () {
+    !(function () {
       const KEYS = {
         UP: 87,
         DOWN: 83,
@@ -29,23 +29,23 @@
         RIGHT: 68,
       }
 
-      !async function () {
-          if (typeof Tetris === 'undefined') {
-            await fetch('/games/tetris/js/tetris.js').then(response => response.text())
-              .then(code => {
-                let script = document.createElement('script')
-                script.textContent = code
-                document.head.appendChild(script)
-              })
-          }
-      }().then(() => {
+      !(async function () {
+        if (typeof Tetris === 'undefined') {
+          await fetch('/games/tetris/js/Tetris/tetris.js').then(response => response.text())
+            .then(code => {
+              let script = document.createElement('script')
+              script.textContent = code
+              document.head.appendChild(script)
+            })
+        }
+      })().then(() => {
         const tetrisContainer = '#tetris-container'
         let tetris = new WebTetris($(`${tetrisContainer} > div`))
         tetris.start()
-        tetris.onGameOver = () => $('#game-over').style.display = 'block'
+        tetris.onGameOver = () => { $('#game-over').style.display = 'block' }
         tetris.onInfoChage = info => {
           $$(`${tetrisContainer} [class^="piece--next"]`)
-            .forEach(element => {element.className = `piece--next--${info.nextPieceType}`})
+            .forEach(element => { element.className = `piece--next--${info.nextPieceType}` })
           $(tetrisContainer).dataset.infoText = `Level ${info.level}  ::  Score ${info.score}`
         }
         document.onkeydown = event => {
@@ -71,7 +71,7 @@
           tetris = null
         }
       })
-    }()
+    })()
 </script>
 <link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css">
 <style>
