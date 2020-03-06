@@ -1,9 +1,9 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
 
-'use strict'
 
-!(function (self, TetrisBoard) {
+
+;(function (self, TetrisBoard) {
   typeof exports === 'object' && typeof module === 'object'
     ? module.exports = TetrisBoard
     : self.TetrisBoard = TetrisBoard
@@ -60,7 +60,7 @@
       this._gameOverCallback = callback
     }
 
-    set onInfoChage (callback) {
+    set onInfoChange (callback) {
       if (typeof callback !== 'function')
         return
       this._infoChangeCallback = callback
@@ -103,9 +103,9 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
 
-'use strict'
 
-!(function (self, Tetris) {
+
+;(function (self, Tetris) {
   typeof exports === 'object' && typeof module === 'object'
     ? module.exports = Tetris
     : self.Tetris = Tetris
@@ -364,11 +364,14 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
 
-'use strict'
 
-class WebTetris extends Tetris {
+
+;(function (self, WebTetris) {
+  self.WebTetris = WebTetris
+}(typeof self !== 'undefined' ? self : this, class WebTetris extends Tetris {
   constructor (boardElement) {
-    if (!(boardElement instanceof window.Element)) return
+    if (!(boardElement instanceof window.Element))
+      throw new Error('You must pass a valid DOM element')
 
     super()
 
@@ -398,15 +401,18 @@ class WebTetris extends Tetris {
       }
     }
   }
-}
+}))
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
 
-'use strict'
 
-class WebTetrisClient extends WebTetris {
+
+;(function (self, WebTetrisClient) {
+  self.WebTetrisClient = WebTetrisClient
+}(typeof self !== 'undefined' ? self : this, class WebTetrisClient extends WebTetris {
   constructor (boardElement, url) {
-    if (!(boardElement instanceof window.Element)) return
+    if (!(boardElement instanceof window.Element))
+      throw new Error('You must pass a valid DOM element')
 
     super(boardElement)
 
@@ -443,6 +449,7 @@ class WebTetrisClient extends WebTetris {
   stop () { this._webSocket.close() }
 
   _timerCallback () {
+    this._sendData({ instruction: 'timer' })
     this._lockMessages = true
     super._timerCallback()
     this._lockMessages = false
@@ -468,14 +475,15 @@ class WebTetrisClient extends WebTetris {
     super.rotatePiece()
   }
 
-  _sendData (data) {
-    if (this._lockMessages) return
-    this._webSocket.send(JSON.stringify(data))
-  }
-
   saveScore (name) {
     if (this.score !== 0)
       this._sendData({ saveScoreName: name })
+  }
+
+  _sendData (data) {
+    if (this._lockMessages)
+      return
+    this._webSocket.send(JSON.stringify(data))
   }
 
   _error (e) {
@@ -484,4 +492,4 @@ class WebTetrisClient extends WebTetris {
     else
       console.error(e)
   }
-}
+}))

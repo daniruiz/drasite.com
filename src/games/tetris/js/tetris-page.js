@@ -9,7 +9,7 @@ const KEYS = {
 }
 
 if (location.protocol === 'https:')
-  location.replace(`http:${location.href.substring(location.protocol.length)}`);
+  location.replace(`http:${location.href.substring(location.protocol.length)}`)
 
 const wsUrl = 'ws://34.91.128.107:8080'
 
@@ -18,7 +18,7 @@ window.onload = () => {
   const tetrisContainer = document.getElementById('tetris')
   const configureTetris = tetris => {
     tetris.onGameOver = () => { document.getElementById('game-over').style.display = 'block' }
-    tetris.onInfoChage = info => {
+    tetris.onInfoChange = info => {
       document.querySelectorAll('[class^="piece--next"]')
         .forEach(element => { element.className = `piece--next--${info.nextPieceType}` })
       document.getElementsByClassName('__tetris-container')[0]

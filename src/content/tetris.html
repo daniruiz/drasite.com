@@ -31,7 +31,7 @@
 
       !(async function () {
         if (typeof Tetris === 'undefined') {
-          await fetch('/games/tetris/js/Tetris/tetris.js').then(response => response.text())
+          await fetch('/games/tetris/js/Tetris/tetris.js?v=1.0.1').then(response => response.text())
             .then(code => {
               let script = document.createElement('script')
               script.textContent = code
@@ -43,7 +43,7 @@
         let tetris = new WebTetris($(`${tetrisContainer} > div`))
         tetris.start()
         tetris.onGameOver = () => { $('#game-over').style.display = 'block' }
-        tetris.onInfoChage = info => {
+        tetris.onInfoChange = info => {
           $$(`${tetrisContainer} [class^="piece--next"]`)
             .forEach(element => { element.className = `piece--next--${info.nextPieceType}` })
           $(tetrisContainer).dataset.infoText = `Level ${info.level}  ::  Score ${info.score}`
