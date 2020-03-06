@@ -370,6 +370,26 @@ body.loading #loading-animation div {
     display: inline-block;
 }
 
+
+.new::after {
+    display: block;
+    content: '';
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background-size: 100%;
+    background-image: url(/img/new.svg);
+    animation: bounce 0.5s cubic-bezier(.5, 0.05, 1, .5) infinite alternate;
+}
+
+.projects-preview .paper.new::after {
+    width: 80px;
+    height: 80px;
+    float: right;
+    right: 5px;
+    bottom: 30px;
+}
+
 @media screen and (max-width: 750px) {
     header { width: 100%; }
 }

@@ -70,6 +70,12 @@
                 <div class="projects-preview"
                     style="<?php if(!$show_projects) echo 'display:none' ?>">
                     <h1>Projects</h1>
+                    <a class="paper __eth-link new" href="/tetris" data-github="tetris-js">
+                        <div class="project-img">
+                            <img src="/img/tetris.jpg" alt="Tetяis JS">
+                        </div>
+                        <h4>Tetяis JS</h4>
+                    </a>
                     <a class="paper __eth-link" href="/flat-remix" data-github="flat-remix">
                         <div class="project-img">
                             <img src="/img/flat-remix.jpg" alt="Flat Remix cover">
@@ -88,29 +94,29 @@
                         </div>
                         <h4>Flat Remix GTK theme</h4>
                     </a>
-                    <a class="paper __eth-link" href="/flat-remix-css" data-github="flat-remix-css">
-                        <div class="project-img">
-                            <img src="/img/flat-remix-css.jpg" alt="Flat Remix css library">
-                        </div>
-                        <h4>Flat Remix CSS Library</h4>
-                    </a>
                     <a class="paper __eth-link" href="/dotfiles" data-github="dotfiles">
                         <div class="project-img">
                             <img src="/img/dotfiles.svg" alt="~/.dotfiles">
                         </div>
                         <h4>~/.dotfiles</h4>
                     </a>
-                    <a class="paper __eth-link" href="/AI-robot" data-github="Cleaning-Robot-AI">
+                    <a class="paper __eth-link" href="/flat-remix-css" data-github="flat-remix-css">
                         <div class="project-img">
-                            <img src="/img/AI-robot.svg" alt="Neural network with genetic algorithms in Unity3d">
+                            <img src="/img/flat-remix-css.jpg" alt="Flat Remix css library">
                         </div>
-                        <h4>Neural network with genetic algorithms</h4>
+                        <h4>Flat Remix CSS Library</h4>
                     </a>
                     <a class="paper __eth-link" href="/flat-remix-kde" data-github="flat-remix-kde">
                         <div class="project-img">
                             <img src="/img/flat-remix-kde.jpg" alt="Flat Remix KDE themes">
                         </div>
                         <h4>Flat Remix KDE themes</h4>
+                    </a>
+                    <a class="paper __eth-link" href="/AI-robot" data-github="Cleaning-Robot-AI">
+                        <div class="project-img">
+                            <img src="/img/AI-robot.svg" alt="Neural network with genetic algorithms in Unity3d">
+                        </div>
+                        <h4>Neural network with genetic algorithms</h4>
                     </a>
                     <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
                         <div class="project-img">
@@ -123,12 +129,6 @@
                             <img src="/img/color-fixer.jpg" alt="Color Fixer logo">
                         </div>
                         <h4>Color Fixer</h4>
-                    </a>
-                    <a class="paper __eth-link" href="/tetris" data-github="tetris-js">
-                        <div class="project-img">
-                            <img src="/img/tetris.jpg" alt="Tetяis JS">
-                        </div>
-                        <h4>Tetяis JS</h4>
                     </a>
                     <hr class="separator">
                 </div>
