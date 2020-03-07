@@ -1,8 +1,6 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
 
-
-
 ;(function (self, TetrisBoard) {
   typeof exports === 'object' && typeof module === 'object'
     ? module.exports = TetrisBoard
@@ -102,8 +100,6 @@
 })()))
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
-
-
 
 ;(function (self, Tetris) {
   typeof exports === 'object' && typeof module === 'object'
@@ -364,8 +360,6 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
 
-
-
 ;(function (self, WebTetris) {
   self.WebTetris = WebTetris
 }(typeof self !== 'undefined' ? self : this, class WebTetris extends Tetris {
@@ -405,8 +399,6 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable curly */
 
-
-
 ;(function (self, WebTetrisClient) {
   self.WebTetrisClient = WebTetrisClient
 }(typeof self !== 'undefined' ? self : this, class WebTetrisClient extends WebTetris {
@@ -416,8 +408,9 @@
 
     super(boardElement)
 
-    this._playing = false
     this._lockMessages = false
+
+    let playing = false
 
     this._webSocket = new WebSocket(url)
     this._webSocket.onerror = e => this._error(e)
@@ -429,8 +422,10 @@
         this.execInstruction(message.instruction)
       if (message.nextPieceType) {
         this._nextPieceType = message.nextPieceType
-        if (!this._playing)
+        if (!playing) {
+          playing = true
           this.start()
+        }
       }
     }
   }
@@ -441,11 +436,6 @@
     this._onErroCallback = callback
   }
 
-  start () {
-    this._addNewPiece()
-    this._playing = true
-  }
-
   stop () { this._webSocket.close() }
 
   _timerCallback () {
@@ -454,6 +444,9 @@
     super._timerCallback()
     this._lockMessages = false
   }
+
+  // Disable this function as the next piece is provided by the server with some delay
+  _getRandomPieceType () { return this.nextPieceType }
 
   movePieceDown () {
     this._sendData({ instruction: Tetris.INSTRUCTIONS.DOWN })
@@ -481,14 +474,13 @@
   }
 
   _sendData (data) {
-    if (this._lockMessages)
-      return
-    this._webSocket.send(JSON.stringify(data))
+    if (!this._lockMessages)
+      this._webSocket.send(JSON.stringify(data))
   }
 
   _error (e) {
     if (this._onErroCallback)
-      this._onErroCallback()
+      this._onErroCallback(e)
     else
       console.error(e)
   }
