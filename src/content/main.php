@@ -70,6 +70,12 @@
                 <div class="projects-preview"
                     style="<?php if(!$show_projects) echo 'display:none' ?>">
                     <h1>Projects</h1>
+                    <a class="paper __eth-link new" href="/skeuos-css" data-github="skeuos-css">
+                        <div class="project-img">
+                            <img src="/img/skeuos-css.jpg" alt="Skeuos CSS Library">
+                        </div>
+                        <h4>Skeuos CSS Library</h4>
+                    </a>
                     <a class="paper __eth-link new" href="/tetris" data-github="tetris-js">
                         <div class="project-img">
                             <img src="/img/tetris.jpg" alt="Tetяis JS">

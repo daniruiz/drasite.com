@@ -1,0 +1,209 @@
+<!-- Meta tags -->
+<script>
+  document.title = 'Skeuos CSS Library'
+</script>
+<!-- -->
+
+
+<div id="scroll-animation">
+    <div class="mouse">
+        <div class="wheel"></div>
+    </div>
+    <div>
+        <span class="arrow1"></span>
+        <span class="arrow2"></span>
+        <span class="arrow3"></span>
+    </div>
+</div>
+<section class="with-shadow" id="description">
+    <h1>Skeuos<br> CSS Library</h1>
+    <hr>
+    <p>
+        A lightweight CSS library that provides a set of predesigned elements useful for rapid web development.
+    </p>
+    <p>
+        It follows the latest skeuomorphic design trends, using bright colors and subtle shadows for some depth.
+    </p>
+</section>
+
+<section class="paper download-box" data-github="skeuos-css">
+    <a href="https://github.com/daniruiz/skeuos-css/archive/master.zip" target="_blank"
+       class="with-shadow blue-button-link">↧ Download Skeuos CSS</a>
+    <a href="https://github.com/daniruiz/skeuos-css" target="_blank">
+        <i class="fab fa-github"></i> https://github.com/daniruiz/skeuos-css
+    </a>
+    <div class="license">Skeuos CSS is licensed under the MIT License</div>
+</section>
+
+<br><br>
+<hr>
+<br><br>
+
+<iframe src="/content/skeuos-css-demo.html" scrolling="no"></iframe>
+
+<style>
+    .arrow1, .arrow2, .arrow3 {
+        animation: mouse-scroll 1s infinite;
+        display: block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+        margin: 0 0 3px 10px;
+    }
+
+    .arrow1, .arrow2, .arrow3 {
+        animation: mouse-scroll 1s infinite;
+        display: block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+        margin: 0 0 3px 10px;
+    }
+
+    .arrow1 {
+        animation-delay: .1s;
+        margin-top: 10px;
+    }
+
+    .arrow2 { animation-delay: .2s; }
+
+    .arrow3 { animation-delay: .3s;}
+
+    .mouse {
+        height: 44px;
+        width: 30px;
+        border-radius: 20px;
+        border: 4px solid white;
+    }
+
+    .wheel {
+        height: 6px;
+        width: 2px;
+        display: block;
+        margin: 7px auto;
+        background: white;
+        position: relative;
+        animation: mouse-wheel 1.2s ease infinite;
+    }
+
+    @keyframes mouse-wheel {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+    }
+
+    @keyframes mouse-scroll {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .5;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #scroll-animation {
+        position: absolute;
+        bottom: 30px;
+        right: 50px;
+    }
+
+    header {
+        height: 100vh !important;
+        width: 100%;
+        min-height: 660px;
+        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogPGRlZnM+CiAgPHBhdHRlcm4gaWQ9InNtYWxsR3JpZCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsMCwwLC4yKSIgc3Ryb2tlLXdpZHRoPSIuNSIgZD0iTSAxMCAwIEwgMCAwIDAgMTAiLz4KICA8L3BhdHRlcm4+CiAgPHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHJlY3QgZmlsbD0idXJsKCNzbWFsbEdyaWQpIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIvPgogICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMCwwLDAsLjIpIiBkPSJNIDEwMCAwIEwgMCAwIDAgMTAwIi8+CiAgPC9wYXR0ZXJuPgogPC9kZWZzPgogPHJlY3QgZmlsbD0idXJsKCNncmlkKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPgo8L3N2Zz4K), linear-gradient(203deg, #23bac2 15%, #357af0);
+    }
+
+    #description {
+        max-width: 600px;
+        width: 90%;
+        padding: 10px 50px;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+        border-radius: 2px;
+        position: absolute;
+        left: 50%;
+        top: calc(50% - 50px);
+        transform: translate(-50%, -50%);
+    }
+
+    #description hr {
+        border-color: rgba(0, 0, 0, .2);
+        background: rgba(0, 0, 0, .2);
+    }
+
+    #description p {
+        font-size: 26px;
+        font-weight: lighter;
+        line-height: 38px;
+        padding: 0 30px;
+        letter-spacing: 1px;
+    }
+
+    .paper.download-box {
+        margin-top: calc(100vh + 10px);
+    }
+
+    main iframe {
+        border: 0;
+        margin: 0;
+        width: 100%;
+        overflow: hidden;
+        min-height: 500px;
+        box-shadow: 0 5px 30px 0 rgba(0,  0, 0, 0.05);
+    }
+
+    @media screen and (max-height: 720px) {
+        #description {
+            top: 50px;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    @media screen and (max-width: 850px) {
+        #scroll-animation { display: none; }
+    }
+
+    @media screen and (max-width: 550px) {
+        #description h4 {
+            font-size: 18px;
+            line-height: 28px;
+            padding: 0;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        #description { padding: 0 30px 20px; }
+
+        #description h1 {
+            font-size: 40px;
+            line-height: 60px;
+        }
+    }
+</style>
+
+<script>
+  __ETHENIS.onLoadOnce = () => {
+    let iframe = $('main iframe')
+    iframe.onload = window.onresize = () => {
+      iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px'
+    }
+  }
+
+  __ETHENIS.onPageChange = () => {
+    window.onresize = null
+  }
+</script>

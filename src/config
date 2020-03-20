@@ -15,7 +15,8 @@
         "color-fixer" : ["color-fixer.html"],
         "dotfiles" : ["dotfiles.html"],
         "supporters" : ["supporters.html"],
-        "tetris" : ["tetris.html"]
+        "tetris" : ["tetris.html"],
+        "skeuos-css" : ["skeuos-css.html"]
     },
     "404": "404.html"
 }

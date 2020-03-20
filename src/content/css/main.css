@@ -370,6 +370,15 @@ body.loading #loading-animation div {
     display: inline-block;
 }
 
+@keyframes bounce {
+    0% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
 
 .new::after {
     display: block;
@@ -385,9 +394,9 @@ body.loading #loading-animation div {
 .projects-preview .paper.new::after {
     width: 80px;
     height: 80px;
-    float: right;
-    right: 5px;
-    bottom: 30px;
+    right: 15px;
+    bottom: 0;
+    position: absolute;
 }
 
 @media screen and (max-width: 750px) {
