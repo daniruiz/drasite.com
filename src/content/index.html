@@ -1,6 +1,58 @@
+<!-- Meta tags -->
 <script>
-  document.title = 'DяA | Daniel Ruiz de Alegría'
+  updateMetaData() // Use defaults
 </script>
+
+<!-- Content -->
+<div id="cover">
+    <div id="photo">
+        <a href="mailto://daniel@drasite.com" class="with-shadow" id="contact-me">
+            <i class="fas fa-envelope-open">&nbsp;</i>CONTACT ME
+        </a>
+    </div>
+    <div id="card" class="paper">
+        <h1 class="selectable">DяA | Daniel</h1>
+        <h2 class="selectable">Ruiz de Alegría</h2>
+        <hr>
+        <p>Open Source Developer <i class="fas fa-heart" style="color: #D02020;"></i>️</p>
+        <p>Student of Computer Engineering at the Polytechnic University of Madrid
+        <p>
+        <p>UI & UX Designer</p>
+        <div id="my-profiles"><!--
+            --><a target="_blank" href="https://www.instagram.com/dani_ruiz24/"><!--
+                --><i class="fab fa-instagram" title="Instagram"></i><!--
+            --></a><!--
+            --><a target="_blank" href="https://twitter.com/dani_ruiz24"><!--
+                --><i class="fab fa-twitter" title="Twitter"></i><!--
+            --></a><!--
+            --><a target="_blank" href="https://github.com/daniruiz"><!--
+                --><i class="fab fa-github" title="GitHub"></i><!--
+            --></a><!--
+            --><a target="_blank" href="https://gitlab.com/daniruiz"><!--
+                --><i class="fab fa-gitlab" title="GitLab"></i><!--
+            --></a><!--
+            --><a target="_blank" href="https://www.paypal.me/daniruizdealegria"><!--
+                --><i class="fas fa-heart" title="Donate"></i><!--
+            --></a><!--
+            --><a target="_blank" href="blog" class="__eth-link"><!--
+                --><i class="fas fa-blog" title="Blog"></i><!--
+            --></a><!--
+     --></div>
+    </div>
+
+    <div id="scroll-animation">
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
+        <div>
+            <span class="arrow1"></span>
+            <span class="arrow2"></span>
+            <span class="arrow3"></span>
+        </div>
+    </div>
+</div>
+
+<!-- Styles -->
 <style>
     body {
         padding-top: 0;
@@ -13,13 +65,13 @@
     #cover {
         width: 100%;
         height: 100vh;
+        min-height: 500px;
         background: url("/img/background.jpg") center center no-repeat fixed #5C616C;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
         position: relative;
-        overflow: hidden;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12), inset 0 -10px 0 0 rgba(0, 0, 0, .1);
     }
 
@@ -229,91 +281,40 @@
 
     #support-banner { transform: translate(-50%, 100%) !important; }
 
-    @media screen and (max-width: 760px), screen and (max-height: 720px) {
-        #photo {
-            transform: translate(-50%, -50%) scale(.7);
-            left: calc(50% - 190px);
-        }
+    @media screen and (max-width: 800px), screen and (max-height: 500px) {
+        #cover { height: 700px; }
 
         #card {
-            transform: translate(-50%, -50%) scale(.7);
-            left: calc(50% + 160px);
+            left: 50%;
+            top: 245px;
+            width: 350px;
+            padding: 10px 20px;
+            transform: translateX(-50%);
         }
-    }
 
-    @media screen and (max-width: 570px), screen and (max-height: 590px) {
+        #my-profiles a {
+            margin: 5px;
+            font-size: 15px;
+        }
+
         #photo {
-            transform: translate(-50%, -50%) scale(.5);
-            left: calc(50% - 175px);
+            height: 200px;
+            width: 200px;
+            left: 50%;
+            top: 30px;
+            background-position: center top;
+            border-radius: 100%;
+            transform: translateX(-50%);
+            overflow: hidden;
         }
 
-        #card {
-            transform: translate(-50%, -50%) scale(.5);
-            left: calc(50% + 175px);
+        #contact-me {
+            font-size: 10px;
+            line-height: 35px;
+            width: 110px;
+            bottom: 23px;
         }
 
-        #scroll-animation {
-            transform: scale(.7);
-            right: 30px;
-        }
-    }
-
-    @media screen and (max-width: 400px) {
-        #photo {
-            transform: translate(-50%, -50%) scale(.4);
-            left: calc(50% - 170px);
-        }
-
-        #card {
-            transform: translate(-50%, -50%) scale(.4);
-            left: calc(50% + 180px);
-        }
+        #scroll-animation { display: none; }
     }
 </style>
-<div id="cover">
-    <div id="photo">
-        <a href="mailto://daniel@drasite.com" class="with-shadow" id="contact-me">
-            <i class="fas fa-envelope-open">&nbsp;</i>CONTACT ME
-        </a>
-    </div>
-    <div id="card" class="paper">
-        <h1 class="selectable">Daniel</h1>
-        <h2 class="selectable">Ruiz de Alegría</h2>
-        <hr>
-        <p>Open Source Developer <i class="fas fa-heart" style="color: #D02020;"></i>️</p>
-        <p>Student of Computer Engineering at the Polytechnic University of Madrid
-        <p>
-        <p>UI & UX Designer</p>
-        <div id="my-profiles">
-            <a target="_blank" href="https://www.instagram.com/dani_ruiz24/">
-                <i class="fab fa-instagram" title="Instagram"></i>
-            </a>
-            <a target="_blank" href="https://twitter.com/dani_ruiz24">
-                <i class="fab fa-twitter" title="Twitter"></i>
-            </a>
-            <a target="_blank" href="https://github.com/daniruiz">
-                <i class="fab fa-github" title="GitHub"></i>
-            </a>
-            <a target="_blank" href="https://gitlab.com/daniruiz">
-                <i class="fab fa-gitlab" title="GitLab"></i>
-            </a>
-            <a target="_blank" href="https://www.paypal.me/daniruizdealegria">
-                <i class="fas fa-heart" title="Donate"></i>
-            </a>
-            <a target="_blank" href="blog" class="__eth-link">
-                <i class="fas fa-blog" title="Blog"></i>
-            </a>
-        </div>
-    </div>
-
-    <div id="scroll-animation">
-        <div class="mouse">
-            <div class="wheel"></div>
-        </div>
-        <div>
-            <span class="arrow1"></span>
-            <span class="arrow2"></span>
-            <span class="arrow3"></span>
-        </div>
-    </div>
-</div>
