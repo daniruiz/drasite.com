@@ -1,256 +1,12 @@
+<!-- Meta tags -->
 <script>
-  document.title = 'Flat Remix CSS Library'
+  updateMetaData({
+    title: 'Flat Remix CSS Library',
+    description: 'A lightweight CSS library that provides a set of predesigned elements useful for rapid web development. It follows a modern flat design using a colorful palette with some shadows, highlights, and gradients for some depth.',
+  })
 </script>
-<style>
-    body { padding-bottom: 100px; }
 
-    .arrow1, .arrow2, .arrow3 {
-        animation: mouse-scroll 1s infinite;
-        display: block;
-        width: 10px;
-        height: 10px;
-        transform: rotate(45deg);
-        border-right: 3px solid white;
-        border-bottom: 3px solid white;
-        margin: 0 0 3px 10px;
-    }
-
-    .arrow1, .arrow2, .arrow3 {
-        animation: mouse-scroll 1s infinite;
-        display: block;
-        width: 10px;
-        height: 10px;
-        transform: rotate(45deg);
-        border-right: 3px solid white;
-        border-bottom: 3px solid white;
-        margin: 0 0 3px 10px;
-    }
-
-    .arrow1 {
-        animation-delay: .1s;
-        margin-top: 10px;
-    }
-
-    .arrow2 { animation-delay: .2s; }
-
-    .arrow3 { animation-delay: .3s;}
-
-    .mouse {
-        height: 44px;
-        width: 30px;
-        border-radius: 20px;
-        border: 4px solid white;
-    }
-
-    .wheel {
-        height: 6px;
-        width: 2px;
-        display: block;
-        margin: 7px auto;
-        background: white;
-        position: relative;
-        animation: mouse-wheel 1.2s ease infinite;
-    }
-
-    @keyframes mouse-wheel {
-        0% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        100% {
-            opacity: 0;
-            transform: translateY(15px);
-        }
-    }
-
-    @keyframes mouse-scroll {
-        0% {
-            opacity: 0;
-        }
-        50% {
-            opacity: .5;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    #scroll-animation {
-        position: absolute;
-        bottom: 30px;
-        right: 50px;
-    }
-
-    header {
-        height: 100vh !important;
-        width: 100%;
-        min-height: 660px;
-        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogPGRlZnM+CiAgPHBhdHRlcm4gaWQ9InNtYWxsR3JpZCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzEwODZiIiBzdHJva2Utd2lkdGg9Ii41IiBkPSJNIDEwIDAgTCAwIDAgMCAxMCIvPgogIDwvcGF0dGVybj4KICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICA8cmVjdCBmaWxsPSJ1cmwoI3NtYWxsR3JpZCkiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIi8+CiAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMxMDg2YiIgZD0iTSAxMDAgMCBMIDAgMCAwIDEwMCIvPgogIDwvcGF0dGVybj4KIDwvZGVmcz4KIDxyZWN0IGZpbGw9InVybCgjZ3JpZCkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz4KPC9zdmc+Cg==), linear-gradient(203deg, #8c42ab 15%, #357af0);
-    }
-
-    #description {
-        max-width: 600px;
-        width: 90%;
-        padding: 10px 50px;
-        background-color: rgba(0, 0, 0, 0.3);
-        color: white;
-        border-radius: 2px;
-        position: absolute;
-        left: 50%;
-        top: calc(50% - 50px);
-        transform: translate(-50%, -50%);
-    }
-
-    #description hr {
-        border-color: #112D5C;
-        background: #112D5C;
-    }
-
-    #description p {
-        font-size: 26px;
-        font-weight: lighter;
-        line-height: 38px;
-        padding: 0 30px;
-        letter-spacing: 1px;
-    }
-
-    .paper.download-box {
-        margin-top: calc(100vh + 10px);
-    }
-
-    .palette {
-        text-align: center;
-    }
-
-    @keyframes palette-animation {
-        0%, 100%, 40% {
-            transform: scale(1)
-        }
-        10% {
-            transform: scale(1.3)
-        }
-    }
-
-    .palette div {
-        animation: palette-animation 6s infinite ease-in-out;
-        width: 30px;
-        height: 50px;
-        display: inline-block;
-        border-bottom: 7px solid black;
-        will-change: transform;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    }
-
-    section, .paper, article {
-        max-width: 500px;
-        margin: 40px auto;
-        width: 95%;
-    }
-
-    input[type="text"] {
-        width: 50%;
-        min-width: 165px;
-    }
-
-    select {
-        width: 49%;
-        margin-left: 1%;
-    }
-
-    textarea {
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-    }
-
-    label { width: 225px; }
-
-    button.blue-button, button.red-button, button.green-button {
-        display: inline-block;
-        margin: 8px;
-    }
-
-    .rounded-button {
-        position: absolute;
-        bottom: -28px;
-        right: 30px;
-    }
-
-    .onoffswitch {
-        margin: 20px;
-        vertical-align: middle;
-    }
-
-    .onoffswitch-label { width: auto; }
-
-    article {
-        width: 95%;
-        max-width: 500px;
-        margin: 40px auto;
-    }
-
-    article textarea { width: 100%; }
-
-    .blue-color { color: #316FD8; }
-
-    .green-color { color: #19A187; }
-
-    .red-color { color: #B22525 }
-
-    pre {
-        white-space: pre-wrap;
-        color: #B3B3B3;
-        margin-top: 50px;
-        font-weight: bold;
-    }
-
-    article label {
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    article .onoffswitch-label {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    article .red-button, article .blue-button, article .green-button, article .rounded-button {
-        margin: 20px auto 0;
-        display: block;
-        position: static;
-    }
-
-    @media screen and (max-height: 720px) {
-        #description {
-            top: 50px;
-            transform: translate(-50%, 0);
-        }
-    }
-
-    @media screen and (max-width: 850px) {
-        #scroll-animation { display: none; }
-    }
-
-    @media screen and (max-width: 550px) {
-        #description h4 {
-            font-size: 18px;
-            line-height: 28px;
-            padding: 0;
-        }
-    }
-
-    @media screen and (max-width: 650px) {
-        #description { padding: 0 30px 20px; }
-
-        #description h1 {
-            font-size: 40px;
-            line-height: 60px;
-        }
-    }
-</style>
-
+<!-- Content -->
 <div id="scroll-animation">
     <div class="mouse">
         <div class="wheel"></div>
@@ -265,10 +21,10 @@
     <h1>Flat Remix<br> CSS Library</h1>
     <hr>
     <p>
-        A lightweight CSS library that provides a set of predesigned elements for a fast web development.
+        A lightweight CSS library that provides a set of predesigned elements useful for rapid web development.
     </p>
     <p>
-        It follows a modern "flat" design using high contrasts and sharp borders.
+        It follows a modern flat design using a colorful palette with some shadows, highlights, and gradients for some depth.
     </p>
 </section>
 <div class="paper download-box" data-github="flat-remix-css">
@@ -588,3 +344,254 @@
         <button class="rounded-button">+</button>
     </section>
 </article>
+
+<!-- Styles -->
+<style>
+    body { padding-bottom: 100px; }
+
+    .arrow1, .arrow2, .arrow3 {
+        animation: mouse-scroll 1s infinite;
+        display: block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+        margin: 0 0 3px 10px;
+    }
+
+    .arrow1, .arrow2, .arrow3 {
+        animation: mouse-scroll 1s infinite;
+        display: block;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+        margin: 0 0 3px 10px;
+    }
+
+    .arrow1 {
+        animation-delay: .1s;
+        margin-top: 10px;
+    }
+
+    .arrow2 { animation-delay: .2s; }
+
+    .arrow3 { animation-delay: .3s;}
+
+    .mouse {
+        height: 44px;
+        width: 30px;
+        border-radius: 20px;
+        border: 4px solid white;
+    }
+
+    .wheel {
+        height: 6px;
+        width: 2px;
+        display: block;
+        margin: 7px auto;
+        background: white;
+        position: relative;
+        animation: mouse-wheel 1.2s ease infinite;
+    }
+
+    @keyframes mouse-wheel {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+    }
+
+    @keyframes mouse-scroll {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: .5;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #scroll-animation {
+        position: absolute;
+        bottom: 30px;
+        right: 50px;
+    }
+
+    header {
+        height: 100vh !important;
+        width: 100%;
+        min-height: 660px;
+        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogPGRlZnM+CiAgPHBhdHRlcm4gaWQ9InNtYWxsR3JpZCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzEwODZiIiBzdHJva2Utd2lkdGg9Ii41IiBkPSJNIDEwIDAgTCAwIDAgMCAxMCIvPgogIDwvcGF0dGVybj4KICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICA8cmVjdCBmaWxsPSJ1cmwoI3NtYWxsR3JpZCkiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIi8+CiAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMxMDg2YiIgZD0iTSAxMDAgMCBMIDAgMCAwIDEwMCIvPgogIDwvcGF0dGVybj4KIDwvZGVmcz4KIDxyZWN0IGZpbGw9InVybCgjZ3JpZCkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz4KPC9zdmc+Cg==), linear-gradient(203deg, #8c42ab 15%, #357af0);
+    }
+
+    #description {
+        max-width: 600px;
+        width: 90%;
+        padding: 10px 50px;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+        border-radius: 2px;
+        position: absolute;
+        left: 50%;
+        top: calc(50% - 50px);
+        transform: translate(-50%, -50%);
+    }
+
+    #description hr {
+        border-color: #112D5C;
+        background: #112D5C;
+    }
+
+    #description p {
+        font-size: 26px;
+        font-weight: lighter;
+        line-height: 38px;
+        padding: 0 30px;
+        letter-spacing: 1px;
+    }
+
+    .paper.download-box {
+        margin-top: calc(100vh + 10px);
+    }
+
+    .palette {
+        text-align: center;
+    }
+
+    @keyframes palette-animation {
+        0%, 100%, 40% {
+            transform: scale(1)
+        }
+        10% {
+            transform: scale(1.3)
+        }
+    }
+
+    .palette div {
+        animation: palette-animation 6s infinite ease-in-out;
+        width: 30px;
+        height: 50px;
+        display: inline-block;
+        border-bottom: 7px solid black;
+        will-change: transform;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    }
+
+    section, .paper, article {
+        max-width: 500px;
+        margin: 40px auto;
+        width: 95%;
+    }
+
+    input[type="text"] {
+        width: 50%;
+        min-width: 165px;
+    }
+
+    select {
+        width: 49%;
+        margin-left: 1%;
+    }
+
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    label { width: 225px; }
+
+    button.blue-button, button.red-button, button.green-button {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    .rounded-button {
+        position: absolute;
+        bottom: -28px;
+        right: 30px;
+    }
+
+    .onoffswitch {
+        margin: 20px;
+        vertical-align: middle;
+    }
+
+    .onoffswitch-label { width: auto; }
+
+    article {
+        width: 95%;
+        max-width: 500px;
+        margin: 40px auto;
+    }
+
+    article textarea { width: 100%; }
+
+    .blue-color { color: #316FD8; }
+
+    .green-color { color: #19A187; }
+
+    .red-color { color: #B22525 }
+
+    pre {
+        white-space: pre-wrap;
+        color: #B3B3B3;
+        margin-top: 50px;
+        font-weight: bold;
+    }
+
+    article label {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    article .onoffswitch-label {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    article .red-button, article .blue-button, article .green-button, article .rounded-button {
+        margin: 20px auto 0;
+        display: block;
+        position: static;
+    }
+
+    @media screen and (max-height: 720px) {
+        #description {
+            top: 50px;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    @media screen and (max-width: 850px) {
+        #scroll-animation { display: none; }
+    }
+
+    @media screen and (max-width: 550px) {
+        #description h4 {
+            font-size: 18px;
+            line-height: 28px;
+            padding: 0;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        #description { padding: 0 30px 20px; }
+
+        #description h1 {
+            font-size: 40px;
+            line-height: 60px;
+        }
+    }
+</style>

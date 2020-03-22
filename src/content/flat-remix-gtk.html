@@ -1,4 +1,89 @@
-<script>document.title = 'Flat Remix GTK theme'</script>
+<!-- Meta tags -->
+<script>
+  updateMetaData({
+    title: 'Flat Remix GTK theme',
+    description: 'Flat Remix is a GTK application theme inspired by material design. It is mostly flat using a colorful palette with some shadows, highlights, and gradients for some depth.',
+  })
+</script>
+
+<!-- Content -->
+<img id="flat-remix-logo" src="/img/flat-remix-gtk-logo.svg" height="378" alt="Flat Remix ICON theme logo">
+<section class="paper download-box" data-github="flat-remix-gtk">
+    <a href="https://www.opendesktop.org/p/1214931" target="_blank"
+       class="with-shadow blue-button-link">↧ Download Flat Remix</a>
+    <a href="https://github.com/daniruiz/Flat-Remix-GTK"
+       target="_blank">
+        <i class="fab fa-github"></i> github.com/daniruiz/Flat-Remix-GTK
+    </a>
+    <hr>
+    <div class="license">
+        Flat-Remix-GTK is licensed under the GNU General Public License v3.0<br>
+    </div>
+</section>
+<article>
+    <h1>Flat Remix GTK theme</h1>
+    <div id="description">
+        Flat Remix is a GTK application theme inspired by material design. It is mostly flat using a colorful palette 
+        with some shadows, highlights, and gradients for some depth.
+    </div>
+    <section>
+        <br>
+        <div id="variants-preview">
+            <img src="/img/gtk-blue.png" alt="Flat Remix GTK blue theme">
+            <img src="/img/gtk-green.png" alt="Flat Remix GTK green theme">
+            <img src="/img/gtk-red.png" alt="Flat Remix GTK red theme">
+            <img src="/img/gtk-yellow.png" alt="Flat Remix GTK yellow theme">
+        </div>
+        <br>
+        <h5>Themes</h5>
+        <ul>
+            <li>Flat Remix</li>
+            <li>Flat Remix Dark</li>
+            <li>Flat Remix Darker</li>
+            <li>Flat Remix Darkest</li>
+        </ul>
+        <h6>Variants</h6>
+        <ul>
+            <li>Solid - Theme without transparency</li>
+            <li>No Border - Darkest theme without white window border</li>
+        </ul>
+        <h6>Color Variants</h6>
+        <ul>
+            <li>Blue</li>
+            <li>Green</li>
+            <li>Red</li>
+            <li>Yellow</li>
+        </ul>
+        <h2>Installation</h2>
+        <h4>Manual installation</h4>
+        <ol>
+            <li>Download and extract the zip file.</li>
+            <li>Move "Flat-Remix-GTK-Blue" folder to ".themes" in your home directory.</li>
+            <li>To set the theme, run the following command in terminal:
+                <pre style="margin:0" class="prettyprint"><span class="kwd">gsettings</span> set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue"</pre>
+                or select "Flat-Remix-GTK-Blue" via your desktop specific tweaks application.
+            </li>
+        </ol>
+        <br>
+        <h5>Ubuntu based distributions:</h5>
+        <pre class="prettyprint">
+sudo <span class="kwd">add-apt-repository</span> ppa:daniruiz/flat-remix
+sudo <span class="kwd">apt</span> update
+sudo <span class="kwd">apt</span> install flat-remix-gtk</pre>
+        <h5>Fedora based distributions</h5>
+        <pre class="prettyprint">
+sudo <span class="kwd">dnf</span> copr enable daniruiz/flat-remix
+sudo <span class="kwd">dnf</span> install flat-remix-gtk</pre>
+        <h5>Arch based distributions</h5>
+        <ul>
+            <li><a href="https://aur.archlinux.org/packages/flat-remix-gtk/" target="_blank"><code>flat-remix-gtk</code></a>
+                (AUR)
+            </li>
+        </ul>
+    </section>
+</article>
+
+<!-- Styles -->
 <style>
     #flat-remix-logo {
         display: block;
@@ -59,231 +144,5 @@
         width: 95%;
     }
 
-    article * {
-        max-width: 100%
-    }
-
-    h5 {
-        margin-left: 30px
-    }
-
-    .bash, .bash * {
-        cursor: auto;
-        user-select: text;
-        -webkit-touch-callout: text;
-        -webkit-user-select: text;
-        -khtml-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        font-family: monospace;
-    }
-
-    .bash {
-        padding: 15px;
-        background-color: #FFF;
-        border: 1px solid #E6E6E6;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
-        font-family: monospace;
-        color: #0F2751;
-        padding-left: 50px;
-        background: #FFF
-    }
-
-    .bash a:link {
-        color: #0F2751;
-    }
-
-    .bash a:hover {
-        background-color: #FFC730;
-    }
-
-    .bash .imp {
-        font-weight: bold;
-        color: red;
-    }
-
-    .bash .kw1 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .kw2 {
-        color: #8C42AB;
-        font-weight: bold;
-    }
-
-    .bash .kw3 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .co0 {
-        color: #60636E;
-        font-style: italic;
-    }
-
-    .bash .co1 {
-        color: #951212;
-    }
-
-    .bash .co2 {
-        color: #BF1717;
-        font-style: italic;
-    }
-
-    .bash .co3 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .es1 {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .es2 {
-        color: #087142;
-    }
-
-    .bash .es3 {
-        color: #087142;
-    }
-
-    .bash .es4 {
-        color: #087142;
-    }
-
-    .bash .es5 {
-        color: #622E78;
-    }
-
-    .bash .es_h {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .br0 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .sy0 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .st0 {
-        color: #D41919;
-    }
-
-    .bash .st_h {
-        color: #D41919;
-    }
-
-    .bash .nu0 {
-        color: #000;
-    }
-
-    .bash .re0 {
-        color: #087142;
-    }
-
-    .bash .re1 {
-        color: #087142;
-    }
-
-    .bash .re2 {
-        color: #087142;
-    }
-
-    .bash .re4 {
-        color: #087142;
-    }
-
-    .bash .re5 {
-        color: #811035;
-    }
-
-    .bash span.xtra {
-        display: block;
-    }
+    article h5 { margin-left: 30px; }
 </style>
-<img id="flat-remix-logo" src="/img/flat-remix-gtk-logo.svg" height="378" alt="Flat Remix ICON theme logo">
-<section class="paper download-box" data-github="flat-remix-gtk">
-    <a href="https://www.opendesktop.org/p/1214931" target="_blank"
-       class="with-shadow blue-button-link">↧ Download Flat Remix</a>
-    <a href="https://github.com/daniruiz/Flat-Remix-GTK"
-       target="_blank">
-        <i class="fab fa-github"></i> github.com/daniruiz/Flat-Remix-GTK
-    </a>
-    <hr>
-    <div class="license">
-        Flat-Remix-GTK is licensed under the GNU General Public License v3.0<br>
-    </div>
-</section>
-<article>
-    <h1>Flat Remix GTK theme</h1>
-    <div id="description">Flat Remix GTK theme is a pretty simple gtk window theme inspired on material design. It
-        follows
-        a modern design using "flat" colors with high contrasts and sharp borders.
-    </div>
-    <section>
-        <br>
-        <div id="variants-preview">
-            <img src="/img/gtk-blue.png" alt="Flat Remix GTK blue theme">
-            <img src="/img/gtk-green.png" alt="Flat Remix GTK green theme">
-            <img src="/img/gtk-red.png" alt="Flat Remix GTK red theme">
-            <img src="/img/gtk-yellow.png" alt="Flat Remix GTK yellow theme">
-        </div>
-        <br>
-        <h5>Themes</h5>
-        <ul>
-            <li>Flat Remix</li>
-            <li>Flat Remix Dark</li>
-            <li>Flat Remix Darker</li>
-            <li>Flat Remix Darkest</li>
-        </ul>
-        <h6>Variants</h6>
-        <ul>
-            <li>Solid - Theme without transparency</li>
-            <li>No Border - Darkest theme without white window border</li>
-        </ul>
-        <h6>Color Variants</h6>
-        <ul>
-            <li>Blue</li>
-            <li>Green</li>
-            <li>Red</li>
-            <li>Yellow</li>
-        </ul>
-        <h2>Installation</h2>
-        <h4>Manual installation</h4>
-        <ol>
-            <li>Download and extract the zip file.</li>
-            <li>Move "Flat-Remix-GTK-Blue" folder to ".themes" in your home directory.</li>
-            <li>To set the theme, run the following command in terminal:<br>
-                <code>gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue"</code><br>
-                or select "Flat-Remix-GTK-Blue" via your desktop specific tweaks application.
-            </li>
-        </ol>
-        <h5>Ubuntu based distributions:</h5>
-        <div class="bash">
-            <div class="de1"><span class="kw2">sudo</span> add-apt-repository ppa:daniruiz<span class="sy0">/</span>flat-remix
-            </div>
-            <div class="de1"><span class="kw2">sudo</span> <span class="kw2">apt-get</span> update</div>
-            <div class="de1"><span class="kw2">sudo</span> <span class="kw2">apt-get</span> <span
-                    class="kw2">install</span> flat-remix-gtk
-            </div>
-        </div>
-        <h5>Fedora based distributions</h5>
-        <div class="bash"><span class="kw2">sudo</span> dnf copr enable daniruiz<span
-                class="sy0">/</span>flat-remix<br/>
-            <span class="kw2">sudo</span> <span class="kw2">dnf</span> <span class="kw2">install</span> flat-remix-gtk
-        </div>
-        <h5>Arch based distributions</h5>
-        <ul>
-            <li><a href="https://aur.archlinux.org/packages/flat-remix-gtk/" target="_blank"><code>flat-remix-gtk</code></a>
-                (AUR)
-            </li>
-        </ul>
-    </section>
-</article>

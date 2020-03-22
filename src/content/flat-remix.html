@@ -1,6 +1,78 @@
+<!-- Meta tags -->
 <script>
-  document.title = 'Flat Remix ICON theme'
+  updateMetaData({
+    title: 'Flat Remix ICON theme',
+    description: 'Flat Remix is an icon theme inspired by material design. It is mostly flat using a colorful palette with some shadows, highlights, and gradients for some depth.',
+  })
 </script>
+
+<!-- Content -->
+<img id="flat-remix-logo" src="/img/flat-remix-logo.svg" height="378" alt="Flat Remix ICON theme logo">
+<section class="paper download-box" data-github="flat-remix">
+    <a href="https://www.opendesktop.org/p/1012430" target="_blank"
+       class="with-shadow blue-button-link">↧ Download Flat Remix</a>
+    <a href="https://github.com/daniruiz/Flat-Remix"
+       target="_blank">
+        <i class="fab fa-github"></i> github.com/daniruiz/Flat-Remix
+    </a>
+    <hr>
+    <div class="license">Flat-Remix is licensed under the GNU General Public License v3.0</div>
+</section>
+<article>
+    <h1>Flat Remix ICON theme</h1>
+    <div id="description">
+        Flat Remix is an icon theme inspired by material design. It is mostly flat using a colorful palette 
+        with some shadows, highlights, and gradients for some depth.
+    </div>
+    <br><br>
+    <section>
+        <div id="icons" style="" class="with-shadow"></div>
+        <br><br>
+        <h5>Themes</h5>
+        <ul>
+            <li>Flat Remix - main icon theme</li>
+            <li>Flat Remix Dark - for dark interfaces</li>
+            <li>Flat Remix Light - for light interfaces</li>
+        </ul>
+        <h6>Folder variants</h6>
+        <ul>
+            <li>Blue Folders</li>
+            <li>Green Folders</li>
+            <li>Red Folders</li>
+            <li>Yellow Folders</li>
+        </ul>
+        <br>
+        <hr>
+        <h2>Installation</h2>
+        <h4>Manual installation</h4>
+        <ol>
+            <li>Download and extract the zip file.</li>
+            <li>Move "Flat-Remix-Blue" folder to ".icons" (./local/share/icons for KDE) in your home directory.</li>
+            <li>To set the theme, run the following command in terminal:
+                <pre style="margin:0" class="prettyprint"><span class="kwd">gsettings</span> set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"</pre>
+                or select "Flat-Remix-Blue" via your desktop specific tweaks application.
+            </li>
+        </ol>
+        <br>
+        <h5>Ubuntu based distributions</h5>
+        <pre class="prettyprint">
+sudo <span class="kwd">add-apt-repository</span> ppa:daniruiz/flat-remix
+sudo <span class="kwd">apt</span> update
+sudo <span class="kwd">apt</span> install flat-remix</pre>
+        <h5>Fedora based distributions</h5>
+        <pre class="prettyprint">
+sudo <span class="kwd">dnf</span> copr enable daniruiz/flat-remix
+sudo <span class="kwd">dnf</span> install flat-remix</pre>
+        <h5>Arch based distributions</h5>
+        <ul>
+            <li><a href="https://aur.archlinux.org/packages/flat-remix/" target="_blank"><code>flat-remix</code></a>
+                (AUR)
+            </li>
+        </ul>
+    </section>
+</article>
+
+<!-- Styles -->
 <style>
     #flat-remix-logo {
         display: block;
@@ -30,13 +102,7 @@
         width: 95%;
     }
 
-    article * {
-        max-width: 100%
-    }
-
-    h5 {
-        margin-left: 30px
-    }
+    article h5 { margin-left: 30px; }
 
     #icons {
         background: #0C1E28;
@@ -71,147 +137,6 @@
 
     #icons > .bigger-icons > img:hover { transform: scale(1.7); }
 
-    .bash, .bash * {
-        cursor: auto;
-        user-select: text;
-        -webkit-touch-callout: text;
-        -webkit-user-select: text;
-        -khtml-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        font-family: monospace;
-    }
-
-    .bash {
-        padding: 15px;
-        background-color: #FFF;
-        border: 1px solid #E6E6E6;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
-        font-family: monospace;
-        color: #0F2751;
-        padding-left: 50px;
-        background: #FFF
-    }
-
-    .bash a:link {
-        color: #0F2751;
-    }
-
-    .bash a:hover {
-        background-color: #FFC730;
-    }
-
-    .bash .imp {
-        font-weight: bold;
-        color: red;
-    }
-
-    .bash .kw1 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .kw2 {
-        color: #8C42AB;
-        font-weight: bold;
-    }
-
-    .bash .kw3 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .co0 {
-        color: #60636E;
-        font-style: italic;
-    }
-
-    .bash .co1 {
-        color: #951212;
-    }
-
-    .bash .co2 {
-        color: #BF1717;
-        font-style: italic;
-    }
-
-    .bash .co3 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .es1 {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .es2 {
-        color: #087142;
-    }
-
-    .bash .es3 {
-        color: #087142;
-    }
-
-    .bash .es4 {
-        color: #087142;
-    }
-
-    .bash .es5 {
-        color: #622E78;
-    }
-
-    .bash .es_h {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .br0 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .sy0 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .st0 {
-        color: #D41919;
-    }
-
-    .bash .st_h {
-        color: #D41919;
-    }
-
-    .bash .nu0 {
-        color: #000;
-    }
-
-    .bash .re0 {
-        color: #087142;
-    }
-
-    .bash .re1 {
-        color: #087142;
-    }
-
-    .bash .re2 {
-        color: #087142;
-    }
-
-    .bash .re4 {
-        color: #087142;
-    }
-
-    .bash .re5 {
-        color: #811035;
-    }
-
-    .bash span.xtra {
-        display: block;
-    }
-
     @media only screen and (max-width: 1100px) {
         #icons {
             font-size: 1.2vw;
@@ -221,70 +146,8 @@
         }
     }
 </style>
-<img id="flat-remix-logo" src="/img/flat-remix-logo.svg" height="378" alt="Flat Remix ICON theme logo">
-<section class="paper download-box" data-github="flat-remix">
-    <a href="https://www.opendesktop.org/p/1012430" target="_blank"
-       class="with-shadow blue-button-link">↧ Download Flat Remix</a>
-    <a href="https://github.com/daniruiz/Flat-Remix"
-       target="_blank">
-        <i class="fab fa-github"></i> github.com/daniruiz/Flat-Remix
-    </a>
-    <hr>
-    <div class="license">Flat-Remix is licensed under the GNU General Public License v3.0</div>
-</section>
-<article>
-    <h1>Flat Remix ICON theme</h1>
-    <div id="description">Flat Remix ICON theme is a pretty simple Linux icon theme inspired on material design. It is
-        mostly flat with some shadows, highlights and gradients for some depth, and uses a colorful palette with nice
-        contrasts.
-    </div>
-    <br><br>
-    <section>
-        <div id="icons" style="" class="with-shadow"></div>
-        <br><br>
-        <h5>Themes</h5>
-        <ul>
-            <li>Flat Remix - main icon theme</li>
-            <li>Flat Remix Dark - for dark interfaces</li>
-            <li>Flat Remix Light - for light interfaces</li>
-        </ul>
-        <h6>Folder variants</h6>
-        <ul>
-            <li>Blue Folders</li>
-            <li>Green Folders</li>
-            <li>Red Folders</li>
-            <li>Yellow Folders</li>
-        </ul>
-        <br>
-        <hr>
-        <h2>Installation</h2>
-        <h4>Manual installation</h4>
-        <ol>
-            <li>Download and extract the zip file.</li>
-            <li>Move "Flat-Remix-Blue" folder to ".icons" (./local/share/icons for KDE) in your home directory.</li>
-            <li>To set the theme, run the following command in terminal:<br>
-                <code>gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"</code><br>
-                or select "Flat-Remix-Blue" via your desktop specific tweaks application.
-            </li>
-        </ol>
-        <h5>Ubuntu based distributions</h5>
-        <div class="bash"><span class="kw2">sudo</span> add-apt-repository ppa:daniruiz<span class="sy0">/</span>flat-remix<br/>
-            <span class="kw2">sudo</span> <span class="kw2">apt-get</span> update<br/>
-            <span class="kw2">sudo</span> <span class="kw2">apt-get</span> <span class="kw2">install</span> flat-remix
-        </div>
-        <h5>Fedora based distributions</h5>
-        <div class="bash"><span class="kw2">sudo</span> dnf copr enable daniruiz<span
-                class="sy0">/</span>flat-remix<br/>
-            <span class="kw2">sudo</span> <span class="kw2">dnf</span> <span class="kw2">install</span> flat-remix
-        </div>
-        <h5>Arch based distributions</h5>
-        <ul>
-            <li><a href="https://aur.archlinux.org/packages/flat-remix/" target="_blank"><code>flat-remix</code></a>
-                (AUR)
-            </li>
-        </ul>
-    </section>
-</article>
+
+<!-- Scripts -->
 <script>
   __ETHENIS.onLoadOnce = () => {
     document.querySelector('#icons').innerHTML = `

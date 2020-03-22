@@ -1,3 +1,31 @@
+<!-- Meta tags -->
+<script>
+  updateMetaData({
+    title: 'Neural Network with Genetic Algorithms in Unity3D',
+    description: 'Neural Network robot simulation represented in Unity3D and evolved through genetic algorithms.',
+  })
+</script>
+
+
+<!-- Content -->
+<div id="gameContainer" class="with-shadow"></div>
+<section>
+    <textarea id="DNA-textarea" placeholder="New DNA"></textarea>
+    <button class="green-button" id="insert-DNA">Insert DNA</button>
+</section>
+<article>
+    <h1>Neural Network robot simulation represented in Unity3D and evolved through genetic algorithms</h1>
+    <section class="paper download-box" data-github="Cleaning-Robot-AI">
+        <a href="https://github.com/daniruiz/Cleaning-Robot-AI/archive/master.zip" target="_blank"
+           class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
+        <a href="https://github.com/daniruiz/Cleaning-Robot-AI" target="_blank"><i class="fab fa-github"></i>
+            github.com/daniruiz/Cleaning-Robot-AI</a>
+        <hr>
+        <div class="license">Cleaning-Robot-AI is licensed under the MIT License</div>
+    </section>
+</article>
+
+<!-- Styles -->
 <style>
     header { background: linear-gradient(203deg, #1C959B 17%, #24AA6E 100%); }
 
@@ -31,14 +59,14 @@
 
     #insert-DNA { display: inline-block; }
 
-    hr {
+    main hr {
         width: 50%;
         border: 3px solid #60636E;
         background-color: #60636E;
         border-radius: 4px;
     }
 
-    code {
+    main code {
         margin: 20px;
         font-size: 10px;
         letter-spacing: 0;
@@ -49,27 +77,11 @@
         text-shadow: 0.5px 0.5px 0, -0.5px -0.5px 0;
     }
 </style>
-<div id="gameContainer" class="with-shadow"></div>
-<section>
-    <textarea id="DNA-textarea" placeholder="New DNA"></textarea>
-    <button class="green-button" id="insert-DNA">Insert DNA</button>
-</section>
-<article>
-    <h1>Neural Network with Genetic Algorithms in Unity3D</h1>
-    <section class="paper download-box" data-github="Cleaning-Robot-AI">
-        <a href="https://github.com/daniruiz/Cleaning-Robot-AI/archive/master.zip" target="_blank"
-           class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
-        <a href="https://github.com/daniruiz/Cleaning-Robot-AI" target="_blank"><i class="fab fa-github"></i>
-            github.com/daniruiz/Cleaning-Robot-AI</a>
-        <hr>
-        <div class="license">Cleaning-Robot-AI is licensed under the MIT License</div>
-    </section>
-</article>
+
+<!-- Scripts -->
 <script src="/AI-webgl/Build/UnityLoader.js"></script>
 <script>
-  document.title = 'A.I. robot with Neural Network and Genetic Algorithms'
-
-  !function () {
+  (function () {
     const gameInstance = UnityLoader.instantiate('gameContainer', '/AI-webgl/Build/AI-webgl.json')
     const gameContainer = $('#gameContainer')
 
@@ -84,5 +96,5 @@
 
     // Called by Unity
     window.copyBestDNA = DNA => $('#DNA-textarea').value = DNA
-  }()
+  })()
 </script>

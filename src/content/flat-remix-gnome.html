@@ -1,184 +1,12 @@
+<!-- Meta tags -->
 <script>
-  document.title = 'Flat Remix GNOME theme'
+  updateMetaData({
+    title: 'Flat Remix GNOME theme',
+    description: 'Flat Remix is a GNOME Shell theme inspired by material design. It is mostly flat using a colorful palette with some shadows, highlights, and gradients for some depth.',
+  })
 </script>
-<style>
-    #flat-remix-gnome-logo {
-        display: block;
-        margin: auto;
-        max-width: 100%;
-    }
 
-    header { background: linear-gradient(203deg,#7e3c9a 5%,#357af0) }
-
-    #description {
-        font-weight: 100;
-        font-size: 24px;
-        margin: auto;
-        padding: 50px 20px;
-        background-color: #FFF;
-        border: 1px solid #E6E6E6;
-        line-height: 35px;
-        letter-spacing: .5px;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
-        border-radius: 3px;
-    }
-
-    article {
-        max-width: 880px;
-        padding: 20px;
-        margin: auto auto 50px;
-        width: 95%;
-    }
-
-    article * {
-        max-width: 100%
-    }
-
-    h5 {
-        margin-left: 30px
-    }
-
-    .bash, .bash * {
-        cursor: auto;
-        user-select: text;
-        -webkit-touch-callout: text;
-        -webkit-user-select: text;
-        -khtml-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        font-family: monospace;
-    }
-
-    .bash {
-        padding: 15px;
-        background-color: #FFF;
-        border: 1px solid #E6E6E6;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
-        font-family: monospace;
-        color: #0F2751;
-        padding-left: 50px;
-        background: #FFF
-    }
-
-    .bash a:link {
-        color: #0F2751;
-    }
-
-    .bash a:hover {
-        background-color: #FFC730;
-    }
-
-    .bash .imp {
-        font-weight: bold;
-        color: red;
-    }
-
-    .bash .kw1 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .kw2 {
-        color: #8C42AB;
-        font-weight: bold;
-    }
-
-    .bash .kw3 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .co0 {
-        color: #60636E;
-        font-style: italic;
-    }
-
-    .bash .co1 {
-        color: #951212;
-    }
-
-    .bash .co2 {
-        color: #BF1717;
-        font-style: italic;
-    }
-
-    .bash .co3 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .es1 {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .es2 {
-        color: #087142;
-    }
-
-    .bash .es3 {
-        color: #087142;
-    }
-
-    .bash .es4 {
-        color: #087142;
-    }
-
-    .bash .es5 {
-        color: #622E78;
-    }
-
-    .bash .es_h {
-        color: #153873;
-        font-weight: bold;
-    }
-
-    .bash .br0 {
-        color: #622E78;
-        font-weight: bold;
-    }
-
-    .bash .sy0 {
-        color: #000;
-        font-weight: bold;
-    }
-
-    .bash .st0 {
-        color: #D41919;
-    }
-
-    .bash .st_h {
-        color: #D41919;
-    }
-
-    .bash .nu0 {
-        color: #000;
-    }
-
-    .bash .re0 {
-        color: #087142;
-    }
-
-    .bash .re1 {
-        color: #087142;
-    }
-
-    .bash .re2 {
-        color: #087142;
-    }
-
-    .bash .re4 {
-        color: #087142;
-    }
-
-    .bash .re5 {
-        color: #811035;
-    }
-
-    .bash span.xtra {
-        display: block;
-    }
-</style>
+<!-- Content -->
 <img id="flat-remix-gnome-logo" src="/img/flat-remix-gnome-logo.svg" height="378" alt="Flat Remix GNOME theme logo">
 <section class="paper download-box" data-github="flat-remix-gnome">
     <a href="https://www.opendesktop.org/p/1013030"
@@ -192,8 +20,9 @@
 </section>
 <article>
     <h1>Flat Remix GNOME theme</h1>
-    <div id="description">Flat Remix GNOME theme is a pretty simple shell theme inspired on material design. It follows
-        a modern design using "flat" colors with high contrasts and sharp borders.
+    <div id="description">
+        Flat Remix is a GNOME Shell theme inspired by material design. It is mostly flat using a colorful palette with 
+        some shadows, highlights, and gradients for some depth.
     </div>
     <section>
         <br>
@@ -223,25 +52,21 @@
             <li>Move "Flat-Remix" folder to ".themes" in your home directory.</li>
             <li>Install <a href="https://extensions.gnome.org/extension/19/user-themes/" target="_blank">user themes
                 extension</a></li>
-            <li>To set the theme, run the following command in terminal:<br>
-                <code>gsettings set org.gnome.shell.extensions.user-theme name "Flat-Remix"</code><br><br>
+            <li>To set the theme, run the following command in terminal:
+                <pre style="margin:0" class="prettyprint"><span class="kwd">gsettings</span> set org.gnome.shell.extensions.user-theme name "Flat-Remix"</pre>
                 or select "Flat-Remix" via gnome-tweaks.
             </li>
         </ol>
+        <br>
         <h5>Ubuntu based distributions:</h5>
-        <div class="bash">
-            <div class="de1"><span class="kw2">sudo</span> add-apt-repository ppa:daniruiz<span class="sy0">/</span>flat-remix
-            </div>
-            <div class="de1"><span class="kw2">sudo</span> <span class="kw2">apt-get</span> update</div>
-            <div class="de1"><span class="kw2">sudo</span> <span class="kw2">apt-get</span> <span
-                    class="kw2">install</span> flat-remix-gnome
-            </div>
-        </div>
+        <pre class="prettyprint">
+sudo <span class="kwd">add-apt-repository</span> ppa:daniruiz/flat-remix
+sudo <span class="kwd">apt</span> update
+sudo <span class="kwd">apt</span> install flat-remix-gnome</pre>
         <h5>Fedora based distributions</h5>
-        <div class="bash"><span class="kw2">sudo</span> dnf copr enable daniruiz<span
-                class="sy0">/</span>flat-remix<br/>
-            <span class="kw2">sudo</span> <span class="kw2">dnf</span> <span class="kw2">install</span> flat-remix-gnome
-        </div>
+        <pre class="prettyprint">
+sudo <span class="kwd">dnf</span> copr enable daniruiz/flat-remix
+sudo <span class="kwd">dnf</span> install flat-remix-gnome</pre>
         <h5>Arch based distributions</h5>
         <ul>
             <li><a href="https://aur.archlinux.org/packages/flat-remix-gnome/"
@@ -262,13 +87,45 @@
             <li>Fedora<br><code>sudo dnf install glib2-devel ImageMagick</code><br></li>
             <li>Arch<br><code>sudo pacman -S glib2 imagemagick</code></li>
         </ul>
-        <br>
-        <div class="bash"><span class="kw2">git</span> clone https:<span class="sy0">//</span>github.com<span
-                class="sy0">/</span>daniruiz<span class="sy0">/</span>flat-remix-gnome&nbsp;<br><span
-                class="kw2">cd</span> flat-remix-gnome <br><span class="kw2">make</span> <span
-                style="color:#0F2751;letter-spacing:.2px"> &amp;&amp;</span> <span class="kw2">sudo make</span>
-            install<span class="st0"></span>
-        </div>
+        <pre class="prettyprint">
+<span class="kwd">git</span> clone https://github.com/daniruiz/flat-remix-gnome 
+<span class="kwd">cd</span> flat-remix-gnome
+<span class="kwd">make && sudo <span class="kwd">make</span> install</pre>
         <video src="/content/video/gdm.webm" autoplay loop muted></video>
     </section>
 </article>
+
+<!-- Styles -->
+<style>
+    #flat-remix-gnome-logo {
+        display: block;
+        margin: auto;
+        max-width: 100%;
+    }
+
+    header { background: linear-gradient(203deg,#7e3c9a 5%,#357af0) }
+
+    #description {
+        font-weight: 100;
+        font-size: 24px;
+        margin: auto;
+        padding: 50px 20px;
+        background-color: #FFF;
+        border: 1px solid #E6E6E6;
+        line-height: 35px;
+        letter-spacing: .5px;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
+        border-radius: 3px;
+    }
+
+    article {
+        max-width: 880px;
+        padding: 20px;
+        margin: auto auto 50px;
+        width: 95%;
+    }
+
+    article h5 {
+        margin-left: 30px
+    }
+</style>

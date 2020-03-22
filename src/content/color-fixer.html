@@ -1,5 +1,43 @@
-<script> document.title = 'Color Fixer' </script>
+<!-- Meta tags -->
+<script>
+  updateMetaData({
+    title: 'Color Fixer',
+    description: "Color-Fixer is a Bash script that allows the developer to make corrections on the project's color palette. The script can process multiple files simultaneously and works by substituting the values it encounters inside the code with the closest ones from the new palette. It supports HEX, RGB and RGBA color codes.",
+  })
+</script>
 
+
+<!-- Content -->
+<article>
+    <img src="/img/color-fixer.jpg" alt="color fixer demo">
+    <section class="paper download-box" data-github="Color-Fixer">
+        <a href="https://github.com/daniruiz/Color-Fixer/archive/master.zip" target="_blank"
+           class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
+        <a href="https://github.com/daniruiz/Color-Fixer" target="_blank"><i class="fab fa-github"></i>
+            github.com/daniruiz/Color-Fixer</a>
+        <hr>
+        <div class="license">Color-Fixer is licensed under the MIT License</div>
+    </section>
+    <h1>Color Fixer</h1>
+    <p>
+        Color-Fixer is a Bash script that allows the developer to make corrections on the project's color palette. 
+        The script can process multiple files simultaneously and works by substituting the values it encounters inside 
+        the code with the closest ones from the new palette. It supports HEX, RGB and RGBA color codes.
+    </p>
+    <h2>Usage</h2>
+    <pre class="selectable">
+colorfixer [OPTION]... [FILE]
+
+Options:
+  -p FILE, --palette FILE 	 read palette colors from FILE
+  -x, --hex               	 use hex colors as replacement
+  -v, --verbose           	 print color modifications
+  -c, --color             	 colorize the output
+  -h, --help              	 show this help text
+    </pre>
+</article>
+
+<!-- Styles -->
 <style>
     header { background: linear-gradient(203deg,#23bac2 17%,#3b6ab9 100%) }
 
@@ -46,30 +84,3 @@
         }
     }
 </style>
-<article>
-    <img src="/img/color-fixer.jpg" alt="color fixer demo">
-    <section class="paper download-box" data-github="Color-Fixer">
-        <a href="https://github.com/daniruiz/Color-Fixer/archive/master.zip" target="_blank"
-           class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
-        <a href="https://github.com/daniruiz/Color-Fixer" target="_blank"><i class="fab fa-github"></i>
-            github.com/daniruiz/Color-Fixer</a>
-        <hr>
-        <div class="license">Color-Fixer is licensed under the MIT License</div>
-    </section>
-    <h1>Color Fixer</h1>
-    <p>
-        Color Fixer is a Bash script that allows you to correct all your project colors by replacing them with the
-        closest found in the new palette file. It supports HEX, RGB and RGBA colors.
-    </p>
-    <h2>Usage</h2>
-    <pre class="selectable">
-colorfixer [OPTION]... [FILE]
-
-Options:
-  -p FILE, --palette FILE 	 read palette colors from FILE
-  -x, --hex               	 use hex colors as replacement
-  -v, --verbose           	 print color modifications
-  -c, --color             	 colorize the output
-  -h, --help              	 show this help text
-    </pre>
-</article>

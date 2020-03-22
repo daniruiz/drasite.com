@@ -1,10 +1,12 @@
 <!-- Meta tags -->
 <script>
-  document.title = 'Skeuos CSS Library'
+  updateMetaData({
+    title: 'Skeuos CSS library',
+    description: 'A lightweight CSS library that provides a set of predesigned elements useful for rapid web development. It follows the latest skeuomorphic design trends, using bright colors and subtle shadows for some depth.',
+  })
 </script>
-<!-- -->
 
-
+<!-- Content -->
 <div id="scroll-animation">
     <div class="mouse">
         <div class="wheel"></div>
@@ -41,6 +43,7 @@
 
 <iframe src="/content/skeuos-css-demo.html" scrolling="no"></iframe>
 
+<!-- Styles -->
 <style>
     .arrow1, .arrow2, .arrow3 {
         animation: mouse-scroll 1s infinite;
@@ -195,6 +198,7 @@
     }
 </style>
 
+<!-- Scripts -->
 <script>
   __ETHENIS.onLoadOnce = () => {
     let iframe = $('main iframe')
