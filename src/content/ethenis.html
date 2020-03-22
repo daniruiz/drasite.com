@@ -1,7 +1,185 @@
+<!-- Meta tags -->
 <script>
-  document.title = 'Ethenis Framework'
+  updateMetaData({
+    title: 'Ethenis Framework',
+    description: 'Ethenis is a PHP and JavaScript framework developed to speed up the creation of Single Page Applications. Unlike other projects, Ethenis focuses on a single goal, allowing its size and execution time to stay minimum and thus preventing the slowdown of our page.',
+  })
 </script>
 
+<!-- Content -->
+<section class="paper">
+    <img alt="logo" src="/img/ethenis-logo.svg" id="logo">
+    <h1>Ethenis Framework</h1>
+    <hr>
+    <p id="slogan">
+        So simple, that... <br>
+        <em>Even THE Name Is Simple</em>
+    </p>
+    <p id="description">
+        Ethenis is a PHP and JavaScript framework developed to speed up the creation of Single Page Applications. 
+        Unlike other projects, Ethenis focuses on a single goal, allowing its size and execution time to stay minimum 
+        and thus preventing the slowdown of our page.
+    </p>
+</section>
+<section class="paper download-box" data-github="Ethenis-Framework">
+    <a href="https://github.com/daniruiz/Ethenis-Framework/archive/master.zip" target="_blank"
+       class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
+    <a href="https://github.com/daniruiz/Ethenis-Framework" target="_blank"><i class="fab fa-github"></i>
+        github.com/daniruiz/Ethenis-Framework</a>
+    <hr>
+    <div class="license">Ethenis-Framework is licensed under the MIT License</div>
+</section>
+<br>
+<article>
+    <h2>Manual</h2>
+    <h3>Installation</h3>
+    Download Ethenis Framework, extract the package and copy all the files into the webpage main folder. Once finished,
+    you should see the following layout:
+    <pre><span class="blue-color"><i class="far fa-folder-open"></i> </span>
+├── <span class="blue-color"><i class="far fa-folder-open"></i>  content</span>
+│  └── <span class="red-color"><i class="fab fa-php"></i>  main.php</span>
+├── <span class="blue-color"><i class="far fa-folder-open"></i>  js</span>
+│  └── <span class="red-color"><i class="fab fa-js-square"></i>  ethenis.js</span>
+├── <span class="red-color">{}  config</span>
+├── <span class="red-color"><i class="fab fa-php"></i>  index.php</span>
+└── <span class="green-color"><i class="far fa-file"></i> .htaccess</span>
+</pre>
+    <p><i class="fas fa-exclamation-triangle" style="color:#d41919"></i> Ethenis uses an .htaccess file with rewrite 
+        rules, therefore, ensure your apache server is configured to read .htaccess files and mod_rewrite is enabled.
+    <p>
+    <hr>
+    <br>
+
+    <h3>Configure Web Layout</h3>
+    The web layout will be set in the <strong>config</strong> file. With it it's possible to modify the animations
+    duration, the paths the website will manage, and the menu elements.
+    <h6>Example:</h6>
+    <pre>
+    {
+        <span class="blue-color">"fadeAnimationDuration"</span> : 300,
+        <span class="blue-color">"scrollAnimationDuration"</span> : 100,
+        <span class="blue-color">"content"</span> : {
+            <span class="green-color">""</span> : [<span class="green-color">"home.html"</span>, <span
+            class="green-color">"Home"</span>],
+            <span class="green-color">"info"</span> : [<span class="green-color">"info.html"</span>, <span
+            class="green-color">"Info"</span>, <span class="red-color">false</span>],
+            <span class="green-color">"/^man\/\d*$/"</span> : [<span class="green-color">"man.php"</span>]
+          },
+          <span class="blue-color">"404"</span>: <span class="green-color">"404.html"</span>
+    }</pre>
+    <ul>
+        <li><strong>fadeAnimationDuration:</strong> the time in milliseconds for the fade animation between page change.
+        </li>
+        <li><strong>scrollAnimationDuration:</strong> the time in milliseconds for the "scrollToTop" animation before
+            page change.
+        </li>
+        <li><strong>content:</strong> the content that will be public and its corresponding path.</li>
+    </ul>
+    <h5>Content entry format:</h5>
+    <ul>
+        <li>
+            <code><span class="green-color">"&lt;path&gt;"</span> : [<span class="green-color">"&lt;file-name&gt;[.html|.php]"</span>,
+                <span class="green-color">"&lt;link-string&gt;"</span>]</code>
+        </li>
+        <li>
+            <code><span class="green-color">"&lt;path&gt;"</span> : [<span class="green-color">"&lt;file-name&gt;[.html|.php]"</span>,
+                <span class="green-color">"&lt;link-string&gt;"</span>, <span class="red-color">false</span>]</code>
+            <h6>→ The link won't be added to the navigation menu.</h6>
+        </li>
+        <li>
+            <code><span class="green-color">"&lt;path-pattern&gt;"</span> : [<span class="green-color">"&lt;file-name&gt;[.html|.php]"</span>]</code>
+            <h6>→ The link won't be added to the navigation menu.</h6>
+        </li>
+    </ul>
+    <hr>
+    <br>
+
+    <h3>Set the main content template</h3>
+    All the page design will be supported by an html file template, which will define the content that will remain
+    static in the page. This content will be defined in the <strong>main.php</strong> file.
+    <h6>Example</h6>
+    <pre class="green-color">
+    &lt;html&gt;
+        &lt;head&gt;...&lt;/head&gt;
+        &lt;body&gt;
+            &lt;header class="with-shadow"&gt;&lt;/header&gt;
+            &lt;nav&gt;
+                <u class="red-color">&lt;{ link-template }&gt;</u>
+                    &lt;span style="margin: 5px"&gt;
+                        <u class="red-color">&lt;{ link-text }&gt;</u>
+                    &lt;/span&gt;
+                <u class="red-color">&lt;{ /link-template }&gt;</u>
+            &lt;/nav&gt;
+            <u class="red-color">&lt;{ content }&gt;</u>
+        &lt;/body&gt;
+    &lt;/html&gt;</pre>
+    <ul>
+        <li>
+            <pre class="red-color">
+&lt;{ link-template }&gt;
+    <span class="black-color">[html]</span>&lt;{ link-text }&gt;<span class="black-color">[html]</span>
+&lt;{ /link-template }&gt;</pre>
+            <h6>→ It indicates where to place the link elemeents and the template to follow.</h6>
+        </li>
+        <li>
+            <code class="red-color">&lt;{ content }&gt;</code>
+            <h6>→ It indicates where to place the corresponding content.</h6>
+        </li>
+    </ul>
+    <hr>
+    <br>
+
+    <h3>Insert content files</h3>
+    The html content to be inserted with each path must be specified inside the <strong>content</strong> directory,
+    inside its corresponding file, as it was previously specified in the <strong>config</strong> file.<br>
+    The PHP and JavaScript code inside those files will also be executed.
+    <br><br>
+    To change the page title you have to add the following script to the content file:
+    <pre>
+<span class="red-color">&lt;script&gt;</span>
+    <span class="blue-color">document.title</span> = <span class="green-color">"&lt;content-title&gt;"</span>;
+<span class="red-color">&lt;/script&gt;</span></pre>
+    <hr>
+    <br>
+
+    <h3>Ethenis PHP special functions</h3>
+    <ul>
+        <li>
+            <code>Ethenis::<span class="blue-color">get_config()</span></code><br>
+            → Returns the configuration values as an array.
+        </li>
+        <li>
+            <code>Ethenis::<span class="blue-color">get_config_json()</span></code><br>
+            → Returns the configuration values as json string.
+        </li>
+        <li>
+            <code>Ethenis::<span class="blue-color">get_path()</span></code><br>
+            → Returns the actual path.
+        </li>
+    </ul>
+
+    <h3>Ethenis JavaScript special functions</h3>
+    <ul>
+        <li>
+            <code>__ETHENIS.<span class="blue-color">config</span></code><br>
+            → Stores ethenis' configuration.
+        </li>
+        <li>
+            <code>__ETHENIS.<span class="blue-color">onLoad = functionRef</span></code><br>
+            → Where functionRef is a function. Sets the action to be executed every time new content is loaded.
+        </li>
+        <li>
+            <code>__ETHENIS.<span class="blue-color">onLoadOnce = functionRef</span></code><br>
+            → Where functionRef is a function. Sets the action to be executed only after the current content is loaded.
+        </li>
+        <li>
+            <code>__ETHENIS.<span class="blue-color">onPageChange = functionRef</span></code><br>
+            → Where functionRef is a function. Sets the action to be executed only when the current page is left.
+        </li>
+    </ul>
+</article>
+
+<!-- Styles -->
 <style>
     header {
         background: linear-gradient(203deg, #A61545 17%, #CA2A2A 100%) center;
@@ -59,15 +237,15 @@
         color: #5C616C;
     }
 
-    .blue-color {
+    article .blue-color {
         color: #316FD8
     }
 
-    .green-color {
+    article .green-color {
         color: #19A187
     }
 
-    .red-color {
+    article .red-color {
         color: #B22525
     }
 
@@ -75,28 +253,24 @@
         color: #000
     }
 
-    code, pre {
-        font-size: 12px;
-        line-height: 25px;
-        font-weight: bold;
-    }
+    article code, article pre { font-weight: bold; }
 
     article hr {
         margin: 30px auto
     }
 
-    li {
+    article li {
         border-left: 5px solid #E6E6E6;
         padding-left: 5px;
         margin-bottom: 10px
     }
 
     @media screen and (max-width: 420px) {
-        code, pre {
+        article code, article pre {
             word-spacing: -6px
         }
 
-        ul {
+        article ul {
             padding-left: 10px
         }
     }
@@ -108,7 +282,7 @@
             float: none
         }
 
-        h1 {
+        article h1 {
             text-align: center
         }
 
@@ -121,156 +295,4 @@
         }
     }
 </style>
-<section class="paper">
-    <img alt="logo" src="/img/ethenis-logo.svg" id="logo">
-    <h1>Ethenis Framework</h1>
-    <hr>
-    <p id="slogan">
-        So simple, that... <br>
-        <em>Even THE Name Is Simple</em>
-    </p>
-    <p id="description">Ethenis is a PHP and JavaScript framework developed with the aim of speeding up the creation of
-        Single Page Applications. Unlike other projects, Ethenis focus on a single goal, allowing its size and execution
-        time to be minimum and thus preventing the slowdown of our page.</p>
-</section>
-<section class="paper download-box" data-github="Ethenis-Framework">
-    <a href="https://github.com/daniruiz/Ethenis-Framework/archive/master.zip" target="_blank"
-       class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
-    <a href="https://github.com/daniruiz/Ethenis-Framework" target="_blank"><i class="fab fa-github"></i>
-        github.com/daniruiz/Ethenis-Framework</a>
-    <hr>
-    <div class="license">Ethenis-Framework is licensed under the MIT License</div>
-</section>
-<br>
-<article>
-    <h2>Manual</h2>
-    <h3>Installation</h3>
-    Download Ethenis Framework, extract the package and copy all the files into the webpage main folder. After that you
-    should have the following folder layout in it.
-    <pre>
-    --> |
-        |--> <span class="blue-color">content</span>
-        |--> <span class="blue-color">js</span>
-        |     \--> <span class="green-color">ethenis.js</span>
-        |--> <span class="green-color">config</span>
-        |--> <span class="green-color">index.php</span>
-        |--> <span class="green-color">main.php</span>
-        \--> <span class="red-color">.htaccess</span>
-		</pre>
-    <p>Ethenis uses a .htaccess file with rewrite rules, so ensure your apache is configured to read .htaccess files and
-        mod_rewrite is enabled.
-    <p>
-    <hr>
-    <br>
-
-    <h3>Configure Web Layout</h3>
-    The web layout will be set in the <strong>config</strong> file. With it it's possible to modify the animations
-    duration, the paths the website will manage, and the menu elements.
-    <h6>Example:</h6>
-    <pre>
-    {
-        <span class="blue-color">"animationDuration"</span> : 400,
-        <span class="blue-color">"scrollAnimationDuration"</span> : 400,
-        <span class="blue-color">"content"</span> : {
-            <span class="green-color">""</span> : [<span class="green-color">"home.html"</span>, <span
-            class="green-color">"Home"</span>],
-            <span class="green-color">"info"</span> : [<span class="green-color">"info.html"</span>, <span
-            class="green-color">"Info"</span>, <span class="red-color">false</span>],
-            <span class="green-color">"/^man\/\d*$/"</span> : [<span class="green-color">"man.php"</span>]
-          }
-    }
- 	  		</pre>
-    <ul>
-        <li><strong>animationDuration:</strong> the time in milliseconds for the fade animation between page change.
-        </li>
-        <li><strong>scrollAnimationDuration:</strong> the time in milliseconds for the "scrollToTop" animation before
-            page change.
-        </li>
-        <li><strong>content:</strong> the content that will be public and its corresponding path.</li>
-    </ul>
-    <h5>Content entry format:</h5>
-    <ul>
-        <li>
-            <code><span class="green-color">"&lt;path&gt;"</span> : [<span class="green-color">"&lt;file-name&gt;[.html|.php]"</span>,
-                <span class="green-color">"&lt;link-string&gt;"</span>]</code>
-        </li>
-        <li>
-            <code><span class="green-color">"&lt;path&gt;"</span> : [<span class="green-color">"&lt;file-name&gt;[.html|.php]"</span>,
-                <span class="green-color">"&lt;link-string&gt;"</span>, <span class="red-color">false</span>]</code>
-            <h6>→ The link won't be added to the navigation menu.</h6>
-        </li>
-        <li>
-            <code><span class="green-color">"&lt;path-pattern&gt;"</span> : [<span class="green-color">"&lt;file-name&gt;[.html|.php]"</span>]</code>
-            <h6>→ The link won't be added to the navigation menu.</h6>
-        </li>
-    </ul>
-    <hr>
-    <br>
-
-    <h3>Set the main content template</h3>
-    All the page design will be supported by an html file template, which will define the content that will remain
-    static in the page. This content will be defined in the <strong>main.php</strong> file.
-    <h6>Example</h6>
-    <pre class="green-color">
-    &lt;html&gt;
-        &lt;head&gt;...&lt;/head&gt;
-        &lt;body&gt;
-            &lt;header class="with-shadow"&gt;&lt;/header&gt;
-            &lt;nav&gt;
-                <u class="red-color">&lt;{ link-template }&gt;</u>
-                    &lt;span style="margin: 5px"&gt;
-                        <u class="red-color">&lt;{ link-text }&gt;</u>
-                    &lt;/span&gt;
-                <u class="red-color">&lt;{ /link-template }&gt;</u>
-            &lt;/nav&gt;
-            <u class="red-color">&lt;{ content }&gt;</u>
-        &lt;/body&gt;
-    &lt;/html&gt;
-		</pre>
-    <ul>
-        <li>
-            <pre class="red-color">
-&lt;{ link-template }&gt;
-    <span class="black-color">[html]</span>&lt;{ link-text }&gt;<span class="black-color">[html]</span>
-&lt;{ /link-template }&gt;</pre>
-            <h6>→ It indicates where to place the link elemeents and the template to follow.</h6>
-        </li>
-        <li>
-            <code class="red-color">&lt;{ content }&gt;</code>
-            <h6>→ It indicates where to place the corresponding content.</h6>
-        </li>
-    </ul>
-    <hr>
-    <br>
-
-    <h3>Insert content files</h3>
-    The html content to be inserted with each path must be specified inside the <strong>content</strong> directory,
-    inside its corresponding file, as it was previously specified in the <strong>config</strong> file.<br>
-    The PHP and JavaScript code inside those files will also be executed.
-    <br><br>
-    To change the page title you have to add the following script to the content file:
-    <pre>
-<span class="red-color">&lt;script&gt;</span>
-    <span class="blue-color">document.title</span> = <span class="green-color">"&lt;content-title&gt;"</span>;
-<span class="red-color">&lt;/script&gt;</span>
-    </pre>
-    <hr>
-    <br>
-
-    <h3>Ethenis PHP special functions</h3>
-    <ul>
-        <li>
-            <code>Ethenis::<span class="blue-color">get_config()</span></code><br>
-            → Returns the configuration values as an array.
-        </li>
-        <li>
-            <code>Ethenis::<span class="blue-color">get_config_json()</span></code><br>
-            → Returns the configuration values as json string.
-        </li>
-        <li>
-            <code>Ethenis::<span class="blue-color">get_path()</span></code><br>
-            → Returns the actual path.
-        </li>
-    </ul>
-</article>
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
