@@ -17,7 +17,7 @@
         <span class="arrow3"></span>
     </div>
 </div>
-<section class="with-shadow" id="description">
+<div class="with-shadow" id="description">
     <h1>Flat Remix<br> CSS Library</h1>
     <hr>
     <p>
@@ -26,7 +26,12 @@
     <p>
         It follows a modern flat design using a colorful palette with some shadows, highlights, and gradients for some depth.
     </p>
-</section>
+</div>
+
+<br><br>
+
+<br><br>
+
 <div class="paper download-box" data-github="flat-remix-css">
     <a href="https://raw.githubusercontent.com/daniruiz/flat-remix-css/master/css/flat-remix.min.css"
        target="_blank" class="with-shadow blue-button-link" download>↧ Download Flat-Remix.css</a>
@@ -56,8 +61,8 @@
 </section>
 <section class="paper" style="position:relative">
     <h5>Express yourshelf</h5>
-    <input type="text" placeholder="<< Text goes here >>">
-    <select>
+    <input type="text" placeholder="<< Text goes here >>"><!--
+ --><select>
         <option>Level 1</option>
         <option>Level 2</option>
         <option>Level 3</option>
@@ -430,21 +435,28 @@
     header {
         height: 100vh !important;
         width: 100%;
-        min-height: 660px;
+        min-height: 800px;
+        position: static;
+        transform: none;
         background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogPGRlZnM+CiAgPHBhdHRlcm4gaWQ9InNtYWxsR3JpZCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzEwODZiIiBzdHJva2Utd2lkdGg9Ii41IiBkPSJNIDEwIDAgTCAwIDAgMCAxMCIvPgogIDwvcGF0dGVybj4KICA8cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICA8cmVjdCBmaWxsPSJ1cmwoI3NtYWxsR3JpZCkiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIi8+CiAgIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMxMDg2YiIgZD0iTSAxMDAgMCBMIDAgMCAwIDEwMCIvPgogIDwvcGF0dGVybj4KIDwvZGVmcz4KIDxyZWN0IGZpbGw9InVybCgjZ3JpZCkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz4KPC9zdmc+Cg==), linear-gradient(203deg, #8c42ab 15%, #357af0);
     }
 
     #description {
-        max-width: 600px;
-        width: 90%;
-        padding: 10px 50px;
+        font-size: 13px;
+        width: 41em;
+        padding: 1em 4em;
         background-color: rgba(0, 0, 0, 0.3);
         color: white;
         border-radius: 2px;
         position: absolute;
         left: 50%;
-        top: calc(50% - 50px);
+        top: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    #description h1 {
+        font-size: 4em;
+        line-height: 1.5em;
     }
 
     #description hr {
@@ -453,15 +465,11 @@
     }
 
     #description p {
-        font-size: 26px;
+        font-size: 2em;
         font-weight: lighter;
-        line-height: 38px;
-        padding: 0 30px;
-        letter-spacing: 1px;
-    }
-
-    .paper.download-box {
-        margin-top: calc(100vh + 10px);
+        line-height: 1.5em;
+        padding: 0 1.25em;
+        letter-spacing: 0.04em;
     }
 
     .palette {
@@ -487,29 +495,31 @@
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
     }
 
-    section, .paper, article {
+    section, article {
         max-width: 500px;
         margin: 40px auto;
         width: 95%;
     }
 
-    input[type="text"] {
-        width: 50%;
+    section input[type="text"] {
+        width: 48%;
+        margin-right: 1%;
         min-width: 165px;
     }
 
-    select {
-        width: 49%;
+    section select {
+        width: 48%;
         margin-left: 1%;
+        min-width: 165px;
     }
 
-    textarea {
+    section textarea {
         width: 100%;
         max-width: 100%;
         min-width: 100%;
     }
 
-    label { width: 225px; }
+    section label { width: 225px; }
 
     button.blue-button, button.red-button, button.green-button {
         display: inline-block;
@@ -529,12 +539,6 @@
 
     .onoffswitch-label { width: auto; }
 
-    article {
-        width: 95%;
-        max-width: 500px;
-        margin: 40px auto;
-    }
-
     article textarea { width: 100%; }
 
     .blue-color { color: #316FD8; }
@@ -543,7 +547,7 @@
 
     .red-color { color: #B22525 }
 
-    pre {
+    article pre {
         white-space: pre-wrap;
         color: #B3B3B3;
         margin-top: 50px;
@@ -567,31 +571,25 @@
         position: static;
     }
 
-    @media screen and (max-height: 720px) {
-        #description {
-            top: 50px;
-            transform: translate(-50%, 0);
-        }
-    }
-
     @media screen and (max-width: 850px) {
         #scroll-animation { display: none; }
     }
 
-    @media screen and (max-width: 550px) {
-        #description h4 {
-            font-size: 18px;
-            line-height: 28px;
-            padding: 0;
+    @media screen and (max-width: 600px) {
+        #description { font-size: 2.14vw; }
+    }
+
+    @media screen and (max-height: 800px) {
+        #description {
+            top: 100px;
+            transform: translateX(-50%);
         }
     }
 
-    @media screen and (max-width: 650px) {
-        #description { padding: 0 30px 20px; }
-
-        #description h1 {
-            font-size: 40px;
-            line-height: 60px;
+    @media screen and (max-height: 800px) and (max-width: 850px)  {
+        header {
+            min-height: 0;
+            height: 140vw!important;
         }
     }
 </style>
