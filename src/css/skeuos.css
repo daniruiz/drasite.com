@@ -92,7 +92,9 @@ input[type="number"], input[type="color"], select, textarea {
   background: #f2f3f7;
   color: #7b7e8c;
   font-weight: normal;
-  padding: 15px 20px;
+  padding: 0 1.25em;
+  line-height: 1.25em;
+  height: 3.5em;
   margin: 10px 0;
   font-size: 1.1rem;
   cursor: text;
@@ -104,10 +106,15 @@ input[type="number"], input[type="color"], select, textarea {
   -ms-user-select: text;
   transition: box-shadow .2s; }
 
+textarea {
+  height: 350px;
+  padding: 1.25em; }
+
 select {
   cursor: pointer;
   background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxOSAxOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyB0cmFuc2Zvcm09Im1hdHJpeCguMDM0IDAgMCAuMDM0IC02LjggMS43ZS01KSIgc3R5bGU9ImZpbGw6IzdiN2U4YyI+PHBhdGggZD0ibTQ4MCAzNDQtMjExLTIxMmMtMTYtMTYtNDEtMTYtNTcgMC0xNiAxNi0xNiA0MiAwIDU3bDIzOCAyMzljOC40IDguNSAyMCAxMiAzMSAxMiAxMSAwLjU2IDIyLTMuMiAzMS0xMmwyMzgtMjM5YzE2LTE2IDE2LTQyIDAtNTdzLTQxLTE2LTU3IDB6IiBzdHlsZT0iZmlsbDojN2I3ZThjIi8+PC9nPjwvc3ZnPgo=) no-repeat right 1em center;
-  background-size: 1.2em; }
+  background-size: 1.2em;
+  padding-right: 3em; }
 
 input::placeholder, textarea::placeholder {
   opacity: 1;
