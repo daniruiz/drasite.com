@@ -28,6 +28,12 @@
     </p>
 </section>
 
+<br>
+<br>
+
+<br>
+<br>
+
 <section class="paper download-box" data-github="skeuos-css">
     <a href="https://github.com/daniruiz/skeuos-css/archive/master.zip" target="_blank"
        class="with-shadow blue-button-link">↧ Download Skeuos CSS</a>
@@ -126,21 +132,28 @@
     header {
         height: 100vh !important;
         width: 100%;
-        min-height: 660px;
+        min-height: 800px;
+        position: static;
+        transform: none;
         background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogPGRlZnM+CiAgPHBhdHRlcm4gaWQ9InNtYWxsR3JpZCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsMCwwLC4yKSIgc3Ryb2tlLXdpZHRoPSIuNSIgZD0iTSAxMCAwIEwgMCAwIDAgMTAiLz4KICA8L3BhdHRlcm4+CiAgPHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgPHJlY3QgZmlsbD0idXJsKCNzbWFsbEdyaWQpIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIvPgogICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMCwwLDAsLjIpIiBkPSJNIDEwMCAwIEwgMCAwIDAgMTAwIi8+CiAgPC9wYXR0ZXJuPgogPC9kZWZzPgogPHJlY3QgZmlsbD0idXJsKCNncmlkKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPgo8L3N2Zz4K), linear-gradient(203deg, #23bac2 15%, #357af0);
     }
 
     #description {
-        max-width: 600px;
-        width: 90%;
-        padding: 10px 50px;
+        font-size: 13px;
+        width: 41em;
+        padding: 1em 4em;
         background-color: rgba(0, 0, 0, 0.3);
         color: white;
-        border-radius: 2px;
+        border-radius: 6px;
         position: absolute;
         left: 50%;
-        top: calc(50% - 50px);
+        top: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    #description h1 {
+        font-size: 4em;
+        line-height: 1.5em;
     }
 
     #description hr {
@@ -149,15 +162,11 @@
     }
 
     #description p {
-        font-size: 26px;
+        font-size: 2em;
         font-weight: lighter;
-        line-height: 38px;
-        padding: 0 30px;
-        letter-spacing: 1px;
-    }
-
-    .paper.download-box {
-        margin-top: calc(100vh + 10px);
+        line-height: 1.5em;
+        padding: 0 1.25em;
+        letter-spacing: 0.04em;
     }
 
     main iframe {
@@ -169,31 +178,25 @@
         box-shadow: 0 5px 30px 0 rgba(0,  0, 0, 0.05);
     }
 
-    @media screen and (max-height: 720px) {
-        #description {
-            top: 50px;
-            transform: translate(-50%, 0);
-        }
-    }
-
     @media screen and (max-width: 850px) {
         #scroll-animation { display: none; }
     }
 
-    @media screen and (max-width: 550px) {
-        #description h4 {
-            font-size: 18px;
-            line-height: 28px;
-            padding: 0;
+    @media screen and (max-width: 600px) {
+        #description { font-size: 2.14vw; }
+    }
+
+    @media screen and (max-height: 800px) {
+        #description {
+            top: 100px;
+            transform: translateX(-50%);
         }
     }
 
-    @media screen and (max-width: 650px) {
-        #description { padding: 0 30px 20px; }
-
-        #description h1 {
-            font-size: 40px;
-            line-height: 60px;
+    @media screen and (max-height: 800px) and (max-width: 850px)  {
+        header {
+            min-height: 0;
+            height: 140vw!important;
         }
     }
 </style>
