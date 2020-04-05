@@ -120,7 +120,7 @@
 <script>
   document.title = 'Tetяis JS'
 
-  !(function () {
+  __ETHENIS.onLoadOnce = function () {
     const KEYS = {
       UP: 87,
       DOWN: 83,
@@ -128,7 +128,7 @@
       RIGHT: 68,
     }
 
-    !(async function () {
+    ;(async function () {
       if (typeof Tetris === 'undefined') {
         await fetch('/games/tetris/js/Tetris/tetris.js?v=1.0.2').then(response => response.text())
           .then(code => {
@@ -170,5 +170,5 @@
         tetris = null
       }
     })
-  })()
+  }
 </script>
