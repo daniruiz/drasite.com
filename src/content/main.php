@@ -21,8 +21,8 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="white">
 
         <!-- Icons -->
-        <link rel="shortcut icon" href="/img/favicon.png">
-        <link rel="icon" type="image/png" href="/img/DRA.png">
+        <link rel="icon" type="image/png" href="/img/favicon.png" sizes="16x16 32x32">
+        <link rel="icon" type="image/png" href="/img/DRA.png" sizes="64x64">
         <link rel="apple-touch-icon-precomposed" href="/img/DRA.png">
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
