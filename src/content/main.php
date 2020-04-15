@@ -21,9 +21,9 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="white">
 
         <!-- Icons -->
-        <link rel="icon" type="image/png" href="/img/favicon.png" sizes="16x16 32x32">
-        <link rel="icon" type="image/png" href="/img/DRA.png" sizes="64x64">
-        <link rel="apple-touch-icon-precomposed" href="/img/DRA.png">
+        <link rel="icon" type="image/png" href="/content/img/favicon.png" sizes="16x16 32x32">
+        <link rel="icon" type="image/png" href="/content/img/DRA.png" sizes="64x64">
+        <link rel="apple-touch-icon-precomposed" href="/content/img/DRA.png">
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43282075-1"></script>
@@ -72,67 +72,67 @@
                     <h1>Projects</h1>
                     <a class="paper __eth-link new" href="/skeuos-css" data-github="skeuos-css">
                         <div class="project-img">
-                            <img src="/img/skeuos-css.jpg" alt="Skeuos CSS Library">
+                            <img src="/content/img/skeuos-css.jpg" alt="Skeuos CSS Library">
                         </div>
                         <h4>Skeuos CSS Library</h4>
                     </a>
                     <a class="paper __eth-link new" href="/tetris" data-github="tetris-js">
                         <div class="project-img">
-                            <img src="/img/tetris.jpg" alt="Tetяis JS">
+                            <img src="/content/img/tetris.jpg" alt="Tetяis JS">
                         </div>
                         <h4>Tetяis JS</h4>
                     </a>
                     <a class="paper __eth-link" href="/flat-remix" data-github="flat-remix">
                         <div class="project-img">
-                            <img src="/img/flat-remix.jpg" alt="Flat Remix cover">
+                            <img src="/content/img/flat-remix.jpg" alt="Flat Remix cover">
                         </div>
                         <h4>Flat Remix ICON theme</h4>
                     </a>
                     <a class="paper __eth-link" href="/flat-remix-gnome" data-github="flat-remix-gnome">
                         <div class="project-img">
-                            <img src="/img/flat-remix-gnome.jpg" alt="Flat Remix GNOME theme">
+                            <img src="/content/img/flat-remix-gnome.jpg" alt="Flat Remix GNOME theme">
                         </div>
                         <h4>Flat Remix GNOME theme</h4>
                     </a>
                     <a class="paper __eth-link" href="/flat-remix-gtk" data-github="flat-remix-gtk">
                         <div class="project-img">
-                            <img src="/img/flat-remix-gtk.jpg" alt="Flat Remix GTK theme">
+                            <img src="/content/img/flat-remix-gtk.jpg" alt="Flat Remix GTK theme">
                         </div>
                         <h4>Flat Remix GTK theme</h4>
                     </a>
                     <a class="paper __eth-link" href="/dotfiles" data-github="dotfiles">
                         <div class="project-img">
-                            <img src="/img/dotfiles.svg" alt="~/.dotfiles">
+                            <img src="/content/img/dotfiles.svg" alt="~/.dotfiles">
                         </div>
                         <h4>~/.dotfiles</h4>
                     </a>
                     <a class="paper __eth-link" href="/flat-remix-css" data-github="flat-remix-css">
                         <div class="project-img">
-                            <img src="/img/flat-remix-css.jpg" alt="Flat Remix css library">
+                            <img src="/content/img/flat-remix-css.jpg" alt="Flat Remix css library">
                         </div>
                         <h4>Flat Remix CSS Library</h4>
                     </a>
                     <a class="paper __eth-link" href="/flat-remix-kde" data-github="flat-remix-kde">
                         <div class="project-img">
-                            <img src="/img/flat-remix-kde.jpg" alt="Flat Remix KDE themes">
+                            <img src="/content/img/flat-remix-kde.jpg" alt="Flat Remix KDE themes">
                         </div>
                         <h4>Flat Remix KDE themes</h4>
                     </a>
                     <a class="paper __eth-link" href="/AI-robot" data-github="Cleaning-Robot-AI">
                         <div class="project-img">
-                            <img src="/img/AI-robot.svg" alt="Neural network with genetic algorithms in Unity3d">
+                            <img src="/content/img/AI-robot.svg" alt="Neural network with genetic algorithms in Unity3d">
                         </div>
                         <h4>Neural network with genetic algorithms</h4>
                     </a>
                     <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
                         <div class="project-img">
-                            <img src="/img/ethenis.svg" alt="Ethenis Framework logo">
+                            <img src="/content/img/ethenis.svg" alt="Ethenis Framework logo">
                         </div>
                         <h4>Ethenis Framework</h4>
                     </a>
                     <a class="paper __eth-link" href="/color-fixer" data-github="Color-Fixer">
                         <div class="project-img">
-                            <img src="/img/color-fixer.jpg" alt="Color Fixer logo">
+                            <img src="/content/img/color-fixer.jpg" alt="Color Fixer logo">
                         </div>
                         <h4>Color Fixer</h4>
                     </a>
