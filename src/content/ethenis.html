@@ -21,6 +21,7 @@
         and thus preventing the slowdown of our page.
     </p>
 </section>
+<h1>D<span style="display:inline-block;transform:rotateY(180deg) translateX(1px)">R</span>Asite.com ❤️ Ethenis!</h1>
 <section class="paper download-box" data-github="Ethenis-Framework">
     <a href="https://github.com/daniruiz/Ethenis-Framework/archive/master.zip" target="_blank"
        class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
@@ -165,6 +166,16 @@
             → Stores ethenis' configuration.
         </li>
         <li>
+            <code>__ETHENIS.<span class="blue-color">reloadContent()</span></code><br>
+            → Forces ethenis to reload the main content.
+        </li>
+        <li>
+            <code>__ETHENIS.<span class="blue-color">loadLinks(element | [elements])</span></code><br>
+            → Configures the passed <code>&lt;a&gt;</code> elements to be handled by ethenis. Alternatively you can set
+            the class <code>__eth-link</code> to the desired <code>&lt;a&gt;</code> elements and ethenis will 
+            automatically handle them on load.
+        </li>
+        <li>
             <code>__ETHENIS.<span class="blue-color">onLoad = functionRef</span></code><br>
             → Where functionRef is a function. Sets the action to be executed every time new content is loaded.
         </li>
@@ -195,6 +206,8 @@
         margin-top: 50px;
         margin-bottom: 50px;
     }
+
+    main h1 { text-align: center; }
 
     #logo {
         height: 110px;
