@@ -111,7 +111,14 @@
     </ul>
     <br/>
     <img src="/content/img/dotfiles-terminal-preview.jpg" id="terminal-preview" alt="terminal preview">
-    <img src="/content/img/zsh-powerlevel.gif" id="terminal-preview-gif" alt="zsh powerlevel10k prompt gif demo">
+    <img src="/content/img/zsh-powerlevel.gif" class="terminal-image-outlined" alt="zsh powerlevel10k prompt gif demo">
+    <br/>
+    <h3>Some terminal tweaks</h3>
+    <h4>Light color-scheme</h4>
+    Some tool aliases are configured for terminals using a dark color-scheme. You can change this configuration by modifying the COLOR_SCHEME variable placed at the beginning of the .zshrc/.bashrc file.
+    <h4>One line prompt</h4>
+    Zsh prompt is divided in two lines. You can change it to a unique line setting the POWERLEVEL9K_PROMPT_ON_NEWLINE variable to false, or by pressing </code>Ctrl + P</code>
+    <img src="/content/img/zsh-powerlevel-oneline.png" class="terminal-image-outlined" alt="zsh powerlevel one line prompt">
     <br/>
     <h3>Terminal color scheme</h3>
     <div class="selectable" id="terminal-colorscheme">
@@ -220,9 +227,9 @@
         line-height: 1.5em;
     }
 
-    #terminal-preview, #terminal-preview-gif { width: 600px; }
+    #terminal-preview, .terminal-image-outlined { width: 600px; }
 
-    #terminal-preview-gif { border: 10px solid #252930; }
+    .terminal-image-outlined { border: 10px solid #252930; }
 
     #terminal-colorscheme span {
         color: white;
