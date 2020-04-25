@@ -128,7 +128,7 @@
     </div>
     <br>
     <h6>You can easily install this color-scheme on your terminal by running the following command:</h6>
-    <code id="terminal-colorscheme-script"><span style="color:#5EBDAB">bash</span> -c <span style="color:#FEA44C">&quot;</span><span style="color:#49AEE6">$</span><span style="color:#FEA44C">(curl -sLo- https://git.io/JvvDs)&quot;</span></code>
+    <pre id="terminal-colorscheme-script"><span style="color:#5EBDAB">bash</span> -c <span style="color:#FEA44C">&quot;</span><span style="color:#49AEE6">$</span><span style="color:#FEA44C">(curl -sLo- https://git.io/JvvDs)&quot;</span></pre>
     <h3>Editor color scheme (Gtk)</h3>
     <div id="color-scheme-preview">
         <img src="/content/img/dotfiles-editor-preview-light.jpg" alt="Flat Remix editor light color scheme">
@@ -231,12 +231,22 @@
 
     .terminal-image-outlined { border: 10px solid #252930; }
 
+    #terminal-colorscheme {
+        width: 100%;
+        display: block;
+        min-width: 270px;
+        margin: auto;
+        font-size: 11px;
+        max-width: 600px;
+    }
+
     #terminal-colorscheme span {
         color: white;
         padding: 5px;
         font-family: monospace;
         box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .3);
         display: inline-block;
+        width: 12.5%;
     }
 
     #color-scheme-preview {
@@ -246,7 +256,6 @@
 
     #terminal-colorscheme-script, #terminal-colorscheme-script * {
         font-weight: bold;
-        background: white;
         font-size: 16px;
     }
 
