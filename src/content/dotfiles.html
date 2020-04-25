@@ -46,6 +46,11 @@
     <pre class="with-shadow">
 <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  dotfiles</span>
 ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  .config</span>
+│  ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  bashtop</span>
+│  │  ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  themes</span>
+│  │  │  ├── <span style="color: #D7D700; "><i class="far fa-file"></i>  flat-remix-light.theme</span>
+│  │  │  └── <span style="color: #D7D700; "><i class="far fa-file"></i>  flat-remix.theme</span>
+│  │  └── <span style="color: #D7D700; "><i class="far fa-file"></i>  bashtop.cfg</span>
 │  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  tilix</span>
 │     └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  schemes</span>
 │        └── <span style="color: #D7D700; ">{}  Flat-Remix.json</span>
@@ -62,10 +67,8 @@
 ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  Screenshots</span>
 │  └── <span style="color: #D7D700; "><i class="fa fa-image"></i>  screenshot-1.png</span>
 ├── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .bashrc</span>
-├── <span style="color: #D7D700; "><i class="far fa-file"></i>  .dput.cf</span>
 ├── <span style="color: #D7D700; "><i class="fab fa-git"></i>  .gitconfig</span>
-├── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .zshrc</span>
-└── <span style="color: #D7D700; "><i class="fab fa-markdown"></i>  README.md</span>
+└── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .zshrc</span>
 </pre>
     <br>
     <h2>Interesting files</h2>
@@ -76,28 +79,39 @@
         <li><b>.local/share/gedit/styles</b><br> ➜ Flat-Remix/Flat-Remix-Dark gedit color scheme</li>
         <li><b>.local/share/gtksourceview-4</b><br> ➜ Flat-Remix/Flat-Remix-Dark gtksourceview color scheme</li>
         <li><b>.config/tilix/schemes</b><br> ➜ Flat-Remix tilix colors profile</li>
+        <li><b>.config/bashtop/bashtop.cfg</b><br> ➜ Bashtop configuration file</li>
+        <li><b>.config/bashtop/themes</b><br> ➜ Flat-Remix/Flat-Remix-Light bashtop themes</li>
     </ul>
     <h3>My terminal</h3>
     <h4>Recommended installations</h4>
     <ul>
         <li><a href="https://gnunn1.github.io/tilix-web/" target="_blank">tilix</a></li>
-        <li><a href="https://github.com/ryanoasis/nerd-fonts" target="_blank">nerd-fonts ➜ Hack Bold</a>
+        <li><a href="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf" target="_blank">nerd-fonts ➜ Hack Bold</a>
         <li>zsh</li>
-        <li>zsh extensions:</li>
-        <li>
+        <li>zsh extensions:
             <ul>
                 <li><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank">autosuggestions</a></li>
                 <li><a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank">syntax-highlighting</a></li>
             </ul>
         </li>
-        <li><a href="https://github.com/Powerlevel9k/powerlevel9k" target="_blank">Powerlevel9k</a> / <a href="https://github.com/romkatv/powerlevel10k" target="_blank">Powerlevel10k</a></li>
+        <li><a href="https://github.com/romkatv/powerlevel10k" target="_blank">Powerlevel10k</a></li>
         <li><a href="https://github.com/Peltoche/lsd" target="_blank">lsd</a> / <a href="https://github.com/athityakumar/colorls" target="_blank">colorls</a></li>
-        <li>htop / <a href="https://github.com/cjbassi/gotop" target="_blank">gotop</a></li>
+        <li>
+            <a href="https://github.com/aristocratos/bashtop" target="_blank">bashtop</a> /
+            <a href="https://github.com/cjbassi/ytop" target="_blank">ytop</a> /
+            <a href="https://github.com/xxxserxxx/gotop" target="_blank">gotop</a> /
+            htop
+        </li>
+        <li><a href="https://github.com/sharkdp/bat" target="_blank">bat</a></li>
         <li><a href="https://github.com/busyloop/lolcat" target="_blank">lolcat</a></li>
-        <li><a href="https://github.com/dylanaraps/neofetch" target="_blank">neofetch</a></li>
+        <li>
+            <a href="https://github.com/dylanaraps/neofetch" target="_blank">neofetch</a> /
+            <a href="https://github.com/dylanaraps/pfetch" target="_blank">pfetch</a>
+        </li>
     </ul>
     <br/>
-    <img src="/content/img/dotfiles-terminal-preview.jpg" alt="terminal preview">
+    <img src="/content/img/dotfiles-terminal-preview.jpg" id="terminal-preview" alt="terminal preview">
+    <img src="/content/img/zsh-powerlevel.gif" id="terminal-preview-gif" alt="zsh powerlevel10k prompt gif demo">
     <br/>
     <h3>Terminal color scheme</h3>
     <div class="selectable" id="terminal-colorscheme">
@@ -108,7 +122,7 @@
     <br>
     <h6>You can easily install this color-scheme on your terminal by running the following command:</h6>
     <code id="terminal-colorscheme-script"><span style="color:#5EBDAB">bash</span> -c <span style="color:#FEA44C">&quot;</span><span style="color:#49AEE6">$</span><span style="color:#FEA44C">(curl -sLo- https://git.io/JvvDs)&quot;</span></code>
-    <h3>Editor color scheme</h3>
+    <h3>Editor color scheme (Gtk)</h3>
     <div id="color-scheme-preview">
         <img src="/content/img/dotfiles-editor-preview-light.jpg" alt="Flat Remix editor light color scheme">
         <img src="/content/img/dotfiles-editor-preview-dark.jpg" alt="Flat Remix editor dark color scheme">
@@ -205,7 +219,11 @@
         border-radius: 3px;
         line-height: 1.5em;
     }
-    
+
+    #terminal-preview, #terminal-preview-gif { width: 600px; }
+
+    #terminal-preview-gif { border: 10px solid #252930; }
+
     #terminal-colorscheme span {
         color: white;
         padding: 5px;
