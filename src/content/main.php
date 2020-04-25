@@ -170,7 +170,7 @@
             <a href="/supporters" class="__eth-link">Supporters</a>
         </footer>
 
-        <a id="support-banner" target="_blank" href="https://www.paypal.me/daniruizdealegria">Consider supporting my
+        <a id="support-banner" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LXCXPZKEU3L24&source=url">Consider supporting my
             work with a <span>Donation</span> 😉</a>
 
         <!-- Flat-Remix.css -->
