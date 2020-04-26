@@ -33,37 +33,39 @@ to customize everything on your taste.
 <p>
 If you find anything from this post that could be improved, or know about other 
 settings that may be cool enough to also include them, don't hesitate to 
-contact me via email (daniel@drasite.com) or opening an issue on my GitHub 
-dotfiles repository.
+contact me via email 
+(<a href="mailto:daniel@drasite.com">daniel@drasite.com</a>) 
+or opening an issue on my GitHub dotfiles repository.
 </p>
 <br>
 <h2>Index</h2>
 <ol>
     <li><a href="#patched-fonts">Patched Fonts</a></li>
-    <li><a href="#colorizing-the-terminal">Colorizing the terminal</a></li>
     <li>
+        <a href="#colorizing-the-terminal">Colorizing the terminal</a>
         <ol>
             <li><a href="#color-scheme">Color Scheme</a></li>
             <li><a href="#some-aliases">Some aliases</a></li>
             <li><a href="#man-pages">Man pages</a></li>
             <li><a href="#ls-from-the-future">LS from the future</a></li>
             <li><a href="#top-from-the-future">TOP from the future</a></li>
+            <li><a href="#cat-less-from-the-future">CAT & LESS from the future</li>
         </ol>
     </li>
-    <li><a href="#bash-customizations">Bash customizations</a></li>
     <li>
+        <a href="#bash-customizations">Bash customizations</a>
         <ol>
             <li><a href="#custom-prompt">Custom prompt</a></li>
             <li><a href="#completion-plugin">Completion Plugin</a></li>
             <li><a href="#enable-globstar">Enable Globstar</a></li>
         </ol>
     </li>
-    <li><a href="#zsh-customizations">Zsh customizations</a></li>
     <li>
+        <a href="#zsh-customizations">Zsh customizations</a>
         <ol>
             <li><a href="#configure-keybindings">Configure keybindings</a></li>
             <li><a href="#misc-settings">Misc settings</a></li>
-            <li><a href="#powerlevel">Powerlevel</a></li>
+            <li><a href="#powerlevel">Powerlevel10K</a></li>
             <li><a href="#useful-plugins">Useful plugins</a></li>
         </ol>
     </li>
@@ -78,7 +80,8 @@ special icons (such as your OS icon), or add new shapes to your prompt.
 <p>
 The most successful project is nerd-fonts, which includes many of the most used 
 fonts, and also a DIY patcher, in case you want a different one. My favorite 
-font from this project is <code>HACK bold</code>.
+font from this project is 
+<a href="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf" target="_blank"><code>HACK bold</code></a>
 </p>
 <a href="https://www.nerdfonts.com" target="_blank"><h3>Nerd Fonts</h3></a>
 <blockquote>
@@ -148,9 +151,11 @@ be overriding a useful tool with another one that you may not have installed.
 This can be especially important if you are using the same dotfiles for 
 multiple machines, where you may not have the same packages. To avoid this, 
 you can program the alias so that it'll be only configured in case the needed 
-command is available:
+command is available. Here's the template:
 </p>
-<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v </span><span class="str">&lt;new_command&gt;</span><span class="pln"> </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span>null<span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> </span><span class="pun">&lt;...&gt;=&lt;...&gt;</span></pre>
+<pre class="prettyprint">
+<span class="com"># This is a template; Replace "new-command" and "alias-name"</span>
+<span class="kwd">command </span>-v </span><span class="typ">new-command</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span>null<span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> </span><span class="typ">alias-name</span>=<span class="typ">'new-command ...'</span></pre>
 <br><br>
 <h3 id="man-pages">2.3. Man pages</h3>
 <p>
@@ -169,12 +174,6 @@ Man pages support coloring too, which makes them so much visually pleasing. For 
 <br><br>
 <h3 id="ls-from-the-future">2.4. LS from the future</h3>
 <img src="/content/blog/posts/media/pimp-my-term/lsd.png" alt="lsd command preview">
-<a href="https://github.com/athityakumar/colorls" target="_blank"><h4>COLORLS</h4></a>
-<blockquote>
-A Ruby CLI gem that beautifies the terminal's <code>ls</code> command, with color and 
-font-awesome icons.
-</blockquote>
-<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v colorls </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'colorls --sd --gs'</span></pre>
 <a href="https://github.com/Peltoche/lsd" target="_blank"><h4>LSD</h4></a>
 <blockquote>The next gen ls command.</blockquote>
 <blockquote>
@@ -182,7 +181,9 @@ This project is heavily inspired by the super colorls project but with some
 little differences. For example it is written in rust and not in ruby which 
 makes it much faster.
 </blockquote>
-<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v lsd </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'lsd --group-dirs first'</span></pre>
+<br>
+<h5>Alias ls=lsd</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v lsd </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'lsd --group-dirs first'</span></pre>
 <br><br>
 <h3 id="top-from-the-future">2.5. TOP from the future</h3>
 <h4>HTOP</h4>
@@ -198,16 +199,50 @@ list of processes running, instead of the top resource-consuming processes.
 htop uses color and gives visual information about processor, swap and memory 
 status. htop can also display the processes as a tree.
 </blockquote>
-<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v htop </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'htop'</span></pre>
-<a href="https://github.com/cjbassi/gotop" target="_blank"><h4>GOTOP</h4></a>
-<img src="/content/blog/posts/media/pimp-my-term/gotop.png"
+<br>
+<h5>Alias top=htop</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v htop </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'htop'</span></pre>
+<a href="https://github.com/cjbassi/ytop" target="_blank"><h4>YTOP</h4></a>
+<img src="/content/blog/posts/media/pimp-my-term/ytop.png"
     alt="htop"
     style="box-shadow:none">
 <blockquote>
-Another terminal based graphical activity monitor, inspired by gtop and vtop, 
-this time written in Go!
+Another TUI based system monitor, this time in Rust!
 </blockquote>
-<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v gotop </span><span class="pun">&amp;&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'gotop -p'</span></pre>
+<br>
+<h5>Alias top=ytop</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v ytop </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'ytop --per-cpu'</span></pre>
+<h6>YTop over light background</h6>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v ytop </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'ytop --per-cpu -c default-dark'</span></pre>
+<a href="https://github.com/aristocratos/bashtop" target="_blank"><h4>BashTop</h4></a>
+<img src="/content/blog/posts/media/pimp-my-term/bashtop.png"
+    alt="bashtop"
+    style="box-shadow:none">
+<blockquote>
+Resource monitor that shows usage and stats for processor, memory, disks,
+network and processes.
+</blockquote>
+<br>
+<h5>Alias top=bashtop</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bashtop </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'bashtop'</span></pre>
+<br><br>
+<h3 id="cat-less-from-the-future">2.6. CAT & LESS from the future</h3>
+<a href="https://github.com/sharkdp/bat" target="_blank"><h4>BAT</h4></a>
+<img src="/content/blog/posts/media/pimp-my-term/bat.png"
+    alt="bat"
+    style="box-shadow:none">
+<blockquote>
+A cat clone with syntax highlighting and Git integration.
+</blockquote>
+<br>
+<h5>Configure BAT to use the color-scheme from the terminal</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> bat</span><span class="pun">=</span><span class="str">'bat --theme=ansi-dark'</span></pre>
+<h6>BAT over light background</h6>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> bat</span><span class="pun">=</span><span class="str">'bat --theme=ansi-light'</span></pre>
+<h5>Alias cat=bat</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> cat</span><span class="pun">=</span><span class="str">'bat --pager=never'</span></pre>
+<h5>Alias less=bat</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> cat</span><span class="pun">=</span><span class="str">'bat'</span></pre>
 <br><br><hr><br><br>
 <h2 id="bash-customizations">3. Bash customizations</h2>
 <p>
@@ -245,19 +280,23 @@ use any kind of symbols for building your prompt. These fonts include many
 powerline symbols that allow you to fully customize your terminal without 
 having to install any external plugin.
 </p>
+<p>
+You can search for custom glyphs here: 
+<a href="https://www.nerdfonts.com/cheat-sheet" target="_blank">https://www.nerdfonts.com/cheat-sheet</a>
+</p>
 <pre class="prettyprint">
-OS_ICON=
+OS_ICON=   <span class="com"># Replace this with your OS icon</span>
 PS1=<span class="str">"\n \[\033[0;34m\]╭─────\[\033[0;31m\]\[\033[0;37m\]\[\033[41m\] $OS_ICON \u \[\033[0m\]\[\033[0;31m\]\[\033[0;34m\]─────\[\033[0;32m\]\[\033[0;30m\]\[\033[42m\] \w \[\033[0m\]\[\033[0;32m\] \n \[\033[0;34m\]╰ \[\033[1;36m\]\$ \[\033[0m\]"</span>
 </pre>
 <img src="/content/blog/posts/media/pimp-my-term/bash-powerline-prompt-patched-font.png"
     alt="powerline like bash prompt with patched font">
 <br>
 <p>
-You can even make it look like you are using Zsh with Powerlevel9k installed, 
+You can even make it look like you are using Zsh with Powerlevel10k installed, 
 just by tweaking the PS1 variable!
 </p>
 <pre class="prettyprint">
-OS_ICON=
+OS_ICON=  <span class="com"># Replace this with your OS icon</span>
 PS1=<span class="str">"\n \[\033[0;34m\]╭─\[\033[0;31m\]\[\033[0;37m\]\[\033[41m\] $OS_ICON \u \[\033[0m\]\[\033[0;31m\]\[\033[44m\]\[\033[0;34m\]\[\033[44m\]\[\033[0;30m\]\[\033[44m\] \w \[\033[0m\]\[\033[0;34m\] \n \[\033[0;34m\]╰ \[\033[1;36m\]\$ \[\033[0m\]"</span>
 </pre>
 <img src="/content/blog/posts/media/pimp-my-term/bash-powerline-prompt-patched-font-2.png"
@@ -269,7 +308,7 @@ the color codes and some of the most used escape sequences to build it.
 </p>
 <h4>Color codes</h4>
 <pre>
-    <span style="color:black">"\[\033[0m\]"     # no colors (reset)</span>
+    <span style="color:#000000">"\[\033[0m\]"       # no colors (reset)</span>
     <span style="color:#1F2229">"\[\033[0;30m\]"    # black</span>
     <span style="color:#D41919">"\[\033[0;31m\]"    # red</span>
     <span style="color:#5EBDAB">"\[\033[0;32m\]"    # green</span>
@@ -277,7 +316,7 @@ the color codes and some of the most used escape sequences to build it.
     <span style="color:#367bf0">"\[\033[0;34m\]"    # blue</span>
     <span style="color:#BF2E5D">"\[\033[0;35m\]"    # magenta</span>
     <span style="color:#49AEE6">"\[\033[0;36m\]"    # cyan</span>
-    <span style="color:#E6E6E6;background-color:#1F2229">"\[\033[37m\]"    # white</span>
+    <span style="color:#E6E6E6;background-color:#1F2229">"\[\033[37m\]"       # white</span>
 
     # emphasized (bolded) colors
     <span style="font-weight:bold;color:#1F2229">"\[\033[1;30m\]"    # black</span>
@@ -316,7 +355,8 @@ the color codes and some of the most used escape sequences to build it.
 <br><br>
 <h3 id="completion-plugin">3.2.Completion Plugin</h3>
 <p>
-Bash completion is a functionality through which bash helps users type their 
+<a href="https://github.com/scop/bash-completion" target="_blank">Bash completion</a> 
+is a functionality through which bash helps users type their 
 commands faster and easier. It accomplishes that by presenting possible options 
 when users press the tab key while typing a command.
 </p>
@@ -325,9 +365,9 @@ Once you have it installed, you can enable it by adding the following lines to
 your <code>~/.bashrc</code> file:
 </p>
 <pre class="prettyprint"><span class="kwd">if</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="pun">-</span><span class="pln">f </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">share</span><span class="pun">/</span><span class="pln">bash</span><span class="pun">-</span><span class="pln">completion</span><span class="pun">/</span><span class="pln">bash_completion </span><span class="pun">];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
-    </span><span class="pun">.</span><span class="pln"> </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">share</span><span class="pun">/</span><span class="pln">bash</span><span class="pun">-</span><span class="pln">completion</span><span class="pun">/</span><span class="pln">bash_completion
+    </span><span class="kwd">source</span><span class="pln"> </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">share</span><span class="pun">/</span><span class="pln">bash</span><span class="pun">-</span><span class="pln">completion</span><span class="pun">/</span><span class="pln">bash_completion
 </span><span class="kwd">elif</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="pun">-</span><span class="pln">f </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">bash_completion </span><span class="pun">];</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
-    </span><span class="pun">.</span><span class="pln"> </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">bash_completion
+    </span><span class="kwd">source</span><span class="pln"> </span><span class="pun">/</span><span class="pln">etc</span><span class="pun">/</span><span class="pln">bash_completion
 </span><span class="kwd">fi</span></pre>
 <br><br>
 <h3 id="enable-globstar">3.3.Enable Globstar <code>**</code></h3>
@@ -380,6 +420,8 @@ keys didn't work. So here you have all the keybinding configuration I use:
     <span class="kwd">bindkey</span> <span class="str">'^[[1;5C'</span> forward-word
     <span class="kwd">bindkey</span> <span class="str">'^[[1;5D'</span> backward-word
     <span class="kwd">bindkey</span> <span class="str">'^[[3;5~'</span> kill-word
+    <span class="kwd">bindkey</span> <span class="str">'^[[5~'</span> beginning-of-buffer-or-history
+    <span class="kwd">bindkey</span> <span class="str">'^[[6~'</span> end-of-buffer-or-history
 </pre>
 <h3 id="misc-settings">4.2. Misc settings</h3>
 <p>
@@ -407,9 +449,14 @@ This is only a list of my personal settings, just in case they help you:
 
     <span class="kwd">autoload</span> compinit && compinit
 </pre>
-<h3 id="powerlevel">4.3. Powerlevel</h3>
-<h4><a href="https://github.com/Powerlevel9k/powerlevel9k" target="_blank">POWERLEVEL9K</a> / <a href="https://github.com/romkatv/powerlevel10k" target="_blank">POWERLEVEL10K</a></h4>
+<h3 id="powerlevel">4.3. Powerlevel10K</h3>
+<img src="/content/img/zsh-powerlevel.gif"
+    alt="zsh powerlevel10k prompt gif demo"
+    style="border: 10px solid #252930">
 <blockquote>
+POWERLEVEL9K:
+<br>
+<br>
 There are a number of Powerline ZSH themes available, now. The developers of this theme focus on four primary goals:
     <ol>
         <li>Give users a great out-of-the-box configuration with no additional configuration required.</li>
@@ -418,11 +465,12 @@ There are a number of Powerline ZSH themes available, now. The developers of thi
         <li>Optimize the code for execution speed as much as possible. A snappy terminal is a happy terminal.</li>
     </ol>
 </blockquote>
+<br>
 <p>
-POWERLEVEL10K is a fast reimplementation of POWERLEVEL9K with even some 
-extra features. Which one you use is up to you; as far as I can tell, 
-both work flawlessly. 10K's even maintains the same variable names 
-<code>POWERLEVEL9K_...</code>, so you won't need to port them.
+<a href="https://github.com/romkatv/powerlevel10k" target="_blank">POWERLEVEL10K</a>
+is a fast reimplementation of POWERLEVEL9K with even some 
+extra features. It even maintains the same variable names, so you won't need to 
+change your configuration if you are coming from POWERLEVEL9k.
 </p>
 <p>
 One thing that I love from POWERLEVEL10K is that, if you have yet no 
@@ -434,49 +482,47 @@ making it so much easier to customize.
 You can always launch the configuration wizard by running <code>p10k configure</code>
 </p>
 <img src="/content/blog/posts/media/pimp-my-term/zsh-powerlevel.png"
-    alt="zsh powerlevel9k/10k prompt">
-<pre class="prettyprint"><span class="pln">POWERLEVEL9K_MODE</span><span class="pun">=</span><span class="pln">nerdfont</span><span class="pun">-</span><span class="pln">complete
-POWERLEVEL9K_PROMPT_ON_NEWLINE</span><span class="pun">=</span><span class="pln">true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE</span><span class="pun">=</span><span class="pln">true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH</span><span class="pun">=</span><span class="lit">2</span><span class="pln">
-POWERLEVEL9K</span><span class="pun">=</span><span class="pln">truncate_beginning
-POWERLEVEL9K_TIME_BACKGROUND</span><span class="pun">=</span><span class="pln">black
-POWERLEVEL9K_TIME_FOREGROUND</span><span class="pun">=</span><span class="pln">white
-POWERLEVEL9K_TIME_FORMAT</span><span class="pun">=%</span><span class="pln">D</span><span class="pun">{%</span><span class="pln">I</span><span class="pun">:%</span><span class="pln">M</span><span class="pun">}</span><span class="pln">
-POWERLEVEL9K_STATUS_VERBOSE</span><span class="pun">=</span><span class="pln">false
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND</span><span class="pun">=</span><span class="pln">black
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND</span><span class="pun">=</span><span class="pln">green
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND</span><span class="pun">=</span><span class="pln">black
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND</span><span class="pun">=</span><span class="pln">yellow
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND</span><span class="pun">=</span><span class="pln">white
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND</span><span class="pun">=</span><span class="pln">black
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND</span><span class="pun">=</span><span class="pln">black
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND</span><span class="pun">=</span><span class="pln">blue
-POWERLEVEL9K_FOLDER_ICON</span><span class="pun">=</span><span class="pln">
-POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE</span><span class="pun">=</span><span class="pln">true
-POWERLEVEL9K_STATUS_VERBOSE</span><span class="pun">=</span><span class="pln">false
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
-POWERLEVEL9K_VCS_UNTRACKED_ICON</span><span class="pun">=●</span><span class="pln">
-POWERLEVEL9K_VCS_UNSTAGED_ICON</span><span class="pun">=±</span><span class="pln">
-POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON</span><span class="pun">=↓</span><span class="pln">
-POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON</span><span class="pun">=↑</span><span class="pln">
-POWERLEVEL9K_VCS_COMMIT_ICON</span><span class="pun">=</span><span class="str">' '</span><span class="pln">
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX</span><span class="pun">=</span><span class="str">'%F{blue}╭─%F{red}'</span><span class="pln">
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX</span><span class="pun">=</span><span class="str">'%F{blue}╰%f '</span><span class="pln">
-POWERLEVEL9K_CUSTOM_OS_ICON</span><span class="pun">=</span><span class="str">'echo   $(whoami) '</span><span class="pln">
-POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND</span><span class="pun">=</span><span class="pln">red
-POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND</span><span class="pun">=</span><span class="pln">white
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span><span class="pun">=(</span><span class="pln">custom_os_icon ssh root_indicator dir dir_writable vcs</span><span class="pun">)</span><span class="pln">
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span><span class="pun">=(</span><span class="pln">command_execution_time status background_jobs time ram</span><span class="pun">)</span><span class="pln">
+    alt="zsh powerlevel10k prompt">
+<pre class="prettyprint"><span class="typ">POWERLEVEL9K_MODE</span>=nerdfont-complete
+<span class="typ">POWERLEVEL9K_PROMPT_ON_NEWLINE</span>=true <span class="com"># &lt;- Set this to false for simgle line prompt</span>
+<span class="typ">POWERLEVEL9K_RPROMPT_ON_NEWLINE</span>=true
+<span class="typ">POWERLEVEL9K_SHORTEN_DIR_LENGTH</span>=<span class="lit">2</span>
+<span class="typ">POWERLEVEL9K</span>=truncate_beginning
+<span class="typ">POWERLEVEL9K_TIME_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_TIME_FOREGROUND</span>=white
+<span class="typ">POWERLEVEL9K_TIME_FORMAT</span>=%D{%I:%M}
+<span class="typ">POWERLEVEL9K_STATUS_VERBOSE</span>=false
+<span class="typ">POWERLEVEL9K_VCS_CLEAN_FOREGROUND</span>=black
+<span class="typ">POWERLEVEL9K_VCS_CLEAN_BACKGROUND</span>=green
+<span class="typ">POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND</span>=black
+<span class="typ">POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND</span>=yellow
+<span class="typ">POWERLEVEL9K_VCS_MODIFIED_FOREGROUND</span>=white
+<span class="typ">POWERLEVEL9K_VCS_MODIFIED_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND</span>=blue
+<span class="typ">POWERLEVEL9K_FOLDER_ICON</span>=
+<span class="typ">POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE</span>=true
+<span class="typ">POWERLEVEL9K_STATUS_VERBOSE</span>=false
+<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD</span>=<span class="lit">0</span>
+<span class="typ">POWERLEVEL9K_VCS_UNTRACKED_ICON</span>=●
+<span class="typ">POWERLEVEL9K_VCS_UNSTAGED_ICON</span>=±
+<span class="typ">POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON</span>=↓
+<span class="typ">POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON</span>=↑
+<span class="typ">POWERLEVEL9K_VCS_COMMIT_ICON</span>=<span class="str">' '</span>
+<span class="typ">POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL</span>=
+<span class="typ">POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL</span>=
+<span class="typ">POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX</span>=<span class="str">'%F{blue}╭─'</span>
+<span class="typ">POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX</span>=<span class="str">'%F{blue}╰%f '</span>
+<span class="typ">POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION</span>=<span class="str">'${P9K_CONTENT}  $(whoami)'</span>
+<span class="typ">POWERLEVEL9K_OS_ICON_BACKGROUND</span>=red
+<span class="typ">POWERLEVEL9K_OS_ICON_FOREGROUND</span>=white
+<span class="typ">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span>=(os_icon root_indicator ssh dir dir_writable vcs)
+<span class="typ">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span>=(command_execution_time status background_jobs time ram)
 
-ZLE_RPROMPT_INDENT</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
+<span class="typ">ZLE_RPROMPT_INDENT</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
 
-</span><span class="com"># ---- load powerlevel ---</span>
-<span class="com">## For POWERLEVEL10K</span>
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-<span class="com">## For POWERLEVEL9K
-#source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme</span>
+</span><span class="com"># ---- load POWERLEVEL10K ---</span>
+<span class="kwd">source</span> /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 </pre>
 <br><br>
 <h3 id="useful-plugins">4.4. Useful plugins</h3>
@@ -530,7 +576,7 @@ use. Vanilla <code>find</code> command needs more than one parameter to be able 
 return useful results, so this modification won't alter its functionality, 
 therefore, you will still be able to use it normally as well.
 </p>
-<pre class="prettyprint"><span class="kwd">function</span><span class="pln"> find</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+<pre class="prettyprint"><span class="pln">find</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
     </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> $</span><span class="com"># = 1 ];</span><span class="pln">
     </span><span class="kwd">then</span><span class="pln">
         command find </span><span class="pun">.</span><span class="pln"> </span><span class="pun">-</span><span class="pln">iname </span><span class="str">"*$@*"</span><span class="pln">
@@ -546,7 +592,7 @@ commands. Running it will preview and add to git's cache all the changes from
 the current directory. Following this, they will be committed using the 
 provided message and pushed to the current branch.
 </p>
-<pre class="prettyprint"><span class="kwd">function</span><span class="pln"> lazygit</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+<pre class="prettyprint"><span class="pln">lazygit</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
     git status </span><span class="pun">.</span><span class="pln">
     git </span><span class="kwd">add</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
     git commit </span><span class="pun">-</span><span class="pln">m </span><span class="str">"$1"</span><span class="pln">
@@ -567,7 +613,7 @@ provided message and pushed to the current branch.
 <h4>Git graphical log</h4>
 <pre>
 [alias]
-	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | less -r -X +/[^/]HEAD"
+	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | less -r +/[^/]HEAD"
 </pre>
 <img src="/content/blog/posts/media/pimp-my-term/git-glog.png"
     alt="git glog alias"
@@ -575,17 +621,27 @@ provided message and pushed to the current branch.
 <h4>Git graphical log V2</h4>
 <pre>
 [alias]
-	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | sed -r -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+ /├\\1─╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m /\\1├─╯\\x1b\\[m/' -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+/├\\1╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m/\\1├╯\\x1b\\[m/' -e 's/╮(\\x1b\\[[0-9;]*m)+\\\\/╮\\1╰╮/' -e 's/╯(\\x1b\\[[0-9;]*m)+\\//╯\\1╭╯/' -e 's/(\\||\\\\)\\x1b\\[m   (\\x1b\\[[0-9;]*m)/╰╮\\2/' -e 's/(\\x1b\\[[0-9;]*m)\\\\/\\1╮/g' -e 's/(\\x1b\\[[0-9;]*m)\\//\\1╯/g' -e 's/^\\*|(\\x1b\\[m )\\*/\\1⎬/g' -e 's/(\\x1b\\[[0-9;]*m)\\|/\\1│/g' | less -r -X +/[^/]HEAD"
+	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | sed -r -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+ /├\\1─╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m /\\1├─╯\\x1b\\[m/' -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+/├\\1╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m/\\1├╯\\x1b\\[m/' -e 's/╮(\\x1b\\[[0-9;]*m)+\\\\/╮\\1╰╮/' -e 's/╯(\\x1b\\[[0-9;]*m)+\\//╯\\1╭╯/' -e 's/(\\||\\\\)\\x1b\\[m   (\\x1b\\[[0-9;]*m)/╰╮\\2/' -e 's/(\\x1b\\[[0-9;]*m)\\\\/\\1╮/g' -e 's/(\\x1b\\[[0-9;]*m)\\//\\1╯/g' -e 's/^\\*|(\\x1b\\[m )\\*/\\1⎬/g' -e 's/(\\x1b\\[[0-9;]*m)\\|/\\1│/g' | less -r +/[^/]HEAD"
 </pre>
 <img src="/content/blog/posts/media/pimp-my-term/git-glog-nerdfont.png"
     alt="git glog alias with nerdfont glyphs">
 <style>
+    #terminal-colorscheme {
+        width: 100%;
+        display: block;
+        min-width: 270px;
+        margin: auto;
+        font-size: 11px;
+        max-width: 600px;
+    }
+
     #terminal-colorscheme span {
-        color: #fff;
+        color: white;
         padding: 5px;
         font-family: monospace;
-        box-shadow: 0 5px 30px 0 rgba(0,0,0,.3);
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .3);
         display: inline-block;
+        width: 12.5%;
     }
 </style>
 
