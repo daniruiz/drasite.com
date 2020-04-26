@@ -47,9 +47,10 @@ or opening an issue on my GitHub dotfiles repository.
             <li><a href="#color-scheme">Color Scheme</a></li>
             <li><a href="#some-aliases">Some aliases</a></li>
             <li><a href="#man-pages">Man pages</a></li>
-            <li><a href="#ls-from-the-future">LS from the future</a></li>
+            <li><a href="#ls-from-the-future">LS & TREE from the future</a></li>
             <li><a href="#top-from-the-future">TOP from the future</a></li>
             <li><a href="#cat-less-from-the-future">CAT & LESS from the future</li>
+            <li><a href="#lolcat">LOLcat</li>
         </ol>
     </li>
     <li>
@@ -172,7 +173,7 @@ Man pages support coloring too, which makes them so much visually pleasing. For 
     alt="colorized man pages"
     style="box-shadow:none">
 <br><br>
-<h3 id="ls-from-the-future">2.4. LS from the future</h3>
+<h3 id="ls-from-the-future">2.4. LS & TREE from the future</h3>
 <img src="/content/blog/posts/media/pimp-my-term/lsd.png" alt="lsd command preview">
 <a href="https://github.com/Peltoche/lsd" target="_blank"><h4>LSD</h4></a>
 <blockquote>The next gen ls command.</blockquote>
@@ -184,6 +185,8 @@ makes it much faster.
 <br>
 <h5>Alias ls=lsd</h5>
 <pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v lsd </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'lsd --group-dirs first'</span></pre>
+<h5>Alias tree=lsd</h5>
+<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v lsd </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> ls</span><span class="pun">=</span><span class="str">'lsd --tree'</span></pre>
 <br><br>
 <h3 id="top-from-the-future">2.5. TOP from the future</h3>
 <h4>HTOP</h4>
@@ -223,6 +226,9 @@ Resource monitor that shows usage and stats for processor, memory, disks,
 network and processes.
 </blockquote>
 <br>
+<a href="https://github.com/daniruiz/dotfiles/tree/master/.config/bashtop/themes" target="_blank">Download BashTOP Flat-Remix themes</a>
+<br>
+<br>
 <h5>Alias top=bashtop</h5>
 <pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bashtop </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> top</span><span class="pun">=</span><span class="str">'bashtop'</span></pre>
 <br><br>
@@ -236,13 +242,20 @@ A cat clone with syntax highlighting and Git integration.
 </blockquote>
 <br>
 <h5>Configure BAT to use the color-scheme from the terminal</h5>
-<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> bat</span><span class="pun">=</span><span class="str">'bat --theme=ansi-dark'</span></pre>
+<pre class="prettyprint"><span class="kwd">alias</span><span class="pln"> bat</span><span class="pun">=</span><span class="str">'bat --theme=ansi-dark'</span></pre>
 <h6>BAT over light background</h6>
-<pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> bat</span><span class="pun">=</span><span class="str">'bat --theme=ansi-light'</span></pre>
+<pre class="prettyprint"><span class="kwd">alias</span><span class="pln"> bat</span><span class="pun">=</span><span class="str">'bat --theme=ansi-light'</span></pre>
 <h5>Alias cat=bat</h5>
 <pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> cat</span><span class="pun">=</span><span class="str">'bat --pager=never'</span></pre>
 <h5>Alias less=bat</h5>
 <pre class="prettyprint"><span class="kwd">command </span><span class="pun">-</span><span class="pln">v bat </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pun">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">alias</span><span class="pln"> cat</span><span class="pun">=</span><span class="str">'bat'</span></pre>
+<br><br>
+<h3 id="lolcat">2.7. LOLcat</h3>
+<img src="/content/blog/posts/media/pimp-my-term/lolcat.png" alt="lolcat">
+<a href="https://github.com/busyloop/lolcat" target="_blank">LOLcat</a>... 🤣️
+Get rainbows and unicorns everywhere! This tool commonly appears used together 
+with <a href="https://github.com/dylanaraps/neofetch" target="_blank">neofetch</a>, adding a stunning rainbow effect to its output.
+<img src="/content/blog/posts/media/pimp-my-term/lolcat-neofetch.png" alt="neofetch with lolcat">
 <br><br><hr><br><br>
 <h2 id="bash-customizations">3. Bash customizations</h2>
 <p>
@@ -430,22 +443,23 @@ This is only a list of my personal settings, just in case they help you:
 <pre class="prettyprint">
     <span class="kwd">unsetopt</span> NO_BEEP
     <span class="kwd">unsetopt</span> NO_MATCH
-    <span class="kwd">unsetopt</span> AUTO_CD
-    <span class="kwd">unsetopt</span> BEEP
-    <span class="kwd">unsetopt</span> NOMATCH
-    <span class="kwd">unsetopt</span> NOTIFY
-    <span class="kwd">unsetopt</span> INC_APPEND_HISTORY
-    <span class="kwd">unsetopt</span> SHARE_HISTORY
-    <span class="kwd">unsetopt</span> HIST_EXPIRE_DUPS_FIRST
-    <span class="kwd">unsetopt</span> HIST_IGNORE_DUPS
-    <span class="kwd">unsetopt</span> HIST_IGNORE_ALL_DUPS
-    <span class="kwd">unsetopt</span> HIST_FIND_NO_DUPS
-    <span class="kwd">unsetopt</span> HIST_SAVE_NO_DUPS
-    <span class="kwd">unsetopt</span> HIST_REDUCE_BLANKS
-    <span class="kwd">unsetopt</span> HIST_VERIFY
-    <span class="kwd">unsetopt</span> HIST_BEEP
-    <span class="kwd">unsetopt</span> INTERACTIVE_COMMENTS
-    <span class="kwd">unsetopt</span> MAGIC_EQUAL_SUBST
+    <span class="kwd">setopt</span> AUTO_CD
+    <span class="kwd">setopt</span> BEEP
+    <span class="kwd">setopt</span> NOMATCH
+    <span class="kwd">setopt</span> NOTIFY
+    <span class="kwd">setopt</span> INC_APPEND_HISTORY
+    <span class="kwd">setopt</span> SHARE_HISTORY
+    <span class="kwd">setopt</span> HIST_EXPIRE_DUPS_FIRST
+    <span class="kwd">setopt</span> HIST_IGNORE_DUPS
+    <span class="kwd">setopt</span> HIST_IGNORE_ALL_DUPS
+    <span class="kwd">setopt</span> HIST_FIND_NO_DUPS
+    <span class="kwd">setopt</span> HIST_SAVE_NO_DUPS
+    <span class="kwd">setopt</span> HIST_REDUCE_BLANKS
+    <span class="kwd">setopt</span> HIST_VERIFY
+    <span class="kwd">setopt</span> HIST_BEEP
+    <span class="kwd">setopt</span> INTERACTIVE_COMMENTS
+    <span class="kwd">setopt</span> MAGIC_EQUAL_SUBST
+    <span class="kwd">setopt</span> NULL_GLOB
 
     <span class="kwd">autoload</span> compinit && compinit
 </pre>
@@ -483,41 +497,66 @@ You can always launch the configuration wizard by running <code>p10k configure</
 </p>
 <img src="/content/blog/posts/media/pimp-my-term/zsh-powerlevel.png"
     alt="zsh powerlevel10k prompt">
-<pre class="prettyprint"><span class="typ">POWERLEVEL9K_MODE</span>=nerdfont-complete
+<pre class="prettyprint"><span class="typ">s</span>=' ' <span class="com"># fix too wide icons</span>
+<span class="typ">POWERLEVEL9K_MODE</span>=nerdfont-complete
+<span class="typ">POWERLEVEL9K_SHORTEN_STRATEGY</span>=truncate_beginning
+<span class="typ">POWERLEVEL9K_PROMPT_ADD_NEWLINE</span>=true
 <span class="typ">POWERLEVEL9K_PROMPT_ON_NEWLINE</span>=true <span class="com"># &lt;- Set this to false for simgle line prompt</span>
 <span class="typ">POWERLEVEL9K_RPROMPT_ON_NEWLINE</span>=true
 <span class="typ">POWERLEVEL9K_SHORTEN_DIR_LENGTH</span>=<span class="lit">2</span>
-<span class="typ">POWERLEVEL9K</span>=truncate_beginning
-<span class="typ">POWERLEVEL9K_TIME_BACKGROUND</span>=black
-<span class="typ">POWERLEVEL9K_TIME_FOREGROUND</span>=white
-<span class="typ">POWERLEVEL9K_TIME_FORMAT</span>=%D{%I:%M}
-<span class="typ">POWERLEVEL9K_STATUS_VERBOSE</span>=false
+<span class="typ">POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION</span>=<span class="str">'${P9K_CONTENT} $(whoami | grep -v "^root\$")'</span>
+<span class="typ">POWERLEVEL9K_OS_ICON_BACKGROUND</span>=red
+<span class="typ">POWERLEVEL9K_OS_ICON_FOREGROUND</span>=white
+<span class="typ">POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND</span>=red
+<span class="typ">POWERLEVEL9K_SSH_BACKGROUND</span>=white
+<span class="typ">POWERLEVEL9K_SSH_FOREGROUND</span>=blue
+<span class="typ">POWERLEVEL9K_FOLDER_ICON</span>=
+<span class="typ">POWERLEVEL9K_DIR_BACKGROUND</span>=blue
+<span class="typ">POWERLEVEL9K_DIR_FOREGROUND</span>=black
+<span class="typ">POWERLEVEL9K_DIR_WRITABLE_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_DIR_WRITABLE_FOREGROUND</span>=red
 <span class="typ">POWERLEVEL9K_VCS_CLEAN_FOREGROUND</span>=black
 <span class="typ">POWERLEVEL9K_VCS_CLEAN_BACKGROUND</span>=green
 <span class="typ">POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND</span>=black
 <span class="typ">POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND</span>=yellow
 <span class="typ">POWERLEVEL9K_VCS_MODIFIED_FOREGROUND</span>=white
 <span class="typ">POWERLEVEL9K_VCS_MODIFIED_BACKGROUND</span>=black
-<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND</span>=black
-<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND</span>=blue
-<span class="typ">POWERLEVEL9K_FOLDER_ICON</span>=
-<span class="typ">POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE</span>=true
-<span class="typ">POWERLEVEL9K_STATUS_VERBOSE</span>=false
-<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD</span>=<span class="lit">0</span>
 <span class="typ">POWERLEVEL9K_VCS_UNTRACKED_ICON</span>=●
 <span class="typ">POWERLEVEL9K_VCS_UNSTAGED_ICON</span>=±
 <span class="typ">POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON</span>=↓
 <span class="typ">POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON</span>=↑
-<span class="typ">POWERLEVEL9K_VCS_COMMIT_ICON</span>=<span class="str">' '</span>
-<span class="typ">POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL</span>=
-<span class="typ">POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL</span>=
+<span class="typ">POWERLEVEL9K_VCS_COMMIT_ICON</span>=<span class="typ">$s</span>
+<span class="typ">POWERLEVEL9K_STATUS_VERBOSE</span>=false
+<span class="typ">POWERLEVEL9K_STATUS_VERBOSE</span>=false
+<span class="typ">POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE</span>=true
+<span class="typ">POWERLEVEL9K_EXECUTION_TIME_ICON</span>=<span class="typ">$s</span>
+<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD</span>=<span class="lit">0</span>
+<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND</span>=blue
+<span class="typ">POWERLEVEL9K_COMMAND_BACKGROUND_JOBS_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_COMMAND_BACKGROUND_JOBS_FOREGROUND</span>=cyan
+<span class="typ">POWERLEVEL9K_TIME_ICON</span>=
+<span class="typ">POWERLEVEL9K_TIME_FORMAT</span>=<span class="str">'%D{%I:%M}'</span>
+<span class="typ">POWERLEVEL9K_TIME_BACKGROUND</span>=black
+<span class="typ">POWERLEVEL9K_TIME_FOREGROUND</span>=white
+<span class="typ">POWERLEVEL9K_RAM_ICON</span>=
+<span class="typ">POWERLEVEL9K_RAM_FOREGROUND</span>=black
+<span class="typ">POWERLEVEL9K_RAM_BACKGROUND</span>=yellow
+<span class="typ">POWERLEVEL9K_VI_MODE_FOREGROUND</span>=black
+<span class="typ">POWERLEVEL9K_VI_COMMAND_MODE_STRING</span>=NORMAL
+<span class="typ">POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND</span>=green
+<span class="typ">POWERLEVEL9K_VI_VISUAL_MODE_STRING</span>=VISUAL
+<span class="typ">POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND</span>=blue
+<span class="typ">POWERLEVEL9K_VI_OVERWRITE_MODE_STRING</span>=OVERTYPE
+<span class="typ">POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND</span>=red
+<span class="typ">POWERLEVEL9K_VI_INSERT_MODE_STRING</span>=
+<span class="typ">POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL</span>=<span class="str">'\uE0B2'</span>
+<span class="typ">POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL</span>=<span class="str">'\uE0B0'</span>
 <span class="typ">POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX</span>=<span class="str">'%F{blue}╭─'</span>
 <span class="typ">POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX</span>=<span class="str">'%F{blue}╰%f '</span>
-<span class="typ">POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION</span>=<span class="str">'${P9K_CONTENT}  $(whoami)'</span>
-<span class="typ">POWERLEVEL9K_OS_ICON_BACKGROUND</span>=red
-<span class="typ">POWERLEVEL9K_OS_ICON_FOREGROUND</span>=white
 <span class="typ">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span>=(os_icon root_indicator ssh dir dir_writable vcs)
-<span class="typ">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span>=(command_execution_time status background_jobs time ram)
+<span class="typ">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span>=(vi_mode status command_execution_time background_jobs time ram)
 
 <span class="typ">ZLE_RPROMPT_INDENT</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
 
@@ -576,14 +615,14 @@ use. Vanilla <code>find</code> command needs more than one parameter to be able 
 return useful results, so this modification won't alter its functionality, 
 therefore, you will still be able to use it normally as well.
 </p>
-<pre class="prettyprint"><span class="pln">find</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> $</span><span class="com"># = 1 ];</span><span class="pln">
-    </span><span class="kwd">then</span><span class="pln">
-        command find </span><span class="pun">.</span><span class="pln"> </span><span class="pun">-</span><span class="pln">iname </span><span class="str">"*$@*"</span><span class="pln">
-    </span><span class="kwd">else</span><span class="pln">
-        command find </span><span class="str">"$@"</span><span class="pln">
-    </span><span class="kwd">fi</span><span class="pln">
-</span><span class="pun">}</span></pre>
+<pre class="prettyprint"><span class="kwd">find()</span> {
+    <span class="kwd">if</span> [ $# = 1 ]
+    <span class="kwd">then</span>
+        <span class="kwd">command</span> find . -iname <span class="str">"*$@*"</span>
+    <span class="kwd">else</span>
+        <span class="kwd">command</span> find <span class="str">"$@"</span>
+    <span class="kwd">fi</span>
+}</pre>
 <h4>LazyGit</h4>
 <code>lazygit "&lt;Message&gt;"</code>
 <p>
@@ -592,39 +631,111 @@ commands. Running it will preview and add to git's cache all the changes from
 the current directory. Following this, they will be committed using the 
 provided message and pushed to the current branch.
 </p>
-<pre class="prettyprint"><span class="pln">lazygit</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-    git status </span><span class="pun">.</span><span class="pln">
-    git </span><span class="kwd">add</span><span class="pln"> </span><span class="pun">.</span><span class="pln">
-    git commit </span><span class="pun">-</span><span class="pln">m </span><span class="str">"$1"</span><span class="pln">
-    git push origin HEAD
-</span><span class="pun">}</span></pre>
-<h3>.gitconfig</h3>
-<pre class="prettyprint">
-[color] <span class="com"># colorize output</span>
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = true
-	pager = true
-[credential] <span class="com"># cache credentials</span>
-	helper = cache --timeout=3600
-</pre>
+<pre class="prettyprint"><span class="kwd">lazygit()</span> {
+    <span class="kwd">git</span> status .
+    <span class="kwd">git</span> add .
+    <span class="kwd">git</span> commit -m <span class="str">"$@"</span>
+    <span class="kwd">git</span> push origin HEAD
+}</pre>
+<h5>Advanced lazygit</h5>
+Similar to the previous function, this git shortcut executes git add, commit, 
+and push and additionally supports commit amends. It handles the rebase process 
+for you so that you don't have to clean the branch after applying a fixup.
+<pre class="prettyprint bsh prettyprinted" style=""><span class="kwd">lazygit()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    USAGE</span><span class="pun">=</span><span class="str">"
+lazygit [OPTION]... </span><span class="str">
+
+    GIT but lazy
+
+    Options:
+        --fixup &lt;commit&gt;        runs 'git commit --fixup &lt;commit&gt; [...]'
+        --amend                 runs 'git commit --amend --no-edit [...]'
+        -f, --force             runs 'git push --force-with-lease [...]'
+        -h, --help              show this help text
+"</span><span class="pln">
+    COMMIT</span><span class="pun">=</span><span class="str">''</span><span class="pln">
+    MESSAGE</span><span class="pun">=</span><span class="str">''</span><span class="pln">
+    AMEND</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
+    FORCE</span><span class="pun">=</span><span class="lit">0</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> $</span># -gt 0 ]<span class="pln">
+    </span><span class="kwd">do</span><span class="pln">
+        key</span><span class="pun">=</span><span class="str">"$1"</span><span class="pln">
+
+        </span><span class="kwd">case</span><span class="pln"> $key </span><span class="kwd">in</span><span class="pln">
+            </span><span class="pun">--</span><span class="pln">fixup</span><span class="pun">)</span><span class="pln">
+                COMMIT</span><span class="pun">=</span><span class="str">"$2"</span><span class="pln">
+                shift </span><span class="com"># past argument</span><span class="pln">
+                shift </span><span class="com"># past value</span><span class="pln">
+                </span><span class="pun">;;</span><span class="pln">
+            </span><span class="pun">--</span><span class="pln">amend</span><span class="pun">)</span><span class="pln">
+                AMEND</span><span class="pun">=</span><span class="lit">1</span><span class="pln">
+                shift </span><span class="com"># past argument</span><span class="pln">
+                </span><span class="pun">;;</span><span class="pln">
+            </span><span class="pun">-</span><span class="pln">f</span><span class="pun">|--</span><span class="pln">force</span><span class="pun">)</span><span class="pln">
+                FORCE</span><span class="pun">=</span><span class="lit">1</span><span class="pln">
+                shift </span><span class="com"># past argument</span><span class="pln">
+                </span><span class="pun">;;</span><span class="pln">
+            </span><span class="pun">-</span><span class="pln">h</span><span class="pun">|--</span><span class="pln">help</span><span class="pun">)</span><span class="pln">
+                echo </span><span class="str">"$USAGE"</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+                </span><span class="pun">;;</span><span class="pln">
+            </span><span class="pun">*)</span><span class="pln">
+                MESSAGE</span><span class="pun">=</span><span class="str">"$1"</span><span class="pln">
+                shift </span><span class="com"># past argument</span><span class="pln">
+                </span><span class="pun">;;</span><span class="pln">
+        </span><span class="kwd">esac</span><span class="pln">
+    </span><span class="kwd">done</span><span class="pln">
+    <span class="kwd">git</span> status </span><span class="pun">.</span><span class="pln">
+    <span class="kwd">git</span> </span>add<span class="pln"> </span><span class="pun">.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> $AMEND </span><span class="pun">-</span><span class="pln">eq </span><span class="lit">1</span><span class="pln"> </span><span class="pun">]</span><span class="pln">
+    </span><span class="kwd">then</span><span class="pln">
+        <span class="kwd">git</span> commit </span><span class="pun">--</span><span class="pln">amend </span><span class="pun">--</span>no<span class="pun">-</span><span class="pln">edit
+    </span><span class="kwd">elif</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="str">"$COMMIT"</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> </span><span class="str">''</span><span class="pln"> </span><span class="pun">]</span><span class="pln">
+    </span><span class="kwd">then</span><span class="pln">
+        <span class="kwd">git</span> commit </span><span class="pun">--</span><span class="pln">fixup </span><span class="str">"$COMMIT"</span><span class="pln">
+        GIT_SEQUENCE_EDITOR</span><span class="pun">=:</span><span class="pln"> <span class="kwd">git</span> rebase </span><span class="pun">-</span><span class="pln">i </span><span class="pun">--</span><span class="pln">autosquash </span><span class="str">"$COMMIT^"</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+        <span class="kwd">git</span> commit </span><span class="pun">-</span><span class="pln">m </span><span class="str">"$MESSAGE"</span><span class="pln">
+    </span><span class="kwd">fi</span><span class="pln">
+    <span class="kwd">git</span> push origin HEAD $</span><span class="pun">([</span><span class="pln"> </span><span class="str">"$FORCE"</span><span class="pln"> </span><span class="pun">-</span><span class="pln">eq </span><span class="lit">1</span><span class="pln"> </span><span class="pun">]</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> echo </span><span class="str">'--force-with-lease'</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">}</span></commit></commit></pre>
 <h4>Git graphical log</h4>
-<pre>
-[alias]
-	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | less -r +/[^/]HEAD"
-</pre>
-<img src="/content/blog/posts/media/pimp-my-term/git-glog.png"
-    alt="git glog alias"
-    style="box-shadow:none">
-<h4>Git graphical log V2</h4>
-<pre>
-[alias]
-	glog = !"git --no-pager log --all --color=always --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | sed -r -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+ /├\\1─╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m /\\1├─╯\\x1b\\[m/' -e 's/\\|(\\x1b\\[[0-9;]*m)+\\\\(\\x1b\\[[0-9;]*m)+/├\\1╮\\2/' -e 's/(\\x1b\\[[0-9;]+m)\\|\\x1b\\[m\\1\\/\\x1b\\[m/\\1├╯\\x1b\\[m/' -e 's/╮(\\x1b\\[[0-9;]*m)+\\\\/╮\\1╰╮/' -e 's/╯(\\x1b\\[[0-9;]*m)+\\//╯\\1╭╯/' -e 's/(\\||\\\\)\\x1b\\[m   (\\x1b\\[[0-9;]*m)/╰╮\\2/' -e 's/(\\x1b\\[[0-9;]*m)\\\\/\\1╮/g' -e 's/(\\x1b\\[[0-9;]*m)\\//\\1╯/g' -e 's/^\\*|(\\x1b\\[m )\\*/\\1⎬/g' -e 's/(\\x1b\\[[0-9;]*m)\\|/\\1│/g' | less -r +/[^/]HEAD"
-</pre>
 <img src="/content/blog/posts/media/pimp-my-term/git-glog-nerdfont.png"
     alt="git glog alias with nerdfont glyphs">
+<pre class="prettyprint"><span class="kwd">glog()</span> {
+    <span class="kwd">setterm</span> -linewrap off
+
+    <span class="kwd">git</span> --no-pager log --all --color=always --graph --abbrev-commit --decorate \
+        --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' | \
+        <span class="kwd">sed</span> -E \
+            -e <span class="str">'s/\|(\x1b\[[0-9;]*m)+\\(\x1b\[[0-9;]*m)+ /├\1─╮\2/'</span> \
+            -e <span class="str">'s/(\x1b\[[0-9;]+m)\|\x1b\[m\1\/\x1b\[m /\1├─╯\x1b\[m/'</span> \
+            -e <span class="str">'s/\|(\x1b\[[0-9;]*m)+\\(\x1b\[[0-9;]*m)+/├\1╮\2/'</span> \
+            -e <span class="str">'s/(\x1b\[[0-9;]+m)\|\x1b\[m\1\/\x1b\[m/\1├╯\x1b\[m/'</span> \
+            -e <span class="str">'s/╮(\x1b\[[0-9;]*m)+\\/╮\1╰╮/'</span> \
+            -e <span class="str">'s/╯(\x1b\[[0-9;]*m)+\//╯\1╭╯/'</span> \
+            -e <span class="str">'s/(\||\\)\x1b\[m   (\x1b\[[0-9;]*m)/╰╮\2/'</span> \
+            -e <span class="str">'s/(\x1b\[[0-9;]*m)\\/\1╮/g'</span> \
+            -e <span class="str">'s/(\x1b\[[0-9;]*m)\//\1╯/g'</span> \
+            -e <span class="str">'s/^\*|(\x1b\[m )\*/\1⎬/g'</span> \
+            -e <span class="str">'s/(\x1b\[[0-9;]*m)\|/\1│/g'</span> \
+        | <span class="kwd">command</span> less -r +'/[^/]HEAD'
+
+    <span class="kwd">setterm</span> -linewrap on
+}</pre>
+<h3>Git settings</h3>
+Git configuration file is placed in <code>~/.gitconfig</code>
+<pre class="prettyprint">
+[color] <span class="com"># colorize output</span>
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+[credential] <span class="com"># cache credentials</span>
+    helper = cache --timeout=3600
+</pre>
 <style>
     #terminal-colorscheme {
         width: 100%;
