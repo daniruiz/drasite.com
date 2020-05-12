@@ -1,0 +1,352 @@
+<img src="/content/blog/posts/media/kali-2020.2/kali-2020.2-preview-mesh.png"
+        alt="kali 2020.2">
+<p>Today Kali 2020.2 has been released and with it lots of new visual changes and desktop improvements.</p>
+<p>Here's a quick summary of what's new:</p>
+<ul>
+    <li>KDE Plasma Makeover & Login</li>
+    <li>PowerShell by Default. Kind of.</li>
+    <li>Kali on ARM Improvements</li>
+    <li>Lessons From The Installer Changes</li>
+    <li>New Key Packages & Icons</li>
+    <li>Behind the Scenes, Infrastructure Improvements</li>
+</ul>
+<p>Following the previous release posts I published, here I want to show only the visual changes, but you can read more about all the improvements for Kali 2020.2 here:</p>
+<h4 style="text-align:center"><a href="https://www.kali.org/releases/kali-linux-2020-2-release" target="_blank">kali.org / Kali Linux 2020.2 Release</a></h4>
+<h2>New KDE themes</h2>
+<p>During the last releases, Kali Linux has been announcing a whole set of new themes and features for its different desktops. At the end of last year, Kali 2019.4 announced the move to Xfce desktop, intending to provide better performance for small ARM devices that don't have as high performance as an average desktop. Later this year, Kali 2020.1 introduced the new themes for the GNOME desktop, aimed for all those people that missed the previous environment.</p>
+<p>As many have been asking for, this time is the turn for KDE, one of the most popular desktops available for Linux. With this update, if you choose to install KDE, you'll be provided with the Plasma desktop, fully personalized with the new Kali designs and colors.</p>
+<h3>Kali Dark</h3>
+<img src="/content/blog/posts/media/kali-2020.2/kali-kde-dark.png"
+    alt="kali 2020.2 KDE dark theme"
+    class="wide">
+<h3>Kali Light</h3>
+<img src="/content/blog/posts/media/kali-2020.2/kali-kde-light.png"
+    alt="kali 2020.2 KDE light theme"
+    class="wide">
+<h3>KDE login screen</h3>
+<img src="/content/blog/posts/media/kali-2020.2/login-sddm.png"
+    alt="kali 2020.2 KDE sddm login screen"
+    class="wide">
+<h4>Switching between dark/light themes</h4>
+<p>One nice feature about KDE is that it includes a 'Global Theme' menu, that allows you to change all the different themes at once. That way switching between the available light and dark skins is a straight forward process, so you don't have to configure the window, color-scheme, and plasma themes one by one.</p>
+<img src="/content/blog/posts/media/kali-2020.2/kde-look-and-feel-themes.png"
+    alt="kde look and feel desktop themes for kali">
+
+
+<h2>New login themes</h2>
+<p>In case you use Kali's default desktop, you'll notice some changes in the login screen (lightdm). Version 2019.4 already included a new theme for it, directly based on the application's one. Even so, this update introduces a new skin, redesigned with a modern look in both dark and light variants.</p>
+<p>
+In order to make it easier to adjust the login screen to your liking, the greeter's settings program comes now preinstalled by default, where you can find the options to modify parameters like the theme, background image, font, user image, dialog position, and many others.</p>
+<img src="/content/blog/posts/media/kali-2020.2/login-dark.png"
+    alt="kali 2020.2 lightdm dark screen"
+    class="wide">
+<img src="/content/blog/posts/media/kali-2020.2/login-light.png"
+    alt="kali 2020.2 lightdm light screen"
+    class="wide">
+<img src="/content/blog/posts/media/kali-2020.2/lightdm-settings.png"
+    alt="lightdm login screen settings">
+
+<h2>Added / Updated icons</h2>
+<p>Like the previous update, this release adds many app icons, this time more focused on packages that don't come with the default Kali Linux installation. Now, even if you install the <code>kali-linux-everything</code> package, there won't be an app out of the submenus without a new icon.</p>
+<p>Note that the previous announcement already incorporated some of these icons, but they've been improved for this version.</p>
+<div id="icons"></div>
+
+<h2>Fix for Qt themes</h2>
+<p>Some applications using Kali's Qt theme weren't properly showing due to a misconfiguration of the color-scheme. One of the programs that clearly showed the issue was Virtualbox. This issue is now fixed for both dark and light themes.</p>
+<div style="text-align:center">
+    <div class="carousel">
+        <img src="/content/blog/posts/media/kali-2020.2/qt-colorscheme-old.png"
+            alt="kali 2020.2 qt apps color-scheme issue">
+        <img src="/content/blog/posts/media/kali-2020.2/qt-colorscheme.png"
+            alt="kali 2020.2 qt apps color-scheme fix">
+    </div>
+</div>
+
+<h2>Kali Undercover + Plank</h2>
+<video src="/content/blog/posts/media/kali-2020.2/kali-undercover.mp4"
+    autoplay loop muted></video>
+<p>Kali undercover has also seen some minor improvements. One of them is the integration with Plank panel, as the undercover mode will now hide it if it is running. Plank doesn't come preinstalled in Kali, but it is a widely used program on Xfce.</p>
+
+<h2>HiDPI improvements</h2>
+<p>Xfce already provides support for HiDPI displays, but it works only for GTK apps. Kali Linux includes multiple tools, and each of them uses a different graphical library, such as GTK, Qt, java swing... Therefore, in order to set up all these applications to scale correctly, there is some tweaking you need to do.</p>
+<p>While it still needs to be manually configured, this new release improves support for HiDPI, and in the future, it will provide automated support. Find all the documentation at:</p>
+<h4 style="text-align:center"><a href="https://www.kali.org/docs/general-use/hidpi/" target="_blank">kali.org / Docs / General Use / HiDPI</a></h4>
+<p>Here is the general script to enable HiDPI 2x scale mode (Xfce only):</p>
+<pre class="prettyprint">
+<span class="kwd">xfconf-query</span> -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
+<span class="kwd">xfconf-query</span> -c xsettings -p /Gdk/WindowScalingFactor -n -t <span class="str">'int'</span> -s 2
+<span class="kwd">cat</span> &lt;&lt;- <span class="str">EOF</span> &gt;&gt; ~/.xsessionrc<span class="str">
+	export QT_SCALE_FACTOR=2
+	export XCURSOR_SIZE=48
+	export GDK_SCALE=2
+EOF</span>
+</pre>
+
+<a href="https://www.offensive-security.com/kali-linux/kali-linux-customization/"
+    target="_blank">
+    <h2>Customizing Kali Linux</h2>
+</a>
+<p>Kali looks impressive out of the box, but even still, it is not for everyone, and, if you are like me, you feel the need to customize its appearance to your taste. For this reason, during the development of this new release, I wrote a post where I show you some of the tricks to customize the new Xfce desktop and help you make your computer look different / stand out.</p>
+<a href="https://www.offensive-security.com/kali-linux/kali-linux-customization/"
+    target="_blank">
+    <div class="carousel">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-00-menu.png"
+            alt="kali customization">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-00.png"
+            alt="kali customization">
+    </div>
+    <br><br>
+    <div class="carousel">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-01-menu.png"
+            alt="kali customization">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-01.png"
+            alt="kali customization">
+    </div>
+    <br><br>
+    <div class="carousel">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-02-menu.png"
+            alt="kali customization">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-02.png"
+            alt="kali customization">
+    </div>
+    <br><br>
+    <div class="carousel">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-03-menu.png"
+            alt="kali customization">
+        <img src="/content/blog/posts/media/kali-2020.2/kali-customization-03.png"
+            alt="kali customization">
+    </div>
+</a>
+
+<h2>Other changes</h2>
+<ul>
+    <li>Added desktop specific tools for images, videos, archives...</li>
+    <li>Updated themes for GNOME 3.36</li>
+    <li>Updated terminal color-scheme</li>
+    <li>Fixed broken KDE desktop when <code>kali-desktop-xfce</code> is installed</li>
+    <li>Added Thunar side-panel xdg user directories</li>
+    <li>Xfce file search shortcut with Catfish
+        <img src="/content/blog/posts/media/kali-2020.2/kali-2020.2-thunar-updates.png"
+            alt="lightdm login screen settings">
+    </li>
+    <li>GTK3 themes
+        <ul>
+            <li>Rounded bottom window corners</li>
+            <li>Reduced non-CSD window header bar height</li>
+            <li>Improved menu visibility for the dark theme</li>
+        </ul>
+        <img src="/content/blog/posts/media/kali-2020.2/gtk-updates.png"
+            alt="lightdm login screen settings">
+    </li>
+</ul>
+
+<h2>New wallpapers</h2>
+<p>Here you have it, all the new wallpapers uncompressed and in 4k resolution 😉️</p>
+<div class="wide">
+    <img alt="kali 2020.2 wallpapers kali-mesh" src="/content/blog/posts/media/kali-2020.2/wallpapers/kali-mesh.png">
+    <img alt="kali 2020.2 wallpapers kali-mesh" src="/content/blog/posts/media/kali-2020.2/wallpapers/kali-strips.png">
+    <img alt="kali 2020.2 wallpapers kali-mesh" src="/content/blog/posts/media/kali-2020.2/wallpapers/kali-trail.png">
+    <img alt="kali 2020.2 wallpapers kali-mesh" src="/content/blog/posts/media/kali-2020.2/wallpapers/kali-neon.png">
+    <img alt="kali 2020.2 wallpapers kali-mesh" src="/content/blog/posts/media/kali-2020.2/wallpapers/kali-blur.png">
+</div>
+<h3>Other wallpapers</h3>
+<p>In case you want to install more wallpapers you can download all the legacy ones from the following package:</p>
+<code>sudo apt install <a href="https://gitlab.com/kalilinux/packages/kali-legacy-wallpapers" target="_blank">kali-legacy-wallpapers</a></code>
+<p>Or from the community wallpapers repository:</p>
+<code>sudo apt install <a href="https://gitlab.com/kalilinux/packages/kali-community-wallpapers" target="_blank">kali-community-wallpapers</a></code>
+<h4>Kali 2019.4 wallpapers</h4>
+<div class="wide">
+<img alt="kali 2019.4 wallpapers kali-logo" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-logo.png">
+<img alt="kali 2019.4 wallpapers kali-light" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-light.png">
+<img alt="kali 2019.4 wallpapers kali-small-logo" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-tattoo.png">
+<img alt="kali 2019.4 wallpapers kali-black" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-dark.png">
+<img alt="kali 2019.4 wallpapers kali-blue-matrix" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-matrix.png">
+<img alt="kali 2019.4 wallpapers kali-rings" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-rings.png">
+<img alt="kali 2019.4 wallpapers kali-grid" src="/content/blog/posts/media/kali-2019.4/wallpapers/kali-grid.png">
+</div>
+
+<style>
+
+    article#blog-post-container .wide, article#blog-post-container #icons {
+        margin-left: -215px;
+        width: 1040px;
+        max-width: 1040px;
+    }
+
+    article#blog-post-container #icons {
+        background: #0c1e28;
+        padding: 60px 20px;
+        border-radius: 5px;
+        text-align: center;
+        color: transparent;
+    }
+    article#blog-post-container #icons img {
+        box-shadow: none;
+        width: 5em;
+        height: 5em;
+        margin: .85em;
+        cursor: crosshair;
+        transition: transform .2s;
+        display: inline;
+        box-shadow: none;
+    }
+    article#blog-post-container #icons img:hover {
+        transform: scale(2);
+        filter: drop-shadow(0 0 5px #000);
+    }
+    article#blog-post-container #icons h2 { color: white; }
+    article#blog-post-container #icons > .bigger-icons > img { font-size: 1.2em; }
+    article#blog-post-container #icons > .bigger-icons > img:hover { transform: scale(1.7); }
+
+    @media only screen and (max-width: 1100px) {
+        article#blog-post-container .wide, article#blog-post-container #icons {
+            margin-left: -20px;
+            width: calc(100% + 40px);
+        }
+
+        article#blog-post-container #icons {
+            font-size: 1.2vw;
+            padding: 3.5em .35em;
+        }
+    }
+
+    :not(#blog-container) article > img { transition: transform .2s; }
+    :not(#blog-container) article > img:active {
+        transform: scale(1.5);
+        z-index: 1;
+    }
+
+    @keyframes carousel {
+        0%, 100%, 35% {
+            opacity: 1;
+        }
+        50%, 85% {
+            opacity: 0;
+        }
+    }
+    .carousel {
+        position: relative;
+        display: inline-block;
+    }
+    .carousel > img {
+        margin: 0!important;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        animation: 10s carousel infinite;
+    }
+    .carousel img:first-child { position: static; }
+    .carousel img:nth-child(2) { animation-delay: -5s; }
+    @keyframes carousel-progress {
+        0%, 75%, 100% {
+            width: 0;
+            opacity: .5;
+        }
+        70% {
+            width: 80%;
+            opacity: 1;
+        }
+    }
+    .carousel::after, .carousel::before {
+        content: '';
+        display: block;
+        width: 80%;
+        height: 3px;
+        border-radius: 10px;
+        background: white;
+        position: absolute;
+        bottom: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: .2;
+        box-shadow: 0 0 10px black;
+        z-index: 1;
+    }
+    .carousel::before {
+        animation: 5s carousel-progress linear infinite;
+    }
+
+</style>
+<script>
+  __ETHENIS.onLoadOnce = () => {
+    document.querySelector('#icons').innerHTML = `
+<img src="/content/blog/posts/media/kali-2020.2/icons/0trace.svg" alt="kali 0trace.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/ace.svg" alt="kali ace.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/affcat.svg" alt="kali affcat.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/aircrack-ng.svg" alt="kali aircrack-ng.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/apache-users.svg" alt="kali apache-users.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/arping.svg" alt="kali arping.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/backdoor-factory.svg" alt="kali backdoor-factory.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/bbqsql.svg" alt="kali bbqsql.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/bed.svg" alt="kali bed.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/blkcalc.svg" alt="kali blkcalc.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/blkcat.svg" alt="kali blkcat.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/blkls.svg" alt="kali blkls.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/blkstat.svg" alt="kali blkstat.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/bytecode-viewer.svg" alt="kali bytecode-viewer.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/chirp.svg" alt="kali chirp.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/compton.svg" alt="kali compton.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/crunch.svg" alt="kali crunch.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/cutter.svg" alt="kali cutter.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/dbpwaudit.svg" alt="kali dbpwaudit.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/debugger.svg" alt="kali debugger.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/dex2jar.svg" alt="kali dex2jar.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/dradis.svg" alt="kali dradis.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/driftnet.svg" alt="kali driftnet.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/edb48-logo.svg" alt="kali edb48-logo.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/exploit-db.svg" alt="kali exploit-db.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/eyewitness.svg" alt="kali eyewitness.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/ferret-sidejack.svg" alt="kali ferret-sidejack.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/flasm.svg" alt="kali flasm.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/foremost.svg" alt="kali foremost.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/galleta.svg" alt="kali galleta.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/golismero.svg" alt="kali golismero.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/gqrx.svg" alt="kali gqrx.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/hamster-sidejack.svg" alt="kali hamster-sidejack.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/hydra.svg" alt="kali hydra.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/jadx.svg" alt="kali jadx.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/jboss-autopwn.svg" alt="kali jboss-autopwn.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/jd-gui.svg" alt="kali jd-gui.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/jsql.svg" alt="kali jsql.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/kali-forums.svg" alt="kali kali-forums.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/kali-tools.svg" alt="kali kali-tools.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/kali-www.svg" alt="kali kali-www.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/magictree.svg" alt="kali magictree.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/mdb-sql.svg" alt="kali mdb-sql.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/mfoc.svg" alt="kali mfoc.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/mfterm.svg" alt="kali mfterm.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/nessus.svg" alt="kali nessus.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/nishang.svg" alt="kali nishang.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/nmapsi4.svg" alt="kali nmapsi4.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/openvas.svg" alt="kali openvas.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/paros.svg" alt="kali paros.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/phishing-frenzy.svg" alt="kali phishing-frenzy.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/powersploit.svg" alt="kali powersploit.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/pyrit.svg" alt="kali pyrit.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/rainbowcrack.svg" alt="kali rainbowcrack.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/rcracki-mt.svg" alt="kali rcracki-mt.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/recstudio.svg" alt="kali recstudio.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/rkhunter.svg" alt="kali rkhunter.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/shellnoob.svg" alt="kali shellnoob.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/sqldict.svg" alt="kali sqldict.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/sqlsus.svg" alt="kali sqlsus.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/ssdeep.svg" alt="kali ssdeep.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/termineter.svg" alt="kali termineter.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/theharvester.svg" alt="kali theharvester.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/tnscmd10g.svg" alt="kali tnscmd10g.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/vega.svg" alt="kali vega.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/veil.svg" alt="kali veil.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/vfeed.svg" alt="kali vfeed.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/volafox.svg" alt="kali volafox.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/volatility.svg" alt="kali volatility.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/w3af.svg" alt="kali w3af.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/watobo.svg" alt="kali watobo.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/wfuzz.svg" alt="kali wfuzz.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/wordlists.svg" alt="kali wordlists.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/wpscan.svg" alt="kali wpscan.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/xplico.svg" alt="kali xplico.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/yara.svg" alt="kali yara.svg app icon">
+<img src="/content/blog/posts/media/kali-2020.2/icons/zim.svg" alt="kali zim.svg app icon">
+`
+  }
+</script>
