@@ -124,17 +124,17 @@
                         </div>
                         <h4>Neural network with genetic algorithms</h4>
                     </a>
-                    <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
-                        <div class="project-img">
-                            <img src="/content/img/ethenis.svg" alt="Ethenis Framework logo">
-                        </div>
-                        <h4>Ethenis Framework</h4>
-                    </a>
                     <a class="paper __eth-link" href="/color-fixer" data-github="Color-Fixer">
                         <div class="project-img">
                             <img src="/content/img/color-fixer.jpg" alt="Color Fixer logo">
                         </div>
                         <h4>Color Fixer</h4>
+                    </a>
+                    <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
+                        <div class="project-img">
+                            <img src="/content/img/ethenis.svg" alt="Ethenis Framework logo">
+                        </div>
+                        <h4>Ethenis Framework</h4>
                     </a>
                     <hr class="separator">
                 </div>
