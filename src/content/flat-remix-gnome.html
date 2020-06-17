@@ -71,6 +71,12 @@ sudo <span class="kwd">add-apt-repository</span> ppa:daniruiz/flat-remix
 sudo <span class="kwd">apt</span> update
 sudo <span class="kwd">apt</span> install flat-remix-gnome</pre>
         <h5>Fedora based distributions</h5>
+        <h6>Install only Gnome themes (no login theme)</h6>
+        <pre class="prettyprint">
+sudo <span class="kwd">dnf</span> install gnome-shell-theme-flat-remix
+<span class="com"># To install all Flat-Remix themes run:</span>
+<span class="com"># sudo dnf install flat-remix-theme</span></pre>
+        <h6>Install GNOME and login themes</h6>
         <pre class="prettyprint">
 sudo <span class="kwd">dnf</span> copr enable daniruiz/flat-remix
 sudo <span class="kwd">dnf</span> install flat-remix-gnome</pre>
