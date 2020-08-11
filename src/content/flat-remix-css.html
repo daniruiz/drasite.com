@@ -45,18 +45,12 @@
 <section>
     <h2>Demo</h2>
     <div class="palette">
-        <div style="
-                background: #265AB1;animation-delay: 1.3s;"></div>
-        <div style="
-                background: #367BF0;animation-delay: 1.5s;"></div>
-        <div style="
-                background: #19A187;animation-delay: 1.7s;"></div>
-        <div style="
-                background: #D41919;animation-delay: 1.9s;"></div>
-        <div style="
-                background: #B8174C;animation-delay: 2.1s;"></div>
-        <div style="
-                background: #8C42AB;animation-delay: 2.3s;"></div>
+ <!----><div style="background: #265AB1;animation-delay: 1.3s;"></div><!--
+     --><div style="background: #367BF0;animation-delay: 1.5s;"></div><!--
+     --><div style="background: #19A187;animation-delay: 1.7s;"></div><!--
+     --><div style="background: #D41919;animation-delay: 1.9s;"></div><!--
+     --><div style="background: #B8174C;animation-delay: 2.1s;"></div><!--
+     --><div style="background: #8C42AB;animation-delay: 2.3s;"></div>
     </div>
 </section>
 <section class="paper" style="position:relative">
@@ -73,20 +67,20 @@
 </section>
 
 <section class="paper">
-    <h6>• Select them all</h6>
-    <label><input type="checkbox" name="checkbox" checked> Select me</label>
-    <label><input type="checkbox" name="checkbox"> Select me</label>
-    <label><input type="checkbox" name="checkbox" checked> Select me</label>
-    <label><input type="checkbox" name="checkbox"> Select me</label>
+    <h6>• Select them all</h6><!--
+ --><label><input type="checkbox" name="checkbox" checked> Select me</label><!--
+ --><label><input type="checkbox" name="checkbox"> Select me</label><!--
+ --><label><input type="checkbox" name="checkbox" checked> Select me</label><!--
+ --><label><input type="checkbox" name="checkbox"> Select me</label>
 
     <br>
     <br>
 
-    <h6>• Just select one</h6>
-    <label><input type="radio" name="radio"> Select me</label>
-    <label><input type="radio" name="radio" checked> Select me</label>
-    <label><input type="radio" name="radio"> Select me</label>
-    <label><input type="radio" name="radio"> Select me</label>
+    <h6>• Just select one</h6><!--
+ --><label><input type="radio" name="radio"> Select me</label><!--
+ --><label><input type="radio" name="radio" checked> Select me</label><!--
+ --><label><input type="radio" name="radio"> Select me</label><!--
+ --><label><input type="radio" name="radio"> Select me</label>
 
     <br>
     <br>
@@ -163,18 +157,12 @@
     <section>
         <h2>Flat Remix Palette</h2>
         <div class="palette">
-            <div style="
-                    background: #265AB1;animation-delay: 1.3s;"></div>
-            <div style="
-                    background: #367BF0;animation-delay: 1.5s;"></div>
-            <div style="
-                    background: #19A187;animation-delay: 1.7s;"></div>
-            <div style="
-                    background: #D41919;animation-delay: 1.9s;"></div>
-            <div style="
-                    background: #B8174C;animation-delay: 2.1s;"></div>
-            <div style="
-                    background: #8C42AB;animation-delay: 2.3s;"></div>
+     <!----><div style="background: #265AB1;animation-delay: 1.3s;"></div><!--
+          --><div style="background: #367BF0;animation-delay: 1.5s;"></div><!--
+          --><div style="background: #19A187;animation-delay: 1.7s;"></div><!--
+          --><div style="background: #D41919;animation-delay: 1.9s;"></div><!--
+          --><div style="background: #B8174C;animation-delay: 2.1s;"></div><!--
+          --><div style="background: #8C42AB;animation-delay: 2.3s;"></div>
         </div>
         <br>
         <div style="font-weight:bold;text-align:center" class="selectable">
@@ -501,16 +489,11 @@
         width: 95%;
     }
 
-    section input[type="text"] {
-        width: 48%;
-        margin-right: 1%;
-        min-width: 165px;
-    }
+    section input[type="text"] { width: calc(50% - 5px); }
 
     section select {
-        width: 48%;
-        margin-left: 1%;
-        min-width: 165px;
+        width: calc(50% - 5px);
+        float: right;
     }
 
     section textarea {
@@ -519,7 +502,7 @@
         min-width: 100%;
     }
 
-    section label { width: 225px; }
+    section label { width: 50%; }
 
     button.blue-button, button.red-button, button.green-button {
         display: inline-block;
