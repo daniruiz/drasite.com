@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 FILES="src/*"
 TARGET="./DRAsite.com-min"
