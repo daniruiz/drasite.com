@@ -1,0 +1,343 @@
+<img src="/content/blog/posts/media/kali-2020.3/kali-2020.3-preview.png"
+    alt="kali 2020.3 preview">
+<h2>Kali 2020.3 is out! 🎉️🎉️</h2>
+<p>Just like for previous releases, here I want to show a more in-depth view of the visual and aesthetic modifications that come with it. If you want to read more about all the new changes, don't forget to visit the release post:</p>
+<h4 style="text-align:center"><a href="https://www.kali.org/news/kali-2020-3-release" target="_blank">kali.org / Kali Linux 2020.3 Release</a></h4>
+<p>A quick summary of what’s new:</p>
+<ul>
+    <li>New Shell - Starting the process to switch from "Bash" to "ZSH"</li>
+    <li>The release of "Win-Kex" - Get ready WSL2</li>
+    <li>Automating HiDPI support - Easy switching mode</li>
+    <li>Tool Icons - Every default tool now has its own unique icon</li>
+    <li>Bluetooth Arsenal - New set of tools for Kali NetHunter</li>
+    <li>Nokia Support - New devices for Kali NetHunter</li>
+    <li>Setup Process - No more missing network repositories and quicker installs</li>
+</ul>
+<h2>Terminal improvements</h2>
+<p>One of the most exciting changes for this release is the introduction of the zsh shell. Zsh shares many similarities with bash, but it also adds some extra features that will highly improve your performance with the terminal. One of the key advantages of this shell is its customization capabilities, supported by the abundance of plugins and an awesome community.</p>
+<img src="/content/blog/posts/media/kali-2020.3/zsh-terminal-demo.png"
+    class="wide"
+    alt="Demo for kali 2020.3 zsh shell">
+<p>Zsh is not enabled as Kali's default shell yet, as we wanted the users to test it first. If you desire to give it a try, you only need to type <code>zsh</code> in your terminal. You can also make it your default shell with the following commands:</p>
+<pre class="prettyprint">
+<span class="kwd">chsh</span> -s /usr/bin/zsh <span class="com"># set zsh for the user</span>
+<span class="kwd">sudo chsh</span> -s /usr/bin/zsh <span class="com"># set zsh for root</span>
+</pre>
+<p>In case you are updating Kali from a previous installation, you won't see these changes unless you copy the required files manually (otherwise updates could overwrite user's configurations):</p>
+<pre class="prettyprint">
+<span class="kwd">cp</span> -r /etc/skel/. ~ <span class="com"># copy files for the user</span>
+<span class="kwd">sudo cp</span> -r /etc/skel/. /root <span class="com"># copy files for root</span>
+</pre>
+<p>Other terminal changes that you'll see in both zsh and bash are:
+    <ul>
+        <li>Colored commands:
+            <ul>
+                <li><code>ip</code></li>
+                <li><code>diff</code></li>
+                <li><code>grep/egrep/fgrep</code></li>
+            </ul>
+        </li>
+        <li>Colored man pages</li>
+        <li>Bash prompt is now blue for the regular users</li>
+    </ul>
+</p>
+<p>Now that Kali comes with zsh by default, if you want to further customize your terminal I can highly recommend you to read this post:</p>
+<h4 style="text-align:center"><a href="/blog/Pimp%20my%20terminal" target="_blank">drasite.com/blog/Pimp my terminal</a></h4>
+<img src="/content/blog/posts/media/kali-2020.3/colored-terminal.png"
+    class="wide"
+    alt="Colored terminal commands">
+<h2>HiDPI mode</h2>
+<p>
+Configuring the DE for HiDPI displays on Linux has highly improved over the years, but sometimes the provided settings only work with the desktop's preferred interface library. For example, Xfce (now Kali's default environment) supports window scaling for all GTK applications without issue, but this is not enough for this distribution. Kali comes with lots of different tools, therefore you can find apps based on GTK, Qt, and even Java, thus configuring all of them can become a nightmare.
+</p>
+<p>To make this process more straight forward Kali now includes a 'HiDPI mode' which will modify all the required settings for you with just a click. The app is available in the apps-menu or by executing <code>kali-hidpi-mode</code> in the terminal, and it's able to toggle this mode without the need for restarting.</p>
+<img src="/content/blog/posts/media/kali-2020.3/hidpi-demo.gif"
+    alt="Kali 2020.3 HiDPI mode demo"
+    class="wide">
+<h2>Added / Updated icons</h2>
+<p>Another big improvement coming with Kali 2020.3 is the inclusion of custom icons for all applications that come with the default installation (all apps provided by `kali-linux-default`). </p>
+<div id="icons"></div>
+<h2>Theme improvements</h2>
+<h3>New theme for Nautilus</h3>
+<img src="/content/blog/posts/media/kali-2020.3/nautilus-dark-new.png"
+    alt="Nautilus new dark theme for Kali 2020.3"
+    style="box-shadow:none">
+<img src="/content/blog/posts/media/kali-2020.3/nautilus-light-new.png"
+    alt="Nautilus new light theme for Kali 2020.3"
+    style="box-shadow:none">
+<h3>New theme for Xfce's menu (whiskermenu)</h3>
+<p>Having to design that many app icons, I've been carefully looking at Xfce's menu way too much time! Because of that, I couldn't resist doing some tweaking to it. The changes are small, but they are noticeable when you compare it with the old theme.
+The new changes are: removed box-like wrapper with a separator border, better background, more visible and rounded search-entry, and an improved menu-icon.</p>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.3/whiskermenu-old.png"
+        alt="Xfce menu - Whiskermenu old theme">
+    <img src="/content/blog/posts/media/kali-2020.3/whiskermenu-new.png"
+        alt="Xfce menu - Whiskermenu new theme for Kali 2020.3">
+</div>
+<h3>New theme for Gnome System Monitor</h3>
+<p>With the introduction of the new theme, Gnome's system-monitor, wasn't looking that great. The program was still using its own color-palette to draw the charts, and this made it look old. Now, having it configured to use Kali's color-palette this program can perfectly be one of these cool apps to show in your screenshots 😎️</p>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.3/gnome-system-monitor-old.png"
+        alt="Old gnome-system-monitor theme"
+        style="box-shadow:none">
+    <img src="/content/blog/posts/media/kali-2020.3/gnome-system-monitor-new.png"
+        alt="New gnome-system-monitor theme for Kali 2020.3"
+        style="box-shadow:none">
+</div>
+<h3>Improved editor color-schemes</h3>
+<p>The new code color-scheme was introduced with Kali 2019.4, and while it worked fine with most languages, for others it showed way too much green color. The new color-scheme provides a more balanced theme while still maintaining the same color-palette.</p>
+<h4>Dark color-scheme</h4>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.3/editor-color-scheme-dark-old.png"
+        alt="Old kali text-editor dark color-scheme"
+        style="box-shadow:none;filter: drop-shadow(0 5px 30px rgba(0, 0, 0, .3))">
+    <img src="/content/blog/posts/media/kali-2020.3/editor-color-scheme-dark-new.png"
+        alt="New kali text-editor dark color-scheme"
+        style="box-shadow:none;filter: drop-shadow(0 5px 30px rgba(0, 0, 0, .3))">
+</div>
+<h4>Light color-scheme</h4>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.3/editor-color-scheme-light-old.png"
+        alt="Old kali text-editor light color-scheme"
+        style="box-shadow:none;filter: drop-shadow(0 5px 30px rgba(0, 0, 0, .3))">
+    <img src="/content/blog/posts/media/kali-2020.3/editor-color-scheme-light-new.png"
+        alt="New kali text-editor light color-scheme"
+        style="box-shadow:none;filter: drop-shadow(0 5px 30px rgba(0, 0, 0, .3))">
+</div>
+<h3>Other gtk3 theme improvements</h3>
+<h4>Improved sidebar + headerbar design</h4>
+<h4></h4>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.3/gtk3-headerbar-dark-old.png"
+        alt="Old gtk3 dark theme headerbar design"
+        style="box-shadow:none">
+    <img src="/content/blog/posts/media/kali-2020.3/gtk3-headerbar-dark-new.png"
+        alt="New gtk3 dark theme headerbar design for Kali 2020.3"
+        style="box-shadow:none">
+</div>
+<div class="carousel">
+    <img src="/content/blog/posts/media/kali-2020.3/gtk3-headerbar-light-old.png"
+        alt="Old gtk3 light theme headerbar design"
+        style="box-shadow:none">
+    <img src="/content/blog/posts/media/kali-2020.3/gtk3-headerbar-light-new.png"
+        alt="New gtk3 light theme headerbar design for Kali 2020.3"
+        style="box-shadow:none">
+</div>
+<h4>Improved visibility for text entries</h4>
+<p>This is really a subtle modification, that is barely noticeable with just an image comparison, but it highly improves the overall look of the theme. 
+While most of the widgets were designed with depth and volume, the text entries looked plain and sometimes were even hard to differentiate.
+</p>
+<p>The new theme adds shadows to this type of widgets and makes their background easier to recognize.
+The theme now looks more consistent and follows some of the new 'neumorphism' trends without losing its functionality.</p>
+<img src="/content/blog/posts/media/kali-2020.3/gtk3-theme-dark.png"
+    alt="gtk3 dark theme text entry design comparison"
+    style="box-shadow:none;filter: drop-shadow(0 5px 30px rgba(0, 0, 0, .3))">
+<img src="/content/blog/posts/media/kali-2020.3/gtk3-theme-light.png"
+    alt="gtk3 light theme text entry design comparison"
+    style="box-shadow:none;filter: drop-shadow(0 5px 30px rgba(0, 0, 0, .3))">
+
+
+<style>
+
+    article#blog-post-container .wide, article#blog-post-container #icons {
+        margin-left: -215px;
+        width: 1040px;
+        max-width: 1040px;
+    }
+
+    article#blog-post-container #icons {
+        background: #0c1e28;
+        padding: 60px 20px;
+        border-radius: 5px;
+        text-align: center;
+        color: transparent;
+    }
+    article#blog-post-container #icons img {
+        box-shadow: none;
+        width: 5em;
+        height: 5em;
+        margin: .85em;
+        cursor: crosshair;
+        transition: transform .2s;
+        display: inline;
+        box-shadow: none;
+    }
+    article#blog-post-container #icons img:hover {
+        transform: scale(2);
+        filter: drop-shadow(0 0 5px #000);
+    }
+    article#blog-post-container #icons h2 { color: white; }
+    article#blog-post-container #icons > .bigger-icons > img { font-size: 1.2em; }
+    article#blog-post-container #icons > .bigger-icons > img:hover { transform: scale(1.7); }
+
+    @media only screen and (max-width: 1100px) {
+        article#blog-post-container .wide, article#blog-post-container #icons {
+            margin-left: -20px;
+            width: calc(100% + 40px);
+        }
+
+        article#blog-post-container #icons {
+            font-size: 1.2vw;
+            padding: 3.5em .35em;
+        }
+    }
+
+    :not(#blog-container) article > img { transition: transform .2s; }
+    :not(#blog-container) article > img:active {
+        transform: scale(1.5);
+        z-index: 1;
+    }
+
+    @keyframes carousel {
+        0%, 100%, 35% {
+            opacity: 1;
+        }
+        50%, 85% {
+            opacity: 0;
+        }
+    }
+    .carousel {
+        position: relative;
+        display: inline-block;
+    }
+    .carousel > img {
+        margin: 0!important;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        animation: 10s carousel infinite;
+    }
+    .carousel img:first-child { position: static; }
+    .carousel img:nth-child(2) { animation-delay: -5s; }
+    @keyframes carousel-progress {
+        0%, 75%, 100% {
+            width: 0;
+            opacity: .5;
+        }
+        70% {
+            width: 80%;
+            opacity: 1;
+        }
+    }
+    .carousel::after, .carousel::before {
+        content: '';
+        display: block;
+        width: 80%;
+        height: 3px;
+        border-radius: 10px;
+        background: white;
+        position: absolute;
+        bottom: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: .2;
+        box-shadow: 0 0 10px black;
+        z-index: 1;
+    }
+    .carousel::before {
+        animation: 5s carousel-progress linear infinite;
+    }
+
+</style>
+<script>
+  __ETHENIS.onLoadOnce = () => {
+    document.querySelector('#icons').innerHTML = `
+<img src="/content/blog/posts/media/kali-2020.3/icons/alacritty.svg" alt="kali alacritty app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/asleap.svg" alt="kali asleap app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/blkstat.svg" alt="kali blkstat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/bully.svg" alt="kali bully app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/burp.svg" alt="kali burp app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/cadaver.svg" alt="kali cadaver app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/chntpw.svg" alt="kali chntpw app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/davtest.svg" alt="kali davtest app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/dbd.svg" alt="kali dbd app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/dirb.svg" alt="kali dirb app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/dirbuster.svg" alt="kali dirbuster app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/dns2tcp.svg" alt="kali dns2tcp app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/dnschef.svg" alt="kali dnschef app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/dnsenum.svg" alt="kali dnsenum app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/dnsrecon.svg" alt="kali dnsrecon app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/enum4linux.svg" alt="kali enum4linux app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/exploit-db.svg" alt="kali exploit-db app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/ffind.svg" alt="kali ffind app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/fierce.svg" alt="kali fierce app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/fls.svg" alt="kali fls app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/fping.svg" alt="kali fping app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/fsstat.svg" alt="kali fsstat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/hash-identifier.svg" alt="kali hash-identifier app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/hashid.svg" alt="kali hashid app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/hfind.svg" alt="kali hfind app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/hping3.svg" alt="kali hping3 app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/htop.svg" alt="kali htop app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/hydra.svg" alt="kali hydra app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/icat.svg" alt="kali icat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/ifind.svg" alt="kali ifind app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/ils.svg" alt="kali ils app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/img_cat.svg" alt="kali img_cat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/img_stat.svg" alt="kali img_stat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/iodine.svg" alt="kali iodine app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/istat.svg" alt="kali istat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/jcat.svg" alt="kali jcat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/jls.svg" alt="kali jls app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/kali-panel-menu.svg" alt="kali kali-panel-menu app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/kali-sslh.svg" alt="kali kali-sslh app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/laudanum.svg" alt="kali laudanum app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/lbd.svg" alt="kali lbd app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/mactime.svg" alt="kali mactime app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/magicrescue.svg" alt="kali magicrescue app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/masscan.svg" alt="kali masscan app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/miredo.svg" alt="kali miredo app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/mmcat.svg" alt="kali mmcat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/mmls.svg" alt="kali mmls app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/mmstat.svg" alt="kali mmstat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/nbtscan.svg" alt="kali nbtscan app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/netmask.svg" alt="kali netmask app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/onesixtyone.svg" alt="kali onesixtyone app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/org.gnome.Extensions.svg" alt="kali org.gnome.Extensions app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/patator.svg" alt="kali patator app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/pdfid.svg" alt="kali pdfid app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/pdf-parser.svg" alt="kali pdf-parser app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/pixiewps.svg" alt="kali pixiewps app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/proxytunnel.svg" alt="kali proxytunnel app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/pth.svg" alt="kali pth app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/ptunnel.svg" alt="kali ptunnel app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/pwnat.svg" alt="kali pwnat app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/rebind.svg" alt="kali rebind app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/rsmangler.svg" alt="kali rsmangler app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/samdump2.svg" alt="kali samdump2 app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/sbd.svg" alt="kali sbd app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/scalpel.svg" alt="kali scalpel app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/scrounge-ntfs.svg" alt="kali scrounge-ntfs app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/sigfind.svg" alt="kali sigfind app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/skipfish.svg" alt="kali skipfish app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/smbmap.svg" alt="kali smbmap app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/snmp-check.svg" alt="kali snmp-check app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/sorter.svg" alt="kali sorter app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/spike.svg" alt="kali spike app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/spooftooph.svg" alt="kali spooftooph app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/srch-string.svg" alt="kali srch-string app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/ssldump.svg" alt="kali ssldump app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/sslh.svg" alt="kali sslh app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/sslscan.svg" alt="kali sslscan app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/sslsplit.svg" alt="kali sslsplit app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/sslyze.svg" alt="kali sslyze app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/stunnel4.svg" alt="kali stunnel4 app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/swaks.svg" alt="kali swaks app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/tcpreplay.svg" alt="kali tcpreplay app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/thcping6.svg" alt="kali thcping6 app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/thc-pptp-bruter.svg" alt="kali thc-pptp-bruter app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/theharvester.svg" alt="kali theharvester app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/tsk_comparedir.svg" alt="kali tsk_comparedir app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/tsk_gettimes.svg" alt="kali tsk_gettimes app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/tsk_loaddb.svg" alt="kali tsk_loaddb app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/tsk_recover.svg" alt="kali tsk_recover app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/udptunnel.svg" alt="kali udptunnel app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/utilities-system-monitor.svg" alt="kali utilities-system-monitor app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/voiphopper.svg" alt="kali voiphopper app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/wafw00f.svg" alt="kali wafw00f app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/wapiti.svg" alt="kali wapiti app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/whatweb.svg" alt="kali whatweb app icon">
+<img src="/content/blog/posts/media/kali-2020.3/icons/wifite.svg" alt="kali wifite app icon">
+`
+  }
+</script>
