@@ -70,17 +70,11 @@
                 <div class="projects-preview"
                     style="<?php if(!$show_projects) echo 'display:none' ?>">
                     <h1>Projects</h1>
-                    <a class="paper __eth-link new" href="/skeuos-css" data-github="skeuos-css">
-                        <div class="project-img">
-                            <img src="/content/img/skeuos-css.jpg" alt="Skeuos CSS Library">
+                    <a class="paper" href="https://gitlab.com/kalilinux/packages/kali-themes" target="_blank">
+                        <div class="project-img" style="background-image: linear-gradient(120deg, #23bac2, #3b6ab9)">
+                            <img src="/content/img/kali-dragon-icon.svg" alt="Kali Linux Dragon logo">
                         </div>
-                        <h4>Skeuos CSS Library</h4>
-                    </a>
-                    <a class="paper __eth-link new" href="/tetris" data-github="tetris-js">
-                        <div class="project-img">
-                            <img src="/content/img/tetris.jpg" alt="Tetяis JS">
-                        </div>
-                        <h4>Tetяis JS</h4>
+                        <h4>Kali Linux themes</h4>
                     </a>
                     <a class="paper __eth-link" href="/flat-remix" data-github="flat-remix">
                         <div class="project-img">
@@ -112,6 +106,12 @@
                         </div>
                         <h4>Flat Remix CSS Library</h4>
                     </a>
+                    <a class="paper __eth-link" href="/skeuos-css" data-github="skeuos-css">
+                        <div class="project-img">
+                            <img src="/content/img/skeuos-css.jpg" alt="Skeuos CSS Library">
+                        </div>
+                        <h4>Skeuos CSS Library</h4>
+                    </a>
                     <a class="paper __eth-link" href="/flat-remix-kde" data-github="flat-remix-kde">
                         <div class="project-img">
                             <img src="/content/img/flat-remix-kde.jpg" alt="Flat Remix KDE themes">
@@ -129,6 +129,12 @@
                             <img src="/content/img/color-fixer.jpg" alt="Color Fixer logo">
                         </div>
                         <h4>Color Fixer</h4>
+                    </a>
+                    <a class="paper __eth-link" href="/tetris" data-github="tetris-js">
+                        <div class="project-img">
+                            <img src="/content/img/tetris.jpg" alt="Tetяis JS">
+                        </div>
+                        <h4>Tetяis JS</h4>
                     </a>
                     <a class="paper __eth-link" href="/ethenis" data-github="Ethenis-Framework">
                         <div class="project-img">
