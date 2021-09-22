@@ -11,7 +11,7 @@ const KEYS = {
 if (location.protocol === 'https:')
   location.replace(`http:${location.href.substring(location.protocol.length)}`)
 
-const wsUrl = 'ws://34.91.128.107:8080'
+//const wsUrl = 'ws://34.91.128.107:8080'
 
 let tetris
 window.onload = () => {
@@ -26,13 +26,13 @@ window.onload = () => {
     }
     return tetris
   }
-  tetris = configureTetris(new WebTetrisClient(tetrisContainer, wsUrl))
-  tetris.onError = () => {
+  //tetris = configureTetris(new WebTetrisClient(tetrisContainer, wsUrl))
+  //tetris.onError = () => {
     document.getElementById('show-scores').style.display = 'none'
     document.getElementById('save-score-form').style.display = 'none'
     tetris = configureTetris(new WebTetris(tetrisContainer))
     tetris.start()
-  }
+  //}
 
   document.getElementById('save-score-form').onsubmit = ({ target }) => {
     tetris.saveScore(target.querySelector('input[type=text]').value)
