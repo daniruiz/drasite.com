@@ -47,25 +47,24 @@
 <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  dotfiles</span>
 ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  .config</span>
 │  ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  bashtop</span>
-│  │  └── <span style="color: #D7D700; "><i class="far fa-file"></i>  bashtop.cfg</span>
+│  │  └── <span style="color: #00D7D7; "><i class="far fa-file"></i>  bashtop.cfg</span>
+│  ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  qt5ct</span>
+│  │  └── <span style="color: #00D7D7; "><i class="far fa-file"></i>  qt5ct.conf</span>
 │  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  tilix</span>
 │     └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  schemes</span>
-│        └── <span style="color: #D7D700; ">{}  Flat-Remix.json</span>
+│        └── <span style="color: #00D7D7; ">{}  Flat-Remix.json</span>
 ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  .local</span>
 │  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  share</span>
-│     ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  gedit</span>
-│     │  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  styles</span>
-│     │     ├── <span style="color: #00D7D7; "><i class="fas fa-code"></i>  Flat-Remix-Dark.xml</span>
-│     │     └── <span style="color: #00D7D7; "><i class="fas fa-code"></i>  Flat-Remix.xml</span>
-│     └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  gtksourceview-4</span>
-│        └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  styles</span>
-│           ├── <span style="color: #D7D700; "><i class="fas fa-code"></i>  Flat-Remix-Dark.xml</span>
-│           └── <span style="color: #D7D700; "><i class="fas fa-code"></i>  Flat-Remix.xml</span>
-├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  Screenshots</span>
-│  └── <span style="color: #D7D700; "><i class="fa fa-image"></i>  screenshot-1.png</span>
-├── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .bashrc</span>
-├── <span style="color: #D7D700; "><i class="fab fa-git"></i>  .gitconfig</span>
-└── <span style="color: #D7D700; "><i class="fas fa-terminal"></i>  .zshrc</span>
+│     ├── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  qt5ct</span>
+│     │  └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  colors</span>
+│     │     ├── <span style="color: #00D7D7; "><i class="fas fa-file"></i>  flat-remix-dark.conf</span>
+│     │     └── <span style="color: #00D7D7; "><i class="fas fa-file"></i>  flat-remix-light.conf</span>
+│     └── <span style="color: #0087FF; "><i class="far fa-folder-open"></i>  qss</span>
+│        └── <span style="color: #00D7D7; "><i class="fas fa-file"></i>  fusion-simple-scrollbar.qss</span>
+├── <span style="color: #00D7D7; "><i class="fas fa-terminal"></i>  .bashrc</span>
+├── <span style="color: #00D7D7; "><i class="fab fa-git"></i>  .gitattributes</span>
+├── <span style="color: #00D7D7; "><i class="fab fa-git"></i>  .gitconfig</span>
+└── <span style="color: #00D7D7; "><i class="fas fa-terminal"></i>  .zshrc</span>
 </pre>
     <br>
     <h2>Interesting files</h2>
@@ -73,10 +72,10 @@
         <li><b>.bashrc</b><br> ➜ bash settings file</li>
         <li><b>.zshrc</b><br> ➜ zsh settings file</li>
         <li><b>.gitconfig</b><br> ➜ git settings file</li>
-        <li><b>.local/share/gedit/styles</b><br> ➜ Flat-Remix/Flat-Remix-Dark gedit color scheme</li>
-        <li><b>.local/share/gtksourceview-4</b><br> ➜ Flat-Remix/Flat-Remix-Dark gtksourceview color scheme</li>
-        <li><b>.config/tilix/schemes</b><br> ➜ Flat-Remix tilix colors profile</li>
+        <li><b>.local/share/qt5ct/</b><br> ➜ Themes for qt5ct</li>
         <li><b>.config/bashtop/bashtop.cfg</b><br> ➜ Bashtop configuration file</li>
+        <li><b>.config/qt5ct/</b><br> ➜ Qt5 theme settings</li>
+        <li><b>.config/tilix/schemes</b><br> ➜ Flat-Remix tilix colors profile</li>
     </ul>
     <h3>My terminal</h3>
     <h4>Recommended installations</h4>
@@ -118,18 +117,13 @@
     <br/>
     <h3>Terminal color scheme</h3>
     <div class="selectable" id="terminal-colorscheme">
-        <span style="background-color:#1F2229;border-top-left-radius:3px">#1F2229</span><span style="background-color:#D41919">#D41919</span><span style="background-color:#5EBDAB">#5EBDAB</span><span style="background-color:#FEA44C">#FEA44C</span><span style="background-color:#367bf0">#367bf0</span><span style="background-color:#BF2E5D">#BF2E5D</span><span style="background-color:#49AEE6">#49AEE6</span><span style="background-color:#E6E6E6;color:black;border-top-right-radius:3px">#E6E6E6</span>
+        <span style="background-color:#1F2229;border-top-left-radius:3px">#1F2229</span><span style="background-color:#D41919">#D41919</span><span style="background-color:#5EBDAB">#5EBDAB</span><span style="background-color:#FEA44C">#FEA44C</span><span style="background-color:#367bf0">#367bf0</span><span style="background-color:#9755b3">#9755b3</span><span style="background-color:#49AEE6">#49AEE6</span><span style="background-color:#E6E6E6;color:black;border-top-right-radius:3px">#E6E6E6</span>
         <br>
-        <span style="background-color:#8C42AB;border-bottom-left-radius:3px">#8C42AB</span><span style="background-color:#EC0101">#EC0101</span><span style="background-color:#47D4B9">#47D4B9</span><span style="background-color:#FF8A18">#FF8A18</span><span style="background-color:#277FFF">#277FFF</span><span style="background-color:#D71655">#D71655</span><span style="background-color:#05A1F7">#05A1F7</span><span style="background-color:#FFFFFF;color:black;border-bottom-right-radius:3px">#FFFFFF</span>
+        <span style="background-color:#198388;border-bottom-left-radius:3px">#198388</span><span style="background-color:#EC0101">#EC0101</span><span style="background-color:#47D4B9">#47D4B9</span><span style="background-color:#FF8A18">#FF8A18</span><span style="background-color:#277FFF">#277FFF</span><span style="background-color:#962ac3">#962ac3</span><span style="background-color:#05A1F7">#05A1F7</span><span style="background-color:#FFFFFF;color:black;border-bottom-right-radius:3px">#FFFFFF</span>
     </div>
     <br>
     <h6>You can easily install this color-scheme on your terminal by running the following command:</h6>
     <pre id="terminal-colorscheme-script"><span style="color:#5EBDAB">bash</span> -c <span style="color:#FEA44C">&quot;</span><span style="color:#49AEE6">$</span><span style="color:#FEA44C">(curl -sLo- https://git.io/JvvDs)&quot;</span></pre>
-    <h3>Editor color scheme (Gtk)</h3>
-    <div id="color-scheme-preview">
-        <img src="/content/img/dotfiles-editor-preview-light.jpg" alt="Flat Remix editor light color scheme">
-        <img src="/content/img/dotfiles-editor-preview-dark.jpg" alt="Flat Remix editor dark color scheme">
-    </div>
 </article>
 
 <!-- Styles -->
@@ -245,44 +239,10 @@
         width: 12.5%;
     }
 
-    #color-scheme-preview {
-        position: relative;
-        margin: 60px 0;
-    }
-
     #terminal-colorscheme-script, #terminal-colorscheme-script * {
         font-weight: bold;
         font-size: 16px;
     }
-
-    @keyframes color-scheme-preview-animation {
-        0%, 100%, 33% {
-            opacity: 1;
-        }
-        50%, 83% {
-            opacity: 0;
-        }
-    }
-
-    #color-scheme-preview img {
-        margin: 0;
-        position: absolute;
-        top: 0;
-        opacity: 0;
-        animation: color-scheme-preview-animation 10s infinite;
-    }
-
-    #color-scheme-preview img:first-child {
-        position: static;
-        margin: auto;
-    }
-
-    #color-scheme-preview img:not(:first-child) {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #color-scheme-preview img:nth-child(2) { animation-delay: -5s; }
 
     @media screen and (max-width: 500px) {
         article pre {
