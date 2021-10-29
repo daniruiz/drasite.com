@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PATH=$PATH:$(npm bin)
+
 FILES="src/*"
 TARGET="./DRAsite.com-min"
 
