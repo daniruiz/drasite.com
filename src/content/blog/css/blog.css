@@ -10,7 +10,10 @@ article#blog-post-container {
 #blog-container article > h1,
 #blog-container article > a > h1,
 article#blog-post-container > h1,
-article#blog-post-container > a > h1 { margin: 25px 0 15px; }
+article#blog-post-container > a > h1 {
+  font-size: 40px;
+  margin: 25px 0 15px;
+}
 
 #blog-container article > a:hover,
 article#blog-post-container > a:hover { text-decoration: none !important; }
