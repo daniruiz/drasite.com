@@ -57,7 +57,7 @@
         <ol>
             <li>Check the installed gnome-shell version: <code>gnome-shell --version</code>
             <li>Download the corresponding theme for your shell version, and extract the compressed file.<br>
-                <i class="fas fa-exclamation-triangle" style="color:#d41919"></i> For gnome-shell versions previous to 3.36 download the packages with the 3.34 version at the end of the "Files" section.
+                <i class="fas fa-exclamation-triangle" style="color:#d41919"></i> Download the appropriate theme for your version of gnome-shell [40-41, 3.36-3.38, 3.34]
                 <a href="https://www.opendesktop.org/p/1013030"
                     target="_blank"
                     class="with-shadow blue-button-link">↧ Download Flat Remix</a>
@@ -107,9 +107,14 @@ sudo <span class="kwd">dnf</span> install flat-remix-gnome</pre>
             <li>Arch<br><code>sudo pacman -S glib2 imagemagick</code></li>
         </ul>
         <br><br>
-        <b>Gnome ≥ 3.36</b>
+        <b>Gnome 40 & 41</b>
         <pre class="prettyprint">
 <span class="kwd">git</span> clone https://github.com/daniruiz/flat-remix-gnome
+<span class="kwd">cd</span> flat-remix-gnome
+<span class="kwd">make && sudo <span class="kwd">make</span> install</pre>
+        <b>Gnome 3.36 & 3.38</b>
+        <pre class="prettyprint">
+<span class="kwd">git</span> clone --branch 20210118 https://github.com/daniruiz/flat-remix-gnome
 <span class="kwd">cd</span> flat-remix-gnome
 <span class="kwd">make && sudo <span class="kwd">make</span> install</pre>
         <b>Gnome ≤ 3.34</b>
