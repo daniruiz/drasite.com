@@ -8,8 +8,8 @@ const KEYS = {
   RIGHT: 39,
 }
 
-if (location.protocol === 'https:')
-  location.replace(`http:${location.href.substring(location.protocol.length)}`)
+/*if (location.protocol === 'https:')
+  location.replace(`http:${location.href.substring(location.protocol.length)}`)*/
 
 //const wsUrl = 'ws://34.91.128.107:8080'
 
