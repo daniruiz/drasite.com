@@ -5,6 +5,7 @@
         "" : ["index.html"],
         "blog" : ["blog/main.php"],
         "/^blog\/.+$/" : ["blog/blog.php"],
+        "linux-from-scratch" : ["linux-from-scratch.html"],
         "flat-remix" : ["flat-remix.html"],
         "flat-remix-gnome" : ["flat-remix-gnome.html"],
         "flat-remix-css" : ["flat-remix-css.html"],

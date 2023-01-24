@@ -142,6 +142,12 @@
                         </div>
                         <h4>Ethenis Framework</h4>
                     </a>
+                    <a class="paper __eth-link" href="/linux-from-scratch">
+                        <div class="project-img">
+                            <img src="/content/img/lfs.jpg" alt="Linux From Scratch">
+                        </div>
+                        <h4>Linux From Scratch</h4>
+                    </a>
                     <hr class="separator">
                 </div>
             <?php } ?>
