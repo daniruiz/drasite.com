@@ -65,7 +65,7 @@
         <ol>
             <li>Check the installed gnome-shell version: <code>gnome-shell --version</code>
             <li>Download the corresponding theme for your shell version, and extract the compressed file.<br>
-                <i class="fas fa-exclamation-triangle" style="color:#d41919"></i> Download the appropriate theme for your version of gnome-shell [40-41, 3.36-3.38, 3.34]
+                <i class="fas fa-exclamation-triangle" style="color:#d41919"></i> Download the appropriate theme for your version of gnome-shell [44, 43, 42, 40 & 41, 3.36 & 3.38, 3.34]
                 <a href="https://www.opendesktop.org/p/1013030"
                     target="_blank"
                     class="with-shadow blue-button-link">↧ Download Flat Remix</a>
@@ -115,9 +115,24 @@ sudo <span class="kwd">dnf</span> install flat-remix-gnome</pre>
             <li>Arch<br><code>sudo pacman -S glib2 imagemagick</code></li>
         </ul>
         <br><br>
+        <b>Gnome 44</b>
+        <pre class="prettyprint">
+<span class="kwd">git</span> clone --branch gnome-44 https://github.com/daniruiz/flat-remix-gnome
+<span class="kwd">cd</span> flat-remix-gnome
+<span class="kwd">make && sudo <span class="kwd">make</span> install</pre>
+        <b>Gnome 43</b>
+        <pre class="prettyprint">
+<span class="kwd">git</span> clone --branch 20221107 https://github.com/daniruiz/flat-remix-gnome
+<span class="kwd">cd</span> flat-remix-gnome
+<span class="kwd">make && sudo <span class="kwd">make</span> install</pre>
+        <b>Gnome 42</b>
+        <pre class="prettyprint">
+<span class="kwd">git</span> clone --branch 20220622 https://github.com/daniruiz/flat-remix-gnome
+<span class="kwd">cd</span> flat-remix-gnome
+<span class="kwd">make && sudo <span class="kwd">make</span> install</pre>
         <b>Gnome 40 & 41</b>
         <pre class="prettyprint">
-<span class="kwd">git</span> clone https://github.com/daniruiz/flat-remix-gnome
+<span class="kwd">git</span> clone --branch 20211223 https://github.com/daniruiz/flat-remix-gnome
 <span class="kwd">cd</span> flat-remix-gnome
 <span class="kwd">make && sudo <span class="kwd">make</span> install</pre>
         <b>Gnome 3.36 & 3.38</b>
