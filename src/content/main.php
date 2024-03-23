@@ -148,6 +148,12 @@
                         </div>
                         <h4>Linux From Scratch</h4>
                     </a>
+                    <a class="paper __eth-link" href="https://github.com/daniruiz/AC_MAZDA_MX5-ND2" target="_blank">
+                        <div class="project-img">
+                            <img src="/content/img/mx5-nd2.jpg" alt="Linux From Scratch">
+                        </div>
+                        <h4>Mazda MX5 ND2 184 hp (181 bhp) for Assetto Corsa</h4>
+                    </a>
                     <hr class="separator">
                 </div>
             <?php } ?>
