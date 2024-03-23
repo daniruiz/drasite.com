@@ -25,17 +25,6 @@
         <link rel="icon" type="image/png" href="/content/img/DRA.png" sizes="64x64">
         <link rel="apple-touch-icon-precomposed" href="/content/img/DRA.png">
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43282075-1"></script>
-        <script>
-          if(location.hostname == 'drasite.com') {
-            window.dataLayer = window.dataLayer || []
-            function gtag () {dataLayer.push(arguments)}
-            gtag('js', new Date())
-            gtag('config', 'UA-43282075-1')
-          }
-        </script>
-
         <!-- Minimum CSS styles -->
         <style><?php include "content/css/min.css" ?></style>
     </head>
