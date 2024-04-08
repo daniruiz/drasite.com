@@ -137,7 +137,7 @@
                         </div>
                         <h4>Linux From Scratch</h4>
                     </a>
-                    <a class="paper __eth-link" href="https://github.com/daniruiz/AC_MAZDA_MX5-ND2"  data-github="AC_MAZDA_MX5-ND2" target="_blank">
+                    <a class="paper" href="https://github.com/daniruiz/AC_MAZDA_MX5-ND2"  data-github="AC_MAZDA_MX5-ND2" target="_blank">
                         <div class="project-img">
                             <img src="/content/img/mx5-nd2.jpg" alt="Linux From Scratch">
                         </div>
