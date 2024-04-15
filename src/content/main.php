@@ -9,7 +9,7 @@
               content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="description" content="Daniel Ruiz de Alegría's projects [ DяA ] :: Open Source Developer ❤️ :: UI & UX Designer 👽️ :: Computer Engineering student 💻️">
+        <meta name="description" content="Daniel Ruiz de Alegría's projects [ DяA ] :: Open Source Developer ❤️">
 
         <!-- Title -->
         <title>DяA | Daniel Ruiz de Alegría</title>
