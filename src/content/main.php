@@ -89,6 +89,12 @@
                         </div>
                         <h4>~/.dotfiles</h4>
                     </a>
+                    <a class="paper __eth-link" href="/skeuos-gtk" data-github="skeuos-gtk">
+                        <div class="project-img">
+                            <img src="/content/img/skeuos-gtk.jpg" alt="Skeuos GTK theme">
+                        </div>
+                        <h4>Skeuos GTK theme</h4>
+                    </a>
                     <a class="paper __eth-link" href="/flat-remix-css" data-github="flat-remix-css">
                         <div class="project-img">
                             <img src="/content/img/flat-remix-css.jpg" alt="Flat Remix css library">

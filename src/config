@@ -17,7 +17,8 @@
         "dotfiles" : ["dotfiles.html"],
         "supporters" : ["supporters.html"],
         "tetris" : ["tetris.html"],
-        "skeuos-css" : ["skeuos-css.html"]
+        "skeuos-css" : ["skeuos-css.html"],
+        "skeuos-gtk" : ["skeuos-gtk.html"]
     },
     "404": "404.html"
 }
