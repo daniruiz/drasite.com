@@ -8,7 +8,7 @@
 
 
 <!-- Content -->
-<article>
+<article id="main-content">
     <img src="/content/img/color-fixer.jpg" alt="color fixer demo">
     <section class="paper download-box" data-github="Color-Fixer">
         <a href="https://github.com/daniruiz/Color-Fixer/archive/master.zip" target="_blank"
@@ -41,21 +41,22 @@ Options:
 <style>
     header { background: linear-gradient(203deg,#23bac2 17%,#3b6ab9 100%) }
 
-    article {
+    #main-content {
+        font-size: 15px;
         max-width: 600px;
         margin: 50px auto 150px;
         width: 95%;
         padding-bottom: 40px;
     }
 
-    article section { text-align: center; }
+    #main-content section { text-align: center; }
 
-    article img {
+    #main-content img {
         width: 100%;
         margin-bottom: 60px !important;
     }
 
-    article pre {
+    #main-content pre {
         font-family: monospace;
         color: #0F2751;
         background: #FFF;
@@ -68,7 +69,7 @@ Options:
     }
 
     @media screen and (max-width: 620px) {
-        article pre {
+        #main-content pre {
             font-size: 10px;
             line-height: 20px;
             letter-spacing: 0;
@@ -76,7 +77,7 @@ Options:
     }
 
     @media screen and (max-width: 500px) {
-        article pre {
+        #main-content pre {
             font-size: 8px;
             line-height: 20px;
             padding: 15px;

@@ -31,7 +31,7 @@
     <div class="license">Ethenis-Framework is licensed under the MIT License</div>
 </section>
 <br>
-<article>
+<article id="main-content">
     <h2>Manual</h2>
     <h3>Installation</h3>
     Download Ethenis Framework, extract the package and copy all the files into the webpage main folder. Once finished,
@@ -200,7 +200,8 @@
         background: linear-gradient(203deg, #A61545 17%, #CA2A2A 100%) center;
     }
 
-    section, article {
+    section, #main-content {
+        font-size: 15px;
         max-width: 500px;
         margin: auto;
         width: 95%;
@@ -254,15 +255,15 @@
         color: #5C616C;
     }
 
-    article .blue-color {
+    #main-content .blue-color {
         color: #316FD8
     }
 
-    article .green-color {
+    #main-content .green-color {
         color: #19A187
     }
 
-    article .red-color {
+    #main-content .red-color {
         color: #B22525
     }
 
@@ -270,24 +271,24 @@
         color: #000
     }
 
-    article code, article pre { font-weight: bold; }
+    #main-content code, #main-content pre { font-weight: bold; }
 
-    article hr {
+    #main-content hr {
         margin: 30px auto
     }
 
-    article li {
+    #main-content li {
         border-left: 5px solid #E6E6E6;
         padding-left: 5px;
         margin-bottom: 10px
     }
 
     @media screen and (max-width: 420px) {
-        article code, article pre {
+        #main-content code, #main-content pre {
             word-spacing: -6px
         }
 
-        article ul {
+        #main-content ul {
             padding-left: 10px
         }
     }
@@ -299,7 +300,7 @@
             float: none
         }
 
-        article h1 {
+        #main-content h1 {
             text-align: center
         }
 
