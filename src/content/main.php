@@ -147,11 +147,11 @@
                         </div>
                         <h4>Ethenis Framework</h4>
                     </a>
-                    <a class="paper __eth-link" href="/linux-from-scratch">
+                    <a class="paper __eth-link" href="/gnome-4x-themes" data-github="GNOME-4X-themes">
                         <div class="project-img">
-                            <img src="/content/img/lfs.jpg" alt="Linux From Scratch">
+                            <img src="/content/img/gnome-4x.jpg" alt="GNOME 4X themes">
                         </div>
-                        <h4>Linux From Scratch</h4>
+                        <h4>GNOME 4X themes</h4>
                     </a>
                     <a class="paper" href="https://github.com/daniruiz/AC_MAZDA_MX5-ND2"  data-github="AC_MAZDA_MX5-ND2" target="_blank">
                         <div class="project-img">
@@ -159,11 +159,11 @@
                         </div>
                         <h4>Mazda MX5 ND2 for Assetto Corsa</h4>
                     </a>
-                    <a class="paper __eth-link" href="/gnome-4x-themes" data-github="GNOME-4X-themes">
+                    <a class="paper __eth-link" href="/linux-from-scratch">
                         <div class="project-img">
-                            <img src="/content/img/gnome-4x.jpg" alt="GNOME 4X themes">
+                            <img src="/content/img/lfs.jpg" alt="Linux From Scratch">
                         </div>
-                        <h4>GNOME 4X themes</h4>
+                        <h4>Linux From Scratch</h4>
                     </a>
                     <hr class="separator">
                 </div>
