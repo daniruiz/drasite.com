@@ -22,8 +22,6 @@ window.onload = () => {
     }
     return tetris
   }
-  document.getElementById('show-scores').style.display = 'none'
-  document.getElementById('save-score-form').style.display = 'none'
   tetris = configureTetris(new WebTetris(tetrisContainer))
   tetris.start()
 
@@ -32,7 +30,8 @@ window.onload = () => {
   }
 
   document.getElementById('show-scores').onclick = () => {
-    tetris.stop()
+    // TODO
+    //tetris.stop()
     document.body.innerHTML = Object.assign(document.createElement('DIV'), {
       id: 'scores',
       innerHTML: tetris.scores.reduce((code, { name, score }, i) => {
@@ -68,8 +67,8 @@ window.onload = () => {
   addButtonPressEvent(document.getElementsByClassName('control--left')[0], () => tetris.movePieceLeft())
   addButtonPressEvent(document.getElementsByClassName('control--right')[0], () => tetris.movePieceRight())
   addButtonPressEvent(document.getElementsByClassName('control--down')[0], () => tetris.movePieceDown())
-  addButtonPressEvent(document.getElementsByClassName('control--up')[0], () => tetris.pushPiece())
   addButtonPressEvent(document.getElementsByClassName('control--action')[0], () => tetris.rotatePiece())
+  document.getElementsByClassName('control--up')[0].onmousedown = () => tetris.pushPiece()
 
   document.onkeydown = event => {
     switch (event.keyCode) {
