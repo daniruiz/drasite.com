@@ -28,7 +28,7 @@
 </section>
 
 <!-- Styles -->
-<link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css">
+<link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css?v=1.0.4">
 <style>
     header { display: none }
 
@@ -126,7 +126,6 @@
       DOWN: 83,
       LEFT: 65,
       RIGHT: 68,
-      SPACE: 32,
     }
 
     ;(async function () {
@@ -161,9 +160,6 @@
             break
           case KEYS.RIGHT:
             tetris.movePieceRight()
-            break
-          case KEYS.SPACE:
-            tetris.pushPiece()
             break
         }
       }
