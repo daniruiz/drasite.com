@@ -6,12 +6,8 @@ const KEYS = {
   DOWN: 40,
   LEFT: 37,
   RIGHT: 39,
+  SPACE: 32,
 }
-
-/*if (location.protocol === 'https:')
-  location.replace(`http:${location.href.substring(location.protocol.length)}`)*/
-
-//const wsUrl = 'ws://34.91.128.107:8080'
 
 let tetris
 window.onload = () => {
@@ -26,13 +22,10 @@ window.onload = () => {
     }
     return tetris
   }
-  //tetris = configureTetris(new WebTetrisClient(tetrisContainer, wsUrl))
-  //tetris.onError = () => {
-    document.getElementById('show-scores').style.display = 'none'
-    document.getElementById('save-score-form').style.display = 'none'
-    tetris = configureTetris(new WebTetris(tetrisContainer))
-    tetris.start()
-  //}
+  document.getElementById('show-scores').style.display = 'none'
+  document.getElementById('save-score-form').style.display = 'none'
+  tetris = configureTetris(new WebTetris(tetrisContainer))
+  tetris.start()
 
   document.getElementById('save-score-form').onsubmit = ({ target }) => {
     tetris.saveScore(target.querySelector('input[type=text]').value)
@@ -73,8 +66,9 @@ window.onload = () => {
     }
   }
   addButtonPressEvent(document.getElementsByClassName('control--left')[0], () => tetris.movePieceLeft())
-  addButtonPressEvent(document.getElementsByClassName('control--down')[0], () => tetris.movePieceDown())
   addButtonPressEvent(document.getElementsByClassName('control--right')[0], () => tetris.movePieceRight())
+  addButtonPressEvent(document.getElementsByClassName('control--down')[0], () => tetris.movePieceDown())
+  addButtonPressEvent(document.getElementsByClassName('control--up')[0], () => tetris.pushPiece())
   addButtonPressEvent(document.getElementsByClassName('control--action')[0], () => tetris.rotatePiece())
 
   document.onkeydown = event => {
@@ -90,6 +84,9 @@ window.onload = () => {
         break
       case KEYS.RIGHT:
         tetris.movePieceRight()
+        break
+      case KEYS.SPACE:
+        tetris.pushPiece()
         break
     }
   }
