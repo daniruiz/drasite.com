@@ -28,7 +28,7 @@
 </section>
 
 <!-- Styles -->
-<link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css?v=1.0.4">
+<link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css?v=1.0.5">
 <style>
     header { display: none }
 
@@ -130,7 +130,7 @@
 
     ;(async function () {
       if (typeof Tetris === 'undefined') {
-        await fetch('/games/tetris/js/Tetris/tetris.js?v=1.0.4').then(response => response.text())
+        await fetch('/games/tetris/js/Tetris/tetris.js?v=1.0.5').then(response => response.text())
           .then(code => {
             let script = document.createElement('script')
             script.textContent = code

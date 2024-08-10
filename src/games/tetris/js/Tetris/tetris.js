@@ -206,9 +206,14 @@
     }
 
     pushPiece () {
+      // Avoid button double click
+      if (this.__lockPushPiece) return
+      this.__lockPushPiece = true
+      setTimeout(() => this.__lockPushPiece = false, 250)
+
       let interval = setInterval(() => {
         this.movePieceDown() || clearInterval(interval)
-       }, 5);
+       }, 5)
     }
 
     movePieceDown () {
@@ -302,6 +307,8 @@
         })
       }
     }
+
+    stop () { this._lockGame = true }
 
     _translateCurrentPiece (callback) {
       this._currentPiece.forEach(block => { this.board[block.y][block.x] = null })
