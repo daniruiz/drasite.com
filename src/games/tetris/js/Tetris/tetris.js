@@ -209,11 +209,13 @@
       // Avoid button double click
       if (this.__lockPushPiece) return
       this.__lockPushPiece = true
-      setTimeout(() => this.__lockPushPiece = false, 250)
 
-      let interval = setInterval(() => {
-        this.movePieceDown() || clearInterval(interval)
-       }, 5)
+      const interval = setInterval(() => {
+        if (!this.movePieceDown()) {
+          clearInterval(interval)
+          setTimeout(() => { this.__lockPushPiece = false }, 250)
+        }
+      }, 8)
     }
 
     movePieceDown () {
@@ -392,7 +394,7 @@
 
     super()
 
-    this.scores = JSON.parse(localStorage.getItem("score")) || []
+    this.scores = JSON.parse(localStorage.getItem('score')) || []
     this.boardElement = boardElement
     this.boardElement.classList.add('__tetris-container')
     this.boardElement.innerHTML = ''
@@ -425,6 +427,6 @@
       return
     this.scores.push({ name, score: this.score })
     this.scores.sort(({ score: scoreA }, { score: scoreB }) => scoreB - scoreA)
-    localStorage.setItem("score", JSON.stringify(this.scores));
+    localStorage.setItem('score', JSON.stringify(this.scores))
   }
 }))
