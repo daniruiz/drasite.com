@@ -206,16 +206,12 @@
     }
 
     pushPiece () {
-      // Avoid button double click
-      if (this.__lockPushPiece) return
-      this.__lockPushPiece = true
-
       const interval = setInterval(() => {
-        if (!this.movePieceDown()) {
+        if (!this.movePieceDown() || this.__stopPushPiece) {
           clearInterval(interval)
-          setTimeout(() => { this.__lockPushPiece = false }, 250)
+          this.__stopPushPiece = false
         }
-      }, 8)
+      }, 5)
     }
 
     movePieceDown () {
@@ -227,6 +223,7 @@
       , false)
 
       if (addNewPiece) {
+        this.__stopPushPiece = true
         const currentPieceRow = this._currentPiece.reduce((maxY, block) => Math.max(block.y, maxY), 0)
         if (currentPieceRow >= this.BOARD_SIZE.y - 2) {
           this._gameOver()
@@ -334,6 +331,7 @@
         this.board[y].forEach(this._deleteVisualBlock)
         this.board.splice(y, 1)
         this.board.push(new Array(this.BOARD_SIZE.x))
+        navigator.vibrate(100)
       })
 
       const multiplier = val => val < 1 ? 0 : val + multiplier(val - 1)

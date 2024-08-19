@@ -28,7 +28,7 @@
 </section>
 
 <!-- Styles -->
-<link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css?v=1.0.5">
+<link rel="stylesheet" type="text/css" href="/games/tetris/css/tetris.css?v=1.1.0">
 <style>
     header { display: none }
 
@@ -126,11 +126,12 @@
       DOWN: 83,
       LEFT: 65,
       RIGHT: 68,
+      SPACE: 32,
     }
 
     ;(async function () {
       if (typeof Tetris === 'undefined') {
-        await fetch('/games/tetris/js/Tetris/tetris.js?v=1.0.5').then(response => response.text())
+        await fetch('/games/tetris/js/Tetris/tetris.js?v=1.1.0').then(response => response.text())
           .then(code => {
             let script = document.createElement('script')
             script.textContent = code
@@ -161,7 +162,14 @@
           case KEYS.RIGHT:
             tetris.movePieceRight()
             break
+          case KEYS.SPACE:
+            event.preventDefault()
         }
+      }
+
+      document.onkeyup = event => {
+        if (event.keyCode === KEYS.SPACE)
+          tetris.pushPiece()
       }
 
       __ETHENIS.onPageChange = () => {
