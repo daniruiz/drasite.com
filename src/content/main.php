@@ -208,7 +208,7 @@
         <style><?php include "content/css/main.css" ?></style>
 
         <!-- FontAwesome -->
-        <link rel="stylesheet" crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+        <link rel="stylesheet" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
         <!-- main.js -->
         <script><?php include "content/js/main.js" ?></script>
