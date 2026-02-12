@@ -1,3 +1,7 @@
+:root {
+  --border-radius: 10px;
+}
+
 body { margin-bottom: 100px; }
 
 .paper a.blue-button-link:hover, .paper a.blue-button-link:hover article a.blue-button-link:hover {
@@ -61,7 +65,7 @@ article img, article video {
     text-align: left;
     transition: transform .2s;
     position: relative;
-    border-radius: 3px;
+    border-radius: var(--border-radius);
     overflow: hidden;
 }
 
