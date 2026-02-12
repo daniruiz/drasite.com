@@ -135,6 +135,12 @@
                         </div>
                         <h4>Neural network with genetic algorithms</h4>
                     </a>
+                    <a class="paper __eth-link" href="/gnome-4x-themes" data-github="GNOME-4X-themes">
+                        <div class="project-img">
+                            <img src="/content/img/gnome-4x.jpg" alt="GNOME 4X themes">
+                        </div>
+                        <h4>GNOME 4X themes</h4>
+                    </a>
                     <a class="paper __eth-link" href="/tetris" data-github="tetris-js">
                         <div class="project-img">
                             <img src="/content/img/tetris.jpg" alt="Tetяis JS">
@@ -146,12 +152,6 @@
                             <img src="/content/img/ethenis.svg" alt="Ethenis Framework logo">
                         </div>
                         <h4>Ethenis Framework</h4>
-                    </a>
-                    <a class="paper __eth-link" href="/gnome-4x-themes" data-github="GNOME-4X-themes">
-                        <div class="project-img">
-                            <img src="/content/img/gnome-4x.jpg" alt="GNOME 4X themes">
-                        </div>
-                        <h4>GNOME 4X themes</h4>
                     </a>
                     <a class="paper" href="https://github.com/daniruiz/AC_MAZDA_MX5-ND2"  data-github="AC_MAZDA_MX5-ND2" target="_blank">
                         <div class="project-img">
