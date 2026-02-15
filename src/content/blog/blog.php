@@ -21,26 +21,6 @@
 <article id="blog-post-container">
     <h1><?php echo $POST->title ?></h1>
     <time datetime="<?php echo $POST->date_time ?>"><?php echo $POST->date_string ?></time>
-    <span id="share-buttons-wrapper">
-        <a class="share-button fab fa-twitter"
-            href="https://twitter.com/intent/tweet?text=<?php echo $_SHARE_TEXT_ENCODED ?>&url=<?php echo $_SHARE_URL_ENCODED ?>"
-            title="Share on twitter"
-            style="color: #4a88f1"
-            target="_blank">
-        </a>
-        <a class="share-button fab fa-facebook"
-            href="https://facebook.com/sharer/sharer.php?display=page&u=<?php echo $_SHARE_URL_ENCODED ?>"
-            title="Share on facebook"
-            style="color: #265ab1"
-            target="_blank">
-        </a>
-        <a class="share-button fas fa-share-alt"
-            title="Share"
-            style="color: #c64570"
-            id="share-button">
-        </a>
-    </span>
-    <br>
     <?php echo $POST->content ?>
 </article>
 

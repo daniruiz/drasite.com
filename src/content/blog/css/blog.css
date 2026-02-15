@@ -61,19 +61,6 @@ article#blog-post-container time::before {
     top: -1px;
 }
 
-article#blog-post-container #share-buttons-wrapper {
-    vertical-align: middle;
-    display: inline-block;
-}
-
-article#blog-post-container .share-button {
-    font-size: 35px;
-    margin-left: 5px;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
-}
-
-article#blog-post-container .share-button:hover { text-decoration: none; }
-
 #blog-container article img,
 article#blog-post-container img {
     box-shadow: 0 5px 30px 0 rgba(0,0,0,.3);
