@@ -56,6 +56,8 @@
             <div></div>
         </div>
 
+        <hr style="margin-top: -10px">
+
         <div id="content">
             <?php function show_projects ($position) {
                 $path = Ethenis::get_path();
