@@ -56,8 +56,6 @@
             <div></div>
         </div>
 
-        <hr class="separator">
-
         <div id="content">
             <?php function show_projects ($position) {
                 $path = Ethenis::get_path();
@@ -65,7 +63,7 @@
                 $show_projects = ($position == 'first' && $is_blog_post) || ($position == 'last' && !$is_blog_post) ?>
                 <div class="projects-preview"
                     style="<?php if(!$show_projects) echo 'display:none' ?>">
-                    <h1>Projects</h1>
+                    <h1>My projects</h1>
                     <a class="paper" href="https://gitlab.com/kalilinux/packages/kali-themes" target="_blank">
                         <div class="project-img" style="background-image: linear-gradient(120deg, #23bac2, #3b6ab9)">
                             <img src="/content/img/kali-dragon-icon.svg" alt="Kali Linux Dragon logo">
