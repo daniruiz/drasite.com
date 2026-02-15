@@ -203,7 +203,7 @@
             work with a <span>Donation</span> 😉</a>
 
         <!-- Flat-Remix.css -->
-        <style><?php include "css/flat-remix.css" ?></style>
+        <style><?php include "css/flat-remix-css/css/flat-remix.css" ?></style>
 
         <style><?php include "content/css/main.css" ?></style>
 
