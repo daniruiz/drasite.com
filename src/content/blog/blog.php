@@ -15,7 +15,6 @@
 
 <style>
     header { display: none }
-    <?php include "content/blog/css/blog.css" ?>
 </style>
 
 <article id="blog-post-container">

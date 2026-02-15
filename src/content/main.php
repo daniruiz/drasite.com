@@ -182,11 +182,9 @@
                         <time datetime="<?php echo $post->date_time ?>"><?php echo $post->date_string ?></time>
                         <br>
                         <?php echo $post->preview; ?>
-                        <a class="read-more-button __eth-link" href="/blog/<?php echo $post->title ?>">Read more ↦</a>
+                        <a class="read-more-button __eth-link" href="/blog/<?php echo $post->title ?>">Read more...</a>
                     </article>
-                    <hr/>
                 <?php } ?>
-                <hr class="separator">
             </div>
 
             <?php show_projects('last') ?>
