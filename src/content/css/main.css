@@ -322,7 +322,6 @@ body.loading #loading-animation div {
     left: 50%;
     transform: translateX(-50%);
     background: white;
-    border: 2px solid #000;
     text-align: center;
     padding: 0 20px;
     z-index: 100;
