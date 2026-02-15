@@ -57,29 +57,7 @@
   window.addEventListener('scroll', () => {
     let scroll = window.scrollY
     $('header').style.height = `${500 - (scroll * 0.5)}px`
-
-    if (window.scrollY > 500) $('#back-to-top').style.display = 'block'
-    else $('#back-to-top').style.display = 'none'
   })
-
-  $('#back-to-top').onclick = () => {
-    const scrollDuration = 300
-    let scrollInterval
-    const stopScrollToTop = () => {
-      window.removeEventListener('wheel', stopScrollToTop)
-      window.removeEventListener('touchmove', stopScrollToTop)
-      clearInterval(scrollInterval)
-    }
-
-    window.addEventListener('wheel', stopScrollToTop)
-    window.addEventListener('touchmove', stopScrollToTop)
-
-    let scrollStep = -window.scrollY / (scrollDuration / 15)
-    scrollInterval = setInterval(() => {
-      if (window.scrollY != 0) window.scrollBy(0, scrollStep)
-      else stopScrollToTop()
-    }, 15)
-  }
 
   getGithubAPIInfo().then(() => {
     startGithubBannerLoader()

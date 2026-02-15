@@ -17,32 +17,6 @@ article img, article video {
     max-width: 100%;
 }
 
-#back-to-top {
-    display: none;
-    width: 60px;
-    height: 60px;
-    position: fixed;
-    right: 30px;
-    bottom: 70px;
-    border-radius: 30px;
-    background: #000;
-    font-size: 40px;
-    line-height: 60px;
-    text-align: center;
-    z-index: 100;
-    cursor: pointer;
-    color: white;
-    transition: transform .2s;
-}
-
-#back-to-top:hover {
-    transform: translateY(-10px);
-}
-
-#back-to-top i {
-    cursor: pointer;
-}
-
 .separator {
     margin: 100px auto;
 }
