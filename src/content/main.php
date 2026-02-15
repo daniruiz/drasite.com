@@ -126,9 +126,9 @@
                     </a>
                     <a class="paper __eth-link" href="/AI-robot" data-github="Cleaning-Robot-AI">
                         <div class="project-img">
-                            <img src="/content/img/AI-robot.svg" alt="Neural network with genetic algorithms in Unity3d">
+                            <img src="/content/img/AI-robot.svg" alt="Neural network demo with Unity">
                         </div>
-                        <h4>Neural network with genetic algorithms</h4>
+                        <h4>Neural network demo with Unity</h4>
                     </a>
                     <a class="paper __eth-link" href="/gnome-4x-themes" data-github="GNOME-4X-themes">
                         <div class="project-img">
