@@ -194,6 +194,16 @@ a.read-more-button:hover {
     max-width: 100%;
 }
 
+#blog-preview-container h2,
+#blog-preview-container h3,
+#blog-preview-container h4,
+#blog-preview-container h5,
+#blog-preview-container h6 {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: left!important;
+}
+
 footer {
     text-align: center;
     font-size: 20px;
