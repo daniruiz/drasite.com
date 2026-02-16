@@ -56,8 +56,6 @@
             <div></div>
         </div>
 
-        <hr style="margin-top: -10px">
-
         <div id="content">
             <?php function show_projects ($position) {
                 $path = Ethenis::get_path();
@@ -162,7 +160,6 @@
                         </div>
                         <h4>Linux From Scratch</h4>
                     </a>
-                    <hr class="separator">
                 </div>
             <?php } ?>
 
