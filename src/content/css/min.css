@@ -38,6 +38,7 @@ nav {
     left: 0;
     z-index: 10;
     color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, .14);
 }
 
 nav a {
