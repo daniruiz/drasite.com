@@ -1,3 +1,6 @@
 [submodule "src/css/flat-remix-css"]
 	path = src/css/flat-remix-css
 	url = git@github.com:daniruiz/flat-remix-css
+[submodule "src/css/skeuos-css"]
+	path = src/css/skeuos-css
+	url = git@github.com:daniruiz/skeuos-css
