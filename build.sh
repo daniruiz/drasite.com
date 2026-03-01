@@ -2,6 +2,12 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# Run as root
+if [ $UID != 0 ]; then
+  sudo $0
+  exit
+fi
+
 # -----------------------------
 # CONFIG
 # -----------------------------
@@ -98,10 +104,11 @@ echo "============================================="
 echo "============= FIXING PERMISSIONS ============"
 echo "============================================="
 
+find "$TARGET" -type d -name '.git' -exec rm -rf {} +
 find "$TARGET" -type d -exec chmod 755 {} +
 find "$TARGET" -type f -exec chmod 644 {} +
 
-#chown -R "$OWNER" "$TARGET"
+chown -R "$OWNER" "$TARGET"
 
 
 echo "============================================="
