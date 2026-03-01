@@ -14,7 +14,12 @@
     <button class="green-button" id="insert-DNA">Insert DNA</button>
 </section>
 <article id="main-content">
-    <h1>Neural Network robot simulation represented in Unity3D and evolved through genetic algorithms</h1>
+    <h1>Neural Network Evolution Simulation</h1>
+    <div id="description">
+      <p>Interactive AI simulation developed in Unity3D featuring a neural network trained using genetic algorithms. The agent evolves over successive generations, optimizing its behavior through selection, crossover, and mutation. The simulation can be reset to observe the full training cycle and evolutionary process in real time.</p>
+    </div>
+    <br>
+    <br>
     <section class="paper download-box" data-github="Cleaning-Robot-AI">
         <a href="https://github.com/daniruiz/Cleaning-Robot-AI/archive/master.zip" target="_blank"
            class="with-shadow blue-button-link">&lt;/&gt;&nbsp; Source Code</a>
@@ -59,6 +64,20 @@
     #DNA-textarea { width: 100%; }
 
     #insert-DNA { display: inline-block; }
+
+    #description {
+        font-weight: 100;
+        font-size: 24px;
+        margin: auto;
+        padding: 0 40px;
+        background-color: #FFF;
+        border: 1px solid #E6E6E6;
+        letter-spacing: .5px;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .05);
+        text-align: justify;
+        border-radius: 3px;
+        line-height: 1.5em;
+    }
 
     main hr {
         width: 50%;
