@@ -48,3 +48,4 @@ class Post {
         }, array_reverse(glob(self::POSTS_CONTENT_DIR . '????????-*.html')));
     }
 }
+?>
