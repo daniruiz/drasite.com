@@ -19,7 +19,8 @@
         "supporters" : ["supporters.html"],
         "tetris" : ["tetris.html"],
         "skeuos-css" : ["skeuos-css.html"],
-        "skeuos-gtk" : ["skeuos-gtk.html"]
+        "skeuos-gtk" : ["skeuos-gtk.html"],
+        "230-kompressor" : ["230-kompressor.html"]
     },
     "404": "404.html"
 }

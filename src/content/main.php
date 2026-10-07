@@ -148,11 +148,17 @@
                         </div>
                         <h4>Ethenis Framework</h4>
                     </a>
-                    <a class="paper" href="https://github.com/daniruiz/AC_MAZDA_MX5-ND2"  data-github="AC_MAZDA_MX5-ND2" target="_blank">
+                    <a class="paper" href="https://github.com/daniruiz/AC_MAZDA_MX5-ND2" data-github="AC_MAZDA_MX5-ND2" target="_blank">
                         <div class="project-img">
                             <img src="/content/img/mx5-nd2.jpg" alt="Linux From Scratch">
                         </div>
                         <h4>Mazda MX5 ND2 for Assetto Corsa</h4>
+                    </a>
+                    <a class="paper __eth-link" href="/230-kompressor" data-github="230kompressor">
+                        <div class="project-img">
+                            <img src="/content/img/230-kompressor.jpg" alt="230 Kompressor tune definitions">
+                        </div>
+                        <h4>230 Kompressor</h4>
                     </a>
                     <a class="paper __eth-link" href="/linux-from-scratch">
                         <div class="project-img">

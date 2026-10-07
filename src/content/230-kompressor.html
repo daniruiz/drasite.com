@@ -1,0 +1,380 @@
+<article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto">Mercedes M111 Kompressor ECU Tuning — Bosch ME2.1 Maps, WinOLS &amp; TunerPro</h1><a id="user-content-mercedes-m111-kompressor-ecu-tuning--bosch-me21-maps-winols--tunerpro" class="anchor" aria-label="Permalink: Mercedes M111 Kompressor ECU Tuning — Bosch ME2.1 Maps, WinOLS &amp; TunerPro" href="#mercedes-m111-kompressor-ecu-tuning--bosch-me21-maps-winols--tunerpro"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Free ECU tuning resources and reverse-engineering documentation for <strong>Mercedes-Benz M111 230 Kompressor and 200 Kompressor engines with Bosch ME2.1</strong>. This project brings together ECU binary files, WinOLS map packs (<code>.kp</code> / <code>.csv</code>), TunerPro XDF map definitions (<code>.xdf</code>), calibration comparisons and Python tools for checksum correction and map visualization.</p>
+<p dir="auto">The aim is to make these ECUs easier to understand and calibrate: fuel and ignition maps, supercharger bypass control, temperature-related ignition correction, and the limiter behavior encountered with larger supercharger pulleys or missing ABS signals.</p>
+<div class="markdown-alert markdown-alert-tip" dir="auto"><p class="markdown-alert-title" dir="auto"><svg data-component="Octicon" class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p dir="auto"><strong>Need a custom tune for your engine?</strong> Contact <strong><a href="mailto:daniel@drasite.com">Daniel at daniel@drasite.com</a> or via <a href="https://www.instagram.com/dani_ruiz24/" rel="nofollow">Instagram @dani_ruiz24</a></strong>.</p>
+</div>
+<p dir="auto"><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions">Map definitions</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Original%20Binaries">Stock ECU binaries</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/tables">Map comparison images</a> · <a href="#getting-started">Getting started</a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://github.com/daniruiz/230kompressor/blob/master/Images/WinOLS.png"><img src="https://github.com/daniruiz/230kompressor/raw/master/Images/WinOLS.png" alt="Mercedes M111 Bosch ME2.1 fuel and ignition map definitions displayed in WinOLS" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Vehicle and ECU compatibility</h2><a id="user-content-vehicle-and-ecu-compatibility" class="anchor" aria-label="Permalink: Vehicle and ECU compatibility" href="#vehicle-and-ecu-compatibility"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The project focuses on the Bosch ME2.1-equipped M111 Kompressor engines found in vehicles such as:</p>
+<ul dir="auto">
+<li>Mercedes-Benz <strong>C200 Kompressor / C230 Kompressor (W202).</strong></li>
+<li>Mercedes-Benz <strong>CLK200 Kompressor / CLK230 Kompressor (W208).</strong></li>
+<li>Mercedes-Benz <strong>SLK200 Kompressor / SLK230 Kompressor (R170).</strong></li>
+</ul>
+<div class="markdown-alert markdown-alert-important" dir="auto"><p class="markdown-alert-title" dir="auto"><svg data-component="Octicon" class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p dir="auto">The supplied tuned binary <code>230k_ME21.BIN</code> is a reference calibration, not a universal file to flash. Start with a backup of your own ECU and transfer relevant changes using definitions that match its software.</p>
+<p dir="auto">It is possible to install a different binary version on your ECU without issues, but it might lack some functionalities.</p>
+</div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Downloads and repository contents</h2><a id="user-content-downloads-and-repository-contents" class="anchor" aria-label="Permalink: Downloads and repository contents" href="#downloads-and-repository-contents"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table data-catalyst=""><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What it contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions">WinOLS and TunerPro map definitions</a></td>
+<td>Software-specific <code>.kp</code> and <code>.csv</code> definitions for locating and editing calibration tables.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/MAPPACK_230kompressor_ME2.1.csv">Extended ME2.1 CSV definitions</a></td>
+<td>Additional map definitions for binary <code>230k_ME21.BIN</code>.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Original%20Binaries">Original ECU binaries</a></td>
+<td>A collection of M111 Kompressor software versions for analysis and comparison.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/230k_ME21_STOCK.BIN">Stock reference binary</a></td>
+<td>The project's stock reference file.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/230k_ME21.BIN">Tuned reference binary</a></td>
+<td>The project's modified calibration for studying changes.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/230k_ME21.BIN.XXD">Text hex dump</a></td>
+<td>A text representation of the tuned binary for reviewing changes.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/tables">Map comparison images</a></td>
+<td>Rendered calibration tables grouped for comparison between binaries.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/me21_checksum.py">Checksum tool</a></td>
+<td>Verify and correct the two calibration checksums implemented by the script.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/ecu_tables.py">Table image exporter</a></td>
+<td>Generate PNG map images from binary files and WinOLS CSV definitions.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">ECU software versions and available definitions</h3><a id="user-content-ecu-software-versions-and-available-definitions" class="anchor" aria-label="Permalink: ECU software versions and available definitions" href="#ecu-software-versions-and-available-definitions"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">These are the versions currently represented in the <code>Original Binaries</code> directory. A binary being available does not mean every table has been identified or validated.</p>
+<markdown-accessiblity-table data-catalyst=""><table>
+<thead>
+<tr>
+<th>Engine label in archive</th>
+<th>ECU software</th>
+<th>WinOLS CSV / KP</th>
+<th>Map Definitions XDF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.235034.34</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235034.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235034.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235034.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.235035.52</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235035.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235035.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235035.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.235153.52</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235153.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235153.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235153.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>200 Kompressor</td>
+<td><code>114.235355.56</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/200Kompressor_114.235355.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/200Kompressor_114.235355.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/200Kompressor_114.235355.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.235404.04</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235404.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235404.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235404.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.235516.16</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235516.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235516.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235516.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.235819.20</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235819.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235819.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.235819.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.236338.39</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236338-114.236438.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236338-114.236438.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236338-114.236438.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.236438.40</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236338-114.236438.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236338-114.236438.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236338-114.236438.xdf">XDF</a></td>
+</tr>
+<tr>
+<td>230 Kompressor</td>
+<td><code>114.236643.43</code></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236643.csv">CSV</a> · <a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236643.kp">KP</a></td>
+<td><a href="https://github.com/daniruiz/230kompressor/blob/master/Map%20Definitions/230Kompressor_114.236643.xdf">XDF</a></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Getting started</h2><a id="user-content-getting-started" class="anchor" aria-label="Permalink: Getting started" href="#getting-started"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>Read and save your original ECU binary, together with its hardware and software numbers.</li>
+<li>Find the matching software version in the table above and download its definitions.</li>
+<li>In <strong>WinOLS</strong> or <strong>TunerPro</strong>, open the binary and import the matching map pack.</li>
+<li>Check table addresses, dimensions, axes and units before editing. Use the <a href="https://github.com/daniruiz/230kompressor/blob/master/tables">comparison images</a> to explore differences between versions.</li>
+<li>Save changes to a separate file, verify the applicable checksums and keep a record of each calibration revision.</li>
+</ol>
+<p dir="auto">For the reading and flashing process, see the community <a href="https://www.benzworld.org/threads/kompressor-bosch-me2-0-me2-1-ecu-boost-limiter-and-how-to-remove-it-without-maf-clamp-including-read-and-flash-guide.3069431" rel="nofollow">Bosch ME2.0 / ME2.1 read-and-flash guide</a>.</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Fuel, ignition and limiter maps</h2><a id="user-content-fuel-ignition-and-limiter-maps" class="anchor" aria-label="Permalink: Fuel, ignition and limiter maps" href="#fuel-ignition-and-limiter-maps"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The map packs cover the following areas. Coverage and naming vary by software version, and some names describe an observed effect rather than a fully established function.</p>
+<markdown-accessiblity-table data-catalyst=""><table>
+<thead>
+<tr>
+<th>Map family</th>
+<th>Relevance to calibration and diagnosis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fuel / injection</strong></td>
+<td>Fuel correction tables for investigating mixture behavior across engine speed and load, including wide-open throttle (WOT). The table represents the percentage of fuel correction to the value calculated by the ECU based on the MAF sensor reading.</td>
+</tr>
+<tr>
+<td><strong>Spark advance</strong></td>
+<td>Ignition calibration tables, including maps labeled for WOT.</td>
+</tr>
+<tr>
+<td><strong>Supercharger bypass valve position</strong></td>
+<td>Bypass valve calibration relevant to how much compressed air reaches the engine.</td>
+</tr>
+<tr>
+<td><strong>Rev limiter</strong></td>
+<td>Engine-speed limit settings.</td>
+</tr>
+<tr>
+<td><strong>Launch rev limiter</strong></td>
+<td>Engine-speed limit when stationary.</td>
+</tr>
+<tr>
+<td><strong>Warm-up Bypass command minimum</strong></td>
+<td>Minimum boost bypass valve position during warm-up.</td>
+</tr>
+<tr>
+<td><strong>Fallback RPM Limiter</strong></td>
+<td>Tables associated in project testing with the approximate 5,700 rpm limit when the ABS signal is unavailable.</td>
+</tr>
+<tr>
+<td><strong>Temperature ignition correction</strong></td>
+<td>Tables associated with coolant and intake air temperature (IAT), with load-dependent weighting.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Larger pulleys and supercharger cutout</h3><a id="user-content-larger-pulleys-and-supercharger-cutout" class="anchor" aria-label="Permalink: Larger pulleys and supercharger cutout" href="#larger-pulleys-and-supercharger-cutout"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">One focus of this project is the loss of boost sometimes observed near high engine speeds after installing a larger crankshaft pulley. The reported behavior is that the ECU disengages the supercharger clutch and opens the bypass valve.</p>
+<p dir="auto">The binaries and map comparisons help investigate why different software versions behave differently with the same hardware changes.</p>
+<p dir="auto">Not all binaries behave equally, and some of them don't limit at all when you increase the supercharger boost. Here's a list of binaries with tested behavior:</p>
+<p dir="auto">❌ <strong>Limit:</strong></p>
+<ul dir="auto">
+<li>9903-230Kompressor_261206457_114.236338.39.BIN</li>
+<li>9906-230Kompressor_261206458_114.236438.40.BIN</li>
+<li>9914-230Kompressor_261206570_114.236643.43.BIN</li>
+</ul>
+<p dir="auto">✅ <strong>Don't limit:</strong></p>
+<ul dir="auto">
+<li>9640-230Kompressor_261204573_114.235034.34.BIN</li>
+<li>9646-230Kompressor_261204527_114.235153.52.BIN</li>
+<li>9720-230Kompressor_261204747_114.235404.04.BIN</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">The 5,700 rpm limit without ABS</h3><a id="user-content-the-5700-rpm-limit-without-abs" class="anchor" aria-label="Permalink: The 5,700 rpm limit without ABS" href="#the-5700-rpm-limit-without-abs"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Project testing has linked the reduced rev limit with an unavailable ABS signal to the tables labeled <strong>“Fallback RPM Limiter”</strong>. Editing these tables has restored the normal rev limit on the tested setup. This is an observed result for that configuration, rather than proof that the same edit applies to every ECU version.</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Temperature-related ignition retard</h3><a id="user-content-temperature-related-ignition-retard" class="anchor" aria-label="Permalink: Temperature-related ignition retard" href="#temperature-related-ignition-retard"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The definitions include ignition correction associated with coolant and intake air temperature. The thermal table and its load weighting need to be considered together: a value displayed in the table is not necessarily the final correction applied to the ignition angle, but the value applied at full throttle. The binary includes an extra table for the percentage applied to the ignition retard value based on the amount of throttle pedal input.</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">230 Kompressor tuning</h2><a id="user-content-230-kompressor-tuning" class="anchor" aria-label="Permalink: 230 Kompressor tuning" href="#230-kompressor-tuning"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">STAGE 1 (~210-220hp)</h3><a id="user-content-stage-1-210-220hp" class="anchor" aria-label="Permalink: STAGE 1 (~210-220hp)" href="#stage-1-210-220hp"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li>218mm crankshaft pulley</li>
+<li>Cold air intake</li>
+<li>Exhaust</li>
+<li>CAT delete (optional)</li>
+<li>ECU tune</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">STAGE 2 (~230-240hp)</h3><a id="user-content-stage-2-230-240hp" class="anchor" aria-label="Permalink: STAGE 2 (~230-240hp)" href="#stage-2-230-240hp"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://www.benzworld.org/threads/home-port-job-of-the-eaton-m62-s-c.1516156/" rel="nofollow">Ported supercharger</a></li>
+<li>Intercooler</li>
+<li>Remove the MAF and throttle body screens</li>
+<li>Wideband oxygen sensor</li>
+<li>320cc Bosch Red injectors 0280155759</li>
+<li>1-6 Bar adjustable fuel pressure regulator (adjust pressure to reach 11.8-12 AFR at 5,200rpm WOT = ~3.8-4Bar FPR)</li>
+<li>BOSCH FR6DC spark plugs</li>
+<li>ECU tune</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Eaton M62 supercharger speed and pulley ratios</h3><a id="user-content-eaton-m62-supercharger-speed-and-pulley-ratios" class="anchor" aria-label="Permalink: Eaton M62 supercharger speed and pulley ratios" href="#eaton-m62-supercharger-speed-and-pulley-ratios"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">According to Eaton's documentation, the M62 supercharger is capable of sustaining a maximum speed of 14,000 rpm, but many users have increased it to 15,000 or even 16,000 rpm for short periods of time without trouble.</p>
+<markdown-accessiblity-table data-catalyst=""><table>
+<thead>
+<tr>
+<th>Pulley combination</th>
+<th>Crank pulley</th>
+<th>Supercharger pulley</th>
+<th align="right">At 5,800 engine rpm</th>
+<th align="right">At 6,200 engine rpm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stock example</td>
+<td>185 mm</td>
+<td>94 mm</td>
+<td align="right">11,415 rpm</td>
+<td align="right">12,202 rpm</td>
+</tr>
+<tr>
+<td>Larger crank pulley</td>
+<td>218 mm</td>
+<td>94 mm</td>
+<td align="right">13,451 rpm</td>
+<td align="right">14,379 rpm</td>
+</tr>
+<tr>
+<td>Smaller supercharger pulley</td>
+<td>185 mm</td>
+<td>87 mm</td>
+<td align="right">12,333 rpm</td>
+<td align="right">13,184 rpm</td>
+</tr>
+<tr>
+<td>Both pulley changes</td>
+<td>218 mm</td>
+<td>87 mm</td>
+<td align="right">14,533 rpm</td>
+<td align="right">15,536 rpm</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Shorter differential</h3><a id="user-content-shorter-differential" class="anchor" aria-label="Permalink: Shorter differential" href="#shorter-differential"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Shorter 3.92 differential, for example from a CLK200 non-Kompressor (original is 3.46).</p>
+<ul dir="auto">
+<li>CLK200 W208 A2023502314</li>
+<li>SLK200 R170 A1243504598 / A1703501114</li>
+<li>C W202
+<ul dir="auto">
+<li>A2023502314</li>
+<li>A1243504598</li>
+<li>A2023501814</li>
+<li>A1703501114</li>
+<li>A2023504603</li>
+<li>A1243507514</li>
+<li>A1243502874</li>
+<li>A1243509614</li>
+</ul>
+</li>
+<li>E W210
+<ul dir="auto">
+<li>A2023502314</li>
+<li>A1703501114</li>
+<li>A2023501814</li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Real-time tuning with CobraRTP FlashOnline</h2><a id="user-content-real-time-tuning-with-cobrartp-flashonline" class="anchor" aria-label="Permalink: Real-time tuning with CobraRTP FlashOnline" href="#real-time-tuning-with-cobrartp-flashonline"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">By installing the <strong>CobraRTP FlashOnline board, you can add real-time tuning capabilities</strong> to the stock ECU (both the ME2.0 and ME2.1).</p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://github.com/daniruiz/230kompressor/blob/master/Images/me2.1-cobraRTP.png"><img src="https://github.com/daniruiz/230kompressor/raw/master/Images/me2.1-cobraRTP.png" alt="CobraRTP FlashOnline board installed in a Mercedes Bosch ME2.1 ECU for real-time tuning" style="max-width: 100%;"></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://github.com/daniruiz/230kompressor/blob/master/Images/me2.1-cobraRTP-2.png"><img src="https://github.com/daniruiz/230kompressor/raw/master/Images/me2.1-cobraRTP-2.png" alt="Second view of the CobraRTP FlashOnline installation and connections inside the ME2.1 ECU" style="max-width: 100%;"></a></p>
+<p dir="auto">After modifications, the checksum should normally be corrected, but I just found out that the car doesn't care about it. If you tune your ECU live and forget to update the checksum, the next time you start the engine it will work anyway. So the checksum doesn't seem to be relevant for this ECU (it didn't even show a CEL code via OBD).</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Further reading</h2><a id="user-content-further-reading" class="anchor" aria-label="Permalink: Further reading" href="#further-reading"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://www.benzworld.org/threads/kompressor-bosch-me2-0-me2-1-ecu-boost-limiter-and-how-to-remove-it-without-maf-clamp-including-read-and-flash-guide.3069431" rel="nofollow">Bosch ME2.0 / ME2.1 boost-limiter discussion and ECU reading/flashing guide</a>.</li>
+<li><a href="https://www.benzworld.org/threads/home-port-job-of-the-eaton-m62-s-c.1516156/" rel="nofollow">Eaton M62 supercharger porting discussion</a>.</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto">Python tools</h2><a id="user-content-python-tools" class="anchor" aria-label="Permalink: Python tools" href="#python-tools"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Verify and correct calibration checksums</h3><a id="user-content-verify-and-correct-calibration-checksums" class="anchor" aria-label="Permalink: Verify and correct calibration checksums" href="#verify-and-correct-calibration-checksums"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The <a href="https://github.com/daniruiz/230kompressor/blob/master/me21_checksum.py">checksum script</a> uses Python's standard library and expects a <strong>256 KiB binary</strong> with the checksum layout implemented in the script.</p>
+<p dir="auto">Verify a file without modifying it:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>python3 me21_checksum.py your_read.BIN</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy code to clipboard" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="python3 me21_checksum.py your_read.BIN" tabindex="0" role="button">
+      <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto">Write a corrected copy:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>python3 me21_checksum.py your_modified.BIN -o your_corrected.BIN</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy code to clipboard" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="python3 me21_checksum.py your_modified.BIN -o your_corrected.BIN" tabindex="0" role="button">
+      <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto">The tool handles the two calibration regions defined in its source; it is not a generic checker for every Bosch ECU. Its exit status describes whether the input checksums matched, so re-run verification on the corrected output when using it in automation.</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto">Generate map comparison images</h3><a id="user-content-generate-map-comparison-images" class="anchor" aria-label="Permalink: Generate map comparison images" href="#generate-map-comparison-images"><svg data-component="Octicon" class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The <a href="https://github.com/daniruiz/230kompressor/blob/master/ecu_tables.py">image exporter</a> requires Python, NumPy and Matplotlib. With those dependencies installed, run it from the repository root:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>python3 ecu_tables.py <span class="pl-s"><span class="pl-pds">"</span>Original Binaries<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>Map Definitions<span class="pl-pds">"</span></span> -o tables</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy code to clipboard" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="python3 ecu_tables.py &quot;Original Binaries&quot; &quot;Map Definitions&quot; -o tables" tabindex="0" role="button">
+      <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto">The script matches binaries and CSV files using software identifiers in their filenames. It exports converted table values as PNG images and leaves the binaries unchanged. Output folders use each table's position in memory-address order and its name. Unmatched versions are reported; use <code>--assign BINARY=CSV</code> only after establishing that the selected definitions match the binary.</p>
+</article>
+<style>
+  article .anchor, article .octicon-copy, article .octicon-check { display: none }
+  article table { border-collapse: collapse }
+  article th, article td {
+    border: 1px solid #ccc;
+    padding: 12px;
+  }
+  h1 svg,
+  h2 svg,
+  h3 svg,
+  h4 svg,
+  h5 svg { margin-right:.3em }
+  header{ display: none }
+  article {
+    font-size: 15px;
+    max-width: 880px;
+    padding: 20px;
+    margin: auto auto 50px;
+    width: 95%;
+  }
+  article img{
+    display: block!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  pre > code {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+</style>
