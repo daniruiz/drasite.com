@@ -154,7 +154,7 @@
                         </div>
                         <h4>Mazda MX5 ND2 for Assetto Corsa</h4>
                     </a>
-                    <a class="paper __eth-link" href="/230-kompressor" data-github="230kompressor">
+                    <a class="paper __eth-link" href="http://m111kompressor.drasite.com/" data-github="230kompressor">
                         <div class="project-img">
                             <img src="/content/img/230-kompressor.jpg" alt="230 Kompressor tune definitions">
                         </div>
