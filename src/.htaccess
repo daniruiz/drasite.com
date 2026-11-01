@@ -19,6 +19,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php
 
 
+Redirect 301 /230-kompressor https://m111kompressor.drasite.com/
+
+
 php_flag display_errors off
 
 <IfModule mod_expires.c>
